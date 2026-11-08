@@ -11,9 +11,9 @@ if (!fs.existsSync(outDir)) {
 
 const track = JSON.parse(fs.readFileSync(trackPath, 'utf8'));
 
-// ORIGEN EXACTO DE RUTA_CANDIDATA_OSM.GEOJSON Y BUILD_REAL_TRACK.PY (Boca Occidental del Túnel de Occidente)
-const origin_lon = -75.687733;
-const origin_lat = 6.323808;
+// ORIGEN EXACTO DE LA BOCA DE SALIDA OCCIDENTAL DEL TÚNEL DE OCCIDENTE (Lado con tráfico hacia Ebéjico)
+const origin_lon = -75.686874;
+const origin_lat = 6.324053;
 const mean_lat_rad = (origin_lat * Math.PI) / 180;
 const METERS_TO_PX = 1.8;
 const R = 6371000.0;
@@ -77,27 +77,29 @@ function tileToBounds(z, x, y) {
   };
 }
 
+// Google Satellite: Sin nubes sobre Ebéjico y con alta nitidez en el túnel
 async function fetchTileWithRetry(z, x, y, retries = 3) {
-  const url = `https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/${z}/${y}/${x}`;
+  const server = (x + y) % 4;
+  const url = `https://mt${server}.google.com/vt/lyrs=s&x=${x}&y=${y}&z=${z}`;
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
-      const res = await fetch(url, { headers: { 'User-Agent': 'RetoEbejicoGame/2.0' } });
+      const res = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0' } });
       if (res.ok) {
         return Buffer.from(await res.arrayBuffer());
       }
     } catch (err) {}
-    await new Promise((r) => setTimeout(r, 400 * attempt));
+    await new Promise((r) => setTimeout(r, 200 * attempt));
   }
   return null;
 }
 
 async function main() {
-  console.log('--- Calculando franja satelital REAL (Origen Exacto del Túnel: -75.686887, 6.323970) ---');
-  
+  console.log('--- Calculando franja satelital Google Cloud-Free (Origen Túnel con tráfico: -75.686874, 6.324053) ---');
+
   const bufferPx = 140 * METERS_TO_PX;
   const tilesMap = new Map();
 
-  // Descargamos Zoom 16 (base continua), Zoom 17 y Zoom 18 (ultra HD sub-métrica)
+  // Descargamos Zoom 16, 17 y 18 para el corredor
   [16, 17, 18].forEach((z) => {
     track.forEach((pt) => {
       const offsets = [
@@ -108,60 +110,64 @@ async function main() {
         [bufferPx, bufferPx],
       ];
       offsets.forEach(([dx, dy]) => {
-        const geo = unproject(pt.x + dx, pt.y + dy);
-        const t = lonLatToTile(geo.lon, geo.lat, z);
-        const key = `z${t.z}_${t.x}_${t.y}`;
+        const coords = unproject(pt.x + dx, pt.y + dy);
+        const tile = lonLatToTile(coords.lon, coords.lat, z);
+        const key = `${z}_${tile.x}_${tile.y}`;
         if (!tilesMap.has(key)) {
-          tilesMap.set(key, tileToBounds(t.z, t.x, t.y));
+          tilesMap.set(key, tileToBounds(z, tile.x, tile.y));
         }
       });
     });
   });
 
   const allTiles = Array.from(tilesMap.values());
-  console.log(`Total tiles requeridos: ${allTiles.length} (${allTiles.filter(t => t.z === 18).length} en Z18, ${allTiles.filter(t => t.z === 17).length} en Z17, ${allTiles.filter(t => t.z === 16).length} en Z16)`);
+  console.log(
+    `Total tiles requeridos: ${allTiles.length} (` +
+      `${allTiles.filter((t) => t.z === 18).length} en Z18, ` +
+      `${allTiles.filter((t) => t.z === 17).length} en Z17, ` +
+      `${allTiles.filter((t) => t.z === 16).length} en Z16)`
+  );
 
-  const pendingTiles = allTiles.filter(t => {
-    const filePath = path.join(outDir, t.file);
-    return !fs.existsSync(filePath) || fs.statSync(filePath).size < 1000;
-  });
+  const pending = allTiles.map(t => ({
+    z: t.z,
+    x: t.x,
+    y: t.y,
+    path: path.join(outDir, t.file),
+  }));
 
-  console.log(`Tiles pendientes por descargar: ${pendingTiles.length}`);
+  console.log(`Tiles a descargar desde Google Satellite: ${pending.length}`);
 
-  let downloadedCount = 0;
-  let failedCount = 0;
-  const concurrency = 8;
-  const queue = [...pendingTiles];
+  let downloaded = 0;
+  let failed = 0;
+  const CONCURRENCY = 12;
 
-  async function worker(workerId) {
-    while (queue.length > 0) {
-      const tile = queue.shift();
-      const filePath = path.join(outDir, tile.file);
-
-      const buffer = await fetchTileWithRetry(tile.z, tile.x, tile.y);
-      if (buffer && buffer.length > 1000) {
-        fs.writeFileSync(filePath, buffer);
-        downloadedCount++;
-        if (downloadedCount % 50 === 0 || queue.length === 0) {
-          console.log(`[Descarga] ${downloadedCount}/${pendingTiles.length} completados (Restantes: ${queue.length})`);
+  for (let i = 0; i < pending.length; i += CONCURRENCY) {
+    const batch = pending.slice(i, i + CONCURRENCY);
+    await Promise.all(
+      batch.map(async (item) => {
+        const data = await fetchTileWithRetry(item.z, item.x, item.y);
+        if (data && data.length > 1000) {
+          fs.writeFileSync(item.path, data);
+          downloaded++;
+        } else {
+          failed++;
         }
-      } else {
-        failedCount++;
-      }
+      })
+    );
+    if ((i + CONCURRENCY) % 120 < CONCURRENCY || i + CONCURRENCY >= pending.length) {
+      console.log(`[Descarga Google Satellite] ${downloaded}/${pending.length} completados`);
     }
   }
 
-  const workers = Array.from({ length: concurrency }, (_, i) => worker(i + 1));
-  await Promise.all(workers);
-
-  console.log('\n--- Descarga completada con alineación exacta ---');
-  console.log(`Nuevos descargados: ${downloadedCount}, Fallos: ${failedCount}`);
+  console.log(`\n--- Descarga completada sin nubes ---`);
+  console.log(`Descargados: ${downloaded}, Fallos: ${failed}`);
 
   const manifest = {
-    generatedAt: new Date().toISOString(),
-    source: 'Esri World Imagery (Calibrado con origen exacto Túnel de Occidente)',
-    tileCount: allTiles.length,
-    origin: { lon: origin_lon, lat: origin_lat },
+    generated_at: new Date().toISOString(),
+    source: 'Google Satellite (Sin nubes)',
+    origin_lon,
+    origin_lat,
+    meters_to_px: METERS_TO_PX,
     tiles: allTiles,
   };
 

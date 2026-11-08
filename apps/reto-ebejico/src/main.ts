@@ -48,6 +48,7 @@ class GameApp {
     });
 
     this.hud.setTrack(track);
+    (window as any).gameApp = this;
 
     this.bindGlobalShortcuts();
     this.startLoop();

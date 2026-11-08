@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body style="margin:0; background:black;">
+<canvas id="c" width="512" height="512"></canvas>
+<script>
+async function stitch() {
+  const c = document.getElementById('c');
+  const ctx = c.getContext('2d');
+  const load = src => new Promise((res, rej) => {
+    const img = new Image();
+    img.onload = () => res(img);
+    img.onerror = rej;
+    img.src = src;
+  });
+  const [t00, t10, t01, t11] = await Promise.all([
+    load('/assets/satellite/z18_75957_126457.jpg'),
+    load('/assets/satellite/z18_75958_126457.jpg'),
+    load('/assets/satellite/z18_75957_126458.jpg'),
+    load('/assets/satellite/z18_75958_126458.jpg')
+  ]);
+  ctx.drawImage(t00, 0, 0);
+  ctx.drawImage(t10, 256, 0);
+  ctx.drawImage(t01, 0, 256);
+  ctx.drawImage(t11, 256, 256);
+  window.STITCH_DONE = c.toDataURL('image/png');
+}
+stitch();
+</script>
+</body>
+</html>

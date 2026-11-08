@@ -613,8 +613,11 @@ export class GameRenderer {
       if (idx === 0) return;
 
       const p = cp.point;
+      const prevP = pts[Math.max(0, cp.index - 1)];
       const nextP = pts[Math.min(pts.length - 1, cp.index + 1)];
-      const angle = Math.atan2(nextP.y - p.y, nextP.x - p.x);
+      const angle = cp.index >= pts.length - 1
+        ? Math.atan2(p.y - prevP.y, p.x - prevP.x)
+        : Math.atan2(nextP.y - p.y, nextP.x - p.x);
       const perpX = -Math.sin(angle);
       const perpY = Math.cos(angle);
       const halfW = p.width / 2;
@@ -625,22 +628,30 @@ export class GameRenderer {
       ctx.lineTo(p.x + perpX * halfW, p.y + perpY * halfW);
 
       if (isFinish) {
-        ctx.lineWidth = 22;
+        ctx.lineWidth = 16;
         ctx.strokeStyle = '#FFFFFF';
-        ctx.setLineDash([14, 14]); // Damero
+        ctx.setLineDash([12, 12]); // Damero de meta
         ctx.stroke();
         ctx.setLineDash([]);
 
         ctx.save();
         ctx.translate(p.x, p.y);
         ctx.rotate(angle + Math.PI / 2);
+
+        // Fondo protector para texto nítido
+        ctx.fillStyle = 'rgba(15, 20, 15, 0.85)';
+        ctx.fillRect(-140, -42, 280, 26);
+        ctx.strokeStyle = '#FFDD00';
+        ctx.lineWidth = 1.5;
+        ctx.strokeRect(-140, -42, 280, 26);
+
         ctx.fillStyle = '#FFDD00';
-        ctx.font = 'bold 28px Georgia, serif';
+        ctx.font = 'bold 15px sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillText('🏁 PARQUE PRINCIPAL DE EBÉJICO 🏁', 0, -42);
+        ctx.fillText('🏁 PARQUE PRINCIPAL DE EBÉJICO 🏁', 0, -24);
         ctx.restore();
       } else {
-        ctx.lineWidth = 5;
+        ctx.lineWidth = 4;
         ctx.strokeStyle = '#F5B800';
         ctx.stroke();
 
@@ -648,9 +659,9 @@ export class GameRenderer {
         ctx.translate(p.x, p.y);
         ctx.rotate(angle + Math.PI / 2);
         ctx.fillStyle = '#FFFFFF';
-        ctx.font = 'bold 15px sans-serif';
+        ctx.font = 'bold 13px sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillText(cp.name, 0, -18);
+        ctx.fillText(cp.name, 0, -14);
         ctx.restore();
       }
     });
