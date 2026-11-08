@@ -52,9 +52,9 @@ async function main() {
             params: { format: 'png' }
           }));
 
-          // Acelerar a fondo
+          // Acelerar a fondo y virar suavemente en la curva
           setTimeout(() => {
-            console.log('Acelerando a fondo...');
+            console.log('Acelerando y virando en la curva...');
             ws.send(JSON.stringify({
               id: 30,
               method: 'Runtime.evaluate',
@@ -62,7 +62,11 @@ async function main() {
                 expression: `
                   window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowUp' }));
                   window.dispatchEvent(new KeyboardEvent('keydown', { code: 'KeyW' }));
-                  'ACCELERATING';
+                  setTimeout(() => {
+                    window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowLeft' }));
+                    window.dispatchEvent(new KeyboardEvent('keydown', { code: 'KeyA' }));
+                  }, 1800);
+                  'ACCELERATING_AND_STEERING';
                 `,
                 returnByValue: true
               }

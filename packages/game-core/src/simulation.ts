@@ -20,8 +20,8 @@ export class Simulation {
   private countdownNumber: number = 3;
 
   // Mecánica anti-atajos: contador al salirse de la carretera a la manga o selva
-  private offroadTimer: number = 3.0;
-  private readonly maxOffroadTime: number = 3.0;
+  private offroadTimer: number = 4.5;
+  private readonly maxOffroadTime: number = 4.5;
 
   constructor(track?: Track) {
     this.track = track || new Track();
@@ -106,7 +106,7 @@ export class Simulation {
     if (trackInfo.isOffroad) {
       this.offroadTimer -= dt;
       // Si se acaba el tiempo o si se aleja demasiado de la calzada
-      if (this.offroadTimer <= 0 || trackInfo.distanceToCenterline > 110) {
+      if (this.offroadTimer <= 0 || trackInfo.distanceToCenterline > 150) {
         this.respawnVehicle(trackInfo);
         this.setNotice('⚠️ REINCORPORADO A LA PISTA (SALIDA DE CALZADA)');
         this.offroadTimer = this.maxOffroadTime;

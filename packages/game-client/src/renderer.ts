@@ -34,7 +34,7 @@ export class GameRenderer {
   private ctx: CanvasRenderingContext2D;
   private cameraX: number = 2000;
   private cameraY: number = 2000;
-  private cameraZoom: number = 1.05;
+  private cameraZoom: number = 1.45;
   private cameraAngle: number = 0;
 
   // Por defecto: 'chase' (Vista: Adelante - De sur a norte hacia adelante como en la imagen)
@@ -55,7 +55,7 @@ export class GameRenderer {
     this.resize();
     window.addEventListener('resize', () => this.resize());
     window.addEventListener('wheel', (e) => {
-      this.cameraZoom = Math.max(0.65, Math.min(1.65, this.cameraZoom - e.deltaY * 0.001));
+      this.cameraZoom = Math.max(0.75, Math.min(2.20, this.cameraZoom - e.deltaY * 0.001));
     });
   }
 
@@ -273,6 +273,9 @@ export class GameRenderer {
    * y defensas metálicas en el lado exterior.
    */
   private drawMountainDropsAndCliffs(ctx: CanvasRenderingContext2D, track: Track): void {
+    // Si la ortofoto satelital está activa, las laderas, barrancos y vegetación ya son reales
+    if (this.satelliteLayer.enabled) return;
+
     const pts = track.points;
     if (pts.length < 2) return;
 
@@ -385,33 +388,64 @@ export class GameRenderer {
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
 
-    // 1. Cordón lateral rojo cafeto institucional y blanco reflectivo
-    ctx.beginPath();
-    ctx.moveTo(pts[0].x, pts[0].y);
-    for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
-    ctx.lineWidth = pts[0].width + 6;
-    ctx.strokeStyle = '#8B1A1A'; // Rojo institucional Ebéjico
-    ctx.stroke();
+    if (this.satelliteLayer.enabled) {
+      // MODO SATELITAL: Calzada limpia de asfalto continuo que calza con la foto aérea
+      // sin bordillo rojo artificial (elimina la sensación de "juego de no salir del bordo")
+      ctx.beginPath();
+      ctx.moveTo(pts[0].x, pts[0].y);
+      for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
+      ctx.lineWidth = pts[0].width;
+      ctx.strokeStyle = '#2B302E';
+      ctx.stroke();
 
-    // 2. Calzada de asfalto pizarra continuo
-    ctx.lineWidth = pts[0].width;
-    ctx.strokeStyle = '#2F3431';
-    ctx.stroke();
+      // Líneas blancas laterales continuas de borde de calzada (demarcación vial sutil)
+      ctx.lineWidth = pts[0].width - 2;
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.40)';
+      ctx.stroke();
 
-    // 3. Bordes blancos de calzada
-    ctx.lineWidth = pts[0].width - 4;
-    ctx.strokeStyle = '#3E4440';
-    ctx.stroke();
+      // Capa de rodadura asfáltica
+      ctx.lineWidth = pts[0].width - 4;
+      ctx.strokeStyle = '#333836';
+      ctx.stroke();
 
-    // 4. Línea central discontinua amarilla reflectiva
-    ctx.beginPath();
-    ctx.moveTo(pts[0].x, pts[0].y);
-    for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
-    ctx.lineWidth = 2.4;
-    ctx.strokeStyle = '#F5B800';
-    ctx.setLineDash([18, 20]);
-    ctx.stroke();
-    ctx.setLineDash([]);
+      // Línea central reflectiva amarilla discontinua
+      ctx.beginPath();
+      ctx.moveTo(pts[0].x, pts[0].y);
+      for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
+      ctx.lineWidth = 1.8;
+      ctx.strokeStyle = '#F5B800';
+      ctx.setLineDash([14, 16]);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    } else {
+      // MODO VECTORIAL: Cordón lateral rojo cafeto institucional y blanco reflectivo
+      ctx.beginPath();
+      ctx.moveTo(pts[0].x, pts[0].y);
+      for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
+      ctx.lineWidth = pts[0].width + 6;
+      ctx.strokeStyle = '#8B1A1A'; // Rojo institucional Ebéjico
+      ctx.stroke();
+
+      // Calzada de asfalto pizarra continuo
+      ctx.lineWidth = pts[0].width;
+      ctx.strokeStyle = '#2F3431';
+      ctx.stroke();
+
+      // Bordes blancos de calzada
+      ctx.lineWidth = pts[0].width - 4;
+      ctx.strokeStyle = '#3E4440';
+      ctx.stroke();
+
+      // Línea central discontinua amarilla reflectiva
+      ctx.beginPath();
+      ctx.moveTo(pts[0].x, pts[0].y);
+      for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
+      ctx.lineWidth = 2.4;
+      ctx.strokeStyle = '#F5B800';
+      ctx.setLineDash([18, 20]);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
 
     // 5. Línea de salida: Boca del Túnel de Occidente
     const p0 = pts[0];
@@ -706,7 +740,7 @@ export class GameRenderer {
       if (mark.alpha <= 0) continue;
       ctx.fillStyle = `rgba(20, 20, 20, ${mark.alpha})`;
       ctx.beginPath();
-      ctx.arc(mark.x, mark.y, 4, 0, Math.PI * 2);
+      ctx.arc(mark.x, mark.y, 2.5, 0, Math.PI * 2);
       ctx.fill();
     }
     ctx.restore();
@@ -716,11 +750,11 @@ export class GameRenderer {
     // Generar chispas de las balineras de acero a alta velocidad (> 50 km/h) o al derrapar
     if (Math.abs(v.speed) > 50 || v.driftFactor > 0.4) {
       for (let k = 0; k < 2; k++) {
-        const side = Math.random() < 0.5 ? -14 : 14;
+        const side = Math.random() < 0.5 ? -7.5 : 7.5;
         const cosA = Math.cos(v.angle);
         const sinA = Math.sin(v.angle);
-        const px = v.x - cosA * 16 - sinA * side;
-        const py = v.y - sinA * 16 + cosA * side;
+        const px = v.x - cosA * 8.8 - sinA * side;
+        const py = v.y - sinA * 8.8 + cosA * side;
 
         this.sparkParticles.push({
           x: px,
@@ -752,7 +786,7 @@ export class GameRenderer {
       ctx.fillStyle = sp.color;
       ctx.globalAlpha = sp.alpha;
       ctx.beginPath();
-      ctx.arc(sp.x, sp.y, 2.2, 0, Math.PI * 2);
+      ctx.arc(sp.x, sp.y, 1.4, 0, Math.PI * 2);
       ctx.fill();
     }
     ctx.restore();
@@ -771,6 +805,10 @@ export class GameRenderer {
     // Inclinación visual del chasis en virajes
     const chassisRoll = v.driftFactor * 0.09;
     ctx.rotate(chassisRoll);
+
+    // Escala proporcional: carro de rodillos ágil (permite trazar curvas y no sentirse encajonado)
+    const carScale = 0.52;
+    ctx.scale(carScale, carScale);
 
     // Sombra proyectada del carro
     ctx.fillStyle = 'rgba(0, 0, 0, 0.45)';

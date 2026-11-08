@@ -309,7 +309,7 @@ export class Track {
       distanceToCenterline: dist,
       segmentIndex: bestSegment,
       projection: bestProj,
-      isOffroad: decoyCheck.onDecoy ? false : dist > (roadWidth / 2 + 10),
+      isOffroad: decoyCheck.onDecoy ? false : dist > (roadWidth / 2 + 18),
       roadWidth,
       progressPercent,
       tangentAngle,

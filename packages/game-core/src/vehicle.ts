@@ -5,12 +5,12 @@ export const DEFAULT_VEHICLE_CONFIG: VehicleConfig = {
   acceleration: 310,       // Aceleración de empuje / inercia
   brakingPower: 760,       // Freno de palanca con zapata de caucho
   reverseSpeed: 100,       // Marcha atrás moderada
-  turnSpeed: 3.6,          // Respuesta de giro ágil en horquillas
+  turnSpeed: 3.8,          // Respuesta de giro ágil en horquillas y curvas cerradas
   grip: 0.90,              // Balineras de acero sobre asfalto con buen agarre
   drag: 0.988,             // Inercia alta (rueda con suavidad cuesta abajo)
-  offroadFriction: 0.38,   // Fuerte resistencia si se sale a la manga / monte
-  length: 36,
-  width: 18,
+  offroadFriction: 0.58,   // Fricción suave y controlable si pisa la berma o la manga
+  length: 22,              // Tamaño reducido y proporcional a los carriles
+  width: 12,               // Permite maniobrar y trazar curvas con amplitud
 };
 
 export class Vehicle {

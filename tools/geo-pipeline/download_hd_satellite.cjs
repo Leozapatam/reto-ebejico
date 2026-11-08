@@ -12,8 +12,8 @@ if (!fs.existsSync(outDir)) {
 const track = JSON.parse(fs.readFileSync(trackPath, 'utf8'));
 
 // ORIGEN EXACTO DE RUTA_CANDIDATA_OSM.GEOJSON Y BUILD_REAL_TRACK.PY (Boca Occidental del Túnel de Occidente)
-const origin_lon = -75.687336;
-const origin_lat = 6.324080;
+const origin_lon = -75.687733;
+const origin_lat = 6.323808;
 const mean_lat_rad = (origin_lat * Math.PI) / 180;
 const METERS_TO_PX = 1.8;
 const R = 6371000.0;
