@@ -1,5 +1,6 @@
 import { Track } from '@core/track';
 import { GameSnapshot } from '@core/types';
+import { AssetLoader } from './asset_loader';
 
 interface SkidMark {
   x: number;
@@ -42,6 +43,7 @@ export class GameRenderer {
   private sparkParticles: SparkParticle[] = [];
   private sceneryItems: SceneryItem[] = [];
   private sceneryGeneratedForTrack?: Track;
+  private assets: AssetLoader = new AssetLoader();
 
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
@@ -614,38 +616,53 @@ export class GameRenderer {
       ctx.translate(item.x, item.y);
 
       if (item.type === 'tree') {
-        ctx.fillStyle = 'rgba(0,0,0,0.25)';
-        ctx.beginPath();
-        ctx.arc(4, 4, item.size, 0, Math.PI * 2);
-        ctx.fill();
+        const treeSprite = this.assets.get('pino_andino');
+        if (treeSprite) {
+          ctx.drawImage(treeSprite, -item.size, -item.size, item.size * 2, item.size * 2);
+        } else {
+          ctx.fillStyle = 'rgba(0,0,0,0.25)';
+          ctx.beginPath();
+          ctx.arc(4, 4, item.size, 0, Math.PI * 2);
+          ctx.fill();
 
-        ctx.fillStyle = item.color;
-        ctx.beginPath();
-        ctx.arc(0, 0, item.size, 0, Math.PI * 2);
-        ctx.fill();
+          ctx.fillStyle = item.color;
+          ctx.beginPath();
+          ctx.arc(0, 0, item.size, 0, Math.PI * 2);
+          ctx.fill();
 
-        ctx.fillStyle = '#489A6B';
-        ctx.beginPath();
-        ctx.arc(-item.size * 0.3, -item.size * 0.3, item.size * 0.45, 0, Math.PI * 2);
-        ctx.fill();
+          ctx.fillStyle = '#489A6B';
+          ctx.beginPath();
+          ctx.arc(-item.size * 0.3, -item.size * 0.3, item.size * 0.45, 0, Math.PI * 2);
+          ctx.fill();
+        }
       } else if (item.type === 'coffee_patch') {
         ctx.rotate(item.rotation);
-        ctx.fillStyle = '#1D5A37';
-        ctx.fillRect(-item.size, -item.size / 2, item.size * 2, item.size);
+        const coffeeSprite = this.assets.get('cafetal');
+        if (coffeeSprite) {
+          ctx.drawImage(coffeeSprite, -item.size, -item.size / 2, item.size * 2, item.size);
+        } else {
+          ctx.fillStyle = '#1D5A37';
+          ctx.fillRect(-item.size, -item.size / 2, item.size * 2, item.size);
 
-        ctx.fillStyle = '#D92525';
-        ctx.fillRect(-item.size * 0.5, -item.size * 0.2, 4, 4);
-        ctx.fillRect(item.size * 0.3, item.size * 0.1, 4, 4);
+          ctx.fillStyle = '#D92525';
+          ctx.fillRect(-item.size * 0.5, -item.size * 0.2, 4, 4);
+          ctx.fillRect(item.size * 0.3, item.size * 0.1, 4, 4);
+        }
       } else if (item.type === 'house') {
         ctx.rotate(item.rotation);
-        ctx.fillStyle = 'rgba(0,0,0,0.3)';
-        ctx.fillRect(-item.size * 0.5 + 4, -item.size * 0.4 + 4, item.size, item.size * 0.8);
+        const houseSprite = this.assets.get('casa_campesina');
+        if (houseSprite) {
+          ctx.drawImage(houseSprite, -item.size * 0.6, -item.size * 0.5, item.size * 1.2, item.size);
+        } else {
+          ctx.fillStyle = 'rgba(0,0,0,0.3)';
+          ctx.fillRect(-item.size * 0.5 + 4, -item.size * 0.4 + 4, item.size, item.size * 0.8);
 
-        ctx.fillStyle = '#F5F5F0';
-        ctx.fillRect(-item.size * 0.5, -item.size * 0.4, item.size, item.size * 0.8);
+          ctx.fillStyle = '#F5F5F0';
+          ctx.fillRect(-item.size * 0.5, -item.size * 0.4, item.size, item.size * 0.8);
 
-        ctx.fillStyle = '#B23A22'; // Techo rojo teja
-        ctx.fillRect(-item.size * 0.5 - 3, -item.size * 0.4 - 2, item.size + 6, item.size * 0.45);
+          ctx.fillStyle = '#B23A22'; // Techo rojo teja
+          ctx.fillRect(-item.size * 0.5 - 3, -item.size * 0.4 - 2, item.size + 6, item.size * 0.45);
+        }
       }
       ctx.restore();
     }
@@ -755,6 +772,14 @@ export class GameRenderer {
     ctx.closePath();
     ctx.fill();
     ctx.restore();
+
+    // 0. Si existe el sprite personalizado de carro_rodillos.png, dibujarlo
+    const cartSprite = this.assets.get('carro_rodillos');
+    if (cartSprite) {
+      ctx.drawImage(cartSprite, -24, -18, 48, 36);
+      ctx.restore();
+      return;
+    }
 
     // 1. EJE TRASERO FIJO Y 2 BALINERAS TRASERAS
     ctx.fillStyle = '#5A381B';
