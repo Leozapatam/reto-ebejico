@@ -119,13 +119,13 @@ for idx, (x, y) in enumerate(resampled):
     prog_ratio = idx / (total_points - 1)
     elev_m = interpolate_elevation(prog_ratio)
     
-    # Ancho de calzada según tramo
+    # Ancho de calzada calibrado para coincidir con la ortofoto satelital real
     if prog_ratio < 0.24:
-        width = 84
+        width = 44 # Troncal Ruta 62 (doble carril y bermas)
     elif prog_ratio > 0.96:
-        width = 58
+        width = 32 # Calles urbanas de Ebéjico
     else:
-        width = 68
+        width = 36 # Calzada de montaña Ebéjico - Ruta 62
         
     track_points.append({
         "x": round(x, 2),

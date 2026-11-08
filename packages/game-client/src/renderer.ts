@@ -231,9 +231,11 @@ export class GameRenderer {
   /**
    * Dibuja el relieve topográfico real derivado de los datos de Copernicus DEM:
    * Terrazas de montaña escalonadas con sombreado de laderas (hillshading cartográfico)
-   * que hacen resaltar visualmente los desniveles y picos del relieve andino.
    */
   private drawTerrainElevationRelief(ctx: CanvasRenderingContext2D, track: Track): void {
+    // Si la ortofoto satelital está activa, el relieve real ya está visible en la fotografía
+    if (this.satelliteLayer.enabled) return;
+
     ctx.save();
 
     // Terrazas de altitud en gradiente de montaña con sombra de relieve (hillshading cartográfico)
@@ -282,14 +284,16 @@ export class GameRenderer {
     ctx.beginPath();
     ctx.moveTo(pts[0].x, pts[0].y);
     for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
-    ctx.lineWidth = pts[0].width + 56;
-    ctx.strokeStyle = 'rgba(10, 26, 18, 0.48)'; // Sombra de caída vertical
+    ctx.lineWidth = pts[0].width + 20;
+    ctx.strokeStyle = 'rgba(10, 26, 18, 0.38)'; // Sombra de caída vertical
     ctx.stroke();
 
-    // 2. Berma exterior de caída en terracota y roca
-    ctx.lineWidth = pts[0].width + 36;
-    ctx.strokeStyle = '#8B6A47';
-    ctx.stroke();
+    // 2. Berma exterior de caída en terracota y roca (solo en modo vectorial)
+    if (!this.satelliteLayer.enabled) {
+      ctx.lineWidth = pts[0].width + 12;
+      ctx.strokeStyle = '#8B6A47';
+      ctx.stroke();
+    }
 
     // 3. Dientes cartográficos de escarpe / peñasco ("caídas de montaña")
     // Pequeñas líneas perpendiculares que indican la pendiente abrupta hacia el vacío
@@ -337,6 +341,9 @@ export class GameRenderer {
    * Dibuja los ríos, quebradas y desfiladeros cruzando por debajo de los puentes
    */
   private drawWaterwaysAndGorges(ctx: CanvasRenderingContext2D, track: Track): void {
+    // Si la ortofoto satelital está activa, los cañones y lechos de agua reales ya están en la foto
+    if (this.satelliteLayer.enabled) return;
+
     const checkpoints = track.getCheckpoints();
     ctx.save();
 
@@ -382,27 +389,27 @@ export class GameRenderer {
     ctx.beginPath();
     ctx.moveTo(pts[0].x, pts[0].y);
     for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
-    ctx.lineWidth = pts[0].width + 12;
+    ctx.lineWidth = pts[0].width + 6;
     ctx.strokeStyle = '#8B1A1A'; // Rojo institucional Ebéjico
     ctx.stroke();
 
     // 2. Calzada de asfalto pizarra continuo
     ctx.lineWidth = pts[0].width;
-    ctx.strokeStyle = '#444A46';
+    ctx.strokeStyle = '#2F3431';
     ctx.stroke();
 
     // 3. Bordes blancos de calzada
-    ctx.lineWidth = pts[0].width - 8;
-    ctx.strokeStyle = '#4D5450';
+    ctx.lineWidth = pts[0].width - 4;
+    ctx.strokeStyle = '#3E4440';
     ctx.stroke();
 
     // 4. Línea central discontinua amarilla reflectiva
     ctx.beginPath();
     ctx.moveTo(pts[0].x, pts[0].y);
     for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
-    ctx.lineWidth = 3.6;
+    ctx.lineWidth = 2.4;
     ctx.strokeStyle = '#F5B800';
-    ctx.setLineDash([24, 26]);
+    ctx.setLineDash([18, 20]);
     ctx.stroke();
     ctx.setLineDash([]);
 

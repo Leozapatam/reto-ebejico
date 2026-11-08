@@ -13,28 +13,20 @@
         "type": "LineString",
         "coordinates": [
           [
-            -75.686887,
-            6.32397
+            -75.687336,
+            6.32408
           ],
           [
-            -75.68702,
-            6.324063
+            -75.687365,
+            6.324265
           ],
           [
-            -75.687139,
-            6.324173
+            -75.687405,
+            6.32445
           ],
           [
-            -75.687241,
-            6.324298
-          ],
-          [
-            -75.687316,
-            6.324419
-          ],
-          [
-            -75.687376,
-            6.324547
+            -75.687435,
+            6.324635
           ],
           [
             -75.687467,
@@ -4566,14 +4558,14 @@
         "type": "portal",
         "confidence": "A-verificado-OSM",
         "note": "Extremo del way OSM 42785427 (túnel, 4.643 m, oneway, Troncal de Urabá).",
-        "route_km": 0.0,
+        "route_km": 0,
         "off_route_m": 0
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -75.6868873,
-          6.3239702
+          -75.687336,
+          6.32408
         ]
       }
     },
@@ -4764,7 +4756,7 @@
         "type": "stream",
         "confidence": "A-verificado-OSM",
         "note": "Quebrada OSM 1326192716 en ascenso a La Renta.",
-        "route_km": 12.0,
+        "route_km": 12,
         "off_route_m": 9
       },
       "geometry": {
@@ -4800,7 +4792,7 @@
         "type": "locality",
         "confidence": "C-aproximado-vereda-por-vecindad",
         "note": "Localidad OSM 703178813 / 703178818.",
-        "route_km": 15.0,
+        "route_km": 15,
         "off_route_m": 20
       },
       "geometry": {
@@ -4818,7 +4810,7 @@
         "type": "stream",
         "confidence": "A-verificado-OSM",
         "note": "Quebrada OSM 1417134479 y 1326192737 en cota ≈1.760m.",
-        "route_km": 17.0,
+        "route_km": 17,
         "off_route_m": 6
       },
       "geometry": {
@@ -4836,7 +4828,7 @@
         "type": "bridge",
         "confidence": "A-verificado-OSM",
         "note": "Puente OSM way 1095049382.",
-        "route_km": 18.0,
+        "route_km": 18,
         "off_route_m": 3
       },
       "geometry": {

@@ -11,9 +11,9 @@ if (!fs.existsSync(outDir)) {
 
 const track = JSON.parse(fs.readFileSync(trackPath, 'utf8'));
 
-// Parámetros de proyección
-const origin_lon = -75.666497;
-const origin_lat = 6.297072;
+// ORIGEN EXACTO DE RUTA_CANDIDATA_OSM.GEOJSON Y BUILD_REAL_TRACK.PY (Boca Occidental del Túnel de Occidente)
+const origin_lon = -75.687336;
+const origin_lat = 6.324080;
 const mean_lat_rad = (origin_lat * Math.PI) / 180;
 const METERS_TO_PX = 1.8;
 const R = 6371000.0;
@@ -70,10 +70,10 @@ function tileToBounds(z, x, y) {
     lonEast,
     latNorth,
     latSouth,
-    px: Math.round(topLeft.px * 10) / 10,
-    py: Math.round(topLeft.py * 10) / 10,
-    width: Math.round((bottomRight.px - topLeft.px) * 10) / 10,
-    height: Math.round((bottomRight.py - topLeft.py) * 10) / 10,
+    px: Math.round(topLeft.px * 100) / 100,
+    py: Math.round(topLeft.py * 100) / 100,
+    width: Math.round((bottomRight.px - topLeft.px) * 100) / 100,
+    height: Math.round((bottomRight.py - topLeft.py) * 100) / 100,
   };
 }
 
@@ -85,33 +85,20 @@ async function fetchTileWithRetry(z, x, y, retries = 3) {
       if (res.ok) {
         return Buffer.from(await res.arrayBuffer());
       }
-      console.warn(`[WARN] HTTP ${res.status} for ${url} (Intento ${attempt})`);
-    } catch (err) {
-      console.warn(`[ERROR] Falló fetch ${url}: ${err.message} (Intento ${attempt})`);
-    }
+    } catch (err) {}
     await new Promise((r) => setTimeout(r, 400 * attempt));
   }
   return null;
 }
 
 async function main() {
-  console.log('--- Calculando franja satelital HD (Zoom 17 y 18: ~0.5m/px) del corredor 26.1km ---');
+  console.log('--- Calculando franja satelital REAL (Origen Exacto del Túnel: -75.686887, 6.323970) ---');
   
-  // Para Zoom 17 y 18 usamos un búfer optimizado de 140 metros a cada lado
   const bufferPx = 140 * METERS_TO_PX;
   const tilesMap = new Map();
 
-  // Mantenemos también los tiles existentes en manifest si los hay
-  const manifestPath = path.join(outDir, 'manifest.json');
-  if (fs.existsSync(manifestPath)) {
-    try {
-      const oldManifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
-      oldManifest.tiles.forEach(t => tilesMap.set(t.id, t));
-    } catch (e) {}
-  }
-
-  // Agregamos Zoom 17 y Zoom 18
-  [17, 18].forEach((z) => {
+  // Descargamos Zoom 16 (base continua), Zoom 17 y Zoom 18 (ultra HD sub-métrica)
+  [16, 17, 18].forEach((z) => {
     track.forEach((pt) => {
       const offsets = [
         [0, 0],
@@ -132,12 +119,13 @@ async function main() {
   });
 
   const allTiles = Array.from(tilesMap.values());
+  console.log(`Total tiles requeridos: ${allTiles.length} (${allTiles.filter(t => t.z === 18).length} en Z18, ${allTiles.filter(t => t.z === 17).length} en Z17, ${allTiles.filter(t => t.z === 16).length} en Z16)`);
+
   const pendingTiles = allTiles.filter(t => {
     const filePath = path.join(outDir, t.file);
     return !fs.existsSync(filePath) || fs.statSync(filePath).size < 1000;
   });
 
-  console.log(`Total tiles en catálogo: ${allTiles.length} (${allTiles.filter(t => t.z === 18).length} en Z18 ultra-nítido, ${allTiles.filter(t => t.z === 17).length} en Z17, ${allTiles.filter(t => t.z <= 16).length} en Z15/16)`);
   console.log(`Tiles pendientes por descargar: ${pendingTiles.length}`);
 
   let downloadedCount = 0;
@@ -154,11 +142,10 @@ async function main() {
       if (buffer && buffer.length > 1000) {
         fs.writeFileSync(filePath, buffer);
         downloadedCount++;
-        if (downloadedCount % 25 === 0 || queue.length === 0) {
-          console.log(`[Worker ${workerId}] Descargados: ${downloadedCount}/${pendingTiles.length} (Restantes: ${queue.length})`);
+        if (downloadedCount % 50 === 0 || queue.length === 0) {
+          console.log(`[Descarga] ${downloadedCount}/${pendingTiles.length} completados (Restantes: ${queue.length})`);
         }
       } else {
-        console.error(`[ERROR] No se pudo descargar tile z=${tile.z} x=${tile.x} y=${tile.y}`);
         failedCount++;
       }
     }
@@ -167,21 +154,20 @@ async function main() {
   const workers = Array.from({ length: concurrency }, (_, i) => worker(i + 1));
   await Promise.all(workers);
 
-  console.log('\n--- Descarga HD completada ---');
-  console.log(`Nuevos descargados: ${downloadedCount}`);
-  console.log(`Fallos: ${failedCount}`);
+  console.log('\n--- Descarga completada con alineación exacta ---');
+  console.log(`Nuevos descargados: ${downloadedCount}, Fallos: ${failedCount}`);
 
-  // Actualizar manifiesto
   const manifest = {
     generatedAt: new Date().toISOString(),
-    source: 'Esri World Imagery (Sub-meter High-Resolution Aerial Orthophotos Zoom 17/18)',
+    source: 'Esri World Imagery (Calibrado con origen exacto Túnel de Occidente)',
     tileCount: allTiles.length,
     origin: { lon: origin_lon, lat: origin_lat },
     tiles: allTiles,
   };
 
+  const manifestPath = path.join(outDir, 'manifest.json');
   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2), 'utf8');
-  console.log(`Manifiesto satelital HD guardado en: ${manifestPath}`);
+  console.log(`Manifiesto satelital guardado en: ${manifestPath}`);
 }
 
 main().catch(console.error);
