@@ -41,19 +41,20 @@ export class SatelliteLayer {
       this.manifestLoaded = true;
 
       // Pre-cargar inmediatamente los tiles cercanos al punto de inicio (Túnel de Occidente ~2000, 2000)
-      this.preloadArea(2000, 2000, 3500);
+      this.preloadArea(2000, 2000, 1800);
     } catch (err) {
       console.warn('[SatelliteLayer] Error cargando manifiesto satelital:', err);
     }
   }
 
   /**
-   * Pre-carga tiles en un radio alrededor de (x, y)
+   * Pre-carga tiles en un radio alrededor de (x, y) priorizando alta definición Z17 y Z18
    */
   public preloadArea(centerX: number, centerY: number, radius: number): void {
     if (!this.manifestLoaded) return;
     const r2 = radius * radius;
     for (const t of this.tiles) {
+      if (t.z < 17) continue; // Priorizar alta resolución para máxima nitidez
       // Chequear si el centro del tile está dentro del radio
       const tileCenterX = t.px + t.width / 2;
       const tileCenterY = t.py + t.height / 2;
@@ -86,7 +87,7 @@ export class SatelliteLayer {
 
   /**
    * Renderiza las ortofotos satelitales que intersecan la vista actual de la cámara.
-   * Dibuja primero Zoom 15 como base continua, y luego superpone Zoom 16 en alta resolución.
+   * Dibuja con jerarquía multi-resolución: Zoom 16 de base, Zoom 17 intermedio y Zoom 18 en máxima nitidez sub-métrica.
    */
   public render(
     ctx: CanvasRenderingContext2D,
@@ -103,11 +104,11 @@ export class SatelliteLayer {
 
     ctx.save();
     ctx.imageSmoothingEnabled = true;
-    ctx.imageSmoothingQuality = 'medium';
+    ctx.imageSmoothingQuality = 'high';
 
-    // 1. Capa base continua: Zoom 15
+    // 1. Capa base de respaldo continuo: Zoom 16
     for (const t of this.tiles) {
-      if (t.z !== 15) continue;
+      if (t.z !== 16) continue;
       if (
         t.px + t.width < minX ||
         t.px > maxX ||
@@ -122,9 +123,26 @@ export class SatelliteLayer {
       }
     }
 
-    // 2. Capa de alta definición: Zoom 16
+    // 2. Capa intermedia: Zoom 17
     for (const t of this.tiles) {
-      if (t.z !== 16) continue;
+      if (t.z !== 17) continue;
+      if (
+        t.px + t.width < minX ||
+        t.px > maxX ||
+        t.py + t.height < minY ||
+        t.py > maxY
+      ) {
+        continue;
+      }
+      const img = this.getTileImage(t);
+      if (img && img.complete && img.naturalWidth > 0) {
+        ctx.drawImage(img, t.px, t.py, t.width, t.height);
+      }
+    }
+
+    // 3. Capa ultra-nítida de máxima definición: Zoom 18 (resolución sub-métrica ~0.59 m/px)
+    for (const t of this.tiles) {
+      if (t.z !== 18) continue;
       if (
         t.px + t.width < minX ||
         t.px > maxX ||

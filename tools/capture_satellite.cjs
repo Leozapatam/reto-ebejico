@@ -2,7 +2,7 @@ const { spawn } = require('child_process');
 const fs = require('fs');
 
 async function main() {
-  const port = 9245;
+  const port = 9248;
   console.log(`Launching headless Edge on port ${port}...`);
   const edge = spawn('C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe', [
     '--headless',
@@ -25,7 +25,6 @@ async function main() {
     const ws = new WebSocket(gameTab.webSocketDebuggerUrl);
 
     ws.onopen = () => {
-      console.log('WebSocket CDP conectado. Habilitando Page y recargando...');
       ws.send(JSON.stringify({ id: 1, method: 'Page.enable' }));
       ws.send(JSON.stringify({ id: 2, method: 'Page.reload' }));
 
@@ -44,7 +43,7 @@ async function main() {
           }
         }));
 
-        // Esperar a que las ortofotos satelitales carguen
+        // Tomar captura de salida con ortofoto HD limpia
         setTimeout(() => {
           console.log('Tomando captura_satelital_salida.png...');
           ws.send(JSON.stringify({
@@ -53,9 +52,9 @@ async function main() {
             params: { format: 'png' }
           }));
 
-          // Acelerar para descender la montaña
+          // Acelerar a fondo
           setTimeout(() => {
-            console.log('Acelerando...');
+            console.log('Acelerando a fondo...');
             ws.send(JSON.stringify({
               id: 30,
               method: 'Runtime.evaluate',
@@ -69,7 +68,7 @@ async function main() {
               }
             }));
 
-            // Captura en marcha con ortofoto satelital, chispas y precipicio
+            // Tomar captura en marcha
             setTimeout(() => {
               console.log('Tomando captura_satelital_en_marcha.png...');
               ws.send(JSON.stringify({
@@ -78,8 +77,8 @@ async function main() {
                 params: { format: 'png' }
               }));
             }, 3500);
-          }, 1500);
-        }, 3000);
+          }, 2600);
+        }, 1500);
       }, 1500);
     };
 
@@ -101,7 +100,7 @@ async function main() {
       }
     };
 
-    await new Promise(r => setTimeout(r, 13000));
+    await new Promise(r => setTimeout(r, 12000));
     ws.close();
   } catch (err) {
     console.error('Error en captura CDP:', err);

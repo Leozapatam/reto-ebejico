@@ -34,7 +34,7 @@ export class GameRenderer {
   private ctx: CanvasRenderingContext2D;
   private cameraX: number = 2000;
   private cameraY: number = 2000;
-  private cameraZoom: number = 1.32;
+  private cameraZoom: number = 1.05;
   private cameraAngle: number = 0;
 
   // Por defecto: 'chase' (Vista: Adelante - De sur a norte hacia adelante como en la imagen)
@@ -54,6 +54,9 @@ export class GameRenderer {
     this.ctx = ctx;
     this.resize();
     window.addEventListener('resize', () => this.resize());
+    window.addEventListener('wheel', (e) => {
+      this.cameraZoom = Math.max(0.65, Math.min(1.65, this.cameraZoom - e.deltaY * 0.001));
+    });
   }
 
   resize(): void {
@@ -180,9 +183,9 @@ export class GameRenderer {
     ctx.rotate(this.cameraAngle);
     ctx.translate(-this.cameraX, -this.cameraY);
 
-    // 1.5 ORTOFOTO SATELITAL AÉREA REAL (Esri World Imagery / Google Earth)
-    this.satelliteLayer.preloadArea(v.x, v.y, 3000);
-    this.satelliteLayer.render(ctx, this.cameraX, this.cameraY, 2600);
+    // 1.5 ORTOFOTO SATELITAL AÉREA ULTRA-HD (Esri World Imagery / Google Earth Zoom 18)
+    this.satelliteLayer.preloadArea(v.x, v.y, 1800);
+    this.satelliteLayer.render(ctx, this.cameraX, this.cameraY, 1800);
 
     // 2. RELIEVE TOPOGRÁFICO REAL: Curvas de nivel y sombreado de montaña
     this.drawTerrainElevationRelief(ctx, track);
@@ -614,6 +617,10 @@ export class GameRenderer {
   }
 
   private drawScenery(ctx: CanvasRenderingContext2D): void {
+    // Si la ortofoto satelital real está activa, el terreno fotográfico ya muestra
+    // las copas de árboles, bosques andinos y parcelas agrícolas reales sin ocluir
+    if (this.satelliteLayer.enabled) return;
+
     ctx.save();
     for (const item of this.sceneryItems) {
       if (Math.hypot(item.x - this.cameraX, item.y - this.cameraY) > 1600) continue;
