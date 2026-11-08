@@ -1,0 +1,614 @@
+:root {
+  /* Paleta Institucional de Ebéjico y Mirada Parda */
+  --ebejico-verde-oscuro: #0D1C15;     /* Fondo territorial profundo */
+  --ebejico-verde-selva: #152E22;      /* Superficie de tarjetas y HUD */
+  --ebejico-verde-emblema: #1E5A3E;    /* Verde de la bandera (esperanza y flora) */
+  --ebejico-verde-brillante: #288057;  /* Acentos interactivos */
+  --ebejico-rojo-cafe: #8B1A1A;        /* Rojo de la bandera (cultivo del café) */
+  --ebejico-rojo-activo: #A82424;      /* Botones de acción */
+  --ebejico-azul-rio: #1B4965;         /* Azul de la bandera (río Cauca y quebradas) */
+  --ebejico-oro-ancestral: #C8A96E;    /* Cuartel dorado del escudo (riqueza ancestral) */
+  --ebejico-crema-papel: #F5EFE0;      /* Texto de máxima legibilidad */
+  --ebejico-texto-suave: #A3B899;      /* Texto secundario en tono verde salvia */
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+body, html {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--ebejico-verde-oscuro);
+  font-family: var(--font-sans);
+  color: var(--ebejico-crema-papel);
+}
+
+#app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#game-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: block;
+  background-color: var(--ebejico-verde-oscuro);
+}
+
+/* Capa de interfaz DOM sobre el juego */
+#ui-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Barra superior (HUD) con los colores de Ebéjico */
+.hud-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background: linear-gradient(180deg, rgba(13, 28, 21, 0.95) 0%, rgba(13, 28, 21, 0) 100%);
+  pointer-events: auto;
+}
+
+.hud-brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.hud-brand-title {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--ebejico-oro-ancestral);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+}
+
+.hud-location-badge {
+  font-size: 12px;
+  color: var(--ebejico-crema-papel);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+  background: rgba(27, 73, 101, 0.45); /* Toque azul hídrico institucional */
+  padding: 2px 8px;
+  border-radius: 4px;
+  border-left: 3px solid var(--ebejico-oro-ancestral);
+  width: fit-content;
+}
+
+.hud-timer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(21, 46, 34, 0.92);
+  border: 1px solid rgba(200, 169, 110, 0.45);
+  border-radius: 8px;
+  padding: 6px 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+}
+
+.hud-timer-label {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ebejico-texto-suave);
+}
+
+.hud-timer-value {
+  font-family: var(--font-mono);
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--ebejico-crema-papel);
+  font-variant-numeric: tabular-nums;
+}
+
+.hud-stats {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.hud-stat-box {
+  background: rgba(21, 46, 34, 0.92);
+  border: 1px solid rgba(200, 169, 110, 0.3);
+  border-radius: 8px;
+  padding: 6px 16px;
+  text-align: right;
+}
+
+.hud-stat-num {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ebejico-crema-papel);
+}
+
+.hud-stat-unit {
+  font-size: 11px;
+  color: var(--ebejico-texto-suave);
+  margin-left: 2px;
+}
+
+.hud-button {
+  background: var(--ebejico-verde-selva);
+  border: 1px solid var(--ebejico-oro-ancestral);
+  color: var(--ebejico-crema-papel);
+  padding: 8px 14px;
+  font-size: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: all 0.15s ease;
+}
+
+.hud-button:hover {
+  background: var(--ebejico-oro-ancestral);
+  color: var(--ebejico-verde-oscuro);
+  font-weight: 600;
+}
+
+/* Barra de progreso fija bajo el HUD superior */
+.hud-progress-bar {
+  position: fixed;
+  top: 76px;
+  left: 24px;
+  right: 24px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+  overflow: hidden;
+  z-index: 15;
+}
+
+.hud-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--ebejico-rojo-cafe) 0%, var(--ebejico-oro-ancestral) 50%, var(--ebejico-verde-brillante) 100%);
+  transition: width 0.1s linear;
+}
+
+/* Minimapa geográfico */
+.hud-minimap-box {
+  position: absolute;
+  right: 20px;
+  bottom: 24px;
+  background: rgba(13, 28, 21, 0.94);
+  border: 1.5px solid var(--ebejico-oro-ancestral);
+  border-radius: 8px;
+  padding: 10px 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(6px);
+  z-index: 10;
+}
+
+.hud-minimap-title {
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ebejico-oro-ancestral);
+  margin-bottom: 6px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+}
+
+#minimap-canvas {
+  width: 240px;
+  height: 140px;
+  display: block;
+}
+
+/* Perfil de relieve y altimetría (Copernicus DEM) en esquina opuesta */
+.hud-elevation-box {
+  position: absolute;
+  left: 20px;
+  bottom: 24px;
+  background: rgba(13, 28, 21, 0.94);
+  border: 1.5px solid var(--ebejico-oro-ancestral);
+  border-radius: 8px;
+  padding: 10px 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(6px);
+  z-index: 10;
+}
+
+.hud-elevation-title {
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ebejico-oro-ancestral);
+  margin-bottom: 6px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+}
+
+.hud-slope-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: rgba(46, 125, 50, 0.45);
+  color: #81C784;
+  border: 1px solid rgba(129, 199, 132, 0.4);
+}
+
+.hud-slope-badge.climb {
+  background: rgba(198, 40, 40, 0.45);
+  color: #EF5350;
+  border-color: rgba(239, 83, 80, 0.4);
+}
+
+#elevation-canvas {
+  width: 240px;
+  height: 140px;
+  display: block;
+}
+
+/* Avisos dinámicos */
+.notice-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.notice-text {
+  font-family: var(--font-serif);
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--ebejico-oro-ancestral);
+  text-shadow: 0 2px 20px rgba(0,0,0,0.95);
+  background: rgba(13, 28, 21, 0.90);
+  padding: 12px 32px;
+  border-radius: 8px;
+  border: 1.5px solid var(--ebejico-oro-ancestral);
+  animation: pulseNotice 0.25s ease-out;
+  text-align: center;
+  max-width: 85%;
+}
+
+@keyframes pulseNotice {
+  0% { transform: scale(0.94); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Controles táctiles móviles */
+.touch-controls {
+  display: none;
+  justify-content: space-between;
+  padding: 20px;
+  pointer-events: auto;
+}
+
+.touch-cluster-left, .touch-cluster-right {
+  display: flex;
+  gap: 12px;
+}
+
+.touch-btn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(21, 46, 34, 0.85);
+  border: 2px solid var(--ebejico-oro-ancestral);
+  color: var(--ebejico-crema-papel);
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: manipulation;
+}
+
+.touch-btn:active {
+  background: var(--ebejico-oro-ancestral);
+  color: var(--ebejico-verde-oscuro);
+}
+
+.touch-btn-gas {
+  background: rgba(139, 26, 26, 0.90);
+  border-color: var(--ebejico-crema-papel);
+}
+
+/* Modal de meta */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(13, 28, 21, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  pointer-events: auto;
+}
+
+.modal-card {
+  background: var(--ebejico-verde-selva);
+  border: 2px solid var(--ebejico-oro-ancestral);
+  border-radius: 12px;
+  padding: 36px 40px;
+  max-width: 520px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.85);
+}
+
+.modal-title {
+  font-family: var(--font-serif);
+  font-size: 34px;
+  color: var(--ebejico-oro-ancestral);
+  margin-bottom: 8px;
+}
+
+.modal-subtitle {
+  font-size: 14px;
+  color: var(--ebejico-texto-suave);
+  margin-bottom: 24px;
+}
+
+.modal-time-display {
+  background: rgba(13, 28, 21, 0.90);
+  border: 1px solid rgba(200, 169, 110, 0.5);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.modal-time-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--ebejico-texto-suave);
+}
+
+.modal-time-val {
+  font-family: var(--font-mono);
+  font-size: 46px;
+  font-weight: 700;
+  color: var(--ebejico-crema-papel);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: var(--ebejico-rojo-cafe);
+  color: var(--ebejico-crema-papel);
+  border: 1px solid var(--ebejico-oro-ancestral);
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 4px 12px rgba(139, 26, 26, 0.4);
+}
+
+.btn-primary:hover {
+  background: var(--ebejico-rojo-activo);
+  transform: translateY(-1px);
+}
+
+/* Pantalla de inicio con los colores de Ebéjico */
+.start-screen {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(21, 46, 34, 0.98) 0%, rgba(13, 28, 21, 0.99) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 90;
+  pointer-events: auto;
+  text-align: center;
+  padding: 24px;
+}
+
+.start-badge {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ebejico-oro-ancestral);
+  background: rgba(200, 169, 110, 0.15);
+  padding: 4px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(200, 169, 110, 0.3);
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+
+.start-title {
+  font-family: var(--font-serif);
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--ebejico-crema-papel);
+  margin-bottom: 6px;
+  line-height: 1.1;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+
+.start-subtitle {
+  font-size: 18px;
+  color: var(--ebejico-oro-ancestral);
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+.start-desc {
+  max-width: 520px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ebejico-texto-suave);
+  margin-bottom: 28px;
+}
+
+.start-instructions {
+  background: rgba(13, 28, 21, 0.85);
+  border: 1px solid rgba(200, 169, 110, 0.3);
+  border-radius: 8px;
+  padding: 14px 24px;
+  margin-bottom: 28px;
+  display: flex;
+  gap: 20px;
+  font-size: 12px;
+  color: var(--ebejico-crema-papel);
+}
+
+.start-key {
+  display: inline-block;
+  background: rgba(200, 169, 110, 0.2);
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(200, 169, 110, 0.4);
+  font-family: var(--font-mono);
+  color: var(--ebejico-oro-ancestral);
+}
+
+@media (max-width: 768px) {
+  .touch-controls {
+    display: flex;
+  }
+  .hud-stat-box {
+    display: none;
+  }
+  .hud-minimap-box {
+    transform: scale(0.85);
+    transform-origin: bottom right;
+    bottom: 90px;
+    right: 12px;
+  }
+  .start-title {
+    font-size: 34px;
+  }
+}
+
+/* Conteo Gigante Centrado Arcade (3 - 2 - 1 - ¡ARRANCA!) */
+.big-countdown-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.big-countdown-text {
+  font-family: var(--font-serif);
+  font-size: 130px;
+  font-weight: 700;
+  color: var(--ebejico-oro-ancestral);
+  text-shadow: 0 0 35px rgba(200, 169, 110, 0.8), 0 8px 30px rgba(0, 0, 0, 0.95);
+  line-height: 1;
+  animation: countdownPulse 0.95s ease-out;
+}
+
+.big-countdown-sub {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ebejico-crema-papel);
+  background: rgba(13, 28, 21, 0.90);
+  border: 1px solid var(--ebejico-oro-ancestral);
+  padding: 6px 18px;
+  border-radius: 20px;
+  margin-top: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes countdownPulse {
+  0% {
+    transform: scale(0.35);
+    opacity: 0;
+  }
+  30% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  75% {
+    transform: scale(1.0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+}
+
+/* Alerta Anti-Trampas Fuera de Pista (Manga / Selva) */
+.offroad-alert-banner {
+  position: fixed;
+  top: 92px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(139, 26, 26, 0.94);
+  border: 2px solid #FFDD00;
+  color: #FFFFFF;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.8), 0 0 15px rgba(231, 76, 60, 0.6);
+  z-index: 90;
+  animation: offroadFlash 0.5s infinite alternate;
+}
+
+@keyframes offroadFlash {
+  0% {
+    border-color: #FFDD00;
+    background: rgba(139, 26, 26, 0.92);
+  }
+  100% {
+    border-color: #FFFFFF;
+    background: rgba(175, 30, 30, 0.98);
+  }
+}

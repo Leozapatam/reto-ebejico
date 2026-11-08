@@ -1,0 +1,10581 @@
+[
+  {
+    "x": 2000.0,
+    "y": 2000.0,
+    "z": 1034.1,
+    "elevationMeters": 1907.0,
+    "width": 84,
+    "name": "Boca Occidental del Túnel de Occidente (Salida)",
+    "isCheckpoint": true
+  },
+  {
+    "x": 1973.83,
+    "y": 1981.59,
+    "z": 1034.07,
+    "elevationMeters": 1907.0,
+    "width": 84
+  },
+  {
+    "x": 1950.37,
+    "y": 1959.83,
+    "z": 1033.99,
+    "elevationMeters": 1906.9,
+    "width": 84
+  },
+  {
+    "x": 1930.14,
+    "y": 1935.04,
+    "z": 1033.85,
+    "elevationMeters": 1906.8,
+    "width": 84
+  },
+  {
+    "x": 1913.53,
+    "y": 1907.72,
+    "z": 1033.66,
+    "elevationMeters": 1906.7,
+    "width": 84,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Negra",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": 1900.72,
+    "y": 1878.43,
+    "z": 1033.41,
+    "elevationMeters": 1906.5,
+    "width": 84,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Negra",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": 1890.72,
+    "y": 1848.04,
+    "z": 1033.11,
+    "elevationMeters": 1906.3,
+    "width": 84,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Negra",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": 1882.14,
+    "y": 1817.26,
+    "z": 1032.77,
+    "elevationMeters": 1906.0,
+    "width": 84,
+    "name": "Puente Quebrada La Negra",
+    "isCheckpoint": true,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Negra",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": 1875.78,
+    "y": 1785.9,
+    "z": 1032.37,
+    "elevationMeters": 1905.7,
+    "width": 84,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Negra",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": 1871.56,
+    "y": 1754.24,
+    "z": 1031.92,
+    "elevationMeters": 1905.4,
+    "width": 84,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Negra",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": 1868.93,
+    "y": 1722.34,
+    "z": 1031.42,
+    "elevationMeters": 1905.0,
+    "width": 84,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Negra",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": 1862.75,
+    "y": 1691.01,
+    "z": 1030.88,
+    "elevationMeters": 1904.6,
+    "width": 84
+  },
+  {
+    "x": 1852.48,
+    "y": 1660.77,
+    "z": 1030.29,
+    "elevationMeters": 1904.2,
+    "width": 84
+  },
+  {
+    "x": 1838.06,
+    "y": 1632.24,
+    "z": 1029.66,
+    "elevationMeters": 1903.7,
+    "width": 84
+  },
+  {
+    "x": 1819.83,
+    "y": 1605.95,
+    "z": 1028.98,
+    "elevationMeters": 1903.2,
+    "width": 84
+  },
+  {
+    "x": 1798.01,
+    "y": 1582.55,
+    "z": 1028.26,
+    "elevationMeters": 1902.7,
+    "width": 84
+  },
+  {
+    "x": 1773.39,
+    "y": 1562.16,
+    "z": 1027.5,
+    "elevationMeters": 1902.1,
+    "width": 84
+  },
+  {
+    "x": 1746.06,
+    "y": 1545.62,
+    "z": 1026.69,
+    "elevationMeters": 1901.5,
+    "width": 84
+  },
+  {
+    "x": 1716.66,
+    "y": 1533.16,
+    "z": 1025.85,
+    "elevationMeters": 1900.9,
+    "width": 84
+  },
+  {
+    "x": 1686.03,
+    "y": 1524.06,
+    "z": 1024.96,
+    "elevationMeters": 1900.2,
+    "width": 84
+  },
+  {
+    "x": 1654.65,
+    "y": 1517.81,
+    "z": 1024.04,
+    "elevationMeters": 1899.5,
+    "width": 84
+  },
+  {
+    "x": 1623.8,
+    "y": 1509.67,
+    "z": 1023.08,
+    "elevationMeters": 1898.8,
+    "width": 84
+  },
+  {
+    "x": 1594.38,
+    "y": 1497.21,
+    "z": 1022.08,
+    "elevationMeters": 1898.1,
+    "width": 84
+  },
+  {
+    "x": 1566.47,
+    "y": 1481.64,
+    "z": 1021.05,
+    "elevationMeters": 1897.3,
+    "width": 84
+  },
+  {
+    "x": 1541.04,
+    "y": 1462.28,
+    "z": 1019.98,
+    "elevationMeters": 1896.5,
+    "width": 84
+  },
+  {
+    "x": 1517.85,
+    "y": 1440.29,
+    "z": 1018.88,
+    "elevationMeters": 1895.7,
+    "width": 84
+  },
+  {
+    "x": 1497.9,
+    "y": 1415.3,
+    "z": 1017.75,
+    "elevationMeters": 1894.9,
+    "width": 84
+  },
+  {
+    "x": 1481.14,
+    "y": 1388.08,
+    "z": 1016.58,
+    "elevationMeters": 1894.0,
+    "width": 84
+  },
+  {
+    "x": 1467.7,
+    "y": 1359.07,
+    "z": 1015.39,
+    "elevationMeters": 1893.1,
+    "width": 84
+  },
+  {
+    "x": 1458.26,
+    "y": 1328.49,
+    "z": 1014.16,
+    "elevationMeters": 1892.2,
+    "width": 84
+  },
+  {
+    "x": 1452.77,
+    "y": 1297.05,
+    "z": 1012.91,
+    "elevationMeters": 1891.3,
+    "width": 84
+  },
+  {
+    "x": 1447.38,
+    "y": 1265.54,
+    "z": 1011.63,
+    "elevationMeters": 1890.4,
+    "width": 84
+  },
+  {
+    "x": 1440.33,
+    "y": 1234.33,
+    "z": 1010.32,
+    "elevationMeters": 1889.4,
+    "width": 84
+  },
+  {
+    "x": 1433.28,
+    "y": 1203.11,
+    "z": 1008.98,
+    "elevationMeters": 1888.4,
+    "width": 84
+  },
+  {
+    "x": 1425.67,
+    "y": 1172.04,
+    "z": 1007.62,
+    "elevationMeters": 1887.4,
+    "width": 84
+  },
+  {
+    "x": 1416.08,
+    "y": 1141.57,
+    "z": 1006.24,
+    "elevationMeters": 1886.4,
+    "width": 84
+  },
+  {
+    "x": 1402.58,
+    "y": 1112.62,
+    "z": 1004.83,
+    "elevationMeters": 1885.3,
+    "width": 84
+  },
+  {
+    "x": 1385.53,
+    "y": 1085.6,
+    "z": 1003.41,
+    "elevationMeters": 1884.3,
+    "width": 84
+  },
+  {
+    "x": 1364.42,
+    "y": 1061.63,
+    "z": 1001.96,
+    "elevationMeters": 1883.2,
+    "width": 84
+  },
+  {
+    "x": 1341.68,
+    "y": 1039.23,
+    "z": 1000.49,
+    "elevationMeters": 1882.1,
+    "width": 84
+  },
+  {
+    "x": 1315.92,
+    "y": 1020.24,
+    "z": 999.0,
+    "elevationMeters": 1881.0,
+    "width": 84
+  },
+  {
+    "x": 1287.69,
+    "y": 1005.29,
+    "z": 997.49,
+    "elevationMeters": 1879.9,
+    "width": 84
+  },
+  {
+    "x": 1258.21,
+    "y": 993.02,
+    "z": 995.97,
+    "elevationMeters": 1878.8,
+    "width": 84
+  },
+  {
+    "x": 1227.96,
+    "y": 982.57,
+    "z": 994.43,
+    "elevationMeters": 1877.6,
+    "width": 84
+  },
+  {
+    "x": 1197.72,
+    "y": 972.12,
+    "z": 992.87,
+    "elevationMeters": 1876.5,
+    "width": 84
+  },
+  {
+    "x": 1167.47,
+    "y": 961.67,
+    "z": 991.3,
+    "elevationMeters": 1875.3,
+    "width": 84
+  },
+  {
+    "x": 1137.23,
+    "y": 951.22,
+    "z": 989.72,
+    "elevationMeters": 1874.1,
+    "width": 84
+  },
+  {
+    "x": 1108.68,
+    "y": 936.99,
+    "z": 988.12,
+    "elevationMeters": 1872.9,
+    "width": 84
+  },
+  {
+    "x": 1081.47,
+    "y": 920.22,
+    "z": 986.51,
+    "elevationMeters": 1871.8,
+    "width": 84
+  },
+  {
+    "x": 1057.08,
+    "y": 899.89,
+    "z": 984.9,
+    "elevationMeters": 1870.6,
+    "width": 84
+  },
+  {
+    "x": 1036.73,
+    "y": 875.2,
+    "z": 983.27,
+    "elevationMeters": 1869.3,
+    "width": 84
+  },
+  {
+    "x": 1018.58,
+    "y": 848.86,
+    "z": 981.63,
+    "elevationMeters": 1868.1,
+    "width": 84
+  },
+  {
+    "x": 1000.88,
+    "y": 822.21,
+    "z": 979.99,
+    "elevationMeters": 1866.9,
+    "width": 84
+  },
+  {
+    "x": 984.02,
+    "y": 795.01,
+    "z": 978.34,
+    "elevationMeters": 1865.7,
+    "width": 84
+  },
+  {
+    "x": 967.17,
+    "y": 767.8,
+    "z": 976.69,
+    "elevationMeters": 1864.5,
+    "width": 84
+  },
+  {
+    "x": 947.79,
+    "y": 742.38,
+    "z": 975.03,
+    "elevationMeters": 1863.2,
+    "width": 84
+  },
+  {
+    "x": 927.91,
+    "y": 717.3,
+    "z": 973.36,
+    "elevationMeters": 1862.0,
+    "width": 84
+  },
+  {
+    "x": 905.6,
+    "y": 694.44,
+    "z": 971.7,
+    "elevationMeters": 1860.8,
+    "width": 84
+  },
+  {
+    "x": 882.44,
+    "y": 672.36,
+    "z": 970.03,
+    "elevationMeters": 1859.5,
+    "width": 84
+  },
+  {
+    "x": 859.11,
+    "y": 650.47,
+    "z": 968.36,
+    "elevationMeters": 1858.3,
+    "width": 84
+  },
+  {
+    "x": 834.26,
+    "y": 630.3,
+    "z": 966.69,
+    "elevationMeters": 1857.1,
+    "width": 84
+  },
+  {
+    "x": 809.42,
+    "y": 610.13,
+    "z": 965.02,
+    "elevationMeters": 1855.8,
+    "width": 84
+  },
+  {
+    "x": 784.58,
+    "y": 589.96,
+    "z": 963.36,
+    "elevationMeters": 1854.6,
+    "width": 84
+  },
+  {
+    "x": 764.6,
+    "y": 565.41,
+    "z": 961.69,
+    "elevationMeters": 1853.4,
+    "width": 84
+  },
+  {
+    "x": 747.11,
+    "y": 538.61,
+    "z": 960.03,
+    "elevationMeters": 1852.1,
+    "width": 84
+  },
+  {
+    "x": 730.99,
+    "y": 511.19,
+    "z": 958.38,
+    "elevationMeters": 1850.9,
+    "width": 84
+  },
+  {
+    "x": 722.1,
+    "y": 480.45,
+    "z": 956.73,
+    "elevationMeters": 1849.7,
+    "width": 84
+  },
+  {
+    "x": 714.53,
+    "y": 449.5,
+    "z": 955.09,
+    "elevationMeters": 1848.5,
+    "width": 84
+  },
+  {
+    "x": 713.55,
+    "y": 417.51,
+    "z": 953.46,
+    "elevationMeters": 1847.3,
+    "width": 84
+  },
+  {
+    "x": 714.85,
+    "y": 385.7,
+    "z": 951.84,
+    "elevationMeters": 1846.1,
+    "width": 84
+  },
+  {
+    "x": 720.79,
+    "y": 354.28,
+    "z": 950.22,
+    "elevationMeters": 1844.9,
+    "width": 84
+  },
+  {
+    "x": 734.57,
+    "y": 325.4,
+    "z": 948.62,
+    "elevationMeters": 1843.7,
+    "width": 84
+  },
+  {
+    "x": 748.35,
+    "y": 296.52,
+    "z": 947.03,
+    "elevationMeters": 1842.5,
+    "width": 84
+  },
+  {
+    "x": 762.13,
+    "y": 267.64,
+    "z": 945.45,
+    "elevationMeters": 1841.3,
+    "width": 84
+  },
+  {
+    "x": 775.91,
+    "y": 238.76,
+    "z": 943.88,
+    "elevationMeters": 1840.2,
+    "width": 84
+  },
+  {
+    "x": 789.69,
+    "y": 209.88,
+    "z": 942.33,
+    "elevationMeters": 1839.0,
+    "width": 84
+  },
+  {
+    "x": 803.47,
+    "y": 181.0,
+    "z": 940.79,
+    "elevationMeters": 1837.9,
+    "width": 84
+  },
+  {
+    "x": 817.25,
+    "y": 152.12,
+    "z": 939.28,
+    "elevationMeters": 1836.8,
+    "width": 84
+  },
+  {
+    "x": 826.03,
+    "y": 121.4,
+    "z": 937.77,
+    "elevationMeters": 1835.6,
+    "width": 84
+  },
+  {
+    "x": 833.28,
+    "y": 90.3,
+    "z": 936.29,
+    "elevationMeters": 1834.5,
+    "width": 84
+  },
+  {
+    "x": 835.82,
+    "y": 58.41,
+    "z": 934.83,
+    "elevationMeters": 1833.5,
+    "width": 84
+  },
+  {
+    "x": 832.82,
+    "y": 26.64,
+    "z": 933.39,
+    "elevationMeters": 1832.4,
+    "width": 84
+  },
+  {
+    "x": 828.71,
+    "y": -5.09,
+    "z": 931.96,
+    "elevationMeters": 1831.3,
+    "width": 84
+  },
+  {
+    "x": 816.44,
+    "y": -34.42,
+    "z": 930.56,
+    "elevationMeters": 1830.3,
+    "width": 84
+  },
+  {
+    "x": 802.51,
+    "y": -63.23,
+    "z": 929.19,
+    "elevationMeters": 1829.3,
+    "width": 84
+  },
+  {
+    "x": 788.03,
+    "y": -91.77,
+    "z": 927.84,
+    "elevationMeters": 1828.3,
+    "width": 84
+  },
+  {
+    "x": 774.22,
+    "y": -120.61,
+    "z": 926.51,
+    "elevationMeters": 1827.3,
+    "width": 84
+  },
+  {
+    "x": 762.59,
+    "y": -150.42,
+    "z": 925.21,
+    "elevationMeters": 1826.3,
+    "width": 84
+  },
+  {
+    "x": 752.76,
+    "y": -180.68,
+    "z": 923.94,
+    "elevationMeters": 1825.4,
+    "width": 84
+  },
+  {
+    "x": 748.83,
+    "y": -212.44,
+    "z": 922.69,
+    "elevationMeters": 1824.5,
+    "width": 84
+  },
+  {
+    "x": 749.2,
+    "y": -244.3,
+    "z": 921.48,
+    "elevationMeters": 1823.6,
+    "width": 84
+  },
+  {
+    "x": 753.25,
+    "y": -275.92,
+    "z": 920.29,
+    "elevationMeters": 1822.7,
+    "width": 84
+  },
+  {
+    "x": 761.96,
+    "y": -306.72,
+    "z": 919.14,
+    "elevationMeters": 1821.8,
+    "width": 84
+  },
+  {
+    "x": 775.2,
+    "y": -335.76,
+    "z": 918.01,
+    "elevationMeters": 1821.0,
+    "width": 84
+  },
+  {
+    "x": 792.62,
+    "y": -362.42,
+    "z": 916.92,
+    "elevationMeters": 1820.2,
+    "width": 84
+  },
+  {
+    "x": 812.25,
+    "y": -387.69,
+    "z": 915.87,
+    "elevationMeters": 1819.4,
+    "width": 84
+  },
+  {
+    "x": 836.05,
+    "y": -408.98,
+    "z": 914.85,
+    "elevationMeters": 1818.7,
+    "width": 84
+  },
+  {
+    "x": 862.48,
+    "y": -426.86,
+    "z": 913.86,
+    "elevationMeters": 1817.9,
+    "width": 84
+  },
+  {
+    "x": 891.48,
+    "y": -439.47,
+    "z": 912.91,
+    "elevationMeters": 1817.2,
+    "width": 84
+  },
+  {
+    "x": 922.64,
+    "y": -446.73,
+    "z": 912.0,
+    "elevationMeters": 1816.6,
+    "width": 84
+  },
+  {
+    "x": 953.81,
+    "y": -453.98,
+    "z": 911.13,
+    "elevationMeters": 1815.9,
+    "width": 84
+  },
+  {
+    "x": 984.83,
+    "y": -461.76,
+    "z": 910.3,
+    "elevationMeters": 1815.3,
+    "width": 84
+  },
+  {
+    "x": 1015.2,
+    "y": -471.84,
+    "z": 909.5,
+    "elevationMeters": 1814.7,
+    "width": 84
+  },
+  {
+    "x": 1045.57,
+    "y": -481.91,
+    "z": 908.75,
+    "elevationMeters": 1814.2,
+    "width": 84
+  },
+  {
+    "x": 1076.53,
+    "y": -489.94,
+    "z": 908.05,
+    "elevationMeters": 1813.6,
+    "width": 84
+  },
+  {
+    "x": 1107.48,
+    "y": -498.02,
+    "z": 907.38,
+    "elevationMeters": 1813.1,
+    "width": 84
+  },
+  {
+    "x": 1137.86,
+    "y": -508.06,
+    "z": 906.76,
+    "elevationMeters": 1812.7,
+    "width": 84
+  },
+  {
+    "x": 1168.09,
+    "y": -518.54,
+    "z": 906.19,
+    "elevationMeters": 1812.3,
+    "width": 84
+  },
+  {
+    "x": 1197.74,
+    "y": -530.54,
+    "z": 905.66,
+    "elevationMeters": 1811.9,
+    "width": 84
+  },
+  {
+    "x": 1226.96,
+    "y": -543.58,
+    "z": 905.18,
+    "elevationMeters": 1811.5,
+    "width": 84
+  },
+  {
+    "x": 1256.18,
+    "y": -556.63,
+    "z": 904.75,
+    "elevationMeters": 1811.2,
+    "width": 84
+  },
+  {
+    "x": 1285.39,
+    "y": -569.68,
+    "z": 904.37,
+    "elevationMeters": 1810.9,
+    "width": 84,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Volcana",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": 1314.61,
+    "y": -582.72,
+    "z": 904.04,
+    "elevationMeters": 1810.7,
+    "width": 84,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Volcana",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": 1343.83,
+    "y": -595.77,
+    "z": 903.75,
+    "elevationMeters": 1810.4,
+    "width": 84,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Volcana",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": 1371.82,
+    "y": -611.14,
+    "z": 903.53,
+    "elevationMeters": 1810.3,
+    "width": 84,
+    "name": "Puente Quebrada La Volcana",
+    "isCheckpoint": true,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Volcana",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": 1398.33,
+    "y": -628.97,
+    "z": 903.35,
+    "elevationMeters": 1810.1,
+    "width": 84,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Volcana",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": 1422.76,
+    "y": -649.56,
+    "z": 903.23,
+    "elevationMeters": 1810.1,
+    "width": 84,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Volcana",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": 1444.29,
+    "y": -673.24,
+    "z": 903.16,
+    "elevationMeters": 1810.0,
+    "width": 84,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Volcana",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": 1459.12,
+    "y": -701.25,
+    "z": 903.15,
+    "elevationMeters": 1810.0,
+    "width": 84
+  },
+  {
+    "x": 1462.41,
+    "y": -732.8,
+    "z": 903.07,
+    "elevationMeters": 1809.9,
+    "width": 84
+  },
+  {
+    "x": 1458.09,
+    "y": -764.36,
+    "z": 902.91,
+    "elevationMeters": 1809.8,
+    "width": 84
+  },
+  {
+    "x": 1446.51,
+    "y": -794.02,
+    "z": 902.66,
+    "elevationMeters": 1809.6,
+    "width": 84
+  },
+  {
+    "x": 1428.76,
+    "y": -820.59,
+    "z": 902.32,
+    "elevationMeters": 1809.4,
+    "width": 84
+  },
+  {
+    "x": 1408.73,
+    "y": -845.55,
+    "z": 901.9,
+    "elevationMeters": 1809.1,
+    "width": 84
+  },
+  {
+    "x": 1384.24,
+    "y": -865.93,
+    "z": 901.39,
+    "elevationMeters": 1808.7,
+    "width": 84
+  },
+  {
+    "x": 1356.98,
+    "y": -882.5,
+    "z": 900.81,
+    "elevationMeters": 1808.3,
+    "width": 84
+  },
+  {
+    "x": 1328.66,
+    "y": -897.38,
+    "z": 900.15,
+    "elevationMeters": 1807.8,
+    "width": 84
+  },
+  {
+    "x": 1300.08,
+    "y": -911.78,
+    "z": 899.41,
+    "elevationMeters": 1807.2,
+    "width": 84
+  },
+  {
+    "x": 1271.15,
+    "y": -925.46,
+    "z": 898.59,
+    "elevationMeters": 1806.6,
+    "width": 84
+  },
+  {
+    "x": 1242.23,
+    "y": -939.14,
+    "z": 897.71,
+    "elevationMeters": 1806.0,
+    "width": 84
+  },
+  {
+    "x": 1213.3,
+    "y": -952.82,
+    "z": 896.75,
+    "elevationMeters": 1805.3,
+    "width": 84
+  },
+  {
+    "x": 1184.13,
+    "y": -965.94,
+    "z": 895.72,
+    "elevationMeters": 1804.5,
+    "width": 84
+  },
+  {
+    "x": 1154.3,
+    "y": -977.52,
+    "z": 894.62,
+    "elevationMeters": 1803.7,
+    "width": 84
+  },
+  {
+    "x": 1124.46,
+    "y": -989.09,
+    "z": 893.46,
+    "elevationMeters": 1802.8,
+    "width": 84
+  },
+  {
+    "x": 1094.63,
+    "y": -1000.67,
+    "z": 892.23,
+    "elevationMeters": 1801.9,
+    "width": 84
+  },
+  {
+    "x": 1064.8,
+    "y": -1012.25,
+    "z": 890.94,
+    "elevationMeters": 1801.0,
+    "width": 84
+  },
+  {
+    "x": 1034.97,
+    "y": -1023.83,
+    "z": 889.59,
+    "elevationMeters": 1800.0,
+    "width": 84
+  },
+  {
+    "x": 1005.14,
+    "y": -1035.41,
+    "z": 888.18,
+    "elevationMeters": 1798.9,
+    "width": 84
+  },
+  {
+    "x": 975.32,
+    "y": -1047.02,
+    "z": 886.71,
+    "elevationMeters": 1797.8,
+    "width": 84
+  },
+  {
+    "x": 945.5,
+    "y": -1058.63,
+    "z": 885.19,
+    "elevationMeters": 1796.7,
+    "width": 84,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Nuez",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": 915.67,
+    "y": -1070.23,
+    "z": 883.61,
+    "elevationMeters": 1795.5,
+    "width": 84,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Nuez",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": 885.85,
+    "y": -1081.82,
+    "z": 881.99,
+    "elevationMeters": 1794.3,
+    "width": 84,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Nuez",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": 856.02,
+    "y": -1093.41,
+    "z": 880.31,
+    "elevationMeters": 1793.1,
+    "width": 84,
+    "name": "Puente Quebrada La Nuez",
+    "isCheckpoint": true,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Nuez",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": 826.19,
+    "y": -1105.0,
+    "z": 878.58,
+    "elevationMeters": 1791.8,
+    "width": 84,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Nuez",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": 796.36,
+    "y": -1116.59,
+    "z": 876.81,
+    "elevationMeters": 1790.5,
+    "width": 84,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Nuez",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": 766.54,
+    "y": -1128.18,
+    "z": 874.99,
+    "elevationMeters": 1789.1,
+    "width": 84,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Nuez",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": 736.71,
+    "y": -1139.77,
+    "z": 873.13,
+    "elevationMeters": 1787.8,
+    "width": 84
+  },
+  {
+    "x": 706.89,
+    "y": -1151.38,
+    "z": 871.23,
+    "elevationMeters": 1786.4,
+    "width": 84
+  },
+  {
+    "x": 677.07,
+    "y": -1162.98,
+    "z": 869.28,
+    "elevationMeters": 1784.9,
+    "width": 84
+  },
+  {
+    "x": 647.24,
+    "y": -1174.58,
+    "z": 867.3,
+    "elevationMeters": 1783.4,
+    "width": 84
+  },
+  {
+    "x": 617.42,
+    "y": -1186.18,
+    "z": 865.29,
+    "elevationMeters": 1782.0,
+    "width": 84
+  },
+  {
+    "x": 587.15,
+    "y": -1196.55,
+    "z": 863.24,
+    "elevationMeters": 1780.4,
+    "width": 84
+  },
+  {
+    "x": 556.47,
+    "y": -1205.37,
+    "z": 861.16,
+    "elevationMeters": 1778.9,
+    "width": 84
+  },
+  {
+    "x": 524.89,
+    "y": -1210.4,
+    "z": 859.04,
+    "elevationMeters": 1777.3,
+    "width": 84
+  },
+  {
+    "x": 492.94,
+    "y": -1212.14,
+    "z": 856.9,
+    "elevationMeters": 1775.7,
+    "width": 84
+  },
+  {
+    "x": 460.94,
+    "y": -1212.22,
+    "z": 854.73,
+    "elevationMeters": 1774.1,
+    "width": 84
+  },
+  {
+    "x": 428.94,
+    "y": -1212.38,
+    "z": 852.54,
+    "elevationMeters": 1772.5,
+    "width": 84
+  },
+  {
+    "x": 396.94,
+    "y": -1212.69,
+    "z": 850.32,
+    "elevationMeters": 1770.9,
+    "width": 84
+  },
+  {
+    "x": 364.94,
+    "y": -1213.09,
+    "z": 848.09,
+    "elevationMeters": 1769.2,
+    "width": 84
+  },
+  {
+    "x": 332.95,
+    "y": -1213.55,
+    "z": 845.83,
+    "elevationMeters": 1767.5,
+    "width": 84
+  },
+  {
+    "x": 300.95,
+    "y": -1214.01,
+    "z": 843.55,
+    "elevationMeters": 1765.9,
+    "width": 84
+  },
+  {
+    "x": 268.95,
+    "y": -1214.48,
+    "z": 841.26,
+    "elevationMeters": 1764.2,
+    "width": 84
+  },
+  {
+    "x": 236.96,
+    "y": -1214.94,
+    "z": 838.95,
+    "elevationMeters": 1762.4,
+    "width": 84
+  },
+  {
+    "x": 204.96,
+    "y": -1215.4,
+    "z": 836.63,
+    "elevationMeters": 1760.7,
+    "width": 84
+  },
+  {
+    "x": 172.96,
+    "y": -1215.86,
+    "z": 834.3,
+    "elevationMeters": 1759.0,
+    "width": 84
+  },
+  {
+    "x": 140.97,
+    "y": -1216.32,
+    "z": 831.96,
+    "elevationMeters": 1757.3,
+    "width": 84
+  },
+  {
+    "x": 108.97,
+    "y": -1216.78,
+    "z": 829.61,
+    "elevationMeters": 1755.5,
+    "width": 84,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Cáusala",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": 77.17,
+    "y": -1220.19,
+    "z": 827.26,
+    "elevationMeters": 1753.8,
+    "width": 84,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Cáusala",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": 45.59,
+    "y": -1225.12,
+    "z": 824.9,
+    "elevationMeters": 1752.0,
+    "width": 84,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Cáusala",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": 14.34,
+    "y": -1231.99,
+    "z": 822.54,
+    "elevationMeters": 1750.3,
+    "width": 84,
+    "name": "Puente Quebrada La Cáusala",
+    "isCheckpoint": true,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Cáusala",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -15.91,
+    "y": -1242.3,
+    "z": 820.18,
+    "elevationMeters": 1748.5,
+    "width": 84,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Cáusala",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -45.94,
+    "y": -1253.36,
+    "z": 817.82,
+    "elevationMeters": 1746.8,
+    "width": 84,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Cáusala",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -75.22,
+    "y": -1266.08,
+    "z": 815.47,
+    "elevationMeters": 1745.0,
+    "width": 84,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Cáusala",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -103.34,
+    "y": -1281.35,
+    "z": 813.12,
+    "elevationMeters": 1743.3,
+    "width": 84
+  },
+  {
+    "x": -131.46,
+    "y": -1296.62,
+    "z": 810.77,
+    "elevationMeters": 1741.6,
+    "width": 84
+  },
+  {
+    "x": -159.58,
+    "y": -1311.89,
+    "z": 808.44,
+    "elevationMeters": 1739.8,
+    "width": 84
+  },
+  {
+    "x": -187.7,
+    "y": -1327.16,
+    "z": 806.11,
+    "elevationMeters": 1738.1,
+    "width": 84
+  },
+  {
+    "x": -215.83,
+    "y": -1342.43,
+    "z": 803.8,
+    "elevationMeters": 1736.4,
+    "width": 84
+  },
+  {
+    "x": -244.01,
+    "y": -1357.57,
+    "z": 801.5,
+    "elevationMeters": 1734.7,
+    "width": 84
+  },
+  {
+    "x": -272.56,
+    "y": -1372.03,
+    "z": 799.22,
+    "elevationMeters": 1733.0,
+    "width": 84
+  },
+  {
+    "x": -301.1,
+    "y": -1386.5,
+    "z": 796.96,
+    "elevationMeters": 1731.3,
+    "width": 84
+  },
+  {
+    "x": -329.67,
+    "y": -1400.92,
+    "z": 794.71,
+    "elevationMeters": 1729.7,
+    "width": 84
+  },
+  {
+    "x": -358.3,
+    "y": -1415.22,
+    "z": 792.49,
+    "elevationMeters": 1728.0,
+    "width": 84
+  },
+  {
+    "x": -386.93,
+    "y": -1429.51,
+    "z": 790.29,
+    "elevationMeters": 1726.4,
+    "width": 84
+  },
+  {
+    "x": -416.25,
+    "y": -1442.17,
+    "z": 788.11,
+    "elevationMeters": 1724.8,
+    "width": 84
+  },
+  {
+    "x": -446.51,
+    "y": -1452.56,
+    "z": 785.96,
+    "elevationMeters": 1723.2,
+    "width": 84
+  },
+  {
+    "x": -477.55,
+    "y": -1460.16,
+    "z": 783.84,
+    "elevationMeters": 1721.6,
+    "width": 84
+  },
+  {
+    "x": -508.95,
+    "y": -1466.32,
+    "z": 781.74,
+    "elevationMeters": 1720.1,
+    "width": 84
+  },
+  {
+    "x": -540.42,
+    "y": -1472.1,
+    "z": 779.68,
+    "elevationMeters": 1718.5,
+    "width": 84
+  },
+  {
+    "x": -571.98,
+    "y": -1477.37,
+    "z": 777.66,
+    "elevationMeters": 1717.0,
+    "width": 84
+  },
+  {
+    "x": -603.63,
+    "y": -1482.1,
+    "z": 775.67,
+    "elevationMeters": 1715.6,
+    "width": 84
+  },
+  {
+    "x": -635.11,
+    "y": -1487.83,
+    "z": 773.71,
+    "elevationMeters": 1714.1,
+    "width": 84
+  },
+  {
+    "x": -666.33,
+    "y": -1494.74,
+    "z": 771.8,
+    "elevationMeters": 1712.7,
+    "width": 84
+  },
+  {
+    "x": -697.07,
+    "y": -1503.63,
+    "z": 769.92,
+    "elevationMeters": 1711.3,
+    "width": 84
+  },
+  {
+    "x": -726.45,
+    "y": -1515.89,
+    "z": 768.09,
+    "elevationMeters": 1710.0,
+    "width": 84
+  },
+  {
+    "x": -754.82,
+    "y": -1530.7,
+    "z": 766.3,
+    "elevationMeters": 1708.6,
+    "width": 84
+  },
+  {
+    "x": -782.57,
+    "y": -1546.54,
+    "z": 764.56,
+    "elevationMeters": 1707.3,
+    "width": 84
+  },
+  {
+    "x": -808.93,
+    "y": -1564.68,
+    "z": 762.86,
+    "elevationMeters": 1706.1,
+    "width": 84
+  },
+  {
+    "x": -832.81,
+    "y": -1585.9,
+    "z": 761.22,
+    "elevationMeters": 1704.9,
+    "width": 84
+  },
+  {
+    "x": -855.15,
+    "y": -1608.71,
+    "z": 759.62,
+    "elevationMeters": 1703.7,
+    "width": 84
+  },
+  {
+    "x": -874.97,
+    "y": -1633.84,
+    "z": 758.08,
+    "elevationMeters": 1702.5,
+    "width": 84
+  },
+  {
+    "x": -894.78,
+    "y": -1658.96,
+    "z": 756.6,
+    "elevationMeters": 1701.4,
+    "width": 84
+  },
+  {
+    "x": -911.42,
+    "y": -1686.26,
+    "z": 755.17,
+    "elevationMeters": 1700.4,
+    "width": 84
+  },
+  {
+    "x": -927.57,
+    "y": -1713.88,
+    "z": 753.8,
+    "elevationMeters": 1699.4,
+    "width": 84
+  },
+  {
+    "x": -942.68,
+    "y": -1742.01,
+    "z": 752.49,
+    "elevationMeters": 1698.4,
+    "width": 84
+  },
+  {
+    "x": -954.28,
+    "y": -1771.83,
+    "z": 751.24,
+    "elevationMeters": 1697.5,
+    "width": 84
+  },
+  {
+    "x": -965.14,
+    "y": -1801.91,
+    "z": 750.05,
+    "elevationMeters": 1696.6,
+    "width": 84
+  },
+  {
+    "x": -974.31,
+    "y": -1832.57,
+    "z": 748.94,
+    "elevationMeters": 1695.8,
+    "width": 84
+  },
+  {
+    "x": -983.48,
+    "y": -1863.23,
+    "z": 747.88,
+    "elevationMeters": 1695.0,
+    "width": 84
+  },
+  {
+    "x": -992.66,
+    "y": -1893.88,
+    "z": 746.9,
+    "elevationMeters": 1694.3,
+    "width": 84
+  },
+  {
+    "x": -1001.83,
+    "y": -1924.54,
+    "z": 745.99,
+    "elevationMeters": 1693.6,
+    "width": 84
+  },
+  {
+    "x": -1012.0,
+    "y": -1954.88,
+    "z": 745.15,
+    "elevationMeters": 1693.0,
+    "width": 84
+  },
+  {
+    "x": -1022.42,
+    "y": -1985.13,
+    "z": 744.39,
+    "elevationMeters": 1692.4,
+    "width": 84
+  },
+  {
+    "x": -1036.33,
+    "y": -2013.81,
+    "z": 743.7,
+    "elevationMeters": 1691.9,
+    "width": 84
+  },
+  {
+    "x": -1052.2,
+    "y": -2041.6,
+    "z": 743.09,
+    "elevationMeters": 1691.4,
+    "width": 84
+  },
+  {
+    "x": -1070.71,
+    "y": -2067.62,
+    "z": 742.56,
+    "elevationMeters": 1691.0,
+    "width": 84
+  },
+  {
+    "x": -1090.31,
+    "y": -2092.92,
+    "z": 742.11,
+    "elevationMeters": 1690.7,
+    "width": 84
+  },
+  {
+    "x": -1112.53,
+    "y": -2115.85,
+    "z": 741.75,
+    "elevationMeters": 1690.4,
+    "width": 84
+  },
+  {
+    "x": -1135.67,
+    "y": -2137.96,
+    "z": 741.47,
+    "elevationMeters": 1690.2,
+    "width": 84
+  },
+  {
+    "x": -1158.8,
+    "y": -2160.06,
+    "z": 741.27,
+    "elevationMeters": 1690.1,
+    "width": 84
+  },
+  {
+    "x": -1183.54,
+    "y": -2180.33,
+    "z": 741.17,
+    "elevationMeters": 1690.0,
+    "width": 84
+  },
+  {
+    "x": -1208.56,
+    "y": -2200.28,
+    "z": 741.15,
+    "elevationMeters": 1690.0,
+    "width": 84
+  },
+  {
+    "x": -1233.58,
+    "y": -2220.23,
+    "z": 741.09,
+    "elevationMeters": 1690.0,
+    "width": 84
+  },
+  {
+    "x": -1258.81,
+    "y": -2239.92,
+    "z": 740.97,
+    "elevationMeters": 1689.9,
+    "width": 84,
+    "name": "Paso Quebrada La Fonda",
+    "isCheckpoint": true
+  },
+  {
+    "x": -1284.15,
+    "y": -2259.46,
+    "z": 740.8,
+    "elevationMeters": 1689.7,
+    "width": 84
+  },
+  {
+    "x": -1309.27,
+    "y": -2279.28,
+    "z": 740.56,
+    "elevationMeters": 1689.6,
+    "width": 84
+  },
+  {
+    "x": -1334.12,
+    "y": -2299.44,
+    "z": 740.26,
+    "elevationMeters": 1689.3,
+    "width": 84
+  },
+  {
+    "x": -1360.32,
+    "y": -2317.76,
+    "z": 739.9,
+    "elevationMeters": 1689.1,
+    "width": 84
+  },
+  {
+    "x": -1387.06,
+    "y": -2335.34,
+    "z": 739.48,
+    "elevationMeters": 1688.8,
+    "width": 84
+  },
+  {
+    "x": -1414.2,
+    "y": -2352.28,
+    "z": 739.01,
+    "elevationMeters": 1688.4,
+    "width": 84
+  },
+  {
+    "x": -1441.77,
+    "y": -2368.52,
+    "z": 738.48,
+    "elevationMeters": 1688.0,
+    "width": 84
+  },
+  {
+    "x": -1469.33,
+    "y": -2384.77,
+    "z": 737.89,
+    "elevationMeters": 1687.6,
+    "width": 84
+  },
+  {
+    "x": -1496.9,
+    "y": -2401.01,
+    "z": 737.25,
+    "elevationMeters": 1687.1,
+    "width": 84
+  },
+  {
+    "x": -1524.47,
+    "y": -2417.26,
+    "z": 736.56,
+    "elevationMeters": 1686.6,
+    "width": 84
+  },
+  {
+    "x": -1552.04,
+    "y": -2433.5,
+    "z": 735.82,
+    "elevationMeters": 1686.1,
+    "width": 84
+  },
+  {
+    "x": -1579.61,
+    "y": -2449.75,
+    "z": 735.03,
+    "elevationMeters": 1685.5,
+    "width": 84
+  },
+  {
+    "x": -1607.18,
+    "y": -2466.0,
+    "z": 734.18,
+    "elevationMeters": 1684.8,
+    "width": 84
+  },
+  {
+    "x": -1634.75,
+    "y": -2482.24,
+    "z": 733.29,
+    "elevationMeters": 1684.2,
+    "width": 84
+  },
+  {
+    "x": -1662.32,
+    "y": -2498.49,
+    "z": 732.35,
+    "elevationMeters": 1683.5,
+    "width": 84
+  },
+  {
+    "x": -1689.89,
+    "y": -2514.73,
+    "z": 731.36,
+    "elevationMeters": 1682.7,
+    "width": 84
+  },
+  {
+    "x": -1717.46,
+    "y": -2530.98,
+    "z": 730.33,
+    "elevationMeters": 1682.0,
+    "width": 84
+  },
+  {
+    "x": -1745.03,
+    "y": -2547.23,
+    "z": 729.25,
+    "elevationMeters": 1681.2,
+    "width": 84
+  },
+  {
+    "x": -1772.6,
+    "y": -2563.47,
+    "z": 728.13,
+    "elevationMeters": 1680.4,
+    "width": 84
+  },
+  {
+    "x": -1800.25,
+    "y": -2579.58,
+    "z": 726.96,
+    "elevationMeters": 1679.5,
+    "width": 84
+  },
+  {
+    "x": -1828.3,
+    "y": -2594.97,
+    "z": 725.75,
+    "elevationMeters": 1678.6,
+    "width": 84
+  },
+  {
+    "x": -1856.36,
+    "y": -2610.36,
+    "z": 724.51,
+    "elevationMeters": 1677.7,
+    "width": 84
+  },
+  {
+    "x": -1884.72,
+    "y": -2625.14,
+    "z": 723.22,
+    "elevationMeters": 1676.7,
+    "width": 84
+  },
+  {
+    "x": -1913.93,
+    "y": -2638.21,
+    "z": 721.89,
+    "elevationMeters": 1675.7,
+    "width": 84
+  },
+  {
+    "x": -1943.16,
+    "y": -2651.22,
+    "z": 720.53,
+    "elevationMeters": 1674.7,
+    "width": 84
+  },
+  {
+    "x": -1972.81,
+    "y": -2663.26,
+    "z": 719.13,
+    "elevationMeters": 1673.7,
+    "width": 84
+  },
+  {
+    "x": -2002.44,
+    "y": -2675.34,
+    "z": 717.69,
+    "elevationMeters": 1672.6,
+    "width": 84
+  },
+  {
+    "x": -2032.08,
+    "y": -2687.41,
+    "z": 716.22,
+    "elevationMeters": 1671.5,
+    "width": 84
+  },
+  {
+    "x": -2061.71,
+    "y": -2699.49,
+    "z": 714.72,
+    "elevationMeters": 1670.4,
+    "width": 84
+  },
+  {
+    "x": -2091.34,
+    "y": -2711.57,
+    "z": 713.18,
+    "elevationMeters": 1669.3,
+    "width": 84
+  },
+  {
+    "x": -2120.98,
+    "y": -2723.65,
+    "z": 711.61,
+    "elevationMeters": 1668.1,
+    "width": 84
+  },
+  {
+    "x": -2150.61,
+    "y": -2735.73,
+    "z": 710.01,
+    "elevationMeters": 1666.9,
+    "width": 84
+  },
+  {
+    "x": -2180.24,
+    "y": -2747.8,
+    "z": 708.38,
+    "elevationMeters": 1665.7,
+    "width": 84
+  },
+  {
+    "x": -2209.17,
+    "y": -2761.37,
+    "z": 706.72,
+    "elevationMeters": 1664.5,
+    "width": 84
+  },
+  {
+    "x": -2237.32,
+    "y": -2776.59,
+    "z": 705.03,
+    "elevationMeters": 1663.2,
+    "width": 84
+  },
+  {
+    "x": -2265.43,
+    "y": -2791.88,
+    "z": 703.32,
+    "elevationMeters": 1662.0,
+    "width": 84
+  },
+  {
+    "x": -2292.18,
+    "y": -2809.43,
+    "z": 701.58,
+    "elevationMeters": 1660.7,
+    "width": 84
+  },
+  {
+    "x": -2315.54,
+    "y": -2830.65,
+    "z": 699.81,
+    "elevationMeters": 1659.4,
+    "width": 84
+  },
+  {
+    "x": -2333.92,
+    "y": -2856.75,
+    "z": 698.02,
+    "elevationMeters": 1658.1,
+    "width": 84
+  },
+  {
+    "x": -2349.4,
+    "y": -2884.76,
+    "z": 696.21,
+    "elevationMeters": 1656.7,
+    "width": 84
+  },
+  {
+    "x": -2362.88,
+    "y": -2913.78,
+    "z": 694.38,
+    "elevationMeters": 1655.4,
+    "width": 84
+  },
+  {
+    "x": -2368.73,
+    "y": -2945.08,
+    "z": 692.53,
+    "elevationMeters": 1654.0,
+    "width": 84
+  },
+  {
+    "x": -2372.96,
+    "y": -2976.78,
+    "z": 690.66,
+    "elevationMeters": 1652.6,
+    "width": 84
+  },
+  {
+    "x": -2373.27,
+    "y": -3008.78,
+    "z": 688.76,
+    "elevationMeters": 1651.2,
+    "width": 84
+  },
+  {
+    "x": -2373.88,
+    "y": -3040.78,
+    "z": 686.85,
+    "elevationMeters": 1649.8,
+    "width": 84
+  },
+  {
+    "x": -2374.6,
+    "y": -3072.77,
+    "z": 684.93,
+    "elevationMeters": 1648.4,
+    "width": 84
+  },
+  {
+    "x": -2374.35,
+    "y": -3104.76,
+    "z": 682.99,
+    "elevationMeters": 1646.9,
+    "width": 84
+  },
+  {
+    "x": -2373.88,
+    "y": -3136.76,
+    "z": 681.03,
+    "elevationMeters": 1645.5,
+    "width": 84
+  },
+  {
+    "x": -2373.4,
+    "y": -3168.76,
+    "z": 679.06,
+    "elevationMeters": 1644.0,
+    "width": 84
+  },
+  {
+    "x": -2373.07,
+    "y": -3200.76,
+    "z": 677.08,
+    "elevationMeters": 1642.5,
+    "width": 84
+  },
+  {
+    "x": -2372.9,
+    "y": -3232.75,
+    "z": 675.08,
+    "elevationMeters": 1641.1,
+    "width": 84
+  },
+  {
+    "x": -2373.05,
+    "y": -3264.74,
+    "z": 673.08,
+    "elevationMeters": 1639.6,
+    "width": 84
+  },
+  {
+    "x": -2376.58,
+    "y": -3296.54,
+    "z": 671.06,
+    "elevationMeters": 1638.1,
+    "width": 84
+  },
+  {
+    "x": -2380.12,
+    "y": -3328.35,
+    "z": 669.04,
+    "elevationMeters": 1636.6,
+    "width": 84
+  },
+  {
+    "x": -2384.48,
+    "y": -3360.04,
+    "z": 667.01,
+    "elevationMeters": 1635.1,
+    "width": 84
+  },
+  {
+    "x": -2388.71,
+    "y": -3391.76,
+    "z": 664.97,
+    "elevationMeters": 1633.6,
+    "width": 84
+  },
+  {
+    "x": -2392.23,
+    "y": -3423.52,
+    "z": 662.92,
+    "elevationMeters": 1632.1,
+    "width": 84
+  },
+  {
+    "x": -2399.17,
+    "y": -3454.76,
+    "z": 660.88,
+    "elevationMeters": 1630.5,
+    "width": 84
+  },
+  {
+    "x": -2406.95,
+    "y": -3485.8,
+    "z": 658.82,
+    "elevationMeters": 1629.0,
+    "width": 84
+  },
+  {
+    "x": -2415.11,
+    "y": -3516.74,
+    "z": 656.77,
+    "elevationMeters": 1627.5,
+    "width": 84
+  },
+  {
+    "x": -2423.35,
+    "y": -3547.66,
+    "z": 654.71,
+    "elevationMeters": 1626.0,
+    "width": 84
+  },
+  {
+    "x": -2433.09,
+    "y": -3578.14,
+    "z": 652.66,
+    "elevationMeters": 1624.4,
+    "width": 84
+  },
+  {
+    "x": -2439.76,
+    "y": -3609.31,
+    "z": 650.6,
+    "elevationMeters": 1622.9,
+    "width": 84
+  },
+  {
+    "x": -2438.59,
+    "y": -3641.1,
+    "z": 648.54,
+    "elevationMeters": 1621.4,
+    "width": 84
+  },
+  {
+    "x": -2432.44,
+    "y": -3672.5,
+    "z": 646.49,
+    "elevationMeters": 1619.9,
+    "width": 84
+  },
+  {
+    "x": -2420.3,
+    "y": -3701.91,
+    "z": 644.44,
+    "elevationMeters": 1618.4,
+    "width": 84
+  },
+  {
+    "x": -2406.39,
+    "y": -3730.73,
+    "z": 642.4,
+    "elevationMeters": 1616.8,
+    "width": 84
+  },
+  {
+    "x": -2390.28,
+    "y": -3758.36,
+    "z": 640.36,
+    "elevationMeters": 1615.3,
+    "width": 84
+  },
+  {
+    "x": -2374.5,
+    "y": -3786.17,
+    "z": 638.32,
+    "elevationMeters": 1613.8,
+    "width": 84
+  },
+  {
+    "x": -2359.97,
+    "y": -3814.68,
+    "z": 636.3,
+    "elevationMeters": 1612.3,
+    "width": 84
+  },
+  {
+    "x": -2345.43,
+    "y": -3843.19,
+    "z": 634.28,
+    "elevationMeters": 1610.8,
+    "width": 84
+  },
+  {
+    "x": -2330.88,
+    "y": -3871.69,
+    "z": 632.27,
+    "elevationMeters": 1609.4,
+    "width": 84
+  },
+  {
+    "x": -2316.07,
+    "y": -3900.05,
+    "z": 630.27,
+    "elevationMeters": 1607.9,
+    "width": 84
+  },
+  {
+    "x": -2301.25,
+    "y": -3928.42,
+    "z": 628.29,
+    "elevationMeters": 1606.4,
+    "width": 84
+  },
+  {
+    "x": -2286.43,
+    "y": -3956.78,
+    "z": 626.31,
+    "elevationMeters": 1604.9,
+    "width": 84
+  },
+  {
+    "x": -2271.61,
+    "y": -3985.14,
+    "z": 624.35,
+    "elevationMeters": 1603.5,
+    "width": 84
+  },
+  {
+    "x": -2256.79,
+    "y": -4013.5,
+    "z": 622.41,
+    "elevationMeters": 1602.0,
+    "width": 84
+  },
+  {
+    "x": -2241.97,
+    "y": -4041.87,
+    "z": 620.48,
+    "elevationMeters": 1600.6,
+    "width": 84
+  },
+  {
+    "x": -2227.16,
+    "y": -4070.23,
+    "z": 618.56,
+    "elevationMeters": 1599.2,
+    "width": 84
+  },
+  {
+    "x": -2212.34,
+    "y": -4098.59,
+    "z": 616.67,
+    "elevationMeters": 1597.8,
+    "width": 84
+  },
+  {
+    "x": -2198.94,
+    "y": -4127.62,
+    "z": 614.79,
+    "elevationMeters": 1596.4,
+    "width": 84
+  },
+  {
+    "x": -2186.73,
+    "y": -4157.19,
+    "z": 612.93,
+    "elevationMeters": 1595.0,
+    "width": 84,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Potrera",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -2174.51,
+    "y": -4186.77,
+    "z": 611.09,
+    "elevationMeters": 1593.7,
+    "width": 84,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Potrera",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -2162.19,
+    "y": -4216.3,
+    "z": 609.27,
+    "elevationMeters": 1592.3,
+    "width": 84,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Potrera",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -2149.59,
+    "y": -4245.72,
+    "z": 607.48,
+    "elevationMeters": 1591.0,
+    "width": 84,
+    "name": "Puente Quebrada La Potrera",
+    "isCheckpoint": true,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Potrera",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -2136.99,
+    "y": -4275.13,
+    "z": 605.71,
+    "elevationMeters": 1589.7,
+    "width": 84,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Potrera",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -2126.61,
+    "y": -4305.32,
+    "z": 603.96,
+    "elevationMeters": 1588.4,
+    "width": 84,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Potrera",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -2120.78,
+    "y": -4336.71,
+    "z": 602.24,
+    "elevationMeters": 1587.1,
+    "width": 84,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Potrera",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -2119.43,
+    "y": -4368.58,
+    "z": 600.55,
+    "elevationMeters": 1585.8,
+    "width": 84
+  },
+  {
+    "x": -2122.55,
+    "y": -4400.36,
+    "z": 598.88,
+    "elevationMeters": 1584.6,
+    "width": 84
+  },
+  {
+    "x": -2130.81,
+    "y": -4431.23,
+    "z": 597.24,
+    "elevationMeters": 1583.4,
+    "width": 84,
+    "name": "Sector Quebrada La Miserenga (a 1.7km al este)",
+    "isCheckpoint": true
+  },
+  {
+    "x": -2143.51,
+    "y": -4460.53,
+    "z": 595.63,
+    "elevationMeters": 1582.2,
+    "width": 84
+  },
+  {
+    "x": -2161.16,
+    "y": -4487.04,
+    "z": 594.05,
+    "elevationMeters": 1581.0,
+    "width": 84
+  },
+  {
+    "x": -2180.67,
+    "y": -4512.4,
+    "z": 592.51,
+    "elevationMeters": 1579.9,
+    "width": 84
+  },
+  {
+    "x": -2205.59,
+    "y": -4532.43,
+    "z": 590.99,
+    "elevationMeters": 1578.8,
+    "width": 84
+  },
+  {
+    "x": -2230.7,
+    "y": -4552.25,
+    "z": 589.51,
+    "elevationMeters": 1577.7,
+    "width": 84
+  },
+  {
+    "x": -2255.82,
+    "y": -4572.08,
+    "z": 588.07,
+    "elevationMeters": 1576.6,
+    "width": 84
+  },
+  {
+    "x": -2280.94,
+    "y": -4591.91,
+    "z": 586.65,
+    "elevationMeters": 1575.6,
+    "width": 84
+  },
+  {
+    "x": -2304.74,
+    "y": -4613.02,
+    "z": 585.28,
+    "elevationMeters": 1574.5,
+    "width": 84
+  },
+  {
+    "x": -2323.89,
+    "y": -4638.65,
+    "z": 583.94,
+    "elevationMeters": 1573.6,
+    "width": 84
+  },
+  {
+    "x": -2336.98,
+    "y": -4667.73,
+    "z": 582.65,
+    "elevationMeters": 1572.6,
+    "width": 84
+  },
+  {
+    "x": -2346.36,
+    "y": -4698.29,
+    "z": 581.39,
+    "elevationMeters": 1571.7,
+    "width": 84
+  },
+  {
+    "x": -2350.93,
+    "y": -4729.83,
+    "z": 580.17,
+    "elevationMeters": 1570.8,
+    "width": 84
+  },
+  {
+    "x": -2351.07,
+    "y": -4761.76,
+    "z": 578.99,
+    "elevationMeters": 1569.9,
+    "width": 84
+  },
+  {
+    "x": -2348.33,
+    "y": -4793.63,
+    "z": 577.86,
+    "elevationMeters": 1569.0,
+    "width": 84
+  },
+  {
+    "x": -2343.38,
+    "y": -4825.18,
+    "z": 576.77,
+    "elevationMeters": 1568.2,
+    "width": 84
+  },
+  {
+    "x": -2335.06,
+    "y": -4856.07,
+    "z": 575.72,
+    "elevationMeters": 1567.5,
+    "width": 84
+  },
+  {
+    "x": -2325.07,
+    "y": -4886.47,
+    "z": 574.72,
+    "elevationMeters": 1566.7,
+    "width": 84
+  },
+  {
+    "x": -2315.91,
+    "y": -4917.13,
+    "z": 573.77,
+    "elevationMeters": 1566.0,
+    "width": 84
+  },
+  {
+    "x": -2308.16,
+    "y": -4948.12,
+    "z": 572.86,
+    "elevationMeters": 1565.3,
+    "width": 84
+  },
+  {
+    "x": -2303.81,
+    "y": -4979.81,
+    "z": 572.0,
+    "elevationMeters": 1564.7,
+    "width": 84
+  },
+  {
+    "x": -2302.01,
+    "y": -5011.75,
+    "z": 571.2,
+    "elevationMeters": 1564.1,
+    "width": 84
+  },
+  {
+    "x": -2303.31,
+    "y": -5043.7,
+    "z": 570.44,
+    "elevationMeters": 1563.5,
+    "width": 84
+  },
+  {
+    "x": -2309.0,
+    "y": -5075.19,
+    "z": 569.73,
+    "elevationMeters": 1563.0,
+    "width": 84
+  },
+  {
+    "x": -2316.36,
+    "y": -5106.33,
+    "z": 569.08,
+    "elevationMeters": 1562.5,
+    "width": 84
+  },
+  {
+    "x": -2322.43,
+    "y": -5137.74,
+    "z": 568.48,
+    "elevationMeters": 1562.1,
+    "width": 84
+  },
+  {
+    "x": -2327.92,
+    "y": -5169.27,
+    "z": 567.93,
+    "elevationMeters": 1561.7,
+    "width": 84
+  },
+  {
+    "x": -2334.71,
+    "y": -5200.53,
+    "z": 567.45,
+    "elevationMeters": 1561.3,
+    "width": 84
+  },
+  {
+    "x": -2341.58,
+    "y": -5231.79,
+    "z": 567.01,
+    "elevationMeters": 1561.0,
+    "width": 84
+  },
+  {
+    "x": -2345.0,
+    "y": -5263.54,
+    "z": 566.64,
+    "elevationMeters": 1560.7,
+    "width": 84
+  },
+  {
+    "x": -2346.98,
+    "y": -5295.47,
+    "z": 566.32,
+    "elevationMeters": 1560.5,
+    "width": 84
+  },
+  {
+    "x": -2345.76,
+    "y": -5327.44,
+    "z": 566.06,
+    "elevationMeters": 1560.3,
+    "width": 84
+  },
+  {
+    "x": -2342.4,
+    "y": -5359.22,
+    "z": 565.87,
+    "elevationMeters": 1560.2,
+    "width": 84
+  },
+  {
+    "x": -2337.51,
+    "y": -5390.84,
+    "z": 565.73,
+    "elevationMeters": 1560.1,
+    "width": 84
+  },
+  {
+    "x": -2329.76,
+    "y": -5421.88,
+    "z": 565.66,
+    "elevationMeters": 1560.0,
+    "width": 84,
+    "name": "Cruce hacia Ebéjico (desvío de Vía Medellín–San Jerónimo, Ruta 62)",
+    "isCheckpoint": true
+  },
+  {
+    "x": -2335.55,
+    "y": -5452.93,
+    "z": 565.64,
+    "elevationMeters": 1560.0,
+    "width": 84
+  },
+  {
+    "x": -2342.97,
+    "y": -5483.99,
+    "z": 565.55,
+    "elevationMeters": 1559.9,
+    "width": 84
+  },
+  {
+    "x": -2337.14,
+    "y": -5515.46,
+    "z": 565.35,
+    "elevationMeters": 1559.8,
+    "width": 84
+  },
+  {
+    "x": -2334.05,
+    "y": -5547.31,
+    "z": 565.05,
+    "elevationMeters": 1559.6,
+    "width": 84
+  },
+  {
+    "x": -2331.01,
+    "y": -5579.16,
+    "z": 564.65,
+    "elevationMeters": 1559.3,
+    "width": 84
+  },
+  {
+    "x": -2328.17,
+    "y": -5611.03,
+    "z": 564.15,
+    "elevationMeters": 1558.9,
+    "width": 68
+  },
+  {
+    "x": -2325.33,
+    "y": -5642.91,
+    "z": 563.55,
+    "elevationMeters": 1558.4,
+    "width": 68
+  },
+  {
+    "x": -2322.48,
+    "y": -5674.78,
+    "z": 562.86,
+    "elevationMeters": 1557.9,
+    "width": 68
+  },
+  {
+    "x": -2332.75,
+    "y": -5704.63,
+    "z": 562.07,
+    "elevationMeters": 1557.4,
+    "width": 68
+  },
+  {
+    "x": -2360.5,
+    "y": -5719.21,
+    "z": 561.2,
+    "elevationMeters": 1556.7,
+    "width": 68
+  },
+  {
+    "x": -2389.88,
+    "y": -5710.28,
+    "z": 560.23,
+    "elevationMeters": 1556.0,
+    "width": 68
+  },
+  {
+    "x": -2414.22,
+    "y": -5690.74,
+    "z": 559.17,
+    "elevationMeters": 1555.2,
+    "width": 68
+  },
+  {
+    "x": -2417.94,
+    "y": -5659.18,
+    "z": 558.03,
+    "elevationMeters": 1554.4,
+    "width": 68
+  },
+  {
+    "x": -2416.04,
+    "y": -5627.24,
+    "z": 556.81,
+    "elevationMeters": 1553.5,
+    "width": 68
+  },
+  {
+    "x": -2417.21,
+    "y": -5595.47,
+    "z": 555.5,
+    "elevationMeters": 1552.5,
+    "width": 68
+  },
+  {
+    "x": -2433.67,
+    "y": -5570.25,
+    "z": 554.11,
+    "elevationMeters": 1551.5,
+    "width": 68
+  },
+  {
+    "x": -2460.59,
+    "y": -5552.96,
+    "z": 552.65,
+    "elevationMeters": 1550.4,
+    "width": 68
+  },
+  {
+    "x": -2487.06,
+    "y": -5534.98,
+    "z": 551.11,
+    "elevationMeters": 1549.2,
+    "width": 68
+  },
+  {
+    "x": -2506.76,
+    "y": -5511.21,
+    "z": 549.49,
+    "elevationMeters": 1548.0,
+    "width": 68
+  },
+  {
+    "x": -2499.85,
+    "y": -5480.63,
+    "z": 547.81,
+    "elevationMeters": 1546.8,
+    "width": 68
+  },
+  {
+    "x": -2483.17,
+    "y": -5453.32,
+    "z": 546.05,
+    "elevationMeters": 1545.5,
+    "width": 68
+  },
+  {
+    "x": -2466.92,
+    "y": -5425.77,
+    "z": 544.22,
+    "elevationMeters": 1544.1,
+    "width": 68
+  },
+  {
+    "x": -2455.37,
+    "y": -5396.16,
+    "z": 542.32,
+    "elevationMeters": 1542.7,
+    "width": 68
+  },
+  {
+    "x": -2456.83,
+    "y": -5364.51,
+    "z": 540.37,
+    "elevationMeters": 1541.3,
+    "width": 68
+  },
+  {
+    "x": -2467.09,
+    "y": -5334.33,
+    "z": 538.34,
+    "elevationMeters": 1539.8,
+    "width": 68
+  },
+  {
+    "x": -2482.53,
+    "y": -5306.69,
+    "z": 536.26,
+    "elevationMeters": 1538.2,
+    "width": 68
+  },
+  {
+    "x": -2505.5,
+    "y": -5284.63,
+    "z": 534.12,
+    "elevationMeters": 1536.6,
+    "width": 68
+  },
+  {
+    "x": -2533.16,
+    "y": -5269.58,
+    "z": 531.92,
+    "elevationMeters": 1535.0,
+    "width": 68
+  },
+  {
+    "x": -2563.68,
+    "y": -5259.98,
+    "z": 529.66,
+    "elevationMeters": 1533.3,
+    "width": 68
+  },
+  {
+    "x": -2589.81,
+    "y": -5243.16,
+    "z": 527.35,
+    "elevationMeters": 1531.6,
+    "width": 68
+  },
+  {
+    "x": -2606.46,
+    "y": -5215.92,
+    "z": 524.99,
+    "elevationMeters": 1529.9,
+    "width": 68
+  },
+  {
+    "x": -2621.17,
+    "y": -5187.5,
+    "z": 522.58,
+    "elevationMeters": 1528.1,
+    "width": 68
+  },
+  {
+    "x": -2633.06,
+    "y": -5157.8,
+    "z": 520.12,
+    "elevationMeters": 1526.3,
+    "width": 68
+  },
+  {
+    "x": -2644.61,
+    "y": -5127.95,
+    "z": 517.62,
+    "elevationMeters": 1524.4,
+    "width": 68
+  },
+  {
+    "x": -2645.52,
+    "y": -5096.26,
+    "z": 515.07,
+    "elevationMeters": 1522.5,
+    "width": 68
+  },
+  {
+    "x": -2624.13,
+    "y": -5072.82,
+    "z": 512.48,
+    "elevationMeters": 1520.6,
+    "width": 68
+  },
+  {
+    "x": -2601.21,
+    "y": -5050.5,
+    "z": 509.85,
+    "elevationMeters": 1518.7,
+    "width": 68
+  },
+  {
+    "x": -2584.47,
+    "y": -5024.23,
+    "z": 507.18,
+    "elevationMeters": 1516.7,
+    "width": 68
+  },
+  {
+    "x": -2593.67,
+    "y": -4994.95,
+    "z": 504.48,
+    "elevationMeters": 1514.7,
+    "width": 68
+  },
+  {
+    "x": -2621.84,
+    "y": -4983.27,
+    "z": 501.74,
+    "elevationMeters": 1512.7,
+    "width": 68
+  },
+  {
+    "x": -2653.42,
+    "y": -4979.17,
+    "z": 498.96,
+    "elevationMeters": 1510.6,
+    "width": 68
+  },
+  {
+    "x": -2682.1,
+    "y": -4965.65,
+    "z": 496.16,
+    "elevationMeters": 1508.5,
+    "width": 68
+  },
+  {
+    "x": -2706.49,
+    "y": -4944.94,
+    "z": 493.33,
+    "elevationMeters": 1506.4,
+    "width": 68
+  },
+  {
+    "x": -2735.39,
+    "y": -4932.6,
+    "z": 490.47,
+    "elevationMeters": 1504.3,
+    "width": 68
+  },
+  {
+    "x": -2763.94,
+    "y": -4945.56,
+    "z": 487.58,
+    "elevationMeters": 1502.2,
+    "width": 68
+  },
+  {
+    "x": -2784.91,
+    "y": -4969.73,
+    "z": 484.67,
+    "elevationMeters": 1500.0,
+    "width": 68
+  },
+  {
+    "x": -2810.42,
+    "y": -4987.48,
+    "z": 481.74,
+    "elevationMeters": 1497.8,
+    "width": 68
+  },
+  {
+    "x": -2841.31,
+    "y": -4983.49,
+    "z": 478.79,
+    "elevationMeters": 1495.7,
+    "width": 68
+  },
+  {
+    "x": -2871.44,
+    "y": -4972.72,
+    "z": 475.83,
+    "elevationMeters": 1493.5,
+    "width": 68
+  },
+  {
+    "x": -2903.14,
+    "y": -4969.9,
+    "z": 472.85,
+    "elevationMeters": 1491.3,
+    "width": 68
+  },
+  {
+    "x": -2934.38,
+    "y": -4976.81,
+    "z": 469.85,
+    "elevationMeters": 1489.0,
+    "width": 68
+  },
+  {
+    "x": -2962.06,
+    "y": -4991.55,
+    "z": 466.84,
+    "elevationMeters": 1486.8,
+    "width": 68
+  },
+  {
+    "x": -2981.3,
+    "y": -5016.99,
+    "z": 463.82,
+    "elevationMeters": 1484.6,
+    "width": 68
+  },
+  {
+    "x": -2998.66,
+    "y": -5043.85,
+    "z": 460.8,
+    "elevationMeters": 1482.3,
+    "width": 68
+  },
+  {
+    "x": -3024.85,
+    "y": -5060.01,
+    "z": 457.77,
+    "elevationMeters": 1480.1,
+    "width": 68
+  },
+  {
+    "x": -3056.05,
+    "y": -5067.1,
+    "z": 454.73,
+    "elevationMeters": 1477.8,
+    "width": 68
+  },
+  {
+    "x": -3087.26,
+    "y": -5074.19,
+    "z": 451.69,
+    "elevationMeters": 1475.6,
+    "width": 68
+  },
+  {
+    "x": -3117.55,
+    "y": -5084.08,
+    "z": 448.65,
+    "elevationMeters": 1473.3,
+    "width": 68
+  },
+  {
+    "x": -3144.59,
+    "y": -5101.1,
+    "z": 445.61,
+    "elevationMeters": 1471.1,
+    "width": 68
+  },
+  {
+    "x": -3169.24,
+    "y": -5121.1,
+    "z": 442.58,
+    "elevationMeters": 1468.8,
+    "width": 68
+  },
+  {
+    "x": -3184.35,
+    "y": -5149.1,
+    "z": 439.55,
+    "elevationMeters": 1466.6,
+    "width": 68
+  },
+  {
+    "x": -3190.53,
+    "y": -5180.21,
+    "z": 436.53,
+    "elevationMeters": 1464.4,
+    "width": 68
+  },
+  {
+    "x": -3189.49,
+    "y": -5212.14,
+    "z": 433.52,
+    "elevationMeters": 1462.1,
+    "width": 68
+  },
+  {
+    "x": -3196.53,
+    "y": -5242.79,
+    "z": 430.51,
+    "elevationMeters": 1459.9,
+    "width": 68
+  },
+  {
+    "x": -3211.53,
+    "y": -5271.04,
+    "z": 427.52,
+    "elevationMeters": 1457.7,
+    "width": 68
+  },
+  {
+    "x": -3227.82,
+    "y": -5298.53,
+    "z": 424.55,
+    "elevationMeters": 1455.5,
+    "width": 68
+  },
+  {
+    "x": -3249.1,
+    "y": -5322.21,
+    "z": 421.59,
+    "elevationMeters": 1453.3,
+    "width": 68
+  },
+  {
+    "x": -3279.18,
+    "y": -5330.43,
+    "z": 418.65,
+    "elevationMeters": 1451.1,
+    "width": 68
+  },
+  {
+    "x": -3311.05,
+    "y": -5330.13,
+    "z": 415.73,
+    "elevationMeters": 1448.9,
+    "width": 68
+  },
+  {
+    "x": -3336.4,
+    "y": -5311.81,
+    "z": 412.83,
+    "elevationMeters": 1446.8,
+    "width": 68
+  },
+  {
+    "x": -3344.04,
+    "y": -5281.43,
+    "z": 409.96,
+    "elevationMeters": 1444.7,
+    "width": 68
+  },
+  {
+    "x": -3332.59,
+    "y": -5252.31,
+    "z": 407.11,
+    "elevationMeters": 1442.6,
+    "width": 68
+  },
+  {
+    "x": -3324.64,
+    "y": -5221.45,
+    "z": 404.29,
+    "elevationMeters": 1440.5,
+    "width": 68
+  },
+  {
+    "x": -3322.96,
+    "y": -5189.64,
+    "z": 401.51,
+    "elevationMeters": 1438.4,
+    "width": 68
+  },
+  {
+    "x": -3326.86,
+    "y": -5157.89,
+    "z": 398.75,
+    "elevationMeters": 1436.4,
+    "width": 68
+  },
+  {
+    "x": -3329.01,
+    "y": -5125.99,
+    "z": 396.02,
+    "elevationMeters": 1434.4,
+    "width": 68
+  },
+  {
+    "x": -3326.19,
+    "y": -5094.12,
+    "z": 393.34,
+    "elevationMeters": 1432.4,
+    "width": 68
+  },
+  {
+    "x": -3321.16,
+    "y": -5062.53,
+    "z": 390.68,
+    "elevationMeters": 1430.4,
+    "width": 68
+  },
+  {
+    "x": -3313.94,
+    "y": -5031.38,
+    "z": 388.07,
+    "elevationMeters": 1428.5,
+    "width": 68
+  },
+  {
+    "x": -3306.58,
+    "y": -5000.45,
+    "z": 385.5,
+    "elevationMeters": 1426.6,
+    "width": 68
+  },
+  {
+    "x": -3291.09,
+    "y": -4972.54,
+    "z": 382.97,
+    "elevationMeters": 1424.7,
+    "width": 68
+  },
+  {
+    "x": -3279.91,
+    "y": -4942.7,
+    "z": 380.49,
+    "elevationMeters": 1422.8,
+    "width": 68
+  },
+  {
+    "x": -3276.17,
+    "y": -4910.99,
+    "z": 378.06,
+    "elevationMeters": 1421.0,
+    "width": 68
+  },
+  {
+    "x": -3283.49,
+    "y": -4880.11,
+    "z": 375.67,
+    "elevationMeters": 1419.3,
+    "width": 68
+  },
+  {
+    "x": -3296.32,
+    "y": -4850.86,
+    "z": 373.33,
+    "elevationMeters": 1417.5,
+    "width": 68
+  },
+  {
+    "x": -3313.91,
+    "y": -4824.13,
+    "z": 371.05,
+    "elevationMeters": 1415.9,
+    "width": 68
+  },
+  {
+    "x": -3333.34,
+    "y": -4798.71,
+    "z": 368.82,
+    "elevationMeters": 1414.2,
+    "width": 68
+  },
+  {
+    "x": -3351.71,
+    "y": -4772.53,
+    "z": 366.65,
+    "elevationMeters": 1412.6,
+    "width": 68
+  },
+  {
+    "x": -3367.36,
+    "y": -4744.94,
+    "z": 364.53,
+    "elevationMeters": 1411.0,
+    "width": 68
+  },
+  {
+    "x": -3373.91,
+    "y": -4713.69,
+    "z": 362.48,
+    "elevationMeters": 1409.5,
+    "width": 68
+  },
+  {
+    "x": -3377.83,
+    "y": -4681.93,
+    "z": 360.49,
+    "elevationMeters": 1408.0,
+    "width": 68
+  },
+  {
+    "x": -3381.75,
+    "y": -4650.17,
+    "z": 358.56,
+    "elevationMeters": 1406.6,
+    "width": 68
+  },
+  {
+    "x": -3385.66,
+    "y": -4618.42,
+    "z": 356.7,
+    "elevationMeters": 1405.2,
+    "width": 68
+  },
+  {
+    "x": -3385.99,
+    "y": -4586.47,
+    "z": 354.9,
+    "elevationMeters": 1403.9,
+    "width": 68
+  },
+  {
+    "x": -3382.93,
+    "y": -4554.86,
+    "z": 353.18,
+    "elevationMeters": 1402.6,
+    "width": 68
+  },
+  {
+    "x": -3364.19,
+    "y": -4529.88,
+    "z": 351.52,
+    "elevationMeters": 1401.4,
+    "width": 68
+  },
+  {
+    "x": -3334.53,
+    "y": -4518.61,
+    "z": 349.94,
+    "elevationMeters": 1400.2,
+    "width": 68
+  },
+  {
+    "x": -3302.8,
+    "y": -4514.46,
+    "z": 348.44,
+    "elevationMeters": 1399.1,
+    "width": 68
+  },
+  {
+    "x": -3272.39,
+    "y": -4506.04,
+    "z": 347.01,
+    "elevationMeters": 1398.0,
+    "width": 68
+  },
+  {
+    "x": -3243.76,
+    "y": -4491.75,
+    "z": 345.66,
+    "elevationMeters": 1397.0,
+    "width": 68
+  },
+  {
+    "x": -3213.58,
+    "y": -4483.29,
+    "z": 344.4,
+    "elevationMeters": 1396.1,
+    "width": 68
+  },
+  {
+    "x": -3187.16,
+    "y": -4499.78,
+    "z": 343.21,
+    "elevationMeters": 1395.2,
+    "width": 68
+  },
+  {
+    "x": -3156.11,
+    "y": -4496.15,
+    "z": 342.11,
+    "elevationMeters": 1394.4,
+    "width": 68
+  },
+  {
+    "x": -3128.21,
+    "y": -4480.72,
+    "z": 341.1,
+    "elevationMeters": 1393.7,
+    "width": 68
+  },
+  {
+    "x": -3100.85,
+    "y": -4464.12,
+    "z": 340.17,
+    "elevationMeters": 1393.0,
+    "width": 68
+  },
+  {
+    "x": -3071.73,
+    "y": -4452.0,
+    "z": 339.34,
+    "elevationMeters": 1392.4,
+    "width": 68
+  },
+  {
+    "x": -3043.7,
+    "y": -4464.73,
+    "z": 338.6,
+    "elevationMeters": 1391.8,
+    "width": 68
+  },
+  {
+    "x": -3020.38,
+    "y": -4486.56,
+    "z": 337.95,
+    "elevationMeters": 1391.3,
+    "width": 68
+  },
+  {
+    "x": -2990.63,
+    "y": -4479.48,
+    "z": 337.4,
+    "elevationMeters": 1390.9,
+    "width": 68
+  },
+  {
+    "x": -2967.46,
+    "y": -4457.83,
+    "z": 336.95,
+    "elevationMeters": 1390.6,
+    "width": 68
+  },
+  {
+    "x": -2948.12,
+    "y": -4432.43,
+    "z": 336.59,
+    "elevationMeters": 1390.3,
+    "width": 68
+  },
+  {
+    "x": -2930.15,
+    "y": -4405.95,
+    "z": 336.34,
+    "elevationMeters": 1390.1,
+    "width": 68
+  },
+  {
+    "x": -2914.43,
+    "y": -4378.23,
+    "z": 336.19,
+    "elevationMeters": 1390.0,
+    "width": 68
+  },
+  {
+    "x": -2902.71,
+    "y": -4348.64,
+    "z": 336.15,
+    "elevationMeters": 1390.0,
+    "width": 68
+  },
+  {
+    "x": -2902.43,
+    "y": -4316.7,
+    "z": 336.06,
+    "elevationMeters": 1389.9,
+    "width": 68
+  },
+  {
+    "x": -2901.38,
+    "y": -4284.72,
+    "z": 335.82,
+    "elevationMeters": 1389.8,
+    "width": 68
+  },
+  {
+    "x": -2900.47,
+    "y": -4252.75,
+    "z": 335.44,
+    "elevationMeters": 1389.5,
+    "width": 68
+  },
+  {
+    "x": -2913.59,
+    "y": -4225.33,
+    "z": 334.92,
+    "elevationMeters": 1389.1,
+    "width": 68
+  },
+  {
+    "x": -2943.28,
+    "y": -4214.0,
+    "z": 334.26,
+    "elevationMeters": 1388.6,
+    "width": 68
+  },
+  {
+    "x": -2975.15,
+    "y": -4213.03,
+    "z": 333.47,
+    "elevationMeters": 1388.0,
+    "width": 68
+  },
+  {
+    "x": -3007.14,
+    "y": -4213.8,
+    "z": 332.56,
+    "elevationMeters": 1387.3,
+    "width": 68
+  },
+  {
+    "x": -3039.13,
+    "y": -4214.45,
+    "z": 331.53,
+    "elevationMeters": 1386.6,
+    "width": 68
+  },
+  {
+    "x": -3071.13,
+    "y": -4214.18,
+    "z": 330.38,
+    "elevationMeters": 1385.7,
+    "width": 68
+  },
+  {
+    "x": -3100.87,
+    "y": -4204.56,
+    "z": 329.12,
+    "elevationMeters": 1384.8,
+    "width": 68
+  },
+  {
+    "x": -3129.7,
+    "y": -4190.67,
+    "z": 327.75,
+    "elevationMeters": 1383.8,
+    "width": 68
+  },
+  {
+    "x": -3158.97,
+    "y": -4177.78,
+    "z": 326.28,
+    "elevationMeters": 1382.7,
+    "width": 68
+  },
+  {
+    "x": -3189.91,
+    "y": -4170.86,
+    "z": 324.71,
+    "elevationMeters": 1381.5,
+    "width": 68
+  },
+  {
+    "x": -3221.42,
+    "y": -4166.06,
+    "z": 323.04,
+    "elevationMeters": 1380.3,
+    "width": 68
+  },
+  {
+    "x": -3244.75,
+    "y": -4147.57,
+    "z": 321.28,
+    "elevationMeters": 1379.0,
+    "width": 68
+  },
+  {
+    "x": -3238.58,
+    "y": -4116.73,
+    "z": 319.44,
+    "elevationMeters": 1377.6,
+    "width": 68
+  },
+  {
+    "x": -3228.04,
+    "y": -4086.54,
+    "z": 317.52,
+    "elevationMeters": 1376.2,
+    "width": 68
+  },
+  {
+    "x": -3220.97,
+    "y": -4055.34,
+    "z": 315.52,
+    "elevationMeters": 1374.7,
+    "width": 68
+  },
+  {
+    "x": -3220.18,
+    "y": -4023.44,
+    "z": 313.44,
+    "elevationMeters": 1373.2,
+    "width": 68
+  },
+  {
+    "x": -3223.2,
+    "y": -3991.59,
+    "z": 311.3,
+    "elevationMeters": 1371.6,
+    "width": 68
+  },
+  {
+    "x": -3226.22,
+    "y": -3959.73,
+    "z": 309.09,
+    "elevationMeters": 1370.0,
+    "width": 68
+  },
+  {
+    "x": -3229.07,
+    "y": -3927.86,
+    "z": 306.83,
+    "elevationMeters": 1368.3,
+    "width": 68
+  },
+  {
+    "x": -3211.7,
+    "y": -3901.88,
+    "z": 304.51,
+    "elevationMeters": 1366.6,
+    "width": 68
+  },
+  {
+    "x": -3189.02,
+    "y": -3879.8,
+    "z": 302.14,
+    "elevationMeters": 1364.8,
+    "width": 68
+  },
+  {
+    "x": -3185.24,
+    "y": -3848.77,
+    "z": 299.72,
+    "elevationMeters": 1363.0,
+    "width": 68
+  },
+  {
+    "x": -3198.29,
+    "y": -3820.82,
+    "z": 297.26,
+    "elevationMeters": 1361.2,
+    "width": 68
+  },
+  {
+    "x": -3227.06,
+    "y": -3808.32,
+    "z": 294.77,
+    "elevationMeters": 1359.3,
+    "width": 68
+  },
+  {
+    "x": -3249.9,
+    "y": -3787.25,
+    "z": 292.24,
+    "elevationMeters": 1357.5,
+    "width": 68
+  },
+  {
+    "x": -3260.79,
+    "y": -3757.23,
+    "z": 289.68,
+    "elevationMeters": 1355.6,
+    "width": 68
+  },
+  {
+    "x": -3262.39,
+    "y": -3725.6,
+    "z": 287.1,
+    "elevationMeters": 1353.7,
+    "width": 68
+  },
+  {
+    "x": -3260.96,
+    "y": -3693.63,
+    "z": 284.5,
+    "elevationMeters": 1351.7,
+    "width": 68,
+    "isBridge": true,
+    "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 8.2)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -3264.98,
+    "y": -3662.27,
+    "z": 281.88,
+    "elevationMeters": 1349.8,
+    "width": 68,
+    "isBridge": true,
+    "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 8.2)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -3282.4,
+    "y": -3635.68,
+    "z": 279.25,
+    "elevationMeters": 1347.9,
+    "width": 68,
+    "isBridge": true,
+    "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 8.2)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -3304.13,
+    "y": -3612.24,
+    "z": 276.62,
+    "elevationMeters": 1345.9,
+    "width": 68,
+    "name": "Puente vehicular Ebéjico - Ruta 62 (km 8.2)",
+    "isCheckpoint": true,
+    "isBridge": true,
+    "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 8.2)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -3326.75,
+    "y": -3589.6,
+    "z": 273.98,
+    "elevationMeters": 1344.0,
+    "width": 68,
+    "isBridge": true,
+    "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 8.2)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -3349.79,
+    "y": -3567.4,
+    "z": 271.35,
+    "elevationMeters": 1342.0,
+    "width": 68,
+    "isBridge": true,
+    "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 8.2)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -3372.56,
+    "y": -3544.92,
+    "z": 268.72,
+    "elevationMeters": 1340.1,
+    "width": 68,
+    "isBridge": true,
+    "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 8.2)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -3392.74,
+    "y": -3520.33,
+    "z": 266.11,
+    "elevationMeters": 1338.1,
+    "width": 68
+  },
+  {
+    "x": -3402.5,
+    "y": -3490.53,
+    "z": 263.51,
+    "elevationMeters": 1336.2,
+    "width": 68
+  },
+  {
+    "x": -3400.92,
+    "y": -3458.68,
+    "z": 260.93,
+    "elevationMeters": 1334.3,
+    "width": 68
+  },
+  {
+    "x": -3398.34,
+    "y": -3426.78,
+    "z": 258.37,
+    "elevationMeters": 1332.4,
+    "width": 68
+  },
+  {
+    "x": -3395.8,
+    "y": -3394.89,
+    "z": 255.85,
+    "elevationMeters": 1330.5,
+    "width": 68
+  },
+  {
+    "x": -3396.56,
+    "y": -3363.03,
+    "z": 253.35,
+    "elevationMeters": 1328.7,
+    "width": 68
+  },
+  {
+    "x": -3403.98,
+    "y": -3331.95,
+    "z": 250.9,
+    "elevationMeters": 1326.8,
+    "width": 68
+  },
+  {
+    "x": -3414.16,
+    "y": -3301.62,
+    "z": 248.48,
+    "elevationMeters": 1325.1,
+    "width": 68
+  },
+  {
+    "x": -3426.23,
+    "y": -3272.07,
+    "z": 246.12,
+    "elevationMeters": 1323.3,
+    "width": 68
+  },
+  {
+    "x": -3439.55,
+    "y": -3243.05,
+    "z": 243.8,
+    "elevationMeters": 1321.6,
+    "width": 68
+  },
+  {
+    "x": -3451.07,
+    "y": -3213.2,
+    "z": 241.54,
+    "elevationMeters": 1319.9,
+    "width": 68
+  },
+  {
+    "x": -3465.22,
+    "y": -3184.52,
+    "z": 239.34,
+    "elevationMeters": 1318.3,
+    "width": 68
+  },
+  {
+    "x": -3477.04,
+    "y": -3154.8,
+    "z": 237.2,
+    "elevationMeters": 1316.7,
+    "width": 68
+  },
+  {
+    "x": -3482.11,
+    "y": -3123.37,
+    "z": 235.13,
+    "elevationMeters": 1315.2,
+    "width": 68
+  },
+  {
+    "x": -3481.05,
+    "y": -3091.64,
+    "z": 233.14,
+    "elevationMeters": 1313.7,
+    "width": 68
+  },
+  {
+    "x": -3469.41,
+    "y": -3062.02,
+    "z": 231.22,
+    "elevationMeters": 1312.3,
+    "width": 68
+  },
+  {
+    "x": -3448.22,
+    "y": -3038.4,
+    "z": 229.38,
+    "elevationMeters": 1310.9,
+    "width": 68
+  },
+  {
+    "x": -3424.08,
+    "y": -3017.55,
+    "z": 227.63,
+    "elevationMeters": 1309.6,
+    "width": 68
+  },
+  {
+    "x": -3407.79,
+    "y": -2990.18,
+    "z": 225.97,
+    "elevationMeters": 1308.4,
+    "width": 68
+  },
+  {
+    "x": -3396.24,
+    "y": -2960.33,
+    "z": 224.41,
+    "elevationMeters": 1307.2,
+    "width": 68
+  },
+  {
+    "x": -3384.7,
+    "y": -2930.49,
+    "z": 222.94,
+    "elevationMeters": 1306.1,
+    "width": 68
+  },
+  {
+    "x": -3369.21,
+    "y": -2902.55,
+    "z": 221.58,
+    "elevationMeters": 1305.1,
+    "width": 68
+  },
+  {
+    "x": -3353.0,
+    "y": -2874.95,
+    "z": 220.33,
+    "elevationMeters": 1304.2,
+    "width": 68
+  },
+  {
+    "x": -3337.2,
+    "y": -2847.15,
+    "z": 219.19,
+    "elevationMeters": 1303.4,
+    "width": 68
+  },
+  {
+    "x": -3323.68,
+    "y": -2818.19,
+    "z": 218.16,
+    "elevationMeters": 1302.6,
+    "width": 68
+  },
+  {
+    "x": -3316.85,
+    "y": -2786.93,
+    "z": 217.26,
+    "elevationMeters": 1301.9,
+    "width": 68
+  },
+  {
+    "x": -3311.51,
+    "y": -2755.43,
+    "z": 216.49,
+    "elevationMeters": 1301.4,
+    "width": 68
+  },
+  {
+    "x": -3308.48,
+    "y": -2723.58,
+    "z": 215.84,
+    "elevationMeters": 1300.9,
+    "width": 68
+  },
+  {
+    "x": -3306.26,
+    "y": -2691.69,
+    "z": 215.33,
+    "elevationMeters": 1300.5,
+    "width": 68
+  },
+  {
+    "x": -3311.84,
+    "y": -2660.76,
+    "z": 214.96,
+    "elevationMeters": 1300.2,
+    "width": 68
+  },
+  {
+    "x": -3340.85,
+    "y": -2655.92,
+    "z": 214.73,
+    "elevationMeters": 1300.1,
+    "width": 68
+  },
+  {
+    "x": -3368.23,
+    "y": -2668.89,
+    "z": 214.65,
+    "elevationMeters": 1300.0,
+    "width": 68
+  },
+  {
+    "x": -3387.74,
+    "y": -2694.25,
+    "z": 214.69,
+    "elevationMeters": 1300.0,
+    "width": 68
+  },
+  {
+    "x": -3407.26,
+    "y": -2719.61,
+    "z": 214.81,
+    "elevationMeters": 1300.1,
+    "width": 68
+  },
+  {
+    "x": -3426.78,
+    "y": -2744.96,
+    "z": 215.02,
+    "elevationMeters": 1300.3,
+    "width": 68
+  },
+  {
+    "x": -3450.43,
+    "y": -2766.44,
+    "z": 215.31,
+    "elevationMeters": 1300.5,
+    "width": 68
+  },
+  {
+    "x": -3474.48,
+    "y": -2787.55,
+    "z": 215.67,
+    "elevationMeters": 1300.8,
+    "width": 68
+  },
+  {
+    "x": -3500.43,
+    "y": -2806.08,
+    "z": 216.11,
+    "elevationMeters": 1301.1,
+    "width": 68
+  },
+  {
+    "x": -3527.75,
+    "y": -2822.74,
+    "z": 216.63,
+    "elevationMeters": 1301.5,
+    "width": 68
+  },
+  {
+    "x": -3553.44,
+    "y": -2841.51,
+    "z": 217.21,
+    "elevationMeters": 1301.9,
+    "width": 68
+  },
+  {
+    "x": -3576.48,
+    "y": -2863.73,
+    "z": 217.87,
+    "elevationMeters": 1302.4,
+    "width": 68
+  },
+  {
+    "x": -3599.68,
+    "y": -2885.74,
+    "z": 218.6,
+    "elevationMeters": 1302.9,
+    "width": 68
+  },
+  {
+    "x": -3624.6,
+    "y": -2905.82,
+    "z": 219.39,
+    "elevationMeters": 1303.5,
+    "width": 68
+  },
+  {
+    "x": -3649.52,
+    "y": -2925.9,
+    "z": 220.25,
+    "elevationMeters": 1304.1,
+    "width": 68
+  },
+  {
+    "x": -3674.43,
+    "y": -2945.98,
+    "z": 221.16,
+    "elevationMeters": 1304.8,
+    "width": 68
+  },
+  {
+    "x": -3694.95,
+    "y": -2970.26,
+    "z": 222.14,
+    "elevationMeters": 1305.6,
+    "width": 68
+  },
+  {
+    "x": -3709.75,
+    "y": -2998.62,
+    "z": 223.18,
+    "elevationMeters": 1306.3,
+    "width": 68
+  },
+  {
+    "x": -3717.98,
+    "y": -3029.12,
+    "z": 224.27,
+    "elevationMeters": 1307.1,
+    "width": 68
+  },
+  {
+    "x": -3722.02,
+    "y": -3060.85,
+    "z": 225.42,
+    "elevationMeters": 1308.0,
+    "width": 68
+  },
+  {
+    "x": -3724.78,
+    "y": -3092.74,
+    "z": 226.62,
+    "elevationMeters": 1308.9,
+    "width": 68
+  },
+  {
+    "x": -3725.39,
+    "y": -3124.73,
+    "z": 227.87,
+    "elevationMeters": 1309.8,
+    "width": 68
+  },
+  {
+    "x": -3720.15,
+    "y": -3156.16,
+    "z": 229.17,
+    "elevationMeters": 1310.8,
+    "width": 68
+  },
+  {
+    "x": -3709.62,
+    "y": -3186.38,
+    "z": 230.52,
+    "elevationMeters": 1311.8,
+    "width": 68
+  },
+  {
+    "x": -3699.19,
+    "y": -3216.63,
+    "z": 231.91,
+    "elevationMeters": 1312.8,
+    "width": 68
+  },
+  {
+    "x": -3694.75,
+    "y": -3247.91,
+    "z": 233.34,
+    "elevationMeters": 1313.8,
+    "width": 68
+  },
+  {
+    "x": -3701.0,
+    "y": -3278.71,
+    "z": 234.81,
+    "elevationMeters": 1314.9,
+    "width": 68
+  },
+  {
+    "x": -3719.88,
+    "y": -3304.24,
+    "z": 236.32,
+    "elevationMeters": 1316.1,
+    "width": 68
+  },
+  {
+    "x": -3742.9,
+    "y": -3326.47,
+    "z": 237.87,
+    "elevationMeters": 1317.2,
+    "width": 68
+  },
+  {
+    "x": -3765.91,
+    "y": -3348.7,
+    "z": 239.45,
+    "elevationMeters": 1318.4,
+    "width": 68
+  },
+  {
+    "x": -3783.73,
+    "y": -3375.26,
+    "z": 241.07,
+    "elevationMeters": 1319.6,
+    "width": 68,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Sucia / La Frisola (km 9.4)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -3799.65,
+    "y": -3402.99,
+    "z": 242.72,
+    "elevationMeters": 1320.8,
+    "width": 68,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Sucia / La Frisola (km 9.4)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -3814.55,
+    "y": -3431.31,
+    "z": 244.39,
+    "elevationMeters": 1322.0,
+    "width": 68,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Sucia / La Frisola (km 9.4)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -3828.35,
+    "y": -3460.11,
+    "z": 246.09,
+    "elevationMeters": 1323.3,
+    "width": 68,
+    "name": "Puente Quebrada La Sucia / La Frisola (km 9.4)",
+    "isCheckpoint": true,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Sucia / La Frisola (km 9.4)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -3835.92,
+    "y": -3491.13,
+    "z": 247.82,
+    "elevationMeters": 1324.6,
+    "width": 68,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Sucia / La Frisola (km 9.4)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -3835.33,
+    "y": -3523.04,
+    "z": 249.56,
+    "elevationMeters": 1325.9,
+    "width": 68,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Sucia / La Frisola (km 9.4)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -3830.32,
+    "y": -3554.39,
+    "z": 251.33,
+    "elevationMeters": 1327.2,
+    "width": 68,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Sucia / La Frisola (km 9.4)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -3829.12,
+    "y": -3586.34,
+    "z": 253.12,
+    "elevationMeters": 1328.5,
+    "width": 68
+  },
+  {
+    "x": -3817.99,
+    "y": -3615.42,
+    "z": 254.92,
+    "elevationMeters": 1329.8,
+    "width": 68
+  },
+  {
+    "x": -3798.22,
+    "y": -3640.57,
+    "z": 256.74,
+    "elevationMeters": 1331.2,
+    "width": 68
+  },
+  {
+    "x": -3780.3,
+    "y": -3667.05,
+    "z": 258.58,
+    "elevationMeters": 1332.5,
+    "width": 68
+  },
+  {
+    "x": -3769.7,
+    "y": -3695.31,
+    "z": 260.42,
+    "elevationMeters": 1333.9,
+    "width": 68
+  },
+  {
+    "x": -3789.12,
+    "y": -3719.35,
+    "z": 262.27,
+    "elevationMeters": 1335.3,
+    "width": 68
+  },
+  {
+    "x": -3819.26,
+    "y": -3729.5,
+    "z": 264.13,
+    "elevationMeters": 1336.6,
+    "width": 68
+  },
+  {
+    "x": -3849.48,
+    "y": -3739.29,
+    "z": 265.99,
+    "elevationMeters": 1338.0,
+    "width": 68
+  },
+  {
+    "x": -3873.9,
+    "y": -3759.27,
+    "z": 267.86,
+    "elevationMeters": 1339.4,
+    "width": 68
+  },
+  {
+    "x": -3890.75,
+    "y": -3786.47,
+    "z": 269.72,
+    "elevationMeters": 1340.8,
+    "width": 68
+  },
+  {
+    "x": -3900.12,
+    "y": -3816.35,
+    "z": 271.59,
+    "elevationMeters": 1342.2,
+    "width": 68
+  },
+  {
+    "x": -3880.67,
+    "y": -3840.65,
+    "z": 273.45,
+    "elevationMeters": 1343.6,
+    "width": 68
+  },
+  {
+    "x": -3855.6,
+    "y": -3860.53,
+    "z": 275.31,
+    "elevationMeters": 1344.9,
+    "width": 68
+  },
+  {
+    "x": -3832.96,
+    "y": -3882.61,
+    "z": 277.16,
+    "elevationMeters": 1346.3,
+    "width": 68
+  },
+  {
+    "x": -3841.21,
+    "y": -3911.47,
+    "z": 279.0,
+    "elevationMeters": 1347.7,
+    "width": 68
+  },
+  {
+    "x": -3863.84,
+    "y": -3934.07,
+    "z": 280.83,
+    "elevationMeters": 1349.0,
+    "width": 68
+  },
+  {
+    "x": -3888.78,
+    "y": -3954.08,
+    "z": 282.64,
+    "elevationMeters": 1350.4,
+    "width": 68
+  },
+  {
+    "x": -3914.31,
+    "y": -3973.34,
+    "z": 284.45,
+    "elevationMeters": 1351.7,
+    "width": 68
+  },
+  {
+    "x": -3930.49,
+    "y": -3999.98,
+    "z": 286.23,
+    "elevationMeters": 1353.0,
+    "width": 68
+  },
+  {
+    "x": -3937.6,
+    "y": -4031.13,
+    "z": 288.0,
+    "elevationMeters": 1354.3,
+    "width": 68
+  },
+  {
+    "x": -3946.25,
+    "y": -4061.93,
+    "z": 289.74,
+    "elevationMeters": 1355.6,
+    "width": 68
+  },
+  {
+    "x": -3955.31,
+    "y": -4092.62,
+    "z": 291.46,
+    "elevationMeters": 1356.9,
+    "width": 68
+  },
+  {
+    "x": -3965.54,
+    "y": -4122.94,
+    "z": 293.16,
+    "elevationMeters": 1358.2,
+    "width": 68
+  },
+  {
+    "x": -3979.78,
+    "y": -4151.5,
+    "z": 294.83,
+    "elevationMeters": 1359.4,
+    "width": 68
+  },
+  {
+    "x": -4000.1,
+    "y": -4176.01,
+    "z": 296.47,
+    "elevationMeters": 1360.6,
+    "width": 68
+  },
+  {
+    "x": -4023.38,
+    "y": -4197.95,
+    "z": 298.08,
+    "elevationMeters": 1361.8,
+    "width": 68
+  },
+  {
+    "x": -4043.56,
+    "y": -4222.7,
+    "z": 299.66,
+    "elevationMeters": 1363.0,
+    "width": 68
+  },
+  {
+    "x": -4052.85,
+    "y": -4253.08,
+    "z": 301.2,
+    "elevationMeters": 1364.1,
+    "width": 68
+  },
+  {
+    "x": -4058.09,
+    "y": -4284.63,
+    "z": 302.71,
+    "elevationMeters": 1365.2,
+    "width": 68
+  },
+  {
+    "x": -4066.57,
+    "y": -4315.44,
+    "z": 304.18,
+    "elevationMeters": 1366.3,
+    "width": 68
+  },
+  {
+    "x": -4075.69,
+    "y": -4346.11,
+    "z": 305.6,
+    "elevationMeters": 1367.4,
+    "width": 68
+  },
+  {
+    "x": -4084.8,
+    "y": -4376.79,
+    "z": 306.99,
+    "elevationMeters": 1368.4,
+    "width": 68
+  },
+  {
+    "x": -4095.28,
+    "y": -4406.95,
+    "z": 308.33,
+    "elevationMeters": 1369.4,
+    "width": 68
+  },
+  {
+    "x": -4102.54,
+    "y": -4437.77,
+    "z": 309.62,
+    "elevationMeters": 1370.3,
+    "width": 68
+  },
+  {
+    "x": -4096.31,
+    "y": -4468.92,
+    "z": 310.86,
+    "elevationMeters": 1371.3,
+    "width": 68
+  },
+  {
+    "x": -4085.58,
+    "y": -4499.07,
+    "z": 312.05,
+    "elevationMeters": 1372.2,
+    "width": 68
+  },
+  {
+    "x": -4082.75,
+    "y": -4530.23,
+    "z": 313.19,
+    "elevationMeters": 1373.0,
+    "width": 68
+  },
+  {
+    "x": -4098.35,
+    "y": -4557.89,
+    "z": 314.28,
+    "elevationMeters": 1373.8,
+    "width": 68
+  },
+  {
+    "x": -4117.6,
+    "y": -4583.46,
+    "z": 315.31,
+    "elevationMeters": 1374.6,
+    "width": 68
+  },
+  {
+    "x": -4136.91,
+    "y": -4608.97,
+    "z": 316.28,
+    "elevationMeters": 1375.3,
+    "width": 68
+  },
+  {
+    "x": -4152.27,
+    "y": -4636.95,
+    "z": 317.19,
+    "elevationMeters": 1376.0,
+    "width": 68
+  },
+  {
+    "x": -4158.03,
+    "y": -4668.35,
+    "z": 318.03,
+    "elevationMeters": 1376.6,
+    "width": 68
+  },
+  {
+    "x": -4159.91,
+    "y": -4700.22,
+    "z": 318.81,
+    "elevationMeters": 1377.2,
+    "width": 68
+  },
+  {
+    "x": -4160.4,
+    "y": -4732.22,
+    "z": 319.53,
+    "elevationMeters": 1377.7,
+    "width": 68
+  },
+  {
+    "x": -4160.89,
+    "y": -4764.22,
+    "z": 320.18,
+    "elevationMeters": 1378.2,
+    "width": 68
+  },
+  {
+    "x": -4161.38,
+    "y": -4796.21,
+    "z": 320.75,
+    "elevationMeters": 1378.6,
+    "width": 68
+  },
+  {
+    "x": -4161.86,
+    "y": -4828.21,
+    "z": 321.26,
+    "elevationMeters": 1379.0,
+    "width": 68
+  },
+  {
+    "x": -4162.35,
+    "y": -4860.2,
+    "z": 321.69,
+    "elevationMeters": 1379.3,
+    "width": 68
+  },
+  {
+    "x": -4164.42,
+    "y": -4891.98,
+    "z": 322.04,
+    "elevationMeters": 1379.5,
+    "width": 68
+  },
+  {
+    "x": -4176.72,
+    "y": -4921.09,
+    "z": 322.32,
+    "elevationMeters": 1379.8,
+    "width": 68
+  },
+  {
+    "x": -4205.13,
+    "y": -4934.34,
+    "z": 322.51,
+    "elevationMeters": 1379.9,
+    "width": 68
+  },
+  {
+    "x": -4236.74,
+    "y": -4929.83,
+    "z": 322.62,
+    "elevationMeters": 1380.0,
+    "width": 68
+  },
+  {
+    "x": -4266.1,
+    "y": -4917.12,
+    "z": 322.65,
+    "elevationMeters": 1380.0,
+    "width": 68
+  },
+  {
+    "x": -4295.47,
+    "y": -4904.41,
+    "z": 322.79,
+    "elevationMeters": 1380.1,
+    "width": 68
+  },
+  {
+    "x": -4323.53,
+    "y": -4889.25,
+    "z": 323.14,
+    "elevationMeters": 1380.4,
+    "width": 68
+  },
+  {
+    "x": -4350.41,
+    "y": -4871.88,
+    "z": 323.68,
+    "elevationMeters": 1380.8,
+    "width": 68
+  },
+  {
+    "x": -4377.64,
+    "y": -4855.2,
+    "z": 324.4,
+    "elevationMeters": 1381.3,
+    "width": 68
+  },
+  {
+    "x": -4407.27,
+    "y": -4843.1,
+    "z": 325.31,
+    "elevationMeters": 1382.0,
+    "width": 68
+  },
+  {
+    "x": -4438.28,
+    "y": -4835.23,
+    "z": 326.39,
+    "elevationMeters": 1382.8,
+    "width": 68
+  },
+  {
+    "x": -4469.3,
+    "y": -4827.37,
+    "z": 327.64,
+    "elevationMeters": 1383.7,
+    "width": 68
+  },
+  {
+    "x": -4500.32,
+    "y": -4819.5,
+    "z": 329.04,
+    "elevationMeters": 1384.7,
+    "width": 68
+  },
+  {
+    "x": -4531.37,
+    "y": -4811.78,
+    "z": 330.6,
+    "elevationMeters": 1385.9,
+    "width": 68
+  },
+  {
+    "x": -4562.64,
+    "y": -4808.5,
+    "z": 332.3,
+    "elevationMeters": 1387.1,
+    "width": 68
+  },
+  {
+    "x": -4589.0,
+    "y": -4824.44,
+    "z": 334.14,
+    "elevationMeters": 1388.5,
+    "width": 68
+  },
+  {
+    "x": -4598.6,
+    "y": -4854.95,
+    "z": 336.11,
+    "elevationMeters": 1390.0,
+    "width": 68
+  },
+  {
+    "x": -4614.77,
+    "y": -4882.31,
+    "z": 338.21,
+    "elevationMeters": 1391.5,
+    "width": 68
+  },
+  {
+    "x": -4636.28,
+    "y": -4906.0,
+    "z": 340.42,
+    "elevationMeters": 1393.2,
+    "width": 68
+  },
+  {
+    "x": -4654.82,
+    "y": -4932.08,
+    "z": 342.74,
+    "elevationMeters": 1394.9,
+    "width": 68
+  },
+  {
+    "x": -4670.86,
+    "y": -4959.53,
+    "z": 345.16,
+    "elevationMeters": 1396.7,
+    "width": 68
+  },
+  {
+    "x": -4682.7,
+    "y": -4989.25,
+    "z": 347.68,
+    "elevationMeters": 1398.5,
+    "width": 68
+  },
+  {
+    "x": -4700.26,
+    "y": -5015.37,
+    "z": 350.28,
+    "elevationMeters": 1400.5,
+    "width": 68
+  },
+  {
+    "x": -4726.8,
+    "y": -5033.11,
+    "z": 352.96,
+    "elevationMeters": 1402.5,
+    "width": 68
+  },
+  {
+    "x": -4754.87,
+    "y": -5048.48,
+    "z": 355.72,
+    "elevationMeters": 1404.5,
+    "width": 68
+  },
+  {
+    "x": -4782.18,
+    "y": -5065.08,
+    "z": 358.54,
+    "elevationMeters": 1406.6,
+    "width": 68
+  },
+  {
+    "x": -4808.97,
+    "y": -5082.57,
+    "z": 361.43,
+    "elevationMeters": 1408.7,
+    "width": 68
+  },
+  {
+    "x": -4835.35,
+    "y": -5100.64,
+    "z": 364.36,
+    "elevationMeters": 1410.9,
+    "width": 68
+  },
+  {
+    "x": -4861.38,
+    "y": -5119.25,
+    "z": 367.34,
+    "elevationMeters": 1413.1,
+    "width": 68
+  },
+  {
+    "x": -4889.57,
+    "y": -5134.33,
+    "z": 370.36,
+    "elevationMeters": 1415.3,
+    "width": 68
+  },
+  {
+    "x": -4921.13,
+    "y": -5139.11,
+    "z": 373.41,
+    "elevationMeters": 1417.6,
+    "width": 68
+  },
+  {
+    "x": -4952.97,
+    "y": -5137.7,
+    "z": 376.48,
+    "elevationMeters": 1419.9,
+    "width": 68
+  },
+  {
+    "x": -4982.48,
+    "y": -5126.24,
+    "z": 379.56,
+    "elevationMeters": 1422.2,
+    "width": 68
+  },
+  {
+    "x": -5010.97,
+    "y": -5111.66,
+    "z": 382.66,
+    "elevationMeters": 1424.4,
+    "width": 68
+  },
+  {
+    "x": -5040.89,
+    "y": -5100.65,
+    "z": 385.75,
+    "elevationMeters": 1426.7,
+    "width": 68
+  },
+  {
+    "x": -5071.46,
+    "y": -5091.21,
+    "z": 388.84,
+    "elevationMeters": 1429.0,
+    "width": 68
+  },
+  {
+    "x": -5101.96,
+    "y": -5081.53,
+    "z": 391.92,
+    "elevationMeters": 1431.3,
+    "width": 68
+  },
+  {
+    "x": -5133.66,
+    "y": -5082.87,
+    "z": 394.98,
+    "elevationMeters": 1433.6,
+    "width": 68
+  },
+  {
+    "x": -5165.15,
+    "y": -5088.58,
+    "z": 398.01,
+    "elevationMeters": 1435.8,
+    "width": 68
+  },
+  {
+    "x": -5193.98,
+    "y": -5102.28,
+    "z": 401.01,
+    "elevationMeters": 1438.0,
+    "width": 68
+  },
+  {
+    "x": -5223.95,
+    "y": -5113.35,
+    "z": 403.97,
+    "elevationMeters": 1440.2,
+    "width": 68
+  },
+  {
+    "x": -5255.23,
+    "y": -5117.77,
+    "z": 406.88,
+    "elevationMeters": 1442.4,
+    "width": 68
+  },
+  {
+    "x": -5287.22,
+    "y": -5117.9,
+    "z": 409.73,
+    "elevationMeters": 1444.5,
+    "width": 68
+  },
+  {
+    "x": -5319.12,
+    "y": -5120.43,
+    "z": 412.52,
+    "elevationMeters": 1446.6,
+    "width": 68
+  },
+  {
+    "x": -5351.02,
+    "y": -5122.96,
+    "z": 415.24,
+    "elevationMeters": 1448.6,
+    "width": 68
+  },
+  {
+    "x": -5380.67,
+    "y": -5132.09,
+    "z": 417.89,
+    "elevationMeters": 1450.5,
+    "width": 68
+  },
+  {
+    "x": -5388.91,
+    "y": -5160.58,
+    "z": 420.44,
+    "elevationMeters": 1452.4,
+    "width": 68
+  },
+  {
+    "x": -5376.08,
+    "y": -5189.74,
+    "z": 422.91,
+    "elevationMeters": 1454.3,
+    "width": 68
+  },
+  {
+    "x": -5362.11,
+    "y": -5218.53,
+    "z": 425.28,
+    "elevationMeters": 1456.0,
+    "width": 68
+  },
+  {
+    "x": -5353.46,
+    "y": -5249.24,
+    "z": 427.55,
+    "elevationMeters": 1457.7,
+    "width": 68
+  },
+  {
+    "x": -5355.23,
+    "y": -5281.09,
+    "z": 429.7,
+    "elevationMeters": 1459.3,
+    "width": 68
+  },
+  {
+    "x": -5363.32,
+    "y": -5312.03,
+    "z": 431.73,
+    "elevationMeters": 1460.8,
+    "width": 68
+  },
+  {
+    "x": -5375.91,
+    "y": -5341.44,
+    "z": 433.63,
+    "elevationMeters": 1462.2,
+    "width": 68
+  },
+  {
+    "x": -5393.92,
+    "y": -5367.88,
+    "z": 435.4,
+    "elevationMeters": 1463.5,
+    "width": 68
+  },
+  {
+    "x": -5412.61,
+    "y": -5393.81,
+    "z": 437.03,
+    "elevationMeters": 1464.7,
+    "width": 68
+  },
+  {
+    "x": -5436.66,
+    "y": -5414.37,
+    "z": 438.51,
+    "elevationMeters": 1465.8,
+    "width": 68
+  },
+  {
+    "x": -5466.28,
+    "y": -5425.81,
+    "z": 439.83,
+    "elevationMeters": 1466.8,
+    "width": 68
+  },
+  {
+    "x": -5497.54,
+    "y": -5423.12,
+    "z": 440.99,
+    "elevationMeters": 1467.7,
+    "width": 68
+  },
+  {
+    "x": -5523.48,
+    "y": -5404.75,
+    "z": 441.98,
+    "elevationMeters": 1468.4,
+    "width": 68,
+    "isBridge": true,
+    "bridgeName": "Quebrada Agua de La Peña (km 12.0)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -5548.47,
+    "y": -5384.76,
+    "z": 442.8,
+    "elevationMeters": 1469.0,
+    "width": 68,
+    "isBridge": true,
+    "bridgeName": "Quebrada Agua de La Peña (km 12.0)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -5573.19,
+    "y": -5364.45,
+    "z": 443.43,
+    "elevationMeters": 1469.5,
+    "width": 68,
+    "isBridge": true,
+    "bridgeName": "Quebrada Agua de La Peña (km 12.0)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -5597.91,
+    "y": -5344.13,
+    "z": 443.87,
+    "elevationMeters": 1469.8,
+    "width": 68,
+    "name": "Quebrada Agua de La Peña (km 12.0)",
+    "isCheckpoint": true,
+    "isBridge": true,
+    "bridgeName": "Quebrada Agua de La Peña (km 12.0)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -5626.74,
+    "y": -5330.88,
+    "z": 444.1,
+    "elevationMeters": 1470.0,
+    "width": 68,
+    "isBridge": true,
+    "bridgeName": "Quebrada Agua de La Peña (km 12.0)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -5657.95,
+    "y": -5331.98,
+    "z": 444.15,
+    "elevationMeters": 1470.0,
+    "width": 68,
+    "isBridge": true,
+    "bridgeName": "Quebrada Agua de La Peña (km 12.0)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -5684.82,
+    "y": -5348.07,
+    "z": 444.21,
+    "elevationMeters": 1470.0,
+    "width": 68,
+    "isBridge": true,
+    "bridgeName": "Quebrada Agua de La Peña (km 12.0)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -5694.35,
+    "y": -5378.52,
+    "z": 444.34,
+    "elevationMeters": 1470.1,
+    "width": 68
+  },
+  {
+    "x": -5693.7,
+    "y": -5410.12,
+    "z": 444.53,
+    "elevationMeters": 1470.3,
+    "width": 68
+  },
+  {
+    "x": -5689.27,
+    "y": -5441.81,
+    "z": 444.79,
+    "elevationMeters": 1470.5,
+    "width": 68
+  },
+  {
+    "x": -5687.22,
+    "y": -5473.54,
+    "z": 445.11,
+    "elevationMeters": 1470.7,
+    "width": 68
+  },
+  {
+    "x": -5698.81,
+    "y": -5502.39,
+    "z": 445.5,
+    "elevationMeters": 1471.0,
+    "width": 68
+  },
+  {
+    "x": -5716.36,
+    "y": -5529.11,
+    "z": 445.95,
+    "elevationMeters": 1471.3,
+    "width": 68
+  },
+  {
+    "x": -5720.73,
+    "y": -5559.62,
+    "z": 446.46,
+    "elevationMeters": 1471.7,
+    "width": 68
+  },
+  {
+    "x": -5712.83,
+    "y": -5590.6,
+    "z": 447.03,
+    "elevationMeters": 1472.1,
+    "width": 68
+  },
+  {
+    "x": -5705.81,
+    "y": -5621.65,
+    "z": 447.66,
+    "elevationMeters": 1472.6,
+    "width": 68
+  },
+  {
+    "x": -5706.45,
+    "y": -5653.54,
+    "z": 448.35,
+    "elevationMeters": 1473.1,
+    "width": 68
+  },
+  {
+    "x": -5712.45,
+    "y": -5684.94,
+    "z": 449.1,
+    "elevationMeters": 1473.7,
+    "width": 68
+  },
+  {
+    "x": -5722.97,
+    "y": -5715.11,
+    "z": 449.9,
+    "elevationMeters": 1474.3,
+    "width": 68
+  },
+  {
+    "x": -5734.32,
+    "y": -5745.03,
+    "z": 450.76,
+    "elevationMeters": 1474.9,
+    "width": 68
+  },
+  {
+    "x": -5744.01,
+    "y": -5775.49,
+    "z": 451.68,
+    "elevationMeters": 1475.6,
+    "width": 68
+  },
+  {
+    "x": -5749.8,
+    "y": -5806.83,
+    "z": 452.64,
+    "elevationMeters": 1476.3,
+    "width": 68
+  },
+  {
+    "x": -5752.44,
+    "y": -5838.72,
+    "z": 453.66,
+    "elevationMeters": 1477.0,
+    "width": 68
+  },
+  {
+    "x": -5757.38,
+    "y": -5870.31,
+    "z": 454.73,
+    "elevationMeters": 1477.8,
+    "width": 68
+  },
+  {
+    "x": -5766.62,
+    "y": -5900.67,
+    "z": 455.85,
+    "elevationMeters": 1478.7,
+    "width": 68
+  },
+  {
+    "x": -5780.04,
+    "y": -5929.72,
+    "z": 457.02,
+    "elevationMeters": 1479.5,
+    "width": 68
+  },
+  {
+    "x": -5796.51,
+    "y": -5956.97,
+    "z": 458.24,
+    "elevationMeters": 1480.4,
+    "width": 68
+  },
+  {
+    "x": -5826.18,
+    "y": -5963.85,
+    "z": 459.5,
+    "elevationMeters": 1481.4,
+    "width": 68
+  },
+  {
+    "x": -5852.83,
+    "y": -5947.14,
+    "z": 460.81,
+    "elevationMeters": 1482.3,
+    "width": 68
+  },
+  {
+    "x": -5870.73,
+    "y": -5920.86,
+    "z": 462.17,
+    "elevationMeters": 1483.3,
+    "width": 68
+  },
+  {
+    "x": -5888.17,
+    "y": -5894.03,
+    "z": 463.57,
+    "elevationMeters": 1484.4,
+    "width": 68
+  },
+  {
+    "x": -5906.16,
+    "y": -5867.59,
+    "z": 465.01,
+    "elevationMeters": 1485.5,
+    "width": 68
+  },
+  {
+    "x": -5927.98,
+    "y": -5844.43,
+    "z": 466.49,
+    "elevationMeters": 1486.5,
+    "width": 68
+  },
+  {
+    "x": -5953.37,
+    "y": -5825.04,
+    "z": 468.02,
+    "elevationMeters": 1487.7,
+    "width": 68
+  },
+  {
+    "x": -5981.62,
+    "y": -5810.46,
+    "z": 469.58,
+    "elevationMeters": 1488.8,
+    "width": 68
+  },
+  {
+    "x": -6012.84,
+    "y": -5812.19,
+    "z": 471.18,
+    "elevationMeters": 1490.0,
+    "width": 68
+  },
+  {
+    "x": -6036.21,
+    "y": -5832.83,
+    "z": 472.82,
+    "elevationMeters": 1491.2,
+    "width": 68
+  },
+  {
+    "x": -6051.47,
+    "y": -5860.92,
+    "z": 474.5,
+    "elevationMeters": 1492.5,
+    "width": 68
+  },
+  {
+    "x": -6065.89,
+    "y": -5889.49,
+    "z": 476.21,
+    "elevationMeters": 1493.7,
+    "width": 68
+  },
+  {
+    "x": -6079.76,
+    "y": -5918.33,
+    "z": 477.96,
+    "elevationMeters": 1495.0,
+    "width": 68
+  },
+  {
+    "x": -6093.59,
+    "y": -5947.18,
+    "z": 479.73,
+    "elevationMeters": 1496.4,
+    "width": 68
+  },
+  {
+    "x": -6107.42,
+    "y": -5976.04,
+    "z": 481.55,
+    "elevationMeters": 1497.7,
+    "width": 68
+  },
+  {
+    "x": -6122.52,
+    "y": -6004.12,
+    "z": 483.39,
+    "elevationMeters": 1499.1,
+    "width": 68
+  },
+  {
+    "x": -6142.95,
+    "y": -6028.51,
+    "z": 485.26,
+    "elevationMeters": 1500.5,
+    "width": 68
+  },
+  {
+    "x": -6168.79,
+    "y": -6047.38,
+    "z": 487.17,
+    "elevationMeters": 1501.9,
+    "width": 68
+  },
+  {
+    "x": -6196.08,
+    "y": -6063.99,
+    "z": 489.1,
+    "elevationMeters": 1503.3,
+    "width": 68
+  },
+  {
+    "x": -6226.36,
+    "y": -6074.03,
+    "z": 491.05,
+    "elevationMeters": 1504.7,
+    "width": 68
+  },
+  {
+    "x": -6257.77,
+    "y": -6079.82,
+    "z": 493.04,
+    "elevationMeters": 1506.2,
+    "width": 68
+  },
+  {
+    "x": -6288.86,
+    "y": -6086.2,
+    "z": 495.05,
+    "elevationMeters": 1507.7,
+    "width": 68
+  },
+  {
+    "x": -6317.06,
+    "y": -6101.32,
+    "z": 497.08,
+    "elevationMeters": 1509.2,
+    "width": 68
+  },
+  {
+    "x": -6342.3,
+    "y": -6120.99,
+    "z": 499.13,
+    "elevationMeters": 1510.7,
+    "width": 68
+  },
+  {
+    "x": -6367.53,
+    "y": -6140.67,
+    "z": 501.21,
+    "elevationMeters": 1512.3,
+    "width": 68
+  },
+  {
+    "x": -6391.27,
+    "y": -6162.01,
+    "z": 503.31,
+    "elevationMeters": 1513.8,
+    "width": 68
+  },
+  {
+    "x": -6405.52,
+    "y": -6190.0,
+    "z": 505.43,
+    "elevationMeters": 1515.4,
+    "width": 68
+  },
+  {
+    "x": -6408.57,
+    "y": -6221.85,
+    "z": 507.56,
+    "elevationMeters": 1517.0,
+    "width": 68
+  },
+  {
+    "x": -6415.11,
+    "y": -6252.67,
+    "z": 509.72,
+    "elevationMeters": 1518.6,
+    "width": 68
+  },
+  {
+    "x": -6440.58,
+    "y": -6270.1,
+    "z": 511.89,
+    "elevationMeters": 1520.2,
+    "width": 68
+  },
+  {
+    "x": -6471.35,
+    "y": -6263.85,
+    "z": 514.08,
+    "elevationMeters": 1521.8,
+    "width": 68
+  },
+  {
+    "x": -6500.94,
+    "y": -6251.82,
+    "z": 516.28,
+    "elevationMeters": 1523.4,
+    "width": 68
+  },
+  {
+    "x": -6527.41,
+    "y": -6233.88,
+    "z": 518.49,
+    "elevationMeters": 1525.1,
+    "width": 68,
+    "name": "Vereda La Renta (Ebéjico)",
+    "isCheckpoint": true
+  },
+  {
+    "x": -6551.19,
+    "y": -6212.47,
+    "z": 520.72,
+    "elevationMeters": 1526.7,
+    "width": 68
+  },
+  {
+    "x": -6567.31,
+    "y": -6185.25,
+    "z": 522.96,
+    "elevationMeters": 1528.4,
+    "width": 68
+  },
+  {
+    "x": -6576.58,
+    "y": -6154.67,
+    "z": 525.2,
+    "elevationMeters": 1530.0,
+    "width": 68
+  },
+  {
+    "x": -6584.05,
+    "y": -6123.6,
+    "z": 527.46,
+    "elevationMeters": 1531.7,
+    "width": 68
+  },
+  {
+    "x": -6585.2,
+    "y": -6091.63,
+    "z": 529.73,
+    "elevationMeters": 1533.4,
+    "width": 68
+  },
+  {
+    "x": -6583.9,
+    "y": -6059.66,
+    "z": 532.0,
+    "elevationMeters": 1535.1,
+    "width": 68
+  },
+  {
+    "x": -6582.61,
+    "y": -6027.68,
+    "z": 534.28,
+    "elevationMeters": 1536.8,
+    "width": 68
+  },
+  {
+    "x": -6581.31,
+    "y": -5995.71,
+    "z": 536.57,
+    "elevationMeters": 1538.5,
+    "width": 68
+  },
+  {
+    "x": -6581.16,
+    "y": -5963.76,
+    "z": 538.85,
+    "elevationMeters": 1540.2,
+    "width": 68
+  },
+  {
+    "x": -6591.04,
+    "y": -5933.56,
+    "z": 541.15,
+    "elevationMeters": 1541.8,
+    "width": 68
+  },
+  {
+    "x": -6600.11,
+    "y": -5903.04,
+    "z": 543.44,
+    "elevationMeters": 1543.5,
+    "width": 68
+  },
+  {
+    "x": -6593.24,
+    "y": -5872.95,
+    "z": 545.73,
+    "elevationMeters": 1545.2,
+    "width": 68
+  },
+  {
+    "x": -6577.8,
+    "y": -5844.97,
+    "z": 548.03,
+    "elevationMeters": 1546.9,
+    "width": 68
+  },
+  {
+    "x": -6568.64,
+    "y": -5814.6,
+    "z": 550.32,
+    "elevationMeters": 1548.6,
+    "width": 68
+  },
+  {
+    "x": -6570.34,
+    "y": -5782.94,
+    "z": 552.61,
+    "elevationMeters": 1550.3,
+    "width": 68
+  },
+  {
+    "x": -6572.36,
+    "y": -5751.13,
+    "z": 554.9,
+    "elevationMeters": 1552.0,
+    "width": 68
+  },
+  {
+    "x": -6570.26,
+    "y": -5719.2,
+    "z": 557.18,
+    "elevationMeters": 1553.7,
+    "width": 68
+  },
+  {
+    "x": -6563.16,
+    "y": -5688.0,
+    "z": 559.46,
+    "elevationMeters": 1555.4,
+    "width": 68
+  },
+  {
+    "x": -6561.35,
+    "y": -5656.18,
+    "z": 561.73,
+    "elevationMeters": 1557.1,
+    "width": 68
+  },
+  {
+    "x": -6567.47,
+    "y": -5624.77,
+    "z": 563.99,
+    "elevationMeters": 1558.8,
+    "width": 68
+  },
+  {
+    "x": -6572.38,
+    "y": -5593.19,
+    "z": 566.25,
+    "elevationMeters": 1560.4,
+    "width": 68
+  },
+  {
+    "x": -6575.38,
+    "y": -5561.33,
+    "z": 568.49,
+    "elevationMeters": 1562.1,
+    "width": 68
+  },
+  {
+    "x": -6580.78,
+    "y": -5529.84,
+    "z": 570.73,
+    "elevationMeters": 1563.8,
+    "width": 68
+  },
+  {
+    "x": -6588.17,
+    "y": -5498.74,
+    "z": 572.95,
+    "elevationMeters": 1565.4,
+    "width": 68
+  },
+  {
+    "x": -6598.24,
+    "y": -5468.36,
+    "z": 575.16,
+    "elevationMeters": 1567.0,
+    "width": 68
+  },
+  {
+    "x": -6618.25,
+    "y": -5444.3,
+    "z": 577.36,
+    "elevationMeters": 1568.7,
+    "width": 68
+  },
+  {
+    "x": -6641.44,
+    "y": -5422.25,
+    "z": 579.54,
+    "elevationMeters": 1570.3,
+    "width": 68
+  },
+  {
+    "x": -6666.23,
+    "y": -5402.03,
+    "z": 581.71,
+    "elevationMeters": 1571.9,
+    "width": 68
+  },
+  {
+    "x": -6686.21,
+    "y": -5377.12,
+    "z": 583.86,
+    "elevationMeters": 1573.5,
+    "width": 68
+  },
+  {
+    "x": -6705.23,
+    "y": -5351.42,
+    "z": 585.99,
+    "elevationMeters": 1575.1,
+    "width": 68
+  },
+  {
+    "x": -6722.65,
+    "y": -5324.57,
+    "z": 588.1,
+    "elevationMeters": 1576.6,
+    "width": 68
+  },
+  {
+    "x": -6740.83,
+    "y": -5298.25,
+    "z": 590.19,
+    "elevationMeters": 1578.2,
+    "width": 68
+  },
+  {
+    "x": -6759.47,
+    "y": -5272.24,
+    "z": 592.26,
+    "elevationMeters": 1579.7,
+    "width": 68
+  },
+  {
+    "x": -6777.86,
+    "y": -5246.1,
+    "z": 594.31,
+    "elevationMeters": 1581.2,
+    "width": 68
+  },
+  {
+    "x": -6788.46,
+    "y": -5215.9,
+    "z": 596.34,
+    "elevationMeters": 1582.7,
+    "width": 68
+  },
+  {
+    "x": -6797.95,
+    "y": -5185.37,
+    "z": 598.34,
+    "elevationMeters": 1584.2,
+    "width": 68
+  },
+  {
+    "x": -6806.3,
+    "y": -5154.47,
+    "z": 600.32,
+    "elevationMeters": 1585.7,
+    "width": 68
+  },
+  {
+    "x": -6814.65,
+    "y": -5123.58,
+    "z": 602.27,
+    "elevationMeters": 1587.1,
+    "width": 68
+  },
+  {
+    "x": -6830.58,
+    "y": -5096.1,
+    "z": 604.19,
+    "elevationMeters": 1588.5,
+    "width": 68
+  },
+  {
+    "x": -6852.43,
+    "y": -5072.92,
+    "z": 606.08,
+    "elevationMeters": 1590.0,
+    "width": 68
+  },
+  {
+    "x": -6875.58,
+    "y": -5050.82,
+    "z": 607.95,
+    "elevationMeters": 1591.3,
+    "width": 68
+  },
+  {
+    "x": -6898.72,
+    "y": -5028.72,
+    "z": 609.78,
+    "elevationMeters": 1592.7,
+    "width": 68
+  },
+  {
+    "x": -6923.08,
+    "y": -5008.05,
+    "z": 611.58,
+    "elevationMeters": 1594.0,
+    "width": 68
+  },
+  {
+    "x": -6950.44,
+    "y": -4991.77,
+    "z": 613.35,
+    "elevationMeters": 1595.3,
+    "width": 68
+  },
+  {
+    "x": -6978.5,
+    "y": -4976.77,
+    "z": 615.09,
+    "elevationMeters": 1596.6,
+    "width": 68
+  },
+  {
+    "x": -6999.29,
+    "y": -4952.63,
+    "z": 616.79,
+    "elevationMeters": 1597.9,
+    "width": 68
+  },
+  {
+    "x": -7015.6,
+    "y": -4925.44,
+    "z": 618.46,
+    "elevationMeters": 1599.1,
+    "width": 68
+  },
+  {
+    "x": -7021.23,
+    "y": -4894.23,
+    "z": 620.09,
+    "elevationMeters": 1600.3,
+    "width": 68
+  },
+  {
+    "x": -7018.42,
+    "y": -4862.38,
+    "z": 621.68,
+    "elevationMeters": 1601.5,
+    "width": 68
+  },
+  {
+    "x": -7006.45,
+    "y": -4833.35,
+    "z": 623.23,
+    "elevationMeters": 1602.7,
+    "width": 68
+  },
+  {
+    "x": -6990.58,
+    "y": -4805.56,
+    "z": 624.74,
+    "elevationMeters": 1603.8,
+    "width": 68
+  },
+  {
+    "x": -6978.94,
+    "y": -4776.07,
+    "z": 626.21,
+    "elevationMeters": 1604.9,
+    "width": 68
+  },
+  {
+    "x": -6978.15,
+    "y": -4744.3,
+    "z": 627.64,
+    "elevationMeters": 1605.9,
+    "width": 68
+  },
+  {
+    "x": -6979.3,
+    "y": -4712.32,
+    "z": 629.03,
+    "elevationMeters": 1606.9,
+    "width": 68
+  },
+  {
+    "x": -6980.46,
+    "y": -4680.34,
+    "z": 630.37,
+    "elevationMeters": 1607.9,
+    "width": 68
+  },
+  {
+    "x": -6981.65,
+    "y": -4648.36,
+    "z": 631.67,
+    "elevationMeters": 1608.9,
+    "width": 68
+  },
+  {
+    "x": -6981.66,
+    "y": -4616.43,
+    "z": 632.92,
+    "elevationMeters": 1609.8,
+    "width": 68
+  },
+  {
+    "x": -6975.37,
+    "y": -4585.3,
+    "z": 634.12,
+    "elevationMeters": 1610.7,
+    "width": 68
+  },
+  {
+    "x": -6964.43,
+    "y": -4555.23,
+    "z": 635.28,
+    "elevationMeters": 1611.6,
+    "width": 68
+  },
+  {
+    "x": -6956.23,
+    "y": -4524.46,
+    "z": 636.38,
+    "elevationMeters": 1612.4,
+    "width": 68
+  },
+  {
+    "x": -6968.31,
+    "y": -4496.57,
+    "z": 637.44,
+    "elevationMeters": 1613.2,
+    "width": 68
+  },
+  {
+    "x": -6997.89,
+    "y": -4492.6,
+    "z": 638.44,
+    "elevationMeters": 1613.9,
+    "width": 68
+  },
+  {
+    "x": -7026.71,
+    "y": -4506.3,
+    "z": 639.39,
+    "elevationMeters": 1614.6,
+    "width": 68
+  },
+  {
+    "x": -7055.6,
+    "y": -4518.32,
+    "z": 640.29,
+    "elevationMeters": 1615.3,
+    "width": 68
+  },
+  {
+    "x": -7087.28,
+    "y": -4515.74,
+    "z": 641.14,
+    "elevationMeters": 1615.9,
+    "width": 68
+  },
+  {
+    "x": -7119.05,
+    "y": -4513.48,
+    "z": 641.92,
+    "elevationMeters": 1616.5,
+    "width": 68
+  },
+  {
+    "x": -7151.02,
+    "y": -4514.91,
+    "z": 642.65,
+    "elevationMeters": 1617.0,
+    "width": 68
+  },
+  {
+    "x": -7182.99,
+    "y": -4515.18,
+    "z": 643.33,
+    "elevationMeters": 1617.5,
+    "width": 68
+  },
+  {
+    "x": -7214.44,
+    "y": -4510.64,
+    "z": 643.94,
+    "elevationMeters": 1618.0,
+    "width": 68
+  },
+  {
+    "x": -7243.38,
+    "y": -4497.74,
+    "z": 644.49,
+    "elevationMeters": 1618.4,
+    "width": 68
+  },
+  {
+    "x": -7262.63,
+    "y": -4472.49,
+    "z": 644.99,
+    "elevationMeters": 1618.8,
+    "width": 68
+  },
+  {
+    "x": -7271.21,
+    "y": -4441.84,
+    "z": 645.42,
+    "elevationMeters": 1619.1,
+    "width": 68
+  },
+  {
+    "x": -7271.39,
+    "y": -4409.84,
+    "z": 645.79,
+    "elevationMeters": 1619.4,
+    "width": 68
+  },
+  {
+    "x": -7269.83,
+    "y": -4377.96,
+    "z": 646.09,
+    "elevationMeters": 1619.6,
+    "width": 68
+  },
+  {
+    "x": -7263.03,
+    "y": -4347.05,
+    "z": 646.33,
+    "elevationMeters": 1619.8,
+    "width": 68
+  },
+  {
+    "x": -7247.09,
+    "y": -4319.3,
+    "z": 646.51,
+    "elevationMeters": 1619.9,
+    "width": 68
+  },
+  {
+    "x": -7231.15,
+    "y": -4291.56,
+    "z": 646.61,
+    "elevationMeters": 1620.0,
+    "width": 68
+  },
+  {
+    "x": -7215.21,
+    "y": -4263.81,
+    "z": 646.65,
+    "elevationMeters": 1620.0,
+    "width": 68
+  },
+  {
+    "x": -7204.16,
+    "y": -4233.83,
+    "z": 646.67,
+    "elevationMeters": 1620.0,
+    "width": 68
+  },
+  {
+    "x": -7195.33,
+    "y": -4203.22,
+    "z": 646.75,
+    "elevationMeters": 1620.1,
+    "width": 68
+  },
+  {
+    "x": -7191.64,
+    "y": -4171.44,
+    "z": 646.88,
+    "elevationMeters": 1620.2,
+    "width": 68
+  },
+  {
+    "x": -7185.32,
+    "y": -4140.19,
+    "z": 647.06,
+    "elevationMeters": 1620.3,
+    "width": 68
+  },
+  {
+    "x": -7171.3,
+    "y": -4111.89,
+    "z": 647.29,
+    "elevationMeters": 1620.5,
+    "width": 68
+  },
+  {
+    "x": -7145.91,
+    "y": -4093.57,
+    "z": 647.57,
+    "elevationMeters": 1620.7,
+    "width": 68
+  },
+  {
+    "x": -7122.81,
+    "y": -4073.22,
+    "z": 647.9,
+    "elevationMeters": 1620.9,
+    "width": 68
+  },
+  {
+    "x": -7122.36,
+    "y": -4042.34,
+    "z": 648.28,
+    "elevationMeters": 1621.2,
+    "width": 68
+  },
+  {
+    "x": -7123.67,
+    "y": -4010.6,
+    "z": 648.71,
+    "elevationMeters": 1621.5,
+    "width": 68
+  },
+  {
+    "x": -7116.23,
+    "y": -3979.57,
+    "z": 649.18,
+    "elevationMeters": 1621.9,
+    "width": 68
+  },
+  {
+    "x": -7093.46,
+    "y": -3957.29,
+    "z": 649.7,
+    "elevationMeters": 1622.3,
+    "width": 68
+  },
+  {
+    "x": -7083.76,
+    "y": -3928.31,
+    "z": 650.27,
+    "elevationMeters": 1622.7,
+    "width": 68
+  },
+  {
+    "x": -7094.99,
+    "y": -3899.53,
+    "z": 650.88,
+    "elevationMeters": 1623.1,
+    "width": 68
+  },
+  {
+    "x": -7119.93,
+    "y": -3880.59,
+    "z": 651.53,
+    "elevationMeters": 1623.6,
+    "width": 68
+  },
+  {
+    "x": -7150.75,
+    "y": -3872.11,
+    "z": 652.23,
+    "elevationMeters": 1624.1,
+    "width": 68
+  },
+  {
+    "x": -7178.23,
+    "y": -3856.68,
+    "z": 652.97,
+    "elevationMeters": 1624.7,
+    "width": 68
+  },
+  {
+    "x": -7191.35,
+    "y": -3828.18,
+    "z": 653.75,
+    "elevationMeters": 1625.3,
+    "width": 68
+  },
+  {
+    "x": -7187.25,
+    "y": -3796.72,
+    "z": 654.57,
+    "elevationMeters": 1625.9,
+    "width": 68
+  },
+  {
+    "x": -7180.61,
+    "y": -3765.42,
+    "z": 655.44,
+    "elevationMeters": 1626.5,
+    "width": 68
+  },
+  {
+    "x": -7182.78,
+    "y": -3734.0,
+    "z": 656.34,
+    "elevationMeters": 1627.2,
+    "width": 68
+  },
+  {
+    "x": -7198.47,
+    "y": -3707.09,
+    "z": 657.28,
+    "elevationMeters": 1627.9,
+    "width": 68
+  },
+  {
+    "x": -7221.38,
+    "y": -3684.82,
+    "z": 658.26,
+    "elevationMeters": 1628.6,
+    "width": 68
+  },
+  {
+    "x": -7236.39,
+    "y": -3657.15,
+    "z": 659.28,
+    "elevationMeters": 1629.4,
+    "width": 68
+  },
+  {
+    "x": -7238.11,
+    "y": -3625.48,
+    "z": 660.34,
+    "elevationMeters": 1630.1,
+    "width": 68
+  },
+  {
+    "x": -7230.81,
+    "y": -3594.45,
+    "z": 661.43,
+    "elevationMeters": 1630.9,
+    "width": 68
+  },
+  {
+    "x": -7216.52,
+    "y": -3566.05,
+    "z": 662.55,
+    "elevationMeters": 1631.8,
+    "width": 68
+  },
+  {
+    "x": -7192.08,
+    "y": -3546.42,
+    "z": 663.72,
+    "elevationMeters": 1632.6,
+    "width": 68
+  },
+  {
+    "x": -7164.65,
+    "y": -3529.94,
+    "z": 664.91,
+    "elevationMeters": 1633.5,
+    "width": 68
+  },
+  {
+    "x": -7137.22,
+    "y": -3513.46,
+    "z": 666.14,
+    "elevationMeters": 1634.4,
+    "width": 68
+  },
+  {
+    "x": -7109.79,
+    "y": -3496.98,
+    "z": 667.4,
+    "elevationMeters": 1635.4,
+    "width": 68
+  },
+  {
+    "x": -7081.52,
+    "y": -3482.0,
+    "z": 668.69,
+    "elevationMeters": 1636.3,
+    "width": 68
+  },
+  {
+    "x": -7054.68,
+    "y": -3464.87,
+    "z": 670.02,
+    "elevationMeters": 1637.3,
+    "width": 68
+  },
+  {
+    "x": -7046.42,
+    "y": -3435.74,
+    "z": 671.37,
+    "elevationMeters": 1638.3,
+    "width": 68
+  },
+  {
+    "x": -7059.21,
+    "y": -3406.85,
+    "z": 672.75,
+    "elevationMeters": 1639.3,
+    "width": 68,
+    "name": "La Suiza / El Brasil (Ebéjico)",
+    "isCheckpoint": true
+  },
+  {
+    "x": -7071.49,
+    "y": -3377.73,
+    "z": 674.16,
+    "elevationMeters": 1640.4,
+    "width": 68
+  },
+  {
+    "x": -7070.73,
+    "y": -3345.9,
+    "z": 675.61,
+    "elevationMeters": 1641.4,
+    "width": 68
+  },
+  {
+    "x": -7069.88,
+    "y": -3313.99,
+    "z": 677.07,
+    "elevationMeters": 1642.5,
+    "width": 68
+  },
+  {
+    "x": -7080.99,
+    "y": -3284.05,
+    "z": 678.57,
+    "elevationMeters": 1643.6,
+    "width": 68
+  },
+  {
+    "x": -7092.53,
+    "y": -3254.2,
+    "z": 680.09,
+    "elevationMeters": 1644.8,
+    "width": 68
+  },
+  {
+    "x": -7095.92,
+    "y": -3222.63,
+    "z": 681.63,
+    "elevationMeters": 1645.9,
+    "width": 68
+  },
+  {
+    "x": -7091.98,
+    "y": -3190.88,
+    "z": 683.2,
+    "elevationMeters": 1647.1,
+    "width": 68
+  },
+  {
+    "x": -7101.44,
+    "y": -3162.29,
+    "z": 684.8,
+    "elevationMeters": 1648.3,
+    "width": 68
+  },
+  {
+    "x": -7125.4,
+    "y": -3141.24,
+    "z": 686.41,
+    "elevationMeters": 1649.5,
+    "width": 68
+  },
+  {
+    "x": -7152.36,
+    "y": -3124.01,
+    "z": 688.05,
+    "elevationMeters": 1650.7,
+    "width": 68
+  },
+  {
+    "x": -7179.32,
+    "y": -3106.77,
+    "z": 689.71,
+    "elevationMeters": 1651.9,
+    "width": 68
+  },
+  {
+    "x": -7206.28,
+    "y": -3089.54,
+    "z": 691.39,
+    "elevationMeters": 1653.1,
+    "width": 68
+  },
+  {
+    "x": -7233.24,
+    "y": -3072.3,
+    "z": 693.09,
+    "elevationMeters": 1654.4,
+    "width": 68
+  },
+  {
+    "x": -7260.2,
+    "y": -3055.06,
+    "z": 694.81,
+    "elevationMeters": 1655.7,
+    "width": 68
+  },
+  {
+    "x": -7284.72,
+    "y": -3034.76,
+    "z": 696.55,
+    "elevationMeters": 1657.0,
+    "width": 68
+  },
+  {
+    "x": -7302.57,
+    "y": -3008.45,
+    "z": 698.31,
+    "elevationMeters": 1658.3,
+    "width": 68
+  },
+  {
+    "x": -7305.98,
+    "y": -2977.02,
+    "z": 700.09,
+    "elevationMeters": 1659.6,
+    "width": 68
+  },
+  {
+    "x": -7304.75,
+    "y": -2945.04,
+    "z": 701.88,
+    "elevationMeters": 1660.9,
+    "width": 68
+  },
+  {
+    "x": -7301.45,
+    "y": -2913.25,
+    "z": 703.68,
+    "elevationMeters": 1662.2,
+    "width": 68
+  },
+  {
+    "x": -7296.93,
+    "y": -2881.58,
+    "z": 705.5,
+    "elevationMeters": 1663.6,
+    "width": 68
+  },
+  {
+    "x": -7295.14,
+    "y": -2849.68,
+    "z": 707.34,
+    "elevationMeters": 1665.0,
+    "width": 68
+  },
+  {
+    "x": -7294.57,
+    "y": -2817.68,
+    "z": 709.19,
+    "elevationMeters": 1666.3,
+    "width": 68
+  },
+  {
+    "x": -7287.24,
+    "y": -2786.56,
+    "z": 711.05,
+    "elevationMeters": 1667.7,
+    "width": 68
+  },
+  {
+    "x": -7279.64,
+    "y": -2755.48,
+    "z": 712.93,
+    "elevationMeters": 1669.1,
+    "width": 68
+  },
+  {
+    "x": -7272.03,
+    "y": -2724.4,
+    "z": 714.81,
+    "elevationMeters": 1670.5,
+    "width": 68
+  },
+  {
+    "x": -7264.43,
+    "y": -2693.31,
+    "z": 716.71,
+    "elevationMeters": 1671.9,
+    "width": 68
+  },
+  {
+    "x": -7255.43,
+    "y": -2662.65,
+    "z": 718.61,
+    "elevationMeters": 1673.3,
+    "width": 68
+  },
+  {
+    "x": -7244.61,
+    "y": -2632.53,
+    "z": 720.53,
+    "elevationMeters": 1674.7,
+    "width": 68
+  },
+  {
+    "x": -7230.5,
+    "y": -2604.09,
+    "z": 722.45,
+    "elevationMeters": 1676.2,
+    "width": 68
+  },
+  {
+    "x": -7212.62,
+    "y": -2577.55,
+    "z": 724.38,
+    "elevationMeters": 1677.6,
+    "width": 68
+  },
+  {
+    "x": -7186.86,
+    "y": -2559.53,
+    "z": 726.32,
+    "elevationMeters": 1679.0,
+    "width": 68
+  },
+  {
+    "x": -7157.74,
+    "y": -2546.26,
+    "z": 728.27,
+    "elevationMeters": 1680.5,
+    "width": 68
+  },
+  {
+    "x": -7126.38,
+    "y": -2539.93,
+    "z": 730.22,
+    "elevationMeters": 1681.9,
+    "width": 68
+  },
+  {
+    "x": -7096.14,
+    "y": -2529.75,
+    "z": 732.17,
+    "elevationMeters": 1683.3,
+    "width": 68
+  },
+  {
+    "x": -7066.32,
+    "y": -2518.13,
+    "z": 734.13,
+    "elevationMeters": 1684.8,
+    "width": 68
+  },
+  {
+    "x": -7035.44,
+    "y": -2510.04,
+    "z": 736.09,
+    "elevationMeters": 1686.3,
+    "width": 68
+  },
+  {
+    "x": -7005.46,
+    "y": -2499.36,
+    "z": 738.06,
+    "elevationMeters": 1687.7,
+    "width": 68
+  },
+  {
+    "x": -6985.44,
+    "y": -2474.58,
+    "z": 740.03,
+    "elevationMeters": 1689.2,
+    "width": 68
+  },
+  {
+    "x": -6970.44,
+    "y": -2446.32,
+    "z": 741.99,
+    "elevationMeters": 1690.6,
+    "width": 68
+  },
+  {
+    "x": -6957.44,
+    "y": -2417.2,
+    "z": 743.96,
+    "elevationMeters": 1692.1,
+    "width": 68
+  },
+  {
+    "x": -6958.64,
+    "y": -2386.34,
+    "z": 745.93,
+    "elevationMeters": 1693.5,
+    "width": 68
+  },
+  {
+    "x": -6976.86,
+    "y": -2360.58,
+    "z": 747.9,
+    "elevationMeters": 1695.0,
+    "width": 68
+  },
+  {
+    "x": -6998.28,
+    "y": -2336.8,
+    "z": 749.86,
+    "elevationMeters": 1696.5,
+    "width": 68
+  },
+  {
+    "x": -7019.33,
+    "y": -2312.76,
+    "z": 751.83,
+    "elevationMeters": 1697.9,
+    "width": 68
+  },
+  {
+    "x": -7035.45,
+    "y": -2285.11,
+    "z": 753.79,
+    "elevationMeters": 1699.4,
+    "width": 68
+  },
+  {
+    "x": -7051.56,
+    "y": -2257.47,
+    "z": 755.74,
+    "elevationMeters": 1700.8,
+    "width": 68
+  },
+  {
+    "x": -7067.68,
+    "y": -2229.82,
+    "z": 757.69,
+    "elevationMeters": 1702.3,
+    "width": 68
+  },
+  {
+    "x": -7078.95,
+    "y": -2200.14,
+    "z": 759.64,
+    "elevationMeters": 1703.7,
+    "width": 68
+  },
+  {
+    "x": -7076.36,
+    "y": -2168.38,
+    "z": 761.58,
+    "elevationMeters": 1705.1,
+    "width": 68
+  },
+  {
+    "x": -7077.55,
+    "y": -2136.8,
+    "z": 763.51,
+    "elevationMeters": 1706.6,
+    "width": 68
+  },
+  {
+    "x": -7084.26,
+    "y": -2105.51,
+    "z": 765.44,
+    "elevationMeters": 1708.0,
+    "width": 68
+  },
+  {
+    "x": -7090.55,
+    "y": -2074.16,
+    "z": 767.35,
+    "elevationMeters": 1709.4,
+    "width": 68
+  },
+  {
+    "x": -7091.97,
+    "y": -2042.19,
+    "z": 769.26,
+    "elevationMeters": 1710.8,
+    "width": 68
+  },
+  {
+    "x": -7085.12,
+    "y": -2011.27,
+    "z": 771.16,
+    "elevationMeters": 1712.2,
+    "width": 68
+  },
+  {
+    "x": -7068.21,
+    "y": -1984.09,
+    "z": 773.05,
+    "elevationMeters": 1713.6,
+    "width": 68
+  },
+  {
+    "x": -7051.32,
+    "y": -1956.92,
+    "z": 774.92,
+    "elevationMeters": 1715.0,
+    "width": 68
+  },
+  {
+    "x": -7036.42,
+    "y": -1928.77,
+    "z": 776.79,
+    "elevationMeters": 1716.4,
+    "width": 68
+  },
+  {
+    "x": -7035.56,
+    "y": -1898.15,
+    "z": 778.64,
+    "elevationMeters": 1717.8,
+    "width": 68
+  },
+  {
+    "x": -7042.37,
+    "y": -1867.04,
+    "z": 780.48,
+    "elevationMeters": 1719.1,
+    "width": 68
+  },
+  {
+    "x": -7040.75,
+    "y": -1835.57,
+    "z": 782.3,
+    "elevationMeters": 1720.5,
+    "width": 68
+  },
+  {
+    "x": -7028.49,
+    "y": -1806.01,
+    "z": 784.11,
+    "elevationMeters": 1721.8,
+    "width": 68
+  },
+  {
+    "x": -7019.8,
+    "y": -1775.38,
+    "z": 785.91,
+    "elevationMeters": 1723.2,
+    "width": 68
+  },
+  {
+    "x": -7025.0,
+    "y": -1744.69,
+    "z": 787.69,
+    "elevationMeters": 1724.5,
+    "width": 68
+  },
+  {
+    "x": -7047.5,
+    "y": -1722.19,
+    "z": 789.45,
+    "elevationMeters": 1725.8,
+    "width": 68
+  },
+  {
+    "x": -7072.62,
+    "y": -1702.37,
+    "z": 791.19,
+    "elevationMeters": 1727.1,
+    "width": 68
+  },
+  {
+    "x": -7094.47,
+    "y": -1679.28,
+    "z": 792.91,
+    "elevationMeters": 1728.3,
+    "width": 68
+  },
+  {
+    "x": -7114.2,
+    "y": -1654.09,
+    "z": 794.62,
+    "elevationMeters": 1729.6,
+    "width": 68
+  },
+  {
+    "x": -7136.22,
+    "y": -1631.07,
+    "z": 796.3,
+    "elevationMeters": 1730.9,
+    "width": 68
+  },
+  {
+    "x": -7160.43,
+    "y": -1610.16,
+    "z": 797.97,
+    "elevationMeters": 1732.1,
+    "width": 68
+  },
+  {
+    "x": -7184.65,
+    "y": -1589.24,
+    "z": 799.61,
+    "elevationMeters": 1733.3,
+    "width": 68
+  },
+  {
+    "x": -7199.76,
+    "y": -1561.47,
+    "z": 801.23,
+    "elevationMeters": 1734.5,
+    "width": 68
+  },
+  {
+    "x": -7204.38,
+    "y": -1532.27,
+    "z": 802.83,
+    "elevationMeters": 1735.7,
+    "width": 68
+  },
+  {
+    "x": -7191.59,
+    "y": -1502.95,
+    "z": 804.41,
+    "elevationMeters": 1736.9,
+    "width": 68
+  },
+  {
+    "x": -7176.2,
+    "y": -1474.9,
+    "z": 805.96,
+    "elevationMeters": 1738.0,
+    "width": 68
+  },
+  {
+    "x": -7163.09,
+    "y": -1445.92,
+    "z": 807.48,
+    "elevationMeters": 1739.1,
+    "width": 68
+  },
+  {
+    "x": -7154.67,
+    "y": -1415.05,
+    "z": 808.98,
+    "elevationMeters": 1740.2,
+    "width": 68
+  },
+  {
+    "x": -7146.25,
+    "y": -1384.18,
+    "z": 810.45,
+    "elevationMeters": 1741.3,
+    "width": 68
+  },
+  {
+    "x": -7137.79,
+    "y": -1353.32,
+    "z": 811.9,
+    "elevationMeters": 1742.4,
+    "width": 68
+  },
+  {
+    "x": -7131.64,
+    "y": -1321.99,
+    "z": 813.32,
+    "elevationMeters": 1743.5,
+    "width": 68
+  },
+  {
+    "x": -7135.56,
+    "y": -1290.29,
+    "z": 814.71,
+    "elevationMeters": 1744.5,
+    "width": 68
+  },
+  {
+    "x": -7139.93,
+    "y": -1258.59,
+    "z": 816.07,
+    "elevationMeters": 1745.5,
+    "width": 68
+  },
+  {
+    "x": -7141.49,
+    "y": -1226.76,
+    "z": 817.4,
+    "elevationMeters": 1746.5,
+    "width": 68
+  },
+  {
+    "x": -7139.72,
+    "y": -1194.81,
+    "z": 818.69,
+    "elevationMeters": 1747.4,
+    "width": 68
+  },
+  {
+    "x": -7137.9,
+    "y": -1162.86,
+    "z": 819.96,
+    "elevationMeters": 1748.4,
+    "width": 68
+  },
+  {
+    "x": -7127.01,
+    "y": -1133.34,
+    "z": 821.2,
+    "elevationMeters": 1749.3,
+    "width": 68
+  },
+  {
+    "x": -7109.77,
+    "y": -1106.57,
+    "z": 822.4,
+    "elevationMeters": 1750.2,
+    "width": 68
+  },
+  {
+    "x": -7090.16,
+    "y": -1081.28,
+    "z": 823.57,
+    "elevationMeters": 1751.0,
+    "width": 68
+  },
+  {
+    "x": -7070.86,
+    "y": -1055.76,
+    "z": 824.7,
+    "elevationMeters": 1751.9,
+    "width": 68
+  },
+  {
+    "x": -7051.55,
+    "y": -1030.24,
+    "z": 825.8,
+    "elevationMeters": 1752.7,
+    "width": 68
+  },
+  {
+    "x": -7034.67,
+    "y": -1003.12,
+    "z": 826.86,
+    "elevationMeters": 1753.5,
+    "width": 68
+  },
+  {
+    "x": -7018.84,
+    "y": -975.31,
+    "z": 827.89,
+    "elevationMeters": 1754.2,
+    "width": 68
+  },
+  {
+    "x": -7003.02,
+    "y": -947.5,
+    "z": 828.88,
+    "elevationMeters": 1755.0,
+    "width": 68
+  },
+  {
+    "x": -6991.26,
+    "y": -917.81,
+    "z": 829.83,
+    "elevationMeters": 1755.7,
+    "width": 68
+  },
+  {
+    "x": -6980.68,
+    "y": -887.63,
+    "z": 830.74,
+    "elevationMeters": 1756.4,
+    "width": 68
+  },
+  {
+    "x": -6976.2,
+    "y": -856.07,
+    "z": 831.61,
+    "elevationMeters": 1757.0,
+    "width": 68
+  },
+  {
+    "x": -6976.02,
+    "y": -824.07,
+    "z": 832.44,
+    "elevationMeters": 1757.6,
+    "width": 68
+  },
+  {
+    "x": -6975.11,
+    "y": -792.16,
+    "z": 833.23,
+    "elevationMeters": 1758.2,
+    "width": 68
+  },
+  {
+    "x": -6967.79,
+    "y": -761.01,
+    "z": 833.98,
+    "elevationMeters": 1758.8,
+    "width": 68
+  },
+  {
+    "x": -6960.46,
+    "y": -729.86,
+    "z": 834.68,
+    "elevationMeters": 1759.3,
+    "width": 68
+  },
+  {
+    "x": -6954.49,
+    "y": -698.48,
+    "z": 835.35,
+    "elevationMeters": 1759.8,
+    "width": 68
+  },
+  {
+    "x": -6951.24,
+    "y": -666.65,
+    "z": 835.97,
+    "elevationMeters": 1760.2,
+    "width": 68
+  },
+  {
+    "x": -6947.99,
+    "y": -634.81,
+    "z": 836.54,
+    "elevationMeters": 1760.7,
+    "width": 68
+  },
+  {
+    "x": -6942.93,
+    "y": -603.28,
+    "z": 837.07,
+    "elevationMeters": 1761.1,
+    "width": 68
+  },
+  {
+    "x": -6935.66,
+    "y": -572.12,
+    "z": 837.55,
+    "elevationMeters": 1761.4,
+    "width": 68
+  },
+  {
+    "x": -6931.98,
+    "y": -540.58,
+    "z": 837.99,
+    "elevationMeters": 1761.7,
+    "width": 68
+  },
+  {
+    "x": -6934.37,
+    "y": -508.71,
+    "z": 838.38,
+    "elevationMeters": 1762.0,
+    "width": 68
+  },
+  {
+    "x": -6938.4,
+    "y": -476.97,
+    "z": 838.72,
+    "elevationMeters": 1762.3,
+    "width": 68
+  },
+  {
+    "x": -6942.44,
+    "y": -445.22,
+    "z": 839.01,
+    "elevationMeters": 1762.5,
+    "width": 68
+  },
+  {
+    "x": -6944.73,
+    "y": -413.36,
+    "z": 839.25,
+    "elevationMeters": 1762.7,
+    "width": 68
+  },
+  {
+    "x": -6944.97,
+    "y": -381.36,
+    "z": 839.44,
+    "elevationMeters": 1762.8,
+    "width": 68
+  },
+  {
+    "x": -6944.13,
+    "y": -349.38,
+    "z": 839.58,
+    "elevationMeters": 1762.9,
+    "width": 68,
+    "isBridge": true,
+    "bridgeName": "Paso Quebrada El Patudo (km 17.0, alto de montaña)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -6943.03,
+    "y": -317.4,
+    "z": 839.66,
+    "elevationMeters": 1763.0,
+    "width": 68,
+    "isBridge": true,
+    "bridgeName": "Paso Quebrada El Patudo (km 17.0, alto de montaña)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -6941.98,
+    "y": -285.41,
+    "z": 839.7,
+    "elevationMeters": 1763.0,
+    "width": 68,
+    "isBridge": true,
+    "bridgeName": "Paso Quebrada El Patudo (km 17.0, alto de montaña)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -6940.65,
+    "y": -253.55,
+    "z": 839.66,
+    "elevationMeters": 1763.0,
+    "width": 68,
+    "name": "Paso Quebrada El Patudo (km 17.0, alto de montaña)",
+    "isCheckpoint": true,
+    "isBridge": true,
+    "bridgeName": "Paso Quebrada El Patudo (km 17.0, alto de montaña)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -6957.44,
+    "y": -227.04,
+    "z": 839.52,
+    "elevationMeters": 1762.9,
+    "width": 68,
+    "isBridge": true,
+    "bridgeName": "Paso Quebrada El Patudo (km 17.0, alto de montaña)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -6988.02,
+    "y": -220.69,
+    "z": 839.27,
+    "elevationMeters": 1762.7,
+    "width": 68,
+    "isBridge": true,
+    "bridgeName": "Paso Quebrada El Patudo (km 17.0, alto de montaña)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -7020.02,
+    "y": -220.86,
+    "z": 838.92,
+    "elevationMeters": 1762.4,
+    "width": 68,
+    "isBridge": true,
+    "bridgeName": "Paso Quebrada El Patudo (km 17.0, alto de montaña)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -7051.94,
+    "y": -218.68,
+    "z": 838.47,
+    "elevationMeters": 1762.1,
+    "width": 68
+  },
+  {
+    "x": -7080.62,
+    "y": -206.84,
+    "z": 837.93,
+    "elevationMeters": 1761.7,
+    "width": 68
+  },
+  {
+    "x": -7103.09,
+    "y": -184.1,
+    "z": 837.29,
+    "elevationMeters": 1761.2,
+    "width": 68
+  },
+  {
+    "x": -7126.06,
+    "y": -162.26,
+    "z": 836.55,
+    "elevationMeters": 1760.7,
+    "width": 68
+  },
+  {
+    "x": -7154.18,
+    "y": -147.15,
+    "z": 835.72,
+    "elevationMeters": 1760.1,
+    "width": 68
+  },
+  {
+    "x": -7180.38,
+    "y": -128.84,
+    "z": 834.81,
+    "elevationMeters": 1759.4,
+    "width": 68
+  },
+  {
+    "x": -7204.62,
+    "y": -107.95,
+    "z": 833.8,
+    "elevationMeters": 1758.6,
+    "width": 68
+  },
+  {
+    "x": -7230.21,
+    "y": -89.0,
+    "z": 832.71,
+    "elevationMeters": 1757.8,
+    "width": 68
+  },
+  {
+    "x": -7260.79,
+    "y": -82.11,
+    "z": 831.53,
+    "elevationMeters": 1757.0,
+    "width": 68
+  },
+  {
+    "x": -7291.76,
+    "y": -88.62,
+    "z": 830.28,
+    "elevationMeters": 1756.0,
+    "width": 68
+  },
+  {
+    "x": -7317.56,
+    "y": -107.27,
+    "z": 828.94,
+    "elevationMeters": 1755.0,
+    "width": 68
+  },
+  {
+    "x": -7342.9,
+    "y": -126.8,
+    "z": 827.53,
+    "elevationMeters": 1754.0,
+    "width": 68
+  },
+  {
+    "x": -7374.06,
+    "y": -130.34,
+    "z": 826.04,
+    "elevationMeters": 1752.9,
+    "width": 68
+  },
+  {
+    "x": -7405.48,
+    "y": -125.13,
+    "z": 824.48,
+    "elevationMeters": 1751.7,
+    "width": 68
+  },
+  {
+    "x": -7437.4,
+    "y": -127.43,
+    "z": 822.84,
+    "elevationMeters": 1750.5,
+    "width": 68
+  },
+  {
+    "x": -7469.32,
+    "y": -129.73,
+    "z": 821.14,
+    "elevationMeters": 1749.2,
+    "width": 68
+  },
+  {
+    "x": -7498.54,
+    "y": -142.61,
+    "z": 819.36,
+    "elevationMeters": 1747.9,
+    "width": 68
+  },
+  {
+    "x": -7527.29,
+    "y": -156.65,
+    "z": 817.52,
+    "elevationMeters": 1746.6,
+    "width": 68
+  },
+  {
+    "x": -7556.0,
+    "y": -170.79,
+    "z": 815.62,
+    "elevationMeters": 1745.2,
+    "width": 68
+  },
+  {
+    "x": -7582.03,
+    "y": -188.95,
+    "z": 813.66,
+    "elevationMeters": 1743.7,
+    "width": 68
+  },
+  {
+    "x": -7606.18,
+    "y": -209.94,
+    "z": 811.64,
+    "elevationMeters": 1742.2,
+    "width": 68
+  },
+  {
+    "x": -7631.69,
+    "y": -229.05,
+    "z": 809.55,
+    "elevationMeters": 1740.7,
+    "width": 68
+  },
+  {
+    "x": -7659.23,
+    "y": -245.36,
+    "z": 807.42,
+    "elevationMeters": 1739.1,
+    "width": 68
+  },
+  {
+    "x": -7688.14,
+    "y": -258.84,
+    "z": 805.23,
+    "elevationMeters": 1737.5,
+    "width": 68
+  },
+  {
+    "x": -7717.93,
+    "y": -270.52,
+    "z": 802.98,
+    "elevationMeters": 1735.8,
+    "width": 68
+  },
+  {
+    "x": -7749.58,
+    "y": -274.63,
+    "z": 800.69,
+    "elevationMeters": 1734.1,
+    "width": 68
+  },
+  {
+    "x": -7781.0,
+    "y": -279.49,
+    "z": 798.35,
+    "elevationMeters": 1732.4,
+    "width": 68
+  },
+  {
+    "x": -7810.77,
+    "y": -290.93,
+    "z": 795.97,
+    "elevationMeters": 1730.6,
+    "width": 68
+  },
+  {
+    "x": -7841.93,
+    "y": -298.23,
+    "z": 793.54,
+    "elevationMeters": 1728.8,
+    "width": 68
+  },
+  {
+    "x": -7872.91,
+    "y": -298.89,
+    "z": 791.07,
+    "elevationMeters": 1727.0,
+    "width": 68
+  },
+  {
+    "x": -7903.94,
+    "y": -291.61,
+    "z": 788.56,
+    "elevationMeters": 1725.1,
+    "width": 68
+  },
+  {
+    "x": -7935.86,
+    "y": -289.44,
+    "z": 786.01,
+    "elevationMeters": 1723.2,
+    "width": 68
+  },
+  {
+    "x": -7967.79,
+    "y": -287.26,
+    "z": 783.42,
+    "elevationMeters": 1721.3,
+    "width": 68
+  },
+  {
+    "x": -7998.71,
+    "y": -281.48,
+    "z": 780.81,
+    "elevationMeters": 1719.4,
+    "width": 68
+  },
+  {
+    "x": -8027.21,
+    "y": -266.91,
+    "z": 778.16,
+    "elevationMeters": 1717.4,
+    "width": 68
+  },
+  {
+    "x": -8055.7,
+    "y": -252.35,
+    "z": 775.48,
+    "elevationMeters": 1715.4,
+    "width": 68
+  },
+  {
+    "x": -8084.19,
+    "y": -237.78,
+    "z": 772.77,
+    "elevationMeters": 1713.4,
+    "width": 68
+  },
+  {
+    "x": -8112.3,
+    "y": -222.49,
+    "z": 770.04,
+    "elevationMeters": 1711.4,
+    "width": 68
+  },
+  {
+    "x": -8140.35,
+    "y": -207.08,
+    "z": 767.28,
+    "elevationMeters": 1709.4,
+    "width": 68
+  },
+  {
+    "x": -8168.39,
+    "y": -191.67,
+    "z": 764.5,
+    "elevationMeters": 1707.3,
+    "width": 68
+  },
+  {
+    "x": -8196.73,
+    "y": -176.83,
+    "z": 761.7,
+    "elevationMeters": 1705.2,
+    "width": 68
+  },
+  {
+    "x": -8225.21,
+    "y": -162.34,
+    "z": 758.89,
+    "elevationMeters": 1703.1,
+    "width": 68
+  },
+  {
+    "x": -8252.19,
+    "y": -145.15,
+    "z": 756.06,
+    "elevationMeters": 1701.0,
+    "width": 68
+  },
+  {
+    "x": -8275.28,
+    "y": -123.36,
+    "z": 753.21,
+    "elevationMeters": 1698.9,
+    "width": 68
+  },
+  {
+    "x": -8290.25,
+    "y": -95.73,
+    "z": 750.36,
+    "elevationMeters": 1696.8,
+    "width": 68
+  },
+  {
+    "x": -8300.97,
+    "y": -65.58,
+    "z": 747.49,
+    "elevationMeters": 1694.7,
+    "width": 68
+  },
+  {
+    "x": -8311.68,
+    "y": -35.43,
+    "z": 744.62,
+    "elevationMeters": 1692.6,
+    "width": 68
+  },
+  {
+    "x": -8324.31,
+    "y": -6.11,
+    "z": 741.74,
+    "elevationMeters": 1690.4,
+    "width": 68
+  },
+  {
+    "x": -8339.04,
+    "y": 22.31,
+    "z": 738.85,
+    "elevationMeters": 1688.3,
+    "width": 68
+  },
+  {
+    "x": -8361.59,
+    "y": 44.99,
+    "z": 735.97,
+    "elevationMeters": 1686.2,
+    "width": 68,
+    "isBridge": true,
+    "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 18.9)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -8385.23,
+    "y": 66.21,
+    "z": 733.08,
+    "elevationMeters": 1684.0,
+    "width": 68,
+    "isBridge": true,
+    "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 18.9)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -8413.82,
+    "y": 80.59,
+    "z": 730.2,
+    "elevationMeters": 1681.9,
+    "width": 68,
+    "isBridge": true,
+    "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 18.9)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -8443.66,
+    "y": 91.08,
+    "z": 727.32,
+    "elevationMeters": 1679.8,
+    "width": 68,
+    "name": "Puente vehicular Ebéjico - Ruta 62 (km 18.9)",
+    "isCheckpoint": true,
+    "isBridge": true,
+    "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 18.9)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -8475.26,
+    "y": 96.15,
+    "z": 724.45,
+    "elevationMeters": 1677.6,
+    "width": 68,
+    "isBridge": true,
+    "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 18.9)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -8507.04,
+    "y": 99.4,
+    "z": 721.59,
+    "elevationMeters": 1675.5,
+    "width": 68,
+    "isBridge": true,
+    "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 18.9)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -8539.01,
+    "y": 100.71,
+    "z": 718.73,
+    "elevationMeters": 1673.4,
+    "width": 68,
+    "isBridge": true,
+    "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 18.9)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -8570.63,
+    "y": 96.59,
+    "z": 715.89,
+    "elevationMeters": 1671.3,
+    "width": 68
+  },
+  {
+    "x": -8585.12,
+    "y": 68.66,
+    "z": 713.07,
+    "elevationMeters": 1669.2,
+    "width": 68
+  },
+  {
+    "x": -8594.45,
+    "y": 38.08,
+    "z": 710.26,
+    "elevationMeters": 1667.1,
+    "width": 68
+  },
+  {
+    "x": -8598.73,
+    "y": 6.68,
+    "z": 707.47,
+    "elevationMeters": 1665.0,
+    "width": 68
+  },
+  {
+    "x": -8598.27,
+    "y": -25.31,
+    "z": 704.69,
+    "elevationMeters": 1663.0,
+    "width": 68
+  },
+  {
+    "x": -8597.73,
+    "y": -57.31,
+    "z": 701.94,
+    "elevationMeters": 1661.0,
+    "width": 68
+  },
+  {
+    "x": -8590.37,
+    "y": -88.12,
+    "z": 699.22,
+    "elevationMeters": 1658.9,
+    "width": 68
+  },
+  {
+    "x": -8576.41,
+    "y": -116.31,
+    "z": 696.52,
+    "elevationMeters": 1656.9,
+    "width": 68
+  },
+  {
+    "x": -8555.43,
+    "y": -140.48,
+    "z": 693.85,
+    "elevationMeters": 1655.0,
+    "width": 68
+  },
+  {
+    "x": -8534.55,
+    "y": -164.72,
+    "z": 691.21,
+    "elevationMeters": 1653.0,
+    "width": 68
+  },
+  {
+    "x": -8513.78,
+    "y": -189.07,
+    "z": 688.6,
+    "elevationMeters": 1651.1,
+    "width": 68
+  },
+  {
+    "x": -8492.63,
+    "y": -213.0,
+    "z": 686.03,
+    "elevationMeters": 1649.2,
+    "width": 68
+  },
+  {
+    "x": -8466.52,
+    "y": -231.49,
+    "z": 683.49,
+    "elevationMeters": 1647.3,
+    "width": 68
+  },
+  {
+    "x": -8440.41,
+    "y": -249.99,
+    "z": 681.0,
+    "elevationMeters": 1645.4,
+    "width": 68
+  },
+  {
+    "x": -8414.3,
+    "y": -268.49,
+    "z": 678.54,
+    "elevationMeters": 1643.6,
+    "width": 68
+  },
+  {
+    "x": -8389.77,
+    "y": -288.58,
+    "z": 676.12,
+    "elevationMeters": 1641.8,
+    "width": 68
+  },
+  {
+    "x": -8371.23,
+    "y": -314.66,
+    "z": 673.75,
+    "elevationMeters": 1640.1,
+    "width": 68
+  },
+  {
+    "x": -8352.69,
+    "y": -340.74,
+    "z": 671.43,
+    "elevationMeters": 1638.4,
+    "width": 68
+  },
+  {
+    "x": -8334.14,
+    "y": -366.82,
+    "z": 669.15,
+    "elevationMeters": 1636.7,
+    "width": 68
+  },
+  {
+    "x": -8315.6,
+    "y": -392.9,
+    "z": 666.92,
+    "elevationMeters": 1635.0,
+    "width": 68
+  },
+  {
+    "x": -8295.68,
+    "y": -417.93,
+    "z": 664.75,
+    "elevationMeters": 1633.4,
+    "width": 68
+  },
+  {
+    "x": -8275.6,
+    "y": -442.85,
+    "z": 662.63,
+    "elevationMeters": 1631.8,
+    "width": 68
+  },
+  {
+    "x": -8271.29,
+    "y": -474.48,
+    "z": 660.57,
+    "elevationMeters": 1630.3,
+    "width": 68
+  },
+  {
+    "x": -8275.19,
+    "y": -505.05,
+    "z": 658.56,
+    "elevationMeters": 1628.8,
+    "width": 68
+  },
+  {
+    "x": -8288.26,
+    "y": -534.26,
+    "z": 656.62,
+    "elevationMeters": 1627.4,
+    "width": 68
+  },
+  {
+    "x": -8301.33,
+    "y": -563.47,
+    "z": 654.74,
+    "elevationMeters": 1626.0,
+    "width": 68
+  },
+  {
+    "x": -8314.48,
+    "y": -592.64,
+    "z": 652.92,
+    "elevationMeters": 1624.6,
+    "width": 68
+  },
+  {
+    "x": -8326.93,
+    "y": -622.05,
+    "z": 651.17,
+    "elevationMeters": 1623.3,
+    "width": 68
+  },
+  {
+    "x": -8334.63,
+    "y": -653.11,
+    "z": 649.48,
+    "elevationMeters": 1622.1,
+    "width": 68
+  },
+  {
+    "x": -8340.73,
+    "y": -684.52,
+    "z": 647.87,
+    "elevationMeters": 1620.9,
+    "width": 68
+  },
+  {
+    "x": -8364.39,
+    "y": -704.95,
+    "z": 646.33,
+    "elevationMeters": 1619.8,
+    "width": 68
+  },
+  {
+    "x": -8389.97,
+    "y": -724.17,
+    "z": 644.87,
+    "elevationMeters": 1618.7,
+    "width": 68
+  },
+  {
+    "x": -8417.39,
+    "y": -740.32,
+    "z": 643.48,
+    "elevationMeters": 1617.6,
+    "width": 68
+  },
+  {
+    "x": -8448.79,
+    "y": -745.67,
+    "z": 642.16,
+    "elevationMeters": 1616.7,
+    "width": 68
+  },
+  {
+    "x": -8480.13,
+    "y": -751.95,
+    "z": 640.93,
+    "elevationMeters": 1615.8,
+    "width": 68
+  },
+  {
+    "x": -8508.65,
+    "y": -765.47,
+    "z": 639.79,
+    "elevationMeters": 1614.9,
+    "width": 68
+  },
+  {
+    "x": -8535.45,
+    "y": -782.96,
+    "z": 638.72,
+    "elevationMeters": 1614.1,
+    "width": 68
+  },
+  {
+    "x": -8565.01,
+    "y": -794.86,
+    "z": 637.74,
+    "elevationMeters": 1613.4,
+    "width": 68
+  },
+  {
+    "x": -8596.38,
+    "y": -796.22,
+    "z": 636.86,
+    "elevationMeters": 1612.7,
+    "width": 68
+  },
+  {
+    "x": -8626.86,
+    "y": -786.48,
+    "z": 636.06,
+    "elevationMeters": 1612.2,
+    "width": 68
+  },
+  {
+    "x": -8657.34,
+    "y": -776.74,
+    "z": 635.35,
+    "elevationMeters": 1611.6,
+    "width": 68
+  },
+  {
+    "x": -8688.52,
+    "y": -769.72,
+    "z": 634.74,
+    "elevationMeters": 1611.2,
+    "width": 68
+  },
+  {
+    "x": -8719.91,
+    "y": -763.5,
+    "z": 634.22,
+    "elevationMeters": 1610.8,
+    "width": 68
+  },
+  {
+    "x": -8750.0,
+    "y": -752.79,
+    "z": 633.81,
+    "elevationMeters": 1610.5,
+    "width": 68
+  },
+  {
+    "x": -8780.27,
+    "y": -742.88,
+    "z": 633.49,
+    "elevationMeters": 1610.3,
+    "width": 68
+  },
+  {
+    "x": -8809.96,
+    "y": -750.64,
+    "z": 633.28,
+    "elevationMeters": 1610.1,
+    "width": 68
+  },
+  {
+    "x": -8834.11,
+    "y": -770.99,
+    "z": 633.17,
+    "elevationMeters": 1610.0,
+    "width": 68
+  },
+  {
+    "x": -8860.47,
+    "y": -788.97,
+    "z": 633.14,
+    "elevationMeters": 1610.0,
+    "width": 68
+  },
+  {
+    "x": -8889.95,
+    "y": -800.96,
+    "z": 633.07,
+    "elevationMeters": 1609.9,
+    "width": 68
+  },
+  {
+    "x": -8920.37,
+    "y": -807.42,
+    "z": 632.92,
+    "elevationMeters": 1609.8,
+    "width": 68
+  },
+  {
+    "x": -8951.79,
+    "y": -803.86,
+    "z": 632.7,
+    "elevationMeters": 1609.7,
+    "width": 68
+  },
+  {
+    "x": -8983.7,
+    "y": -806.18,
+    "z": 632.41,
+    "elevationMeters": 1609.5,
+    "width": 68
+  },
+  {
+    "x": -9014.92,
+    "y": -803.81,
+    "z": 632.05,
+    "elevationMeters": 1609.2,
+    "width": 68
+  },
+  {
+    "x": -9044.79,
+    "y": -792.32,
+    "z": 631.62,
+    "elevationMeters": 1608.9,
+    "width": 68
+  },
+  {
+    "x": -9074.82,
+    "y": -781.65,
+    "z": 631.12,
+    "elevationMeters": 1608.5,
+    "width": 68
+  },
+  {
+    "x": -9106.81,
+    "y": -781.01,
+    "z": 630.55,
+    "elevationMeters": 1608.1,
+    "width": 68
+  },
+  {
+    "x": -9137.42,
+    "y": -789.33,
+    "z": 629.91,
+    "elevationMeters": 1607.6,
+    "width": 68
+  },
+  {
+    "x": -9168.68,
+    "y": -794.73,
+    "z": 629.21,
+    "elevationMeters": 1607.1,
+    "width": 68
+  },
+  {
+    "x": -9197.86,
+    "y": -801.93,
+    "z": 628.45,
+    "elevationMeters": 1606.5,
+    "width": 68
+  },
+  {
+    "x": -9217.94,
+    "y": -826.84,
+    "z": 627.62,
+    "elevationMeters": 1605.9,
+    "width": 68
+  },
+  {
+    "x": -9238.47,
+    "y": -851.3,
+    "z": 626.73,
+    "elevationMeters": 1605.2,
+    "width": 68
+  },
+  {
+    "x": -9256.32,
+    "y": -877.85,
+    "z": 625.77,
+    "elevationMeters": 1604.5,
+    "width": 68
+  },
+  {
+    "x": -9273.57,
+    "y": -904.81,
+    "z": 624.76,
+    "elevationMeters": 1603.8,
+    "width": 68
+  },
+  {
+    "x": -9291.66,
+    "y": -931.2,
+    "z": 623.69,
+    "elevationMeters": 1603.0,
+    "width": 68
+  },
+  {
+    "x": -9311.5,
+    "y": -955.19,
+    "z": 622.56,
+    "elevationMeters": 1602.2,
+    "width": 68
+  },
+  {
+    "x": -9342.79,
+    "y": -961.89,
+    "z": 621.37,
+    "elevationMeters": 1601.3,
+    "width": 68
+  },
+  {
+    "x": -9374.17,
+    "y": -960.75,
+    "z": 620.13,
+    "elevationMeters": 1600.4,
+    "width": 68
+  },
+  {
+    "x": -9405.49,
+    "y": -954.65,
+    "z": 618.83,
+    "elevationMeters": 1599.4,
+    "width": 68
+  },
+  {
+    "x": -9417.49,
+    "y": -924.98,
+    "z": 617.48,
+    "elevationMeters": 1598.4,
+    "width": 68
+  },
+  {
+    "x": -9433.84,
+    "y": -897.58,
+    "z": 616.07,
+    "elevationMeters": 1597.4,
+    "width": 68
+  },
+  {
+    "x": -9451.37,
+    "y": -870.84,
+    "z": 614.62,
+    "elevationMeters": 1596.3,
+    "width": 68
+  },
+  {
+    "x": -9475.15,
+    "y": -849.43,
+    "z": 613.11,
+    "elevationMeters": 1595.2,
+    "width": 68
+  },
+  {
+    "x": -9505.93,
+    "y": -842.18,
+    "z": 611.55,
+    "elevationMeters": 1594.0,
+    "width": 68
+  },
+  {
+    "x": -9537.39,
+    "y": -836.29,
+    "z": 609.95,
+    "elevationMeters": 1592.8,
+    "width": 68
+  },
+  {
+    "x": -9568.84,
+    "y": -830.41,
+    "z": 608.3,
+    "elevationMeters": 1591.6,
+    "width": 68
+  },
+  {
+    "x": -9600.74,
+    "y": -828.51,
+    "z": 606.6,
+    "elevationMeters": 1590.3,
+    "width": 68
+  },
+  {
+    "x": -9629.96,
+    "y": -832.41,
+    "z": 604.85,
+    "elevationMeters": 1589.0,
+    "width": 68
+  },
+  {
+    "x": -9639.59,
+    "y": -861.08,
+    "z": 603.06,
+    "elevationMeters": 1587.7,
+    "width": 68
+  },
+  {
+    "x": -9633.87,
+    "y": -892.57,
+    "z": 601.23,
+    "elevationMeters": 1586.4,
+    "width": 68
+  },
+  {
+    "x": -9627.34,
+    "y": -923.88,
+    "z": 599.35,
+    "elevationMeters": 1585.0,
+    "width": 68
+  },
+  {
+    "x": -9619.56,
+    "y": -954.92,
+    "z": 597.44,
+    "elevationMeters": 1583.5,
+    "width": 68
+  },
+  {
+    "x": -9611.79,
+    "y": -985.96,
+    "z": 595.48,
+    "elevationMeters": 1582.1,
+    "width": 68
+  },
+  {
+    "x": -9604.02,
+    "y": -1017.0,
+    "z": 593.49,
+    "elevationMeters": 1580.6,
+    "width": 68
+  },
+  {
+    "x": -9594.13,
+    "y": -1047.26,
+    "z": 591.45,
+    "elevationMeters": 1579.1,
+    "width": 68
+  },
+  {
+    "x": -9576.15,
+    "y": -1073.38,
+    "z": 589.38,
+    "elevationMeters": 1577.6,
+    "width": 68
+  },
+  {
+    "x": -9554.69,
+    "y": -1097.11,
+    "z": 587.28,
+    "elevationMeters": 1576.0,
+    "width": 68
+  },
+  {
+    "x": -9533.22,
+    "y": -1120.84,
+    "z": 585.13,
+    "elevationMeters": 1574.4,
+    "width": 68
+  },
+  {
+    "x": -9517.13,
+    "y": -1148.04,
+    "z": 582.96,
+    "elevationMeters": 1572.8,
+    "width": 68
+  },
+  {
+    "x": -9520.47,
+    "y": -1178.91,
+    "z": 580.75,
+    "elevationMeters": 1571.2,
+    "width": 68
+  },
+  {
+    "x": -9540.42,
+    "y": -1203.17,
+    "z": 578.51,
+    "elevationMeters": 1569.5,
+    "width": 68
+  },
+  {
+    "x": -9564.23,
+    "y": -1224.45,
+    "z": 576.24,
+    "elevationMeters": 1567.8,
+    "width": 68
+  },
+  {
+    "x": -9594.01,
+    "y": -1236.15,
+    "z": 573.94,
+    "elevationMeters": 1566.1,
+    "width": 68
+  },
+  {
+    "x": -9623.79,
+    "y": -1247.86,
+    "z": 571.62,
+    "elevationMeters": 1564.4,
+    "width": 68
+  },
+  {
+    "x": -9642.92,
+    "y": -1271.42,
+    "z": 569.26,
+    "elevationMeters": 1562.7,
+    "width": 68
+  },
+  {
+    "x": -9657.71,
+    "y": -1299.8,
+    "z": 566.88,
+    "elevationMeters": 1560.9,
+    "width": 68
+  },
+  {
+    "x": -9679.86,
+    "y": -1322.55,
+    "z": 564.47,
+    "elevationMeters": 1559.1,
+    "width": 68
+  },
+  {
+    "x": -9703.38,
+    "y": -1344.24,
+    "z": 562.04,
+    "elevationMeters": 1557.3,
+    "width": 68
+  },
+  {
+    "x": -9731.0,
+    "y": -1359.15,
+    "z": 559.59,
+    "elevationMeters": 1555.5,
+    "width": 68
+  },
+  {
+    "x": -9762.86,
+    "y": -1361.74,
+    "z": 557.11,
+    "elevationMeters": 1553.7,
+    "width": 68
+  },
+  {
+    "x": -9794.31,
+    "y": -1366.86,
+    "z": 554.61,
+    "elevationMeters": 1551.8,
+    "width": 68
+  },
+  {
+    "x": -9822.96,
+    "y": -1381.02,
+    "z": 552.09,
+    "elevationMeters": 1550.0,
+    "width": 68
+  },
+  {
+    "x": -9845.1,
+    "y": -1403.8,
+    "z": 549.56,
+    "elevationMeters": 1548.1,
+    "width": 68
+  },
+  {
+    "x": -9863.6,
+    "y": -1429.65,
+    "z": 547.0,
+    "elevationMeters": 1546.2,
+    "width": 68
+  },
+  {
+    "x": -9888.99,
+    "y": -1448.55,
+    "z": 544.43,
+    "elevationMeters": 1544.3,
+    "width": 68
+  },
+  {
+    "x": -9916.65,
+    "y": -1464.64,
+    "z": 541.85,
+    "elevationMeters": 1542.4,
+    "width": 68
+  },
+  {
+    "x": -9935.13,
+    "y": -1489.9,
+    "z": 539.24,
+    "elevationMeters": 1540.4,
+    "width": 68
+  },
+  {
+    "x": -9951.18,
+    "y": -1517.59,
+    "z": 536.63,
+    "elevationMeters": 1538.5,
+    "width": 68
+  },
+  {
+    "x": -9971.66,
+    "y": -1540.96,
+    "z": 534.0,
+    "elevationMeters": 1536.6,
+    "width": 68
+  },
+  {
+    "x": -9999.51,
+    "y": -1540.68,
+    "z": 531.36,
+    "elevationMeters": 1534.6,
+    "width": 68
+  },
+  {
+    "x": -10029.34,
+    "y": -1529.37,
+    "z": 528.71,
+    "elevationMeters": 1532.6,
+    "width": 68
+  },
+  {
+    "x": -10059.85,
+    "y": -1519.73,
+    "z": 526.05,
+    "elevationMeters": 1530.7,
+    "width": 68
+  },
+  {
+    "x": -10090.79,
+    "y": -1511.86,
+    "z": 523.38,
+    "elevationMeters": 1528.7,
+    "width": 68
+  },
+  {
+    "x": -10122.34,
+    "y": -1506.54,
+    "z": 520.71,
+    "elevationMeters": 1526.7,
+    "width": 68
+  },
+  {
+    "x": -10153.23,
+    "y": -1499.64,
+    "z": 518.03,
+    "elevationMeters": 1524.7,
+    "width": 68
+  },
+  {
+    "x": -10179.05,
+    "y": -1480.73,
+    "z": 515.34,
+    "elevationMeters": 1522.7,
+    "width": 68
+  },
+  {
+    "x": -10204.99,
+    "y": -1462.0,
+    "z": 512.65,
+    "elevationMeters": 1520.7,
+    "width": 68
+  },
+  {
+    "x": -10232.34,
+    "y": -1448.25,
+    "z": 509.96,
+    "elevationMeters": 1518.7,
+    "width": 68
+  },
+  {
+    "x": -10261.97,
+    "y": -1459.47,
+    "z": 507.26,
+    "elevationMeters": 1516.8,
+    "width": 68
+  },
+  {
+    "x": -10290.43,
+    "y": -1474.11,
+    "z": 504.57,
+    "elevationMeters": 1514.8,
+    "width": 68
+  },
+  {
+    "x": -10318.89,
+    "y": -1488.74,
+    "z": 501.87,
+    "elevationMeters": 1512.8,
+    "width": 68
+  },
+  {
+    "x": -10347.35,
+    "y": -1503.37,
+    "z": 499.18,
+    "elevationMeters": 1510.8,
+    "width": 68
+  },
+  {
+    "x": -10375.81,
+    "y": -1518.01,
+    "z": 496.48,
+    "elevationMeters": 1508.8,
+    "width": 68,
+    "name": "Blanquizal (Ebéjico)",
+    "isCheckpoint": true
+  },
+  {
+    "x": -10404.27,
+    "y": -1532.64,
+    "z": 493.79,
+    "elevationMeters": 1506.8,
+    "width": 68
+  },
+  {
+    "x": -10434.41,
+    "y": -1542.78,
+    "z": 491.11,
+    "elevationMeters": 1504.8,
+    "width": 68
+  },
+  {
+    "x": -10466.36,
+    "y": -1541.05,
+    "z": 488.43,
+    "elevationMeters": 1502.8,
+    "width": 68
+  },
+  {
+    "x": -10496.25,
+    "y": -1530.67,
+    "z": 485.76,
+    "elevationMeters": 1500.8,
+    "width": 68
+  },
+  {
+    "x": -10525.03,
+    "y": -1516.81,
+    "z": 483.09,
+    "elevationMeters": 1498.8,
+    "width": 68
+  },
+  {
+    "x": -10551.25,
+    "y": -1498.55,
+    "z": 480.43,
+    "elevationMeters": 1496.9,
+    "width": 68
+  },
+  {
+    "x": -10570.69,
+    "y": -1473.57,
+    "z": 477.79,
+    "elevationMeters": 1494.9,
+    "width": 68
+  },
+  {
+    "x": -10580.35,
+    "y": -1443.16,
+    "z": 475.15,
+    "elevationMeters": 1493.0,
+    "width": 68
+  },
+  {
+    "x": -10580.89,
+    "y": -1411.17,
+    "z": 472.52,
+    "elevationMeters": 1491.0,
+    "width": 68
+  },
+  {
+    "x": -10571.45,
+    "y": -1380.68,
+    "z": 469.91,
+    "elevationMeters": 1489.1,
+    "width": 68
+  },
+  {
+    "x": -10556.96,
+    "y": -1352.27,
+    "z": 467.31,
+    "elevationMeters": 1487.2,
+    "width": 68
+  },
+  {
+    "x": -10547.87,
+    "y": -1321.83,
+    "z": 464.73,
+    "elevationMeters": 1485.2,
+    "width": 68
+  },
+  {
+    "x": -10540.7,
+    "y": -1290.65,
+    "z": 462.16,
+    "elevationMeters": 1483.3,
+    "width": 68
+  },
+  {
+    "x": -10531.3,
+    "y": -1260.06,
+    "z": 459.61,
+    "elevationMeters": 1481.5,
+    "width": 68
+  },
+  {
+    "x": -10521.79,
+    "y": -1229.51,
+    "z": 457.08,
+    "elevationMeters": 1479.6,
+    "width": 68
+  },
+  {
+    "x": -10513.5,
+    "y": -1198.62,
+    "z": 454.57,
+    "elevationMeters": 1477.7,
+    "width": 68
+  },
+  {
+    "x": -10507.99,
+    "y": -1167.19,
+    "z": 452.08,
+    "elevationMeters": 1475.9,
+    "width": 68
+  },
+  {
+    "x": -10505.96,
+    "y": -1135.29,
+    "z": 449.61,
+    "elevationMeters": 1474.0,
+    "width": 68
+  },
+  {
+    "x": -10509.25,
+    "y": -1103.46,
+    "z": 447.16,
+    "elevationMeters": 1472.2,
+    "width": 68
+  },
+  {
+    "x": -10521.3,
+    "y": -1074.04,
+    "z": 444.73,
+    "elevationMeters": 1470.4,
+    "width": 68
+  },
+  {
+    "x": -10534.73,
+    "y": -1044.99,
+    "z": 442.33,
+    "elevationMeters": 1468.7,
+    "width": 68
+  },
+  {
+    "x": -10549.52,
+    "y": -1016.62,
+    "z": 439.96,
+    "elevationMeters": 1466.9,
+    "width": 68
+  },
+  {
+    "x": -10562.13,
+    "y": -987.92,
+    "z": 437.61,
+    "elevationMeters": 1465.2,
+    "width": 68
+  },
+  {
+    "x": -10551.88,
+    "y": -958.03,
+    "z": 435.29,
+    "elevationMeters": 1463.4,
+    "width": 68
+  },
+  {
+    "x": -10532.95,
+    "y": -932.74,
+    "z": 432.99,
+    "elevationMeters": 1461.7,
+    "width": 68
+  },
+  {
+    "x": -10511.86,
+    "y": -908.94,
+    "z": 430.73,
+    "elevationMeters": 1460.1,
+    "width": 68
+  },
+  {
+    "x": -10500.59,
+    "y": -879.23,
+    "z": 428.5,
+    "elevationMeters": 1458.4,
+    "width": 68
+  },
+  {
+    "x": -10493.03,
+    "y": -848.14,
+    "z": 426.3,
+    "elevationMeters": 1456.8,
+    "width": 68
+  },
+  {
+    "x": -10489.84,
+    "y": -816.72,
+    "z": 424.13,
+    "elevationMeters": 1455.2,
+    "width": 68
+  },
+  {
+    "x": -10497.67,
+    "y": -785.92,
+    "z": 422.0,
+    "elevationMeters": 1453.6,
+    "width": 68
+  },
+  {
+    "x": -10515.15,
+    "y": -759.11,
+    "z": 419.9,
+    "elevationMeters": 1452.0,
+    "width": 68
+  },
+  {
+    "x": -10532.98,
+    "y": -732.56,
+    "z": 417.84,
+    "elevationMeters": 1450.5,
+    "width": 68
+  },
+  {
+    "x": -10552.38,
+    "y": -707.11,
+    "z": 415.82,
+    "elevationMeters": 1449.0,
+    "width": 68
+  },
+  {
+    "x": -10571.78,
+    "y": -681.66,
+    "z": 413.83,
+    "elevationMeters": 1447.5,
+    "width": 68
+  },
+  {
+    "x": -10584.71,
+    "y": -653.2,
+    "z": 411.89,
+    "elevationMeters": 1446.1,
+    "width": 68
+  },
+  {
+    "x": -10588.39,
+    "y": -621.58,
+    "z": 409.98,
+    "elevationMeters": 1444.7,
+    "width": 68
+  },
+  {
+    "x": -10586.37,
+    "y": -589.74,
+    "z": 408.12,
+    "elevationMeters": 1443.3,
+    "width": 68
+  },
+  {
+    "x": -10576.39,
+    "y": -559.57,
+    "z": 406.29,
+    "elevationMeters": 1442.0,
+    "width": 68
+  },
+  {
+    "x": -10558.08,
+    "y": -533.63,
+    "z": 404.51,
+    "elevationMeters": 1440.6,
+    "width": 68
+  },
+  {
+    "x": -10537.57,
+    "y": -509.07,
+    "z": 402.78,
+    "elevationMeters": 1439.4,
+    "width": 68
+  },
+  {
+    "x": -10513.49,
+    "y": -488.15,
+    "z": 401.09,
+    "elevationMeters": 1438.1,
+    "width": 68
+  },
+  {
+    "x": -10488.25,
+    "y": -468.47,
+    "z": 399.45,
+    "elevationMeters": 1436.9,
+    "width": 68
+  },
+  {
+    "x": -10474.22,
+    "y": -441.64,
+    "z": 397.86,
+    "elevationMeters": 1435.7,
+    "width": 68
+  },
+  {
+    "x": -10477.63,
+    "y": -410.23,
+    "z": 396.31,
+    "elevationMeters": 1434.6,
+    "width": 68
+  },
+  {
+    "x": -10496.54,
+    "y": -384.43,
+    "z": 394.82,
+    "elevationMeters": 1433.5,
+    "width": 68
+  },
+  {
+    "x": -10516.59,
+    "y": -359.5,
+    "z": 393.37,
+    "elevationMeters": 1432.4,
+    "width": 68
+  },
+  {
+    "x": -10536.66,
+    "y": -334.62,
+    "z": 391.98,
+    "elevationMeters": 1431.4,
+    "width": 68
+  },
+  {
+    "x": -10551.51,
+    "y": -306.27,
+    "z": 390.64,
+    "elevationMeters": 1430.4,
+    "width": 68
+  },
+  {
+    "x": -10566.35,
+    "y": -277.93,
+    "z": 389.36,
+    "elevationMeters": 1429.4,
+    "width": 68
+  },
+  {
+    "x": -10580.43,
+    "y": -249.25,
+    "z": 388.13,
+    "elevationMeters": 1428.5,
+    "width": 68
+  },
+  {
+    "x": -10590.62,
+    "y": -218.92,
+    "z": 386.96,
+    "elevationMeters": 1427.6,
+    "width": 68
+  },
+  {
+    "x": -10600.81,
+    "y": -188.58,
+    "z": 385.84,
+    "elevationMeters": 1426.8,
+    "width": 68
+  },
+  {
+    "x": -10610.45,
+    "y": -158.08,
+    "z": 384.78,
+    "elevationMeters": 1426.0,
+    "width": 68
+  },
+  {
+    "x": -10619.32,
+    "y": -127.33,
+    "z": 383.78,
+    "elevationMeters": 1425.3,
+    "width": 68
+  },
+  {
+    "x": -10616.98,
+    "y": -95.72,
+    "z": 382.85,
+    "elevationMeters": 1424.6,
+    "width": 68
+  },
+  {
+    "x": -10611.76,
+    "y": -64.34,
+    "z": 381.97,
+    "elevationMeters": 1423.9,
+    "width": 68
+  },
+  {
+    "x": -10596.87,
+    "y": -36.02,
+    "z": 381.16,
+    "elevationMeters": 1423.3,
+    "width": 68
+  },
+  {
+    "x": -10586.31,
+    "y": -5.86,
+    "z": 380.41,
+    "elevationMeters": 1422.8,
+    "width": 68
+  },
+  {
+    "x": -10577.9,
+    "y": 24.91,
+    "z": 379.72,
+    "elevationMeters": 1422.3,
+    "width": 68
+  },
+  {
+    "x": -10570.69,
+    "y": 55.98,
+    "z": 379.11,
+    "elevationMeters": 1421.8,
+    "width": 68
+  },
+  {
+    "x": -10561.26,
+    "y": 86.56,
+    "z": 378.55,
+    "elevationMeters": 1421.4,
+    "width": 68
+  },
+  {
+    "x": -10566.1,
+    "y": 116.63,
+    "z": 378.07,
+    "elevationMeters": 1421.1,
+    "width": 68
+  },
+  {
+    "x": -10584.98,
+    "y": 141.84,
+    "z": 377.65,
+    "elevationMeters": 1420.7,
+    "width": 68
+  },
+  {
+    "x": -10607.0,
+    "y": 165.07,
+    "z": 377.31,
+    "elevationMeters": 1420.5,
+    "width": 68
+  },
+  {
+    "x": -10629.01,
+    "y": 188.29,
+    "z": 377.04,
+    "elevationMeters": 1420.3,
+    "width": 68
+  },
+  {
+    "x": -10653.41,
+    "y": 208.72,
+    "z": 376.83,
+    "elevationMeters": 1420.1,
+    "width": 68
+  },
+  {
+    "x": -10680.49,
+    "y": 224.64,
+    "z": 376.71,
+    "elevationMeters": 1420.0,
+    "width": 68
+  },
+  {
+    "x": -10712.49,
+    "y": 224.47,
+    "z": 376.65,
+    "elevationMeters": 1420.0,
+    "width": 68
+  },
+  {
+    "x": -10744.49,
+    "y": 224.29,
+    "z": 376.63,
+    "elevationMeters": 1420.0,
+    "width": 68
+  },
+  {
+    "x": -10773.29,
+    "y": 211.55,
+    "z": 376.52,
+    "elevationMeters": 1419.9,
+    "width": 68
+  },
+  {
+    "x": -10801.06,
+    "y": 195.67,
+    "z": 376.34,
+    "elevationMeters": 1419.8,
+    "width": 68
+  },
+  {
+    "x": -10829.19,
+    "y": 180.58,
+    "z": 376.08,
+    "elevationMeters": 1419.6,
+    "width": 68
+  },
+  {
+    "x": -10858.55,
+    "y": 167.86,
+    "z": 375.74,
+    "elevationMeters": 1419.3,
+    "width": 68
+  },
+  {
+    "x": -10889.51,
+    "y": 160.19,
+    "z": 375.33,
+    "elevationMeters": 1419.0,
+    "width": 68
+  },
+  {
+    "x": -10920.85,
+    "y": 153.72,
+    "z": 374.84,
+    "elevationMeters": 1418.7,
+    "width": 68
+  },
+  {
+    "x": -10948.69,
+    "y": 141.05,
+    "z": 374.28,
+    "elevationMeters": 1418.2,
+    "width": 68
+  },
+  {
+    "x": -10973.51,
+    "y": 121.98,
+    "z": 373.65,
+    "elevationMeters": 1417.8,
+    "width": 68
+  },
+  {
+    "x": -11003.73,
+    "y": 113.26,
+    "z": 372.95,
+    "elevationMeters": 1417.3,
+    "width": 68
+  },
+  {
+    "x": -11034.33,
+    "y": 120.4,
+    "z": 372.18,
+    "elevationMeters": 1416.7,
+    "width": 68
+  },
+  {
+    "x": -11063.83,
+    "y": 132.79,
+    "z": 371.35,
+    "elevationMeters": 1416.1,
+    "width": 68
+  },
+  {
+    "x": -11093.17,
+    "y": 145.58,
+    "z": 370.45,
+    "elevationMeters": 1415.4,
+    "width": 68
+  },
+  {
+    "x": -11122.5,
+    "y": 158.36,
+    "z": 369.48,
+    "elevationMeters": 1414.7,
+    "width": 68
+  },
+  {
+    "x": -11144.97,
+    "y": 181.14,
+    "z": 368.45,
+    "elevationMeters": 1413.9,
+    "width": 68
+  },
+  {
+    "x": -11169.96,
+    "y": 198.94,
+    "z": 367.37,
+    "elevationMeters": 1413.1,
+    "width": 68
+  },
+  {
+    "x": -11201.79,
+    "y": 199.3,
+    "z": 366.22,
+    "elevationMeters": 1412.3,
+    "width": 68
+  },
+  {
+    "x": -11230.91,
+    "y": 187.21,
+    "z": 365.01,
+    "elevationMeters": 1411.4,
+    "width": 68
+  },
+  {
+    "x": -11259.8,
+    "y": 174.39,
+    "z": 363.75,
+    "elevationMeters": 1410.4,
+    "width": 68
+  },
+  {
+    "x": -11291.76,
+    "y": 172.85,
+    "z": 362.43,
+    "elevationMeters": 1409.5,
+    "width": 68
+  },
+  {
+    "x": -11323.57,
+    "y": 169.76,
+    "z": 361.05,
+    "elevationMeters": 1408.4,
+    "width": 68
+  },
+  {
+    "x": -11355.19,
+    "y": 164.85,
+    "z": 359.62,
+    "elevationMeters": 1407.4,
+    "width": 68
+  },
+  {
+    "x": -11386.91,
+    "y": 160.63,
+    "z": 358.15,
+    "elevationMeters": 1406.3,
+    "width": 68
+  },
+  {
+    "x": -11418.67,
+    "y": 156.77,
+    "z": 356.62,
+    "elevationMeters": 1405.2,
+    "width": 68
+  },
+  {
+    "x": -11449.29,
+    "y": 150.5,
+    "z": 355.04,
+    "elevationMeters": 1404.0,
+    "width": 68
+  },
+  {
+    "x": -11472.34,
+    "y": 128.29,
+    "z": 353.41,
+    "elevationMeters": 1402.8,
+    "width": 68
+  },
+  {
+    "x": -11489.61,
+    "y": 101.48,
+    "z": 351.74,
+    "elevationMeters": 1401.5,
+    "width": 68
+  },
+  {
+    "x": -11508.73,
+    "y": 76.16,
+    "z": 350.03,
+    "elevationMeters": 1400.3,
+    "width": 68
+  },
+  {
+    "x": -11540.14,
+    "y": 70.64,
+    "z": 348.27,
+    "elevationMeters": 1399.0,
+    "width": 68
+  },
+  {
+    "x": -11571.42,
+    "y": 77.42,
+    "z": 346.47,
+    "elevationMeters": 1397.6,
+    "width": 68
+  },
+  {
+    "x": -11602.69,
+    "y": 84.2,
+    "z": 344.62,
+    "elevationMeters": 1396.3,
+    "width": 68
+  },
+  {
+    "x": -11629.58,
+    "y": 100.42,
+    "z": 342.74,
+    "elevationMeters": 1394.9,
+    "width": 68
+  },
+  {
+    "x": -11654.03,
+    "y": 121.0,
+    "z": 340.83,
+    "elevationMeters": 1393.5,
+    "width": 68
+  },
+  {
+    "x": -11676.44,
+    "y": 143.82,
+    "z": 338.87,
+    "elevationMeters": 1392.0,
+    "width": 68
+  },
+  {
+    "x": -11697.93,
+    "y": 167.52,
+    "z": 336.88,
+    "elevationMeters": 1390.5,
+    "width": 68
+  },
+  {
+    "x": -11721.93,
+    "y": 186.84,
+    "z": 334.86,
+    "elevationMeters": 1389.0,
+    "width": 68
+  },
+  {
+    "x": -11752.35,
+    "y": 182.91,
+    "z": 332.8,
+    "elevationMeters": 1387.5,
+    "width": 68
+  },
+  {
+    "x": -11777.68,
+    "y": 164.18,
+    "z": 330.72,
+    "elevationMeters": 1386.0,
+    "width": 68
+  },
+  {
+    "x": -11799.78,
+    "y": 141.04,
+    "z": 328.6,
+    "elevationMeters": 1384.4,
+    "width": 68
+  },
+  {
+    "x": -11830.34,
+    "y": 137.21,
+    "z": 326.46,
+    "elevationMeters": 1382.8,
+    "width": 68
+  },
+  {
+    "x": -11858.98,
+    "y": 150.88,
+    "z": 324.29,
+    "elevationMeters": 1381.2,
+    "width": 68
+  },
+  {
+    "x": -11890.26,
+    "y": 153.17,
+    "z": 322.1,
+    "elevationMeters": 1379.6,
+    "width": 68
+  },
+  {
+    "x": -11922.26,
+    "y": 152.65,
+    "z": 319.88,
+    "elevationMeters": 1377.9,
+    "width": 68
+  },
+  {
+    "x": -11954.15,
+    "y": 154.3,
+    "z": 317.64,
+    "elevationMeters": 1376.3,
+    "width": 68
+  },
+  {
+    "x": -11985.15,
+    "y": 162.13,
+    "z": 315.38,
+    "elevationMeters": 1374.6,
+    "width": 68
+  },
+  {
+    "x": -12016.31,
+    "y": 162.68,
+    "z": 313.1,
+    "elevationMeters": 1372.9,
+    "width": 68
+  },
+  {
+    "x": -12044.78,
+    "y": 149.67,
+    "z": 310.8,
+    "elevationMeters": 1371.2,
+    "width": 68
+  },
+  {
+    "x": -12070.83,
+    "y": 131.09,
+    "z": 308.48,
+    "elevationMeters": 1369.5,
+    "width": 68
+  },
+  {
+    "x": -12101.9,
+    "y": 127.48,
+    "z": 306.15,
+    "elevationMeters": 1367.8,
+    "width": 68
+  },
+  {
+    "x": -12130.97,
+    "y": 139.49,
+    "z": 303.8,
+    "elevationMeters": 1366.0,
+    "width": 68
+  },
+  {
+    "x": -12152.86,
+    "y": 162.58,
+    "z": 301.45,
+    "elevationMeters": 1364.3,
+    "width": 68
+  },
+  {
+    "x": -12163.89,
+    "y": 192.46,
+    "z": 299.08,
+    "elevationMeters": 1362.5,
+    "width": 68
+  },
+  {
+    "x": -12176.11,
+    "y": 221.7,
+    "z": 296.7,
+    "elevationMeters": 1360.8,
+    "width": 68
+  },
+  {
+    "x": -12196.3,
+    "y": 246.53,
+    "z": 294.31,
+    "elevationMeters": 1359.0,
+    "width": 68
+  },
+  {
+    "x": -12211.8,
+    "y": 273.94,
+    "z": 291.92,
+    "elevationMeters": 1357.2,
+    "width": 68
+  },
+  {
+    "x": -12223.59,
+    "y": 303.6,
+    "z": 289.52,
+    "elevationMeters": 1355.5,
+    "width": 68
+  },
+  {
+    "x": -12242.43,
+    "y": 329.15,
+    "z": 287.11,
+    "elevationMeters": 1353.7,
+    "width": 68
+  },
+  {
+    "x": -12273.02,
+    "y": 336.17,
+    "z": 284.7,
+    "elevationMeters": 1351.9,
+    "width": 68
+  },
+  {
+    "x": -12304.05,
+    "y": 328.39,
+    "z": 282.29,
+    "elevationMeters": 1350.1,
+    "width": 68
+  },
+  {
+    "x": -12335.47,
+    "y": 322.68,
+    "z": 279.89,
+    "elevationMeters": 1348.3,
+    "width": 68
+  },
+  {
+    "x": -12367.43,
+    "y": 322.04,
+    "z": 277.48,
+    "elevationMeters": 1346.5,
+    "width": 68
+  },
+  {
+    "x": -12399.32,
+    "y": 324.69,
+    "z": 275.07,
+    "elevationMeters": 1344.8,
+    "width": 68
+  },
+  {
+    "x": -12430.48,
+    "y": 318.05,
+    "z": 272.67,
+    "elevationMeters": 1343.0,
+    "width": 68
+  },
+  {
+    "x": -12460.18,
+    "y": 306.2,
+    "z": 270.28,
+    "elevationMeters": 1341.2,
+    "width": 68
+  },
+  {
+    "x": -12489.78,
+    "y": 294.04,
+    "z": 267.89,
+    "elevationMeters": 1339.4,
+    "width": 68
+  },
+  {
+    "x": -12520.09,
+    "y": 284.59,
+    "z": 265.51,
+    "elevationMeters": 1337.7,
+    "width": 68
+  },
+  {
+    "x": -12551.84,
+    "y": 280.61,
+    "z": 263.14,
+    "elevationMeters": 1335.9,
+    "width": 68
+  },
+  {
+    "x": -12583.47,
+    "y": 283.61,
+    "z": 260.78,
+    "elevationMeters": 1334.2,
+    "width": 68
+  },
+  {
+    "x": -12615.07,
+    "y": 288.67,
+    "z": 258.43,
+    "elevationMeters": 1332.4,
+    "width": 68
+  },
+  {
+    "x": -12645.89,
+    "y": 296.76,
+    "z": 256.1,
+    "elevationMeters": 1330.7,
+    "width": 68
+  },
+  {
+    "x": -12675.97,
+    "y": 307.66,
+    "z": 253.78,
+    "elevationMeters": 1329.0,
+    "width": 68
+  },
+  {
+    "x": -12706.06,
+    "y": 318.55,
+    "z": 251.48,
+    "elevationMeters": 1327.3,
+    "width": 68
+  },
+  {
+    "x": -12736.24,
+    "y": 329.2,
+    "z": 249.2,
+    "elevationMeters": 1325.6,
+    "width": 68
+  },
+  {
+    "x": -12766.42,
+    "y": 339.84,
+    "z": 246.93,
+    "elevationMeters": 1323.9,
+    "width": 68
+  },
+  {
+    "x": -12796.77,
+    "y": 349.96,
+    "z": 244.69,
+    "elevationMeters": 1322.3,
+    "width": 68
+  },
+  {
+    "x": -12827.29,
+    "y": 359.59,
+    "z": 242.47,
+    "elevationMeters": 1320.6,
+    "width": 68
+  },
+  {
+    "x": -12858.92,
+    "y": 362.32,
+    "z": 240.27,
+    "elevationMeters": 1319.0,
+    "width": 68
+  },
+  {
+    "x": -12890.91,
+    "y": 362.79,
+    "z": 238.1,
+    "elevationMeters": 1317.4,
+    "width": 68
+  },
+  {
+    "x": -12922.42,
+    "y": 365.68,
+    "z": 235.95,
+    "elevationMeters": 1315.8,
+    "width": 68
+  },
+  {
+    "x": -12951.52,
+    "y": 378.56,
+    "z": 233.83,
+    "elevationMeters": 1314.2,
+    "width": 68
+  },
+  {
+    "x": -12974.77,
+    "y": 400.55,
+    "z": 231.74,
+    "elevationMeters": 1312.7,
+    "width": 68
+  },
+  {
+    "x": -13003.83,
+    "y": 412.61,
+    "z": 229.69,
+    "elevationMeters": 1311.1,
+    "width": 68
+  },
+  {
+    "x": -13035.66,
+    "y": 413.35,
+    "z": 227.66,
+    "elevationMeters": 1309.6,
+    "width": 68
+  },
+  {
+    "x": -13065.82,
+    "y": 403.69,
+    "z": 225.67,
+    "elevationMeters": 1308.2,
+    "width": 68
+  },
+  {
+    "x": -13093.11,
+    "y": 387.15,
+    "z": 223.71,
+    "elevationMeters": 1306.7,
+    "width": 68
+  },
+  {
+    "x": -13119.27,
+    "y": 368.79,
+    "z": 221.78,
+    "elevationMeters": 1305.3,
+    "width": 68
+  },
+  {
+    "x": -13142.62,
+    "y": 346.91,
+    "z": 219.9,
+    "elevationMeters": 1303.9,
+    "width": 68
+  },
+  {
+    "x": -13165.97,
+    "y": 325.03,
+    "z": 218.05,
+    "elevationMeters": 1302.5,
+    "width": 68
+  },
+  {
+    "x": -13180.26,
+    "y": 296.7,
+    "z": 216.25,
+    "elevationMeters": 1301.2,
+    "width": 68
+  },
+  {
+    "x": -13188.76,
+    "y": 265.97,
+    "z": 214.48,
+    "elevationMeters": 1299.9,
+    "width": 68
+  },
+  {
+    "x": -13186.35,
+    "y": 234.69,
+    "z": 212.76,
+    "elevationMeters": 1298.6,
+    "width": 68
+  },
+  {
+    "x": -13176.52,
+    "y": 204.53,
+    "z": 211.09,
+    "elevationMeters": 1297.4,
+    "width": 68
+  },
+  {
+    "x": -13167.39,
+    "y": 174.46,
+    "z": 209.45,
+    "elevationMeters": 1296.2,
+    "width": 68
+  },
+  {
+    "x": -13173.34,
+    "y": 144.08,
+    "z": 207.87,
+    "elevationMeters": 1295.0,
+    "width": 68
+  },
+  {
+    "x": -13193.49,
+    "y": 119.86,
+    "z": 206.34,
+    "elevationMeters": 1293.8,
+    "width": 68
+  },
+  {
+    "x": -13196.84,
+    "y": 88.03,
+    "z": 204.85,
+    "elevationMeters": 1292.7,
+    "width": 68
+  },
+  {
+    "x": -13202.67,
+    "y": 56.66,
+    "z": 203.42,
+    "elevationMeters": 1291.7,
+    "width": 68
+  },
+  {
+    "x": -13223.2,
+    "y": 36.2,
+    "z": 202.04,
+    "elevationMeters": 1290.7,
+    "width": 68
+  },
+  {
+    "x": -13252.38,
+    "y": 23.07,
+    "z": 200.71,
+    "elevationMeters": 1289.7,
+    "width": 68
+  },
+  {
+    "x": -13269.13,
+    "y": -1.58,
+    "z": 199.44,
+    "elevationMeters": 1288.7,
+    "width": 68
+  },
+  {
+    "x": -13272.02,
+    "y": -33.45,
+    "z": 198.22,
+    "elevationMeters": 1287.8,
+    "width": 68
+  },
+  {
+    "x": -13285.93,
+    "y": -62.04,
+    "z": 197.07,
+    "elevationMeters": 1287.0,
+    "width": 68
+  },
+  {
+    "x": -13300.93,
+    "y": -90.31,
+    "z": 195.97,
+    "elevationMeters": 1286.2,
+    "width": 68
+  },
+  {
+    "x": -13314.37,
+    "y": -119.2,
+    "z": 194.94,
+    "elevationMeters": 1285.4,
+    "width": 68
+  },
+  {
+    "x": -13316.62,
+    "y": -151.12,
+    "z": 193.97,
+    "elevationMeters": 1284.7,
+    "width": 68
+  },
+  {
+    "x": -13320.93,
+    "y": -182.65,
+    "z": 193.06,
+    "elevationMeters": 1284.0,
+    "width": 68
+  },
+  {
+    "x": -13330.47,
+    "y": -213.19,
+    "z": 192.21,
+    "elevationMeters": 1283.4,
+    "width": 68
+  },
+  {
+    "x": -13335.35,
+    "y": -244.53,
+    "z": 191.44,
+    "elevationMeters": 1282.8,
+    "width": 68
+  },
+  {
+    "x": -13336.46,
+    "y": -276.51,
+    "z": 190.73,
+    "elevationMeters": 1282.3,
+    "width": 68
+  },
+  {
+    "x": -13339.23,
+    "y": -308.32,
+    "z": 190.09,
+    "elevationMeters": 1281.8,
+    "width": 68
+  },
+  {
+    "x": -13344.65,
+    "y": -339.86,
+    "z": 189.52,
+    "elevationMeters": 1281.4,
+    "width": 68
+  },
+  {
+    "x": -13357.27,
+    "y": -369.12,
+    "z": 189.03,
+    "elevationMeters": 1281.0,
+    "width": 68
+  },
+  {
+    "x": -13373.08,
+    "y": -396.95,
+    "z": 188.61,
+    "elevationMeters": 1280.7,
+    "width": 68
+  },
+  {
+    "x": -13383.1,
+    "y": -427.29,
+    "z": 188.26,
+    "elevationMeters": 1280.5,
+    "width": 68
+  },
+  {
+    "x": -13397.45,
+    "y": -455.36,
+    "z": 187.99,
+    "elevationMeters": 1280.3,
+    "width": 68
+  },
+  {
+    "x": -13416.86,
+    "y": -480.8,
+    "z": 187.8,
+    "elevationMeters": 1280.1,
+    "width": 68
+  },
+  {
+    "x": -13436.27,
+    "y": -506.24,
+    "z": 187.68,
+    "elevationMeters": 1280.0,
+    "width": 68
+  },
+  {
+    "x": -13455.67,
+    "y": -531.68,
+    "z": 187.65,
+    "elevationMeters": 1280.0,
+    "width": 68
+  },
+  {
+    "x": -13459.7,
+    "y": -562.12,
+    "z": 187.6,
+    "elevationMeters": 1280.0,
+    "width": 68
+  },
+  {
+    "x": -13453.18,
+    "y": -592.74,
+    "z": 187.45,
+    "elevationMeters": 1279.9,
+    "width": 68
+  },
+  {
+    "x": -13439.4,
+    "y": -621.62,
+    "z": 187.22,
+    "elevationMeters": 1279.7,
+    "width": 68
+  },
+  {
+    "x": -13431.72,
+    "y": -651.71,
+    "z": 186.9,
+    "elevationMeters": 1279.4,
+    "width": 68
+  },
+  {
+    "x": -13433.49,
+    "y": -683.66,
+    "z": 186.5,
+    "elevationMeters": 1279.2,
+    "width": 68
+  },
+  {
+    "x": -13453.06,
+    "y": -707.14,
+    "z": 186.02,
+    "elevationMeters": 1278.8,
+    "width": 68,
+    "name": "Campo Alegre (Ebéjico)",
+    "isCheckpoint": true
+  },
+  {
+    "x": -13483.73,
+    "y": -714.61,
+    "z": 185.46,
+    "elevationMeters": 1278.4,
+    "width": 68
+  },
+  {
+    "x": -13514.72,
+    "y": -707.6,
+    "z": 184.82,
+    "elevationMeters": 1277.9,
+    "width": 68
+  },
+  {
+    "x": -13535.81,
+    "y": -684.22,
+    "z": 184.11,
+    "elevationMeters": 1277.4,
+    "width": 68
+  },
+  {
+    "x": -13543.67,
+    "y": -654.11,
+    "z": 183.32,
+    "elevationMeters": 1276.8,
+    "width": 68
+  },
+  {
+    "x": -13540.62,
+    "y": -623.19,
+    "z": 182.46,
+    "elevationMeters": 1276.2,
+    "width": 68
+  },
+  {
+    "x": -13529.36,
+    "y": -593.24,
+    "z": 181.53,
+    "elevationMeters": 1275.5,
+    "width": 68
+  },
+  {
+    "x": -13518.48,
+    "y": -563.14,
+    "z": 180.54,
+    "elevationMeters": 1274.7,
+    "width": 68
+  },
+  {
+    "x": -13507.68,
+    "y": -533.02,
+    "z": 179.47,
+    "elevationMeters": 1273.9,
+    "width": 68
+  },
+  {
+    "x": -13498.57,
+    "y": -502.4,
+    "z": 178.35,
+    "elevationMeters": 1273.1,
+    "width": 68
+  },
+  {
+    "x": -13487.68,
+    "y": -472.45,
+    "z": 177.16,
+    "elevationMeters": 1272.2,
+    "width": 68
+  },
+  {
+    "x": -13480.72,
+    "y": -442.99,
+    "z": 175.91,
+    "elevationMeters": 1271.3,
+    "width": 68
+  },
+  {
+    "x": -13491.52,
+    "y": -412.87,
+    "z": 174.6,
+    "elevationMeters": 1270.3,
+    "width": 68
+  },
+  {
+    "x": -13494.52,
+    "y": -382.52,
+    "z": 173.23,
+    "elevationMeters": 1269.3,
+    "width": 68
+  },
+  {
+    "x": -13488.18,
+    "y": -352.05,
+    "z": 171.82,
+    "elevationMeters": 1268.3,
+    "width": 68
+  },
+  {
+    "x": -13502.39,
+    "y": -323.38,
+    "z": 170.35,
+    "elevationMeters": 1267.2,
+    "width": 68
+  },
+  {
+    "x": -13516.59,
+    "y": -294.71,
+    "z": 168.82,
+    "elevationMeters": 1266.1,
+    "width": 68
+  },
+  {
+    "x": -13525.93,
+    "y": -264.35,
+    "z": 167.26,
+    "elevationMeters": 1264.9,
+    "width": 68
+  },
+  {
+    "x": -13532.5,
+    "y": -233.03,
+    "z": 165.64,
+    "elevationMeters": 1263.7,
+    "width": 68
+  },
+  {
+    "x": -13531.92,
+    "y": -201.12,
+    "z": 163.98,
+    "elevationMeters": 1262.5,
+    "width": 68
+  },
+  {
+    "x": -13530.66,
+    "y": -169.14,
+    "z": 162.28,
+    "elevationMeters": 1261.2,
+    "width": 68
+  },
+  {
+    "x": -13529.39,
+    "y": -137.17,
+    "z": 160.53,
+    "elevationMeters": 1259.9,
+    "width": 68
+  },
+  {
+    "x": -13528.59,
+    "y": -105.18,
+    "z": 158.75,
+    "elevationMeters": 1258.6,
+    "width": 68
+  },
+  {
+    "x": -13528.09,
+    "y": -73.18,
+    "z": 156.93,
+    "elevationMeters": 1257.2,
+    "width": 68
+  },
+  {
+    "x": -13527.59,
+    "y": -41.19,
+    "z": 155.07,
+    "elevationMeters": 1255.9,
+    "width": 68
+  },
+  {
+    "x": -13527.08,
+    "y": -9.19,
+    "z": 153.19,
+    "elevationMeters": 1254.5,
+    "width": 68
+  },
+  {
+    "x": -13526.92,
+    "y": 22.81,
+    "z": 151.27,
+    "elevationMeters": 1253.1,
+    "width": 68
+  },
+  {
+    "x": -13526.91,
+    "y": 54.81,
+    "z": 149.32,
+    "elevationMeters": 1251.6,
+    "width": 68
+  },
+  {
+    "x": -13524.57,
+    "y": 86.72,
+    "z": 147.35,
+    "elevationMeters": 1250.1,
+    "width": 68
+  },
+  {
+    "x": -13540.11,
+    "y": 114.0,
+    "z": 145.35,
+    "elevationMeters": 1248.7,
+    "width": 68
+  },
+  {
+    "x": -13557.67,
+    "y": 140.75,
+    "z": 143.32,
+    "elevationMeters": 1247.2,
+    "width": 68
+  },
+  {
+    "x": -13568.31,
+    "y": 169.92,
+    "z": 141.28,
+    "elevationMeters": 1245.7,
+    "width": 68
+  },
+  {
+    "x": -13571.27,
+    "y": 201.79,
+    "z": 139.21,
+    "elevationMeters": 1244.1,
+    "width": 68
+  },
+  {
+    "x": -13574.23,
+    "y": 233.65,
+    "z": 137.13,
+    "elevationMeters": 1242.6,
+    "width": 68
+  },
+  {
+    "x": -13571.14,
+    "y": 265.4,
+    "z": 135.04,
+    "elevationMeters": 1241.0,
+    "width": 68
+  },
+  {
+    "x": -13563.99,
+    "y": 296.12,
+    "z": 132.93,
+    "elevationMeters": 1239.5,
+    "width": 68
+  },
+  {
+    "x": -13548.16,
+    "y": 323.93,
+    "z": 130.8,
+    "elevationMeters": 1237.9,
+    "width": 68
+  },
+  {
+    "x": -13531.89,
+    "y": 351.48,
+    "z": 128.67,
+    "elevationMeters": 1236.3,
+    "width": 68
+  },
+  {
+    "x": -13521.58,
+    "y": 380.44,
+    "z": 126.53,
+    "elevationMeters": 1234.7,
+    "width": 68
+  },
+  {
+    "x": -13531.04,
+    "y": 409.93,
+    "z": 124.39,
+    "elevationMeters": 1233.1,
+    "width": 68
+  },
+  {
+    "x": -13545.64,
+    "y": 437.69,
+    "z": 122.24,
+    "elevationMeters": 1231.5,
+    "width": 68
+  },
+  {
+    "x": -13544.91,
+    "y": 469.58,
+    "z": 120.09,
+    "elevationMeters": 1230.0,
+    "width": 68
+  },
+  {
+    "x": -13537.74,
+    "y": 500.77,
+    "z": 117.94,
+    "elevationMeters": 1228.4,
+    "width": 68
+  },
+  {
+    "x": -13534.15,
+    "y": 532.27,
+    "z": 115.79,
+    "elevationMeters": 1226.8,
+    "width": 68
+  },
+  {
+    "x": -13541.17,
+    "y": 563.26,
+    "z": 113.65,
+    "elevationMeters": 1225.2,
+    "width": 68
+  },
+  {
+    "x": -13556.2,
+    "y": 591.4,
+    "z": 111.51,
+    "elevationMeters": 1223.6,
+    "width": 68
+  },
+  {
+    "x": -13566.99,
+    "y": 620.85,
+    "z": 109.38,
+    "elevationMeters": 1222.0,
+    "width": 68
+  },
+  {
+    "x": -13570.87,
+    "y": 652.62,
+    "z": 107.25,
+    "elevationMeters": 1220.4,
+    "width": 68
+  },
+  {
+    "x": -13562.61,
+    "y": 682.56,
+    "z": 105.15,
+    "elevationMeters": 1218.9,
+    "width": 68
+  },
+  {
+    "x": -13537.0,
+    "y": 698.23,
+    "z": 103.05,
+    "elevationMeters": 1217.3,
+    "width": 68
+  },
+  {
+    "x": -13506.16,
+    "y": 693.73,
+    "z": 100.97,
+    "elevationMeters": 1215.8,
+    "width": 68
+  },
+  {
+    "x": -13481.46,
+    "y": 676.69,
+    "z": 98.91,
+    "elevationMeters": 1214.3,
+    "width": 68
+  },
+  {
+    "x": -13465.71,
+    "y": 648.83,
+    "z": 96.86,
+    "elevationMeters": 1212.8,
+    "width": 68
+  },
+  {
+    "x": -13439.89,
+    "y": 632.58,
+    "z": 94.84,
+    "elevationMeters": 1211.3,
+    "width": 68
+  },
+  {
+    "x": -13408.85,
+    "y": 637.68,
+    "z": 92.84,
+    "elevationMeters": 1209.8,
+    "width": 68
+  },
+  {
+    "x": -13389.14,
+    "y": 660.87,
+    "z": 90.87,
+    "elevationMeters": 1208.3,
+    "width": 68
+  },
+  {
+    "x": -13383.7,
+    "y": 691.66,
+    "z": 88.92,
+    "elevationMeters": 1206.9,
+    "width": 68
+  },
+  {
+    "x": -13388.04,
+    "y": 723.37,
+    "z": 87.01,
+    "elevationMeters": 1205.4,
+    "width": 68
+  },
+  {
+    "x": -13399.03,
+    "y": 753.11,
+    "z": 85.12,
+    "elevationMeters": 1204.1,
+    "width": 68
+  },
+  {
+    "x": -13417.07,
+    "y": 779.02,
+    "z": 83.27,
+    "elevationMeters": 1202.7,
+    "width": 68
+  },
+  {
+    "x": -13443.07,
+    "y": 797.21,
+    "z": 81.45,
+    "elevationMeters": 1201.3,
+    "width": 68
+  },
+  {
+    "x": -13473.58,
+    "y": 805.75,
+    "z": 79.67,
+    "elevationMeters": 1200.0,
+    "width": 68
+  },
+  {
+    "x": -13505.46,
+    "y": 803.47,
+    "z": 77.93,
+    "elevationMeters": 1198.7,
+    "width": 68
+  },
+  {
+    "x": -13535.22,
+    "y": 793.17,
+    "z": 76.23,
+    "elevationMeters": 1197.5,
+    "width": 68
+  },
+  {
+    "x": -13565.0,
+    "y": 783.3,
+    "z": 74.57,
+    "elevationMeters": 1196.2,
+    "width": 68
+  },
+  {
+    "x": -13595.93,
+    "y": 786.21,
+    "z": 72.96,
+    "elevationMeters": 1195.0,
+    "width": 68
+  },
+  {
+    "x": -13619.61,
+    "y": 805.59,
+    "z": 71.39,
+    "elevationMeters": 1193.9,
+    "width": 68
+  },
+  {
+    "x": -13627.56,
+    "y": 835.71,
+    "z": 69.87,
+    "elevationMeters": 1192.8,
+    "width": 68
+  },
+  {
+    "x": -13608.01,
+    "y": 857.32,
+    "z": 68.4,
+    "elevationMeters": 1191.7,
+    "width": 68
+  },
+  {
+    "x": -13577.39,
+    "y": 861.29,
+    "z": 66.99,
+    "elevationMeters": 1190.6,
+    "width": 68
+  },
+  {
+    "x": -13545.53,
+    "y": 858.25,
+    "z": 65.63,
+    "elevationMeters": 1189.6,
+    "width": 68
+  },
+  {
+    "x": -13513.73,
+    "y": 854.74,
+    "z": 64.32,
+    "elevationMeters": 1188.6,
+    "width": 68
+  },
+  {
+    "x": -13481.92,
+    "y": 858.25,
+    "z": 63.08,
+    "elevationMeters": 1187.7,
+    "width": 68
+  },
+  {
+    "x": -13450.23,
+    "y": 857.27,
+    "z": 61.89,
+    "elevationMeters": 1186.8,
+    "width": 68
+  },
+  {
+    "x": -13418.94,
+    "y": 850.72,
+    "z": 60.77,
+    "elevationMeters": 1186.0,
+    "width": 68
+  },
+  {
+    "x": -13388.0,
+    "y": 842.57,
+    "z": 59.71,
+    "elevationMeters": 1185.2,
+    "width": 68
+  },
+  {
+    "x": -13356.88,
+    "y": 835.42,
+    "z": 58.71,
+    "elevationMeters": 1184.5,
+    "width": 68
+  },
+  {
+    "x": -13325.0,
+    "y": 832.69,
+    "z": 57.79,
+    "elevationMeters": 1183.8,
+    "width": 68,
+    "name": "Fátima (Ebéjico)",
+    "isCheckpoint": true
+  },
+  {
+    "x": -13293.12,
+    "y": 829.97,
+    "z": 56.93,
+    "elevationMeters": 1183.2,
+    "width": 68
+  },
+  {
+    "x": -13261.51,
+    "y": 830.1,
+    "z": 56.15,
+    "elevationMeters": 1182.6,
+    "width": 68
+  },
+  {
+    "x": -13233.24,
+    "y": 844.66,
+    "z": 55.44,
+    "elevationMeters": 1182.1,
+    "width": 68
+  },
+  {
+    "x": -13206.8,
+    "y": 862.64,
+    "z": 54.8,
+    "elevationMeters": 1181.6,
+    "width": 68
+  },
+  {
+    "x": -13180.7,
+    "y": 881.16,
+    "z": 54.25,
+    "elevationMeters": 1181.2,
+    "width": 68
+  },
+  {
+    "x": -13154.6,
+    "y": 899.67,
+    "z": 53.77,
+    "elevationMeters": 1180.8,
+    "width": 58
+  },
+  {
+    "x": -13128.39,
+    "y": 918.03,
+    "z": 53.38,
+    "elevationMeters": 1180.5,
+    "width": 58
+  },
+  {
+    "x": -13101.81,
+    "y": 935.85,
+    "z": 53.06,
+    "elevationMeters": 1180.3,
+    "width": 58
+  },
+  {
+    "x": -13077.73,
+    "y": 956.55,
+    "z": 52.84,
+    "elevationMeters": 1180.1,
+    "width": 58
+  },
+  {
+    "x": -13061.55,
+    "y": 983.88,
+    "z": 52.7,
+    "elevationMeters": 1180.0,
+    "width": 58
+  },
+  {
+    "x": -13065.11,
+    "y": 1014.2,
+    "z": 52.65,
+    "elevationMeters": 1180.0,
+    "width": 58
+  },
+  {
+    "x": -13087.65,
+    "y": 1036.9,
+    "z": 52.6,
+    "elevationMeters": 1180.0,
+    "width": 58
+  },
+  {
+    "x": -13115.59,
+    "y": 1051.95,
+    "z": 52.44,
+    "elevationMeters": 1179.8,
+    "width": 58
+  },
+  {
+    "x": -13147.09,
+    "y": 1056.61,
+    "z": 52.18,
+    "elevationMeters": 1179.6,
+    "width": 58
+  },
+  {
+    "x": -13178.11,
+    "y": 1049.9,
+    "z": 51.81,
+    "elevationMeters": 1179.4,
+    "width": 58
+  },
+  {
+    "x": -13207.74,
+    "y": 1037.81,
+    "z": 51.35,
+    "elevationMeters": 1179.0,
+    "width": 58
+  },
+  {
+    "x": -13238.29,
+    "y": 1029.86,
+    "z": 50.8,
+    "elevationMeters": 1178.6,
+    "width": 58
+  },
+  {
+    "x": -13267.34,
+    "y": 1041.81,
+    "z": 50.16,
+    "elevationMeters": 1178.2,
+    "width": 58
+  },
+  {
+    "x": -13288.12,
+    "y": 1065.66,
+    "z": 49.44,
+    "elevationMeters": 1177.6,
+    "width": 58
+  },
+  {
+    "x": -13299.51,
+    "y": 1094.86,
+    "z": 48.64,
+    "elevationMeters": 1177.0,
+    "width": 58,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada Juan Ramos (km 25.2)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -13301.36,
+    "y": 1126.51,
+    "z": 47.77,
+    "elevationMeters": 1176.4,
+    "width": 58,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada Juan Ramos (km 25.2)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -13298.81,
+    "y": 1158.41,
+    "z": 46.82,
+    "elevationMeters": 1175.7,
+    "width": 58,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada Juan Ramos (km 25.2)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -13296.11,
+    "y": 1190.3,
+    "z": 45.81,
+    "elevationMeters": 1174.9,
+    "width": 58,
+    "name": "Puente Quebrada Juan Ramos (km 25.2)",
+    "isCheckpoint": true,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada Juan Ramos (km 25.2)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -13299.52,
+    "y": 1221.93,
+    "z": 44.74,
+    "elevationMeters": 1174.1,
+    "width": 58,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada Juan Ramos (km 25.2)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -13309.51,
+    "y": 1252.19,
+    "z": 43.61,
+    "elevationMeters": 1173.3,
+    "width": 58,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada Juan Ramos (km 25.2)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -13329.71,
+    "y": 1276.7,
+    "z": 42.42,
+    "elevationMeters": 1172.4,
+    "width": 58,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada Juan Ramos (km 25.2)",
+    "canyonDepth": 45.0
+  },
+  {
+    "x": -13351.91,
+    "y": 1299.75,
+    "z": 41.19,
+    "elevationMeters": 1171.5,
+    "width": 58
+  },
+  {
+    "x": -13374.86,
+    "y": 1321.92,
+    "z": 39.91,
+    "elevationMeters": 1170.6,
+    "width": 58
+  },
+  {
+    "x": -13401.05,
+    "y": 1340.3,
+    "z": 38.6,
+    "elevationMeters": 1169.6,
+    "width": 58
+  },
+  {
+    "x": -13428.8,
+    "y": 1355.97,
+    "z": 37.24,
+    "elevationMeters": 1168.6,
+    "width": 58
+  },
+  {
+    "x": -13457.92,
+    "y": 1369.24,
+    "z": 35.85,
+    "elevationMeters": 1167.6,
+    "width": 58
+  },
+  {
+    "x": -13484.28,
+    "y": 1386.21,
+    "z": 34.44,
+    "elevationMeters": 1166.5,
+    "width": 58
+  },
+  {
+    "x": -13491.32,
+    "y": 1416.71,
+    "z": 33.0,
+    "elevationMeters": 1165.4,
+    "width": 58
+  },
+  {
+    "x": -13490.57,
+    "y": 1448.7,
+    "z": 31.55,
+    "elevationMeters": 1164.4,
+    "width": 58
+  },
+  {
+    "x": -13490.14,
+    "y": 1480.7,
+    "z": 30.07,
+    "elevationMeters": 1163.3,
+    "width": 58
+  },
+  {
+    "x": -13493.78,
+    "y": 1508.89,
+    "z": 28.59,
+    "elevationMeters": 1162.2,
+    "width": 58,
+    "name": "Entrada urbana: Calle 19 (Avenida La República)",
+    "isCheckpoint": true
+  },
+  {
+    "x": -13525.77,
+    "y": 1509.75,
+    "z": 27.1,
+    "elevationMeters": 1161.1,
+    "width": 58
+  },
+  {
+    "x": -13557.75,
+    "y": 1510.79,
+    "z": 25.61,
+    "elevationMeters": 1160.0,
+    "width": 58
+  },
+  {
+    "x": -13589.74,
+    "y": 1511.67,
+    "z": 24.12,
+    "elevationMeters": 1158.9,
+    "width": 58
+  },
+  {
+    "x": -13621.73,
+    "y": 1512.33,
+    "z": 22.64,
+    "elevationMeters": 1157.8,
+    "width": 58
+  },
+  {
+    "x": -13653.73,
+    "y": 1512.98,
+    "z": 21.17,
+    "elevationMeters": 1156.7,
+    "width": 58
+  },
+  {
+    "x": -13685.72,
+    "y": 1513.64,
+    "z": 19.71,
+    "elevationMeters": 1155.6,
+    "width": 58
+  },
+  {
+    "x": -13717.71,
+    "y": 1513.7,
+    "z": 18.27,
+    "elevationMeters": 1154.5,
+    "width": 58
+  },
+  {
+    "x": -13749.7,
+    "y": 1512.86,
+    "z": 16.86,
+    "elevationMeters": 1153.5,
+    "width": 58
+  },
+  {
+    "x": -13781.69,
+    "y": 1512.15,
+    "z": 15.47,
+    "elevationMeters": 1152.5,
+    "width": 58
+  },
+  {
+    "x": -13813.69,
+    "y": 1511.83,
+    "z": 14.11,
+    "elevationMeters": 1151.5,
+    "width": 58
+  },
+  {
+    "x": -13845.69,
+    "y": 1511.5,
+    "z": 12.79,
+    "elevationMeters": 1150.5,
+    "width": 58
+  },
+  {
+    "x": -13877.69,
+    "y": 1511.18,
+    "z": 11.51,
+    "elevationMeters": 1149.5,
+    "width": 58
+  },
+  {
+    "x": -13909.68,
+    "y": 1510.86,
+    "z": 10.28,
+    "elevationMeters": 1148.6,
+    "width": 58
+  },
+  {
+    "x": -13941.68,
+    "y": 1510.54,
+    "z": 9.09,
+    "elevationMeters": 1147.7,
+    "width": 58
+  },
+  {
+    "x": -13973.68,
+    "y": 1510.22,
+    "z": 7.96,
+    "elevationMeters": 1146.9,
+    "width": 58
+  },
+  {
+    "x": -13992.64,
+    "y": 1496.58,
+    "z": 6.89,
+    "elevationMeters": 1146.1,
+    "width": 58
+  },
+  {
+    "x": -13993.64,
+    "y": 1464.59,
+    "z": 5.87,
+    "elevationMeters": 1145.3,
+    "width": 58
+  },
+  {
+    "x": -14020.2,
+    "y": 1458.49,
+    "z": 4.92,
+    "elevationMeters": 1144.6,
+    "width": 58
+  },
+  {
+    "x": -14052.2,
+    "y": 1457.88,
+    "z": 4.05,
+    "elevationMeters": 1144.0,
+    "width": 58
+  },
+  {
+    "x": -14084.19,
+    "y": 1457.27,
+    "z": 3.24,
+    "elevationMeters": 1143.4,
+    "width": 58
+  },
+  {
+    "x": -14116.18,
+    "y": 1456.34,
+    "z": 2.52,
+    "elevationMeters": 1142.9,
+    "width": 58
+  },
+  {
+    "x": -14148.16,
+    "y": 1455.14,
+    "z": 1.87,
+    "elevationMeters": 1142.4,
+    "width": 58
+  },
+  {
+    "x": -14180.14,
+    "y": 1454.13,
+    "z": 1.32,
+    "elevationMeters": 1142.0,
+    "width": 58
+  },
+  {
+    "x": -14212.13,
+    "y": 1453.29,
+    "z": 0.86,
+    "elevationMeters": 1141.6,
+    "width": 58
+  },
+  {
+    "x": -14244.12,
+    "y": 1452.47,
+    "z": 0.49,
+    "elevationMeters": 1141.4,
+    "width": 58
+  },
+  {
+    "x": -14276.11,
+    "y": 1451.65,
+    "z": 0.22,
+    "elevationMeters": 1141.2,
+    "width": 58
+  },
+  {
+    "x": -14277.9,
+    "y": 1481.0,
+    "z": 0.06,
+    "elevationMeters": 1141.0,
+    "width": 58
+  },
+  {
+    "x": -14277.29,
+    "y": 1510.03,
+    "z": 0.0,
+    "elevationMeters": 1141.0,
+    "width": 58,
+    "name": "Parque Principal de Ebéjico (META)",
+    "isCheckpoint": true
+  }
+]
