@@ -1,0 +1,40 @@
+# Dependencias y compilación
+node_modules/
+dist/
+build/
+.cache/
+coverage/
+
+# Entornos y variables de configuración confidenciales
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+
+# Logs y volcados temporales de sistema
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.system_generated/
+
+# Archivos de gran tamaño (descargas crudas masivas)
+data/raw/*.osm.pbf
+data/raw/*.dem.tif
+
+# SO y editores
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.swp
