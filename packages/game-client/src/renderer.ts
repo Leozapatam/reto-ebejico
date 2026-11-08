@@ -1,6 +1,7 @@
 import { Track } from '@core/track';
 import { GameSnapshot } from '@core/types';
 import { AssetLoader } from './asset_loader';
+import { SatelliteLayer } from './satellite_layer';
 
 interface SkidMark {
   x: number;
@@ -44,6 +45,7 @@ export class GameRenderer {
   private sceneryItems: SceneryItem[] = [];
   private sceneryGeneratedForTrack?: Track;
   private assets: AssetLoader = new AssetLoader();
+  public satelliteLayer: SatelliteLayer = new SatelliteLayer();
 
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
@@ -178,6 +180,10 @@ export class GameRenderer {
     ctx.rotate(this.cameraAngle);
     ctx.translate(-this.cameraX, -this.cameraY);
 
+    // 1.5 ORTOFOTO SATELITAL AÉREA REAL (Esri World Imagery / Google Earth)
+    this.satelliteLayer.preloadArea(v.x, v.y, 3000);
+    this.satelliteLayer.render(ctx, this.cameraX, this.cameraY, 2600);
+
     // 2. RELIEVE TOPOGRÁFICO REAL: Curvas de nivel y sombreado de montaña
     this.drawTerrainElevationRelief(ctx, track);
 
@@ -227,14 +233,14 @@ export class GameRenderer {
   private drawTerrainElevationRelief(ctx: CanvasRenderingContext2D, track: Track): void {
     ctx.save();
 
-    // Terrazas de altitud en gradiente de montaña con sombra de relieve (hillshading)
+    // Terrazas de altitud en gradiente de montaña con sombra de relieve (hillshading cartográfico)
     const tiers = [
-      { r: 2800, shadow: 'rgba(7, 20, 13, 0.50)', light: 'rgba(129, 199, 132, 0.35)', label: '1.900 m' },
-      { r: 5400, shadow: 'rgba(9, 24, 15, 0.45)', light: 'rgba(129, 199, 132, 0.30)', label: '1.750 m' },
-      { r: 8000, shadow: 'rgba(11, 28, 18, 0.40)', light: 'rgba(129, 199, 132, 0.28)', label: '1.500 m' },
-      { r: 11000, shadow: 'rgba(13, 32, 21, 0.38)', light: 'rgba(129, 199, 132, 0.24)', label: '1.300 m' },
-      { r: 14200, shadow: 'rgba(9, 24, 15, 0.46)', light: 'rgba(129, 199, 132, 0.32)', label: '1.763 m' },
-      { r: 17800, shadow: 'rgba(14, 35, 23, 0.30)', light: 'rgba(129, 199, 132, 0.20)', label: '1.141 m' },
+      { r: 2800, shadow: 'rgba(7, 20, 13, 0.28)', light: 'rgba(255, 255, 255, 0.22)', label: '1.900 m' },
+      { r: 5400, shadow: 'rgba(9, 24, 15, 0.25)', light: 'rgba(255, 255, 255, 0.20)', label: '1.750 m' },
+      { r: 8000, shadow: 'rgba(11, 28, 18, 0.22)', light: 'rgba(255, 255, 255, 0.18)', label: '1.500 m' },
+      { r: 11000, shadow: 'rgba(13, 32, 21, 0.20)', light: 'rgba(255, 255, 255, 0.16)', label: '1.300 m' },
+      { r: 14200, shadow: 'rgba(9, 24, 15, 0.25)', light: 'rgba(255, 255, 255, 0.20)', label: '1.763 m' },
+      { r: 17800, shadow: 'rgba(14, 35, 23, 0.18)', light: 'rgba(255, 255, 255, 0.14)', label: '1.141 m' },
     ];
 
     for (const t of tiers) {

@@ -9,6 +9,7 @@ export interface HudCallbacks {
   onRestart: () => void;
   onToggleMute: () => boolean;
   onToggleCamera: () => CameraMode | string;
+  onToggleSatellite?: () => boolean;
 }
 
 export class HudController {
@@ -163,6 +164,7 @@ export class HudController {
             </div>
 
             <button id="btn-camera" class="hud-button" title="Alternar vista (C)">🧭 Vista: Adelante</button>
+            <button id="btn-satellite" class="hud-button" title="Alternar ortofoto satelital (S)">🛰️ Satelital: ON</button>
             <button id="btn-mute" class="hud-button" title="Silenciar / Activar sonido">🔊</button>
             <button id="btn-reset" class="hud-button" title="Reiniciar partida (R)">Reiniciar</button>
           </div>
@@ -323,9 +325,24 @@ export class HudController {
       this.toggleCameraDisplay();
     });
 
+    const btnSatellite = document.getElementById('btn-satellite');
+    btnSatellite?.addEventListener('click', () => {
+      if (this.callbacks.onToggleSatellite) {
+        const enabled = this.callbacks.onToggleSatellite();
+        btnSatellite.textContent = enabled ? '🛰️ Satelital: ON' : '🗺️ Vector';
+      }
+    });
+
     window.addEventListener('keydown', (e) => {
       if (e.key.toLowerCase() === 'c') {
         this.toggleCameraDisplay();
+      } else if (e.key.toLowerCase() === 's') {
+        if (this.callbacks.onToggleSatellite) {
+          const enabled = this.callbacks.onToggleSatellite();
+          if (btnSatellite) {
+            btnSatellite.textContent = enabled ? '🛰️ Satelital: ON' : '🗺️ Vector';
+          }
+        }
       }
     });
 

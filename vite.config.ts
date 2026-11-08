@@ -3,7 +3,7 @@ import path from 'path';
 
 export default defineConfig({
   root: 'apps/reto-ebejico',
-  publicDir: '../../public',
+  publicDir: path.resolve(__dirname, 'apps/reto-ebejico/public'),
   resolve: {
     alias: {
       '@core': path.resolve(__dirname, 'packages/game-core/src'),

@@ -41,6 +41,10 @@ class GameApp {
       onToggleCamera: () => {
         return this.renderer.toggleCameraMode();
       },
+      onToggleSatellite: () => {
+        this.renderer.satelliteLayer.enabled = !this.renderer.satelliteLayer.enabled;
+        return this.renderer.satelliteLayer.enabled;
+      },
     });
 
     this.hud.setTrack(track);
