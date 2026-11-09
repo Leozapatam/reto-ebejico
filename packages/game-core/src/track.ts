@@ -3,6 +3,7 @@ import realTrackData from '../../track-data/real_route_track.json';
 
 export interface NearestTrackInfo {
   distanceToCenterline: number;
+  lateralOffset: number;       // Desfase lateral con signo (- izquierda, + derecha)
   segmentIndex: number;
   projection: Vector2D;
   isOffroad: boolean;
@@ -15,6 +16,8 @@ export interface NearestTrackInfo {
   isBridge?: boolean;
   bridgeName?: string;
   canyonDepth?: number;
+  hasGuardrailLeft?: boolean;
+  hasGuardrailRight?: boolean;
   onDecoyBranch?: boolean;
   decoyBarricadeHit?: boolean;
 }
@@ -54,6 +57,65 @@ export class Track {
       this.cumulativeDistances.push(acc);
     }
     this.totalLength = acc;
+    this.computeGuardrails();
+  }
+
+  /**
+   * Genera defensas viales metálicas y quitamiedos reflectivos en:
+   * 1. Todos los viaductos y puentes (ambos lados sobre el vacío).
+   * 2. Curvas pronunciadas de montaña (lado exterior/abismo).
+   * 3. Tramos donde curvas o calzadas no contiguas discurren a menos de 180 px por la ladera.
+   */
+  private computeGuardrails(): void {
+    const pts = this.points;
+    for (let i = 0; i < pts.length; i++) {
+      const p = pts[i];
+      if (p.isBridge) {
+        p.hasGuardrailLeft = true;
+        p.hasGuardrailRight = true;
+        continue;
+      }
+
+      if (i > 1 && i < pts.length - 2) {
+        const prev = pts[i - 2];
+        const next = pts[i + 2];
+        const a1 = Math.atan2(p.y - prev.y, p.x - prev.x);
+        const a2 = Math.atan2(next.y - p.y, next.x - p.x);
+        let diff = a2 - a1;
+        while (diff < -Math.PI) diff += Math.PI * 2;
+        while (diff > Math.PI) diff -= Math.PI * 2;
+
+        // Curva a la derecha: el exterior hacia el barranco es la izquierda (-1)
+        if (diff > 0.035) {
+          p.hasGuardrailLeft = true;
+        }
+        // Curva a la izquierda: el exterior hacia el barranco es la derecha (+1)
+        if (diff < -0.035) {
+          p.hasGuardrailRight = true;
+        }
+      }
+    }
+
+    // Proteger tramos donde una curva no contigua discurre a menos de 180 px en la ladera
+    for (let i = 0; i < pts.length; i += 2) {
+      for (let j = i + 10; j < Math.min(pts.length, i + 90); j += 2) {
+        const dx = pts[j].x - pts[i].x;
+        const dy = pts[j].y - pts[i].y;
+        if (dx * dx + dy * dy < 180 * 180) {
+          const p = pts[i];
+          const next = pts[Math.min(pts.length - 1, i + 1)];
+          const angle = Math.atan2(next.y - p.y, next.x - p.x);
+          const nx = -Math.sin(angle);
+          const ny = Math.cos(angle);
+          const dot = dx * nx + dy * ny;
+          if (dot > 0) {
+            pts[i].hasGuardrailRight = true;
+          } else {
+            pts[i].hasGuardrailLeft = true;
+          }
+        }
+      }
+    }
   }
 
   static createDefaultTestTrack(): TrackPoint[] {
@@ -223,14 +285,20 @@ export class Track {
 
   getNearestTrackInfo(pos: Vector2D, lastSegmentIndex: number = 0): NearestTrackInfo {
     let minDistanceSq = Infinity;
-    let bestSegment = 0;
-    let bestProj: Vector2D = { x: this.points[0].x, y: this.points[0].y };
+    let bestSegment = lastSegmentIndex;
+    let bestProj: Vector2D = {
+      x: this.points[lastSegmentIndex]?.x || this.points[0].x,
+      y: this.points[lastSegmentIndex]?.y || this.points[0].y,
+    };
     let bestT = 0;
 
-    // Búsqueda local adaptativa
-    const searchRadius = 50;
-    const startIdx = Math.max(0, lastSegmentIndex - 20);
-    const endIdx = Math.min(this.points.length - 1, lastSegmentIndex + searchRadius);
+    // Búsqueda secuencial estricta: un vehículo solo puede avanzar progresivamente a lo largo de la calzada
+    // Se acota la ventana a [-5, +8] segmentos para impedir matemáticamente que el detector salte
+    // o encaje con curvas inferiores o tramos lejanos campo a través (anti-atajos).
+    const searchBack = 5;
+    const searchForward = 8;
+    const startIdx = Math.max(0, lastSegmentIndex - searchBack);
+    const endIdx = Math.min(this.points.length - 1, lastSegmentIndex + searchForward);
 
     for (let i = startIdx; i < endIdx; i++) {
       const a = this.points[i];
@@ -259,33 +327,16 @@ export class Track {
       }
     }
 
-    // Si el jugador se desvió mucho (posible trampa por la selva), buscar en toda la pista
-    if (minDistanceSq > 150 * 150) {
-      for (let i = 0; i < this.points.length - 1; i += 4) {
-        const a = this.points[i];
-        const b = this.points[i + 1];
-        const abx = b.x - a.x;
-        const aby = b.y - a.y;
-        const segLenSq = abx * abx + aby * aby;
-        if (segLenSq === 0) continue;
-        const t = Math.max(0, Math.min(1, ((pos.x - a.x) * abx + (pos.y - a.y) * aby) / segLenSq));
-        const px = a.x + t * abx;
-        const py = a.y + t * aby;
-        const dSq = (pos.x - px) * (pos.x - px) + (pos.y - py) * (pos.y - py);
-        if (dSq < minDistanceSq) {
-          minDistanceSq = dSq;
-          bestSegment = i;
-          bestProj = { x: px, y: py };
-          bestT = t;
-        }
-      }
-    }
-
     const dist = Math.sqrt(minDistanceSq);
     const a = this.points[bestSegment];
     const b = this.points[bestSegment + 1] || a;
     const tangentAngle = Math.atan2(b.y - a.y, b.x - a.x);
     const roadWidth = a.width + (b.width - a.width) * bestT;
+
+    // Desfase lateral perpendicular con signo (- izquierda, + derecha respecto al sentido de avance)
+    const normalX = -Math.sin(tangentAngle);
+    const normalY = Math.cos(tangentAngle);
+    const lateralOffset = (pos.x - bestProj.x) * normalX + (pos.y - bestProj.y) * normalY;
 
     const zA = a.z || 0;
     const zB = b.z || 0;
@@ -307,9 +358,10 @@ export class Track {
 
     return {
       distanceToCenterline: dist,
+      lateralOffset,
       segmentIndex: bestSegment,
       projection: bestProj,
-      isOffroad: decoyCheck.onDecoy ? false : dist > (roadWidth / 2 + 18),
+      isOffroad: decoyCheck.onDecoy ? false : dist > (roadWidth / 2 + 14),
       roadWidth,
       progressPercent,
       tangentAngle,
@@ -319,6 +371,8 @@ export class Track {
       isBridge: a.isBridge || b.isBridge,
       bridgeName: a.bridgeName || b.bridgeName,
       canyonDepth: a.canyonDepth || b.canyonDepth,
+      hasGuardrailLeft: a.hasGuardrailLeft || b.hasGuardrailLeft,
+      hasGuardrailRight: a.hasGuardrailRight || b.hasGuardrailRight,
       onDecoyBranch: decoyCheck.onDecoy,
       decoyBarricadeHit: decoyCheck.hitBarricade,
     };

@@ -207,6 +207,9 @@ export class GameRenderer {
     // 7. PUENTES 2.5D CON SOMBRA VOLADA Y BARANDAS DE SEGURIDAD
     this.drawBridges25D(ctx, track);
 
+    // 7.5 DEFENSAS VIALES METÁLICAS (QUITAMIEDOS / GUARDARRAÍLES)
+    this.drawGuardrails(ctx, track);
+
     // 8. HUELLAS DE DERRAPE
     this.updateAndDrawSkids(ctx, v);
 
@@ -536,6 +539,101 @@ export class GameRenderer {
     }
 
     ctx.restore();
+  }
+
+  /**
+   * Dibuja las defensas viales metálicas (tipo bionda W-beam de acero galvanizado)
+   * con delineadores reflectivos (captafaros) en curvas pronunciadas y bordes de barranco.
+   */
+  private drawGuardrails(ctx: CanvasRenderingContext2D, track: Track): void {
+    const pts = track.points;
+    if (pts.length < 2) return;
+
+    ctx.save();
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+
+    // Para ambos lados: -1 para izquierda (Left), +1 para derecha (Right)
+    for (const side of [-1, 1]) {
+      const isLeft = side === -1;
+      let chain: { x: number; y: number }[] = [];
+
+      for (let i = 0; i < pts.length; i++) {
+        const p = pts[i];
+        const has = isLeft ? p.hasGuardrailLeft : p.hasGuardrailRight;
+
+        if (has) {
+          let nx = 0;
+          let ny = 0;
+          if (i < pts.length - 1) {
+            const next = pts[i + 1];
+            const ang = Math.atan2(next.y - p.y, next.x - p.x);
+            nx = -Math.sin(ang);
+            ny = Math.cos(ang);
+          } else if (i > 0) {
+            const prev = pts[i - 1];
+            const ang = Math.atan2(p.y - prev.y, p.x - prev.x);
+            nx = -Math.sin(ang);
+            ny = Math.cos(ang);
+          }
+
+          const offset = (p.width / 2 + 3.0) * side;
+          chain.push({ x: p.x + nx * offset, y: p.y + ny * offset });
+        } else {
+          if (chain.length > 1) {
+            this.renderGuardrailChain(ctx, chain, isLeft);
+          }
+          chain = [];
+        }
+      }
+
+      if (chain.length > 1) {
+        this.renderGuardrailChain(ctx, chain, isLeft);
+      }
+    }
+
+    ctx.restore();
+  }
+
+  /**
+   * Renderiza una cadena continua de bionda metálica con postes y reflectores
+   */
+  private renderGuardrailChain(
+    ctx: CanvasRenderingContext2D,
+    chain: { x: number; y: number }[],
+    isLeft: boolean
+  ): void {
+    if (chain.length < 2) return;
+
+    // 1. Base / anclajes oscuros de postes
+    ctx.beginPath();
+    ctx.moveTo(chain[0].x, chain[0].y);
+    for (let k = 1; k < chain.length; k++) {
+      ctx.lineTo(chain[k].x, chain[k].y);
+    }
+    ctx.lineWidth = 4.2;
+    ctx.strokeStyle = '#263238';
+    ctx.stroke();
+
+    // 2. Viga bionda de acero galvanizado
+    ctx.lineWidth = 3.0;
+    ctx.strokeStyle = '#CFD8DC';
+    ctx.stroke();
+
+    // 3. Brillo metálico superior (chapa reflectiva)
+    ctx.lineWidth = 1.2;
+    ctx.strokeStyle = '#ECEFF1';
+    ctx.stroke();
+
+    // 4. Captafaros reflectivos tipo "ojo de gato" a intervalos regulares
+    const reflectorColor = isLeft ? '#FFF59D' : '#FF5252';
+    for (let k = 1; k < chain.length; k += 4) {
+      const pt = chain[k];
+      ctx.beginPath();
+      ctx.arc(pt.x, pt.y, 2.0, 0, Math.PI * 2);
+      ctx.fillStyle = reflectorColor;
+      ctx.fill();
+    }
   }
 
   /**

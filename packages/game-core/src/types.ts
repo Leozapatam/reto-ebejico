@@ -28,6 +28,8 @@ export interface TrackPoint {
   isBridge?: boolean;         // Indicador de viaducto / puente sobre quebrada
   bridgeName?: string;        // Nombre del puente (ej. Puente Quebrada La Sucia)
   canyonDepth?: number;       // Profundidad del abismo o cañón bajo el puente
+  hasGuardrailLeft?: boolean; // Defensa vial metálica en el borde izquierdo
+  hasGuardrailRight?: boolean;// Defensa vial metálica en el borde derecho
 }
 
 export interface VehicleConfig {
