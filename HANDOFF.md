@@ -3,6 +3,8 @@
 > **Para el siguiente agente de IA (Claude Code, Antigravity, Cursor, Windsurf, Aider, etc.):**
 > Lee este archivo antes de comenzar cualquier tarea. Contiene el estado exacto del proyecto, las decisiones acordadas, la arquitectura implementada y los pasos inmediatos para continuar sin perder contexto ni duplicar trabajo.
 
+> **Estado al 11-nov-2026:** la versión vigente está en la rama **`feat/pulido-fable`** ([PR #1](https://github.com/Leozapatam/reto-ebejico/pull/1) hacia `main`). Trabaja sobre esa rama. Lee primero la **sección 4.1** (qué cambió) y la **sección 5** (qué falta); donde la tabla de la sección 2 contradiga a la 4.1, manda la 4.1.
+
 ---
 
 ## 1. Identidad y Misión del Proyecto
@@ -58,25 +60,27 @@ reto-ebejico/
 │   └── reto-ebejico/           # Aplicación principal Vite + HTML5 + CSS institucional
 │       ├── public/assets/      # Carpeta para futuros sprites PNG, texturas y assets
 │       └── src/
-│           ├── main.ts         # Loop de juego a 60 Hz desacoplado
+│           ├── main.ts         # Loop a 60 Hz con interpolación, pausa, récord y sobrevuelo del menú
+│           ├── records.ts      # Mejor marca, fantasma y ajustes en localStorage
 │           └── style.css       # Paleta institucional de Ebéjico
 ├── packages/
 │   ├── game-core/              # Lógica pura TypeScript (sin DOM)
 │   │   ├── vehicle.ts          # Física del Carro de Rodillos (gravedad, derrape, fricción)
-│   │   ├── track.ts            # Trazado 3D, splines e interpolación altimétrica
-│   │   ├── simulation.ts       # Bucle de juego, antitrampas (3s fuera de pista), penalizaciones
+│   │   ├── track.ts            # Trazado, defensas, curvatura (getCurveAhead), pendiente real, PX_PER_METER
+│   │   ├── simulation.ts       # Pasos, sucesos (GameEvent), pausa, defensas, berma/barranco, hitos y meta
 │   │   ├── timer.ts            # Cronómetro de alta precisión
 │   │   └── types.ts            # Interfaces y snapshots de estado
 │   ├── game-client/            # Renderizado gráfico
-│   │   ├── renderer.ts         # Renderizador Canvas 2D/2.5D con hillshading, caídas y chispas
-│   │   ├── audio.ts            # Sintetizador Web Audio API (rodamiento de balineras, chispas, viento)
-│   │   └── input_manager.ts    # Teclado (Flechas/WASD/Espacio/C/R) y controles táctiles
+│   │   ├── renderer.ts         # Canvas 2.5D: vía, defensas, carro, señales, partículas, atmósfera
+│   │   ├── satellite_layer.ts  # Ortofoto por teselas (solo la más nítida, carga por cercanía, liberación)
+│   │   ├── audio.ts            # Web Audio: balineras, viento, derrape, golpes, avisos
+│   │   └── input_manager.ts    # Conducción: teclado, táctil y mando (los atajos de interfaz viven en hud.ts)
 │   ├── track-data/             # Geometría real generada
 │   │   ├── real_route_track.json # 1.472 waypoints (X, Y, Z, elevación, puentes)
 │   │   └── test_circuit.json   # Circuito corto de prueba
 │   └── ui/                     # Capa visual DOM (HUD)
-│       └── hud.ts              # Widget de perfil de relieve, minimapa, cronómetro y alertas
-└── tools/                      # Scripts de automatización y pruebas CDP
+│       └── hud.ts              # HUD, pantallas (inicio, pausa, meta), atajos de interfaz, minimapa y perfil
+└── tools/                      # test_core.mjs (núcleo sin navegador) + scripts CDP antiguos
 ```
 
 ---
@@ -95,6 +99,26 @@ reto-ebejico/
 ---
 
 ## 5. Próximos Pasos Recomendados
+
+**Reglas de trabajo sobre esta versión**
+- El estilo vive en `apps/reto-ebejico/src/style.css`. `packages/ui/src/styles.css` no se importa (código muerto).
+- `packages/game-client/src/three_renderer.ts` y las dependencias `three`/`phaser` no se usan.
+- La interfaz se comunica con la simulación por `snapshot.events`; no compares snapshots para adivinar sucesos.
+- `Simulation.step()` ya no devuelve snapshot: usa `getSnapshot()` (entrega y vacía los sucesos).
+- Antes de cada commit: `npx.cmd tsc --noEmit`, `node tools/test_core.mjs` y `npm.cmd run build`.
+
+**0. Verificación pendiente en navegador (prioridad)**
+   - Pantalla de meta: tiempo, insignia de marca, estadísticas, parciales, «Copiar resultado».
+   - Fantasma del mejor tiempo en la segunda bajada y diferencias por hito.
+   - Mapa ilustrado (`M`) y vista norte (`C`).
+   - Controles táctiles y disposición en pantallas de menos de 900 px y 620 px.
+   - Sonido (balineras, golpes, caída, meta) y fluidez real a 60 Hz.
+   - Jugabilidad con la gravedad nueva: velocidad máxima en bajada (~109 km/h mostrados) y derrape en horquillas.
+
+**0.1 Deuda conocida**
+   - Si las teselas tardan en cargar el fondo queda verde liso: falta un terreno de respaldo bajo la ortofoto.
+   - `tools/*.cjs` (CDP) usan la API anterior de `Simulation` y campos privados que ya no existen.
+   - Licencias: reemplazar o autorizar las teselas de Google Satellite y autoalojar Cormorant Garamond (ver `SOURCES_AND_LICENSES.md`).
 
 1. **Enriquecimiento Visual con Sprites/Texturas:**
    - Cargar imágenes PNG/WebP transparentes para el Carro de Rodillos, casas campesinas y vegetación desde `apps/reto-ebejico/public/assets/sprites/`.
@@ -116,7 +140,10 @@ reto-ebejico/
 npm run dev
 
 # Comprobar tipos TypeScript
-npm run typecheck # o npx tsc --noEmit
+npx tsc --noEmit
+
+# Probar el núcleo sin navegador
+node tools/test_core.mjs
 
 # Compilar para producción
 npm run build
