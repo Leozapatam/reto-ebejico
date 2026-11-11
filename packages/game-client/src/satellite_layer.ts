@@ -10,153 +10,179 @@ export interface SatelliteTileMeta {
   height: number;
 }
 
-export interface SatelliteManifest {
-  generatedAt: string;
-  source: string;
-  tileCount: number;
-  origin: { lon: number; lat: number };
-  tiles: SatelliteTileMeta[];
+interface TileNode extends SatelliteTileMeta {
+  cx: number;
+  cy: number;
+  /** Teselas del nivel siguiente que cubren exactamente esta tesela (4 si la cobertura es completa). */
+  children: TileNode[];
+  img: HTMLImageElement | null;
+  ready: boolean;
+  loading: boolean;
+  failed: boolean;
+  lastUsed: number;
 }
 
+const MAX_CACHED_TILES = 260;
+const MAX_PARALLEL_LOADS = 10;
+
+/**
+ * Ortofoto por teselas (niveles 16, 17 y 18) alineada con las coordenadas del juego.
+ *
+ * - Solo dibuja la tesela más nítida disponible en cada zona: si las cuatro hijas de una tesela
+ *   ya cargaron, la madre no se pinta (antes se pintaban las tres capas una encima de otra).
+ * - Carga primero lo más cercano a la cámara y limita las descargas simultáneas.
+ * - Libera de memoria las teselas lejanas: el recorrido completo son 722 imágenes.
+ */
 export class SatelliteLayer {
-  private tiles: SatelliteTileMeta[] = [];
-  private imageCache: Map<string, HTMLImageElement> = new Map();
-  private loadingSet: Set<string> = new Set();
-  private manifestLoaded: boolean = false;
   public enabled: boolean = true;
 
-  constructor() {
-    this.loadManifest();
+  private byZoom: Map<number, TileNode[]> = new Map();
+  private all: TileNode[] = [];
+  private manifestLoaded: boolean = false;
+  private baseUrl: string;
+  private activeLoads: number = 0;
+  private frame: number = 0;
+  private cachedCount: number = 0;
+
+  constructor(baseUrl: string = './') {
+    this.baseUrl = baseUrl.endsWith('/') ? baseUrl : baseUrl + '/';
+    void this.loadManifest();
+  }
+
+  get ready(): boolean {
+    return this.manifestLoaded && this.all.length > 0;
   }
 
   private async loadManifest(): Promise<void> {
     try {
-      const res = await fetch('/assets/satellite/manifest.json');
-      if (!res.ok) {
-        console.warn('[SatelliteLayer] No se pudo cargar manifest.json, fallback a fondo vectorial');
-        return;
+      const res = await fetch(`${this.baseUrl}assets/satellite/manifest.json`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = (await res.json()) as { tiles: SatelliteTileMeta[] };
+
+      const index = new Map<string, TileNode>();
+      for (const t of data.tiles) {
+        const node: TileNode = {
+          ...t,
+          cx: t.px + t.width / 2,
+          cy: t.py + t.height / 2,
+          children: [],
+          img: null,
+          ready: false,
+          loading: false,
+          failed: false,
+          lastUsed: 0,
+        };
+        index.set(`${t.z}/${t.x}/${t.y}`, node);
+        this.all.push(node);
+        if (!this.byZoom.has(t.z)) this.byZoom.set(t.z, []);
+        this.byZoom.get(t.z)!.push(node);
       }
-      const data: SatelliteManifest = await res.json();
-      this.tiles = data.tiles;
+
+      for (const node of this.all) {
+        for (let dx = 0; dx < 2; dx++) {
+          for (let dy = 0; dy < 2; dy++) {
+            const child = index.get(`${node.z + 1}/${node.x * 2 + dx}/${node.y * 2 + dy}`);
+            if (child) node.children.push(child);
+          }
+        }
+      }
       this.manifestLoaded = true;
-
-      // Pre-cargar inmediatamente los tiles cercanos al punto de inicio (Túnel de Occidente ~2000, 2000)
-      this.preloadArea(2000, 2000, 1800);
     } catch (err) {
-      console.warn('[SatelliteLayer] Error cargando manifiesto satelital:', err);
+      console.warn('[SatelliteLayer] Sin manifiesto satelital; se usa el mapa vectorial.', err);
+      this.enabled = false;
     }
+  }
+
+  private requestTile(tile: TileNode): void {
+    if (tile.ready || tile.loading || tile.failed || this.activeLoads >= MAX_PARALLEL_LOADS) return;
+    tile.loading = true;
+    this.activeLoads++;
+    const img = new Image();
+    img.decoding = 'async';
+    img.onload = () => {
+      tile.img = img;
+      tile.ready = true;
+      tile.loading = false;
+      this.activeLoads--;
+      this.cachedCount++;
+    };
+    img.onerror = () => {
+      tile.loading = false;
+      tile.failed = true;
+      this.activeLoads--;
+    };
+    img.src = `${this.baseUrl}assets/satellite/${tile.file}`;
+  }
+
+  /** ¿Está la zona de esta tesela completamente cubierta por teselas más nítidas ya cargadas? */
+  private coveredByChildren(tile: TileNode): boolean {
+    if (tile.children.length < 4) return false;
+    for (const c of tile.children) {
+      if (!c.ready && !this.coveredByChildren(c)) return false;
+    }
+    return true;
   }
 
   /**
-   * Pre-carga tiles en un radio alrededor de (x, y) priorizando alta definición Z17 y Z18
+   * Dibuja la ortofoto visible alrededor de la cámara (coordenadas de mundo ya aplicadas al contexto).
    */
-  public preloadArea(centerX: number, centerY: number, radius: number): void {
-    if (!this.manifestLoaded) return;
-    const r2 = radius * radius;
-    for (const t of this.tiles) {
-      if (t.z < 17) continue; // Priorizar alta resolución para máxima nitidez
-      // Chequear si el centro del tile está dentro del radio
-      const tileCenterX = t.px + t.width / 2;
-      const tileCenterY = t.py + t.height / 2;
-      const dx = tileCenterX - centerX;
-      const dy = tileCenterY - centerY;
-      if (dx * dx + dy * dy <= r2) {
-        this.getTileImage(t);
-      }
-    }
-  }
-
-  private getTileImage(tile: SatelliteTileMeta): HTMLImageElement | null {
-    const cached = this.imageCache.get(tile.id);
-    if (cached) return cached;
-
-    if (!this.loadingSet.has(tile.id)) {
-      this.loadingSet.add(tile.id);
-      const img = new Image();
-      img.src = `/assets/satellite/${tile.file}`;
-      img.onload = () => {
-        this.imageCache.set(tile.id, img);
-        this.loadingSet.delete(tile.id);
-      };
-      img.onerror = () => {
-        this.loadingSet.delete(tile.id);
-      };
-    }
-    return null;
-  }
-
-  /**
-   * Renderiza las ortofotos satelitales que intersecan la vista actual de la cámara.
-   * Dibuja con jerarquía multi-resolución: Zoom 16 de base, Zoom 17 intermedio y Zoom 18 en máxima nitidez sub-métrica.
-   */
-  public render(
-    ctx: CanvasRenderingContext2D,
-    cameraX: number,
-    cameraY: number,
-    viewRadius: number = 2400
-  ): void {
-    if (!this.enabled || !this.manifestLoaded || this.tiles.length === 0) return;
+  public render(ctx: CanvasRenderingContext2D, cameraX: number, cameraY: number, viewRadius: number): void {
+    if (!this.enabled || !this.manifestLoaded) return;
+    this.frame++;
 
     const minX = cameraX - viewRadius;
     const maxX = cameraX + viewRadius;
     const minY = cameraY - viewRadius;
     const maxY = cameraY + viewRadius;
 
+    const visible: TileNode[] = [];
+    for (const t of this.all) {
+      if (t.px + t.width < minX || t.px > maxX || t.py + t.height < minY || t.py > maxY) continue;
+      t.lastUsed = this.frame;
+      visible.push(t);
+    }
+
+    // Descargas: primero el nivel base (cubre rápido), luego lo más cercano a la cámara
+    const pending = visible.filter((t) => !t.ready && !t.loading && !t.failed);
+    if (pending.length > 0) {
+      pending.sort((a, b) => {
+        const za = a.z === 16 ? 0 : 1;
+        const zb = b.z === 16 ? 0 : 1;
+        if (za !== zb) return za - zb;
+        const da = (a.cx - cameraX) ** 2 + (a.cy - cameraY) ** 2;
+        const db = (b.cx - cameraX) ** 2 + (b.cy - cameraY) ** 2;
+        return da - db;
+      });
+      for (const t of pending) {
+        if (this.activeLoads >= MAX_PARALLEL_LOADS) break;
+        this.requestTile(t);
+      }
+    }
+
     ctx.save();
     ctx.imageSmoothingEnabled = true;
-    ctx.imageSmoothingQuality = 'high';
-
-    // 1. Capa base de respaldo continuo: Zoom 16
-    for (const t of this.tiles) {
-      if (t.z !== 16) continue;
-      if (
-        t.px + t.width < minX ||
-        t.px > maxX ||
-        t.py + t.height < minY ||
-        t.py > maxY
-      ) {
-        continue;
-      }
-      const img = this.getTileImage(t);
-      if (img && img.complete && img.naturalWidth > 0) {
-        ctx.drawImage(img, t.px, t.py, t.width, t.height);
-      }
+    ctx.imageSmoothingQuality = 'medium';
+    // De menor a mayor nitidez; un pequeño solape evita costuras al rotar la cámara
+    visible.sort((a, b) => a.z - b.z);
+    for (const t of visible) {
+      if (!t.ready || !t.img) continue;
+      if (this.coveredByChildren(t)) continue;
+      ctx.drawImage(t.img, t.px - 0.4, t.py - 0.4, t.width + 0.8, t.height + 0.8);
     }
-
-    // 2. Capa intermedia: Zoom 17
-    for (const t of this.tiles) {
-      if (t.z !== 17) continue;
-      if (
-        t.px + t.width < minX ||
-        t.px > maxX ||
-        t.py + t.height < minY ||
-        t.py > maxY
-      ) {
-        continue;
-      }
-      const img = this.getTileImage(t);
-      if (img && img.complete && img.naturalWidth > 0) {
-        ctx.drawImage(img, t.px, t.py, t.width, t.height);
-      }
-    }
-
-    // 3. Capa ultra-nítida de máxima definición: Zoom 18 (resolución sub-métrica ~0.59 m/px)
-    for (const t of this.tiles) {
-      if (t.z !== 18) continue;
-      if (
-        t.px + t.width < minX ||
-        t.px > maxX ||
-        t.py + t.height < minY ||
-        t.py > maxY
-      ) {
-        continue;
-      }
-      const img = this.getTileImage(t);
-      if (img && img.complete && img.naturalWidth > 0) {
-        ctx.drawImage(img, t.px, t.py, t.width, t.height);
-      }
-    }
-
     ctx.restore();
+
+    if (this.cachedCount > MAX_CACHED_TILES && this.frame % 120 === 0) this.evict();
+  }
+
+  private evict(): void {
+    const loaded = this.all.filter((t) => t.ready).sort((a, b) => a.lastUsed - b.lastUsed);
+    const excess = loaded.length - Math.floor(MAX_CACHED_TILES * 0.75);
+    for (let i = 0; i < excess; i++) {
+      const t = loaded[i];
+      if (t.lastUsed >= this.frame - 60) break;
+      t.img = null;
+      t.ready = false;
+      this.cachedCount--;
+    }
   }
 }

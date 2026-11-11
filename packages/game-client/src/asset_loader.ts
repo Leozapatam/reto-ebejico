@@ -1,60 +1,48 @@
 /**
- * AssetLoader — Cargador inteligente de sprites y texturas con Fallback Vectorial Seguro.
- * 
- * Permite cargar imágenes PNG/SVG/WebP transparentes para vehículos, casas, vegetación y asfalto.
- * Si la imagen existe, la dibuja directamente. Si no existe o está cargando, el motor
- * utiliza automáticamente el renderizado vectorial para garantizar que nunca se rompa el juego.
+ * AssetLoader — sprites opcionales con respaldo vectorial.
+ *
+ * El juego se dibuja completo con vectores. Si alguien quiere sustituir una pieza por una
+ * imagen (PNG/WebP/SVG transparente), basta con dejarla en `public/assets/sprites/` y
+ * declararla en `public/assets/sprites/sprites.json`:
+ *
+ *   { "carro_rodillos": "carro_rodillos.png" }
+ *
+ * Solo se piden al servidor las imágenes declaradas, así que no hay peticiones fallidas
+ * por sprites que todavía no existen.
  */
 export class AssetLoader {
   private images: Map<string, HTMLImageElement> = new Map();
-  private loaded: Map<string, boolean> = new Map();
 
-  constructor() {
-    this.preloadDefaults();
+  constructor(baseUrl: string = './') {
+    const base = baseUrl.endsWith('/') ? baseUrl : baseUrl + '/';
+    void this.loadManifest(`${base}assets/sprites/`);
   }
 
-  private preloadDefaults(): void {
-    const assetsToLoad: Record<string, string> = {
-      carro_rodillos: 'assets/sprites/carro_rodillos.png',
-      casa_campesina: 'assets/sprites/casa_campesina.png',
-      cafetal: 'assets/sprites/cafetal.png',
-      pino_andino: 'assets/sprites/pino_andino.png',
-      asfalto_textura: 'assets/textures/asfalto_carretera.png',
-      roca_canon: 'assets/textures/roca_canon.png',
-    };
-
-    for (const [key, src] of Object.entries(assetsToLoad)) {
-      this.loadImage(key, src);
+  private async loadManifest(dir: string): Promise<void> {
+    try {
+      const res = await fetch(`${dir}sprites.json`);
+      if (!res.ok) return;
+      const manifest = (await res.json()) as Record<string, string>;
+      for (const [key, file] of Object.entries(manifest)) {
+        this.loadImage(key, dir + file);
+      }
+    } catch {
+      // Sin manifiesto de sprites: todo se dibuja con vectores
     }
   }
 
   loadImage(key: string, src: string): void {
     const img = new Image();
+    img.onload = () => this.images.set(key, img);
     img.src = src;
-    img.onload = () => {
-      this.images.set(key, img);
-      this.loaded.set(key, true);
-    };
-    img.onerror = () => {
-      // Si la imagen no existe aún en public/assets/, marcamos false para usar el fallback vectorial
-      this.loaded.set(key, false);
-    };
   }
 
-  /**
-   * Obtiene la imagen cargada si está lista; de lo contrario retorna undefined.
-   */
+  /** Imagen lista para dibujar, o undefined si no existe (se usa el dibujo vectorial). */
   get(key: string): HTMLImageElement | undefined {
-    if (this.loaded.get(key)) {
-      return this.images.get(key);
-    }
-    return undefined;
+    return this.images.get(key);
   }
 
-  /**
-   * Indica si un sprite o textura específica está disponible.
-   */
   has(key: string): boolean {
-    return Boolean(this.loaded.get(key) && this.images.has(key));
+    return this.images.has(key);
   }
 }

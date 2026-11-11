@@ -1,7 +1,19 @@
 import { ControlInput } from '@core/types';
 
+/**
+ * Entrada unificada: teclado, botones táctiles y mando.
+ *
+ *   ↑ / W        Empujar
+ *   ↓ / S        Freno de zapata / reversa
+ *   ← → / A D    Timón de lazo
+ *   Espacio      Derrape (zapata a fondo)
+ *   F            Volver a la vía (reincorporación con penalización)
+ *
+ * Los atajos de interfaz (pausa, cámara, mapa, reinicio) viven en el HUD para que
+ * ninguna tecla de conducción dispare otra acción por accidente.
+ */
 export class InputManager {
-  private keys: Record<string, boolean> = {};
+  private keys: Set<string> = new Set();
   public assistedAcceleration: boolean = false;
 
   // Estados táctiles
@@ -17,26 +29,30 @@ export class InputManager {
 
   private initKeyboardListeners(): void {
     window.addEventListener('keydown', (e) => {
-      this.keys[e.key.toLowerCase()] = true;
-      this.keys[e.code] = true;
-      // Prevenir desplazamiento de página con flechas y espacio
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      this.keys.add(e.code);
+      // Evita que las flechas y el espacio desplacen la página o activen el botón enfocado
       if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Space'].includes(e.code)) {
         e.preventDefault();
       }
     });
 
     window.addEventListener('keyup', (e) => {
-      this.keys[e.key.toLowerCase()] = false;
-      this.keys[e.code] = false;
+      this.keys.delete(e.code);
     });
 
-    window.addEventListener('blur', () => {
-      this.keys = {};
-      this.resetTouch();
+    window.addEventListener('blur', () => this.releaseAll());
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) this.releaseAll();
     });
   }
 
-  // Métodos para controles táctiles en pantalla
+  releaseAll(): void {
+    this.keys.clear();
+    this.resetTouch();
+  }
+
+  // Controles táctiles en pantalla
   setTouchSteer(val: number): void {
     this.touchSteer = Math.max(-1, Math.min(1, val));
   }
@@ -65,44 +81,56 @@ export class InputManager {
     this.touchRespawn = false;
   }
 
-  getInput(): ControlInput {
-    // Teclas de dirección
-    const left = this.keys['arrowleft'] || this.keys['a'] || this.keys['keya'];
-    const right = this.keys['arrowright'] || this.keys['d'] || this.keys['keyd'];
-    const up = this.keys['arrowup'] || this.keys['w'] || this.keys['keyw'];
-    const down = this.keys['arrowdown'] || this.keys['s'] || this.keys['keys'];
-    const space = this.keys[' '] || this.keys['space'];
-    const respawnKey = this.keys['r'] || this.keys['keyr'];
+  private readGamepad(): { steer: number; throttle: number; brake: number; handbrake: boolean; respawn: boolean } | null {
+    if (typeof navigator === 'undefined' || !navigator.getGamepads) return null;
+    for (const pad of navigator.getGamepads()) {
+      if (!pad || !pad.connected) continue;
+      const axis = pad.axes[0] ?? 0;
+      const dpad = (pad.buttons[15]?.pressed ? 1 : 0) - (pad.buttons[14]?.pressed ? 1 : 0);
+      const steer = Math.abs(axis) > 0.15 ? axis : dpad;
+      const throttle = Math.max(pad.buttons[7]?.value ?? 0, pad.buttons[0]?.pressed ? 1 : 0);
+      const brake = Math.max(pad.buttons[6]?.value ?? 0, pad.buttons[1]?.pressed ? 1 : 0);
+      const handbrake = Boolean(pad.buttons[2]?.pressed || pad.buttons[5]?.pressed);
+      const respawn = Boolean(pad.buttons[3]?.pressed);
+      if (steer !== 0 || throttle > 0.05 || brake > 0.05 || handbrake || respawn) {
+        return { steer, throttle, brake, handbrake, respawn };
+      }
+    }
+    return null;
+  }
 
-    // Dirección combinada (-1 a +1)
+  getInput(): ControlInput {
+    const k = this.keys;
+    const left = k.has('ArrowLeft') || k.has('KeyA');
+    const right = k.has('ArrowRight') || k.has('KeyD');
+    const up = k.has('ArrowUp') || k.has('KeyW');
+    const down = k.has('ArrowDown') || k.has('KeyS');
+
     let steer = 0;
     if (left && !right) steer = -1;
     if (right && !left) steer = 1;
     if (this.touchSteer !== 0) steer = this.touchSteer;
 
-    // Aceleración y freno
     let throttle = up || this.touchThrottle ? 1 : 0;
-    const brake = down || this.touchBrake ? 1 : 0;
+    let brake = down || this.touchBrake ? 1 : 0;
+    let handbrake = k.has('Space') || this.touchHandbrake;
+    let respawn = k.has('KeyF') || this.touchRespawn;
 
-    // Aceleración asistida (opción de accesibilidad)
-    if (this.assistedAcceleration) {
-      if (brake === 0) {
-        throttle = 1;
-      }
+    const pad = this.readGamepad();
+    if (pad) {
+      if (steer === 0) steer = pad.steer;
+      throttle = Math.max(throttle, pad.throttle);
+      brake = Math.max(brake, pad.brake);
+      handbrake = handbrake || pad.handbrake;
+      respawn = respawn || pad.respawn;
     }
 
-    const handbrake = Boolean(space || this.touchHandbrake);
-    const respawn = Boolean(respawnKey || this.touchRespawn);
+    // Empuje asistido (opción de accesibilidad): acelera solo mientras no se frene
+    if (this.assistedAcceleration && brake === 0) throttle = 1;
 
-    // Consumir respawn de un solo pulso
+    // El respawn táctil es un pulso de un solo paso
     this.touchRespawn = false;
 
-    return {
-      steer,
-      throttle,
-      brake,
-      handbrake,
-      respawn,
-    };
+    return { steer, throttle, brake, handbrake, respawn };
   }
 }

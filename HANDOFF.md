@@ -24,7 +24,7 @@
 | **Simulación y Física de Balineras (`game-core`)** | **COMPLETO** | Inercia, derrape, aceleración gravitacional por pendiente Copernicus DEM, rebote elástico contra defensas viales ($e = 0.35$), fricción y chispas de acero. |
 | **Defensas Viales y Anti-Trampas (`game-core`)** | **COMPLETO** | **1.334 defensas viales bionda** en curvas y puentes. Búsqueda secuencial estricta `[-5, +8]`. **Caída al barranco:** Desvío $> 28\text{ px}$ reincorpora a pista (+3.0s). **Salto de curva:** Reingreso saltando $> 4$ segmentos reubica al punto previo (+4.0s). Checkpoints secuenciales obligatorios. |
 | **Dirección Visual 2D/2.5D Estilizada (`game-client`)** | **COMPLETO** | Canvas 2.5D con inclinación dinámica por pendiente (*tilt*), sombreado cartográfico de laderas (*hillshading*), sombras de precipicio (*caídas*), chispas de balineras y barandas metálicas reflectivas (delineadores rojo/amarillo). Zoom inmersivo 1.45x y escala reducida del carro de rodillos (0.85x). |
-| **Capa Satelital Real (Google Satellite Zoom 18)** | **COMPLETO** | Ortofoto aérea 100% libre de nubes a lo largo de los 26,15 km (722 teselas locales nítidas en Zoom 18). Calzada continua sin bordillo artificial estridente. Alternable con tecla `[S]` o botón en el HUD. |
+| **Capa Satelital Real (Google Satellite Zoom 18)** | **COMPLETO** | Ortofoto aérea 100% libre de nubes a lo largo de los 26,15 km (722 teselas locales Z16–Z18 en `public/assets/satellite/`). Calzada continua sin bordillo artificial estridente. Alternable con tecla `[M]` o botón en el HUD. |
 | **HUD Institucional y Altimetría en Vivo (`ui`)** | **COMPLETO** | **Widget izquierdo:** Perfil de relieve en tiempo real (Copernicus DEM) con silueta de cordillera, balinera del jugador e indicador de pendiente (`▼ Bajada %` / `▲ Subida %`). **Widget derecho:** Mapa territorial 26 km. **Top:** Cronómetro, altitud msnm y velocímetro. Conteo gigante `3-2-1-¡ARRANCA!`. |
 | **Backend de Clasificación / Ranking (Fase 4/5)** | **Siguiente Paso** | Integración con base de datos pública y validación de repetición de entradas. |
 | **Soporte de Sprites e Imágenes PNG/SVG** | **Listo para enriquecer** | Estructura en `apps/reto-ebejico/public/assets/` con fallback vectorial seguro. |
@@ -78,6 +78,19 @@ reto-ebejico/
 │       └── hud.ts              # Widget de perfil de relieve, minimapa, cronómetro y alertas
 └── tools/                      # Scripts de automatización y pruebas CDP
 ```
+
+---
+
+## 4.1 Cambios de la rama `feat/pulido-fable` (11-nov-2026)
+
+* **Corregido:** la meta era inalcanzable (el detector nunca devuelve el último índice; ahora se mide por distancia); `S` frenaba y alternaba el satélite; caídas falsas rodando por la berma; calzada dibujada a 44 px fijos frente a 36/32 px de la física; ramal de Las Partidas tapado por la defensa vial; apoyarse en la bionda no costaba velocidad.
+* **Simulación:** sucesos (`GameEvent`) en el snapshot, pausa, pendiente real (`gradePercent`) con gravedad, derrape que cierra el giro, avisos de curva (`Track.getCurveAhead`).
+* **Cliente:** renderizador con culling y DPR correcto, carro redibujado, señales viales, partículas, sombras de nubes, sonido de balineras, mando, eventos de puntero táctiles.
+* **UI:** inicio con sobrevuelo y perfil real, pausa, resultados con parciales, mejor marca y fantasma en `localStorage` (`apps/reto-ebejico/src/records.ts`).
+* **Teclas:** ↑↓←→/WASD · Espacio derrape · F volver a la vía · R reiniciar · P/Esc pausa · C vista · M mapa.
+* **Prueba sin navegador:** `node tools/test_core.mjs` (las herramientas CDP de `tools/*.cjs` usan la API anterior).
+* **Sin verificar en navegador:** pantalla de meta, fantasma, mapa ilustrado y controles táctiles.
+* **Pendiente de decisión:** las teselas son de Google Satellite y `SOURCES_AND_LICENSES.md` excluye esa fuente; las tipografías se cargan desde Google Fonts aunque el mismo documento pide autoalojarlas.
 
 ---
 

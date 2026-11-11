@@ -1,5 +1,15 @@
-import { TrackPoint, Vector2D } from './types';
+import { CurveAhead, CurveSeverity, TrackPoint, Vector2D } from './types';
 import realTrackData from '../../track-data/real_route_track.json';
+
+/** Escala del mundo: unidades de juego (px) por metro real. Coincide con `meters_to_px` del manifiesto satelital. */
+export const PX_PER_METER = 1.8;
+
+function angleDiff(a: number, b: number): number {
+  let d = a - b;
+  while (d < -Math.PI) d += Math.PI * 2;
+  while (d > Math.PI) d -= Math.PI * 2;
+  return d;
+}
 
 export interface NearestTrackInfo {
   distanceToCenterline: number;
@@ -9,10 +19,12 @@ export interface NearestTrackInfo {
   isOffroad: boolean;
   roadWidth: number;
   progressPercent: number;
+  distanceAlong: number;       // Distancia acumulada sobre el eje de la vía (px)
   tangentAngle: number;
   z: number;
   elevationMeters: number;
   slopeGrade: number;
+  gradePercent: number;        // Pendiente real en % calculada con las cotas msnm (negativa = bajada)
   isBridge?: boolean;
   bridgeName?: string;
   canyonDepth?: number;
@@ -36,6 +48,10 @@ export class Track {
   public readonly cumulativeDistances: number[];
   public readonly trackType: TrackType;
   public readonly decoyBranch?: DecoyBranch;
+  /** Rumbo de cada segmento i → i+1 (rad). */
+  public readonly headings: number[] = [];
+  /** Cambio de rumbo con signo alrededor de cada punto, medido en una ventana de ±2 segmentos (+ derecha, − izquierda). */
+  public readonly turn: number[] = [];
 
   constructor(trackType: TrackType = 'real', customPoints?: TrackPoint[]) {
     this.trackType = trackType;
@@ -58,6 +74,97 @@ export class Track {
     }
     this.totalLength = acc;
     this.computeGuardrails();
+    this.openGuardrailGapForDecoy();
+    this.computeCurvature();
+  }
+
+  /**
+   * El ramal señuelo de Las Partidas sale de la vía principal: sin este hueco,
+   * la defensa vial exterior lo tapaba y el desvío equivocado era inalcanzable.
+   */
+  private openGuardrailGapForDecoy(): void {
+    if (!this.decoyBranch) return;
+    const dPts = this.decoyBranch.points;
+    const end = dPts[dPts.length - 1];
+    const fork = this.points.findIndex((p) => p.x === dPts[0].x && p.y === dPts[0].y);
+    if (fork < 0) return;
+
+    for (let i = Math.max(0, fork - 1); i < Math.min(this.points.length - 1, fork + 18); i++) {
+      const p = this.points[i];
+      const next = this.points[i + 1];
+
+      let nearDecoy = false;
+      for (const d of dPts) {
+        if (Math.hypot(d.x - p.x, d.y - p.y) < p.width / 2 + 46) {
+          nearDecoy = true;
+          break;
+        }
+      }
+      if (!nearDecoy) continue;
+
+      const ang = Math.atan2(next.y - p.y, next.x - p.x);
+      const side = (end.x - p.x) * -Math.sin(ang) + (end.y - p.y) * Math.cos(ang);
+      if (side > 0) {
+        p.hasGuardrailRight = false;
+        next.hasGuardrailRight = false;
+      } else {
+        p.hasGuardrailLeft = false;
+        next.hasGuardrailLeft = false;
+      }
+    }
+  }
+
+  get totalMeters(): number {
+    return this.totalLength / PX_PER_METER;
+  }
+
+  private computeCurvature(): void {
+    const pts = this.points;
+    const n = pts.length;
+    for (let i = 0; i < n - 1; i++) {
+      this.headings.push(Math.atan2(pts[i + 1].y - pts[i].y, pts[i + 1].x - pts[i].x));
+    }
+    this.headings.push(this.headings[n - 2] ?? 0);
+    for (let i = 0; i < n; i++) {
+      const a = this.headings[Math.max(0, i - 2)];
+      const b = this.headings[Math.min(n - 1, i + 2)];
+      this.turn.push(angleDiff(b, a));
+    }
+  }
+
+  /**
+   * Nota de copiloto: busca la próxima curva exigente por delante del carro.
+   * Devuelve dirección, severidad y distancia, o null si viene un tramo franco.
+   */
+  getCurveAhead(segmentIndex: number, distanceAlong: number, lookAheadPx: number = 360): CurveAhead | null {
+    const n = this.points.length;
+    for (let i = Math.max(0, segmentIndex); i < n - 1; i++) {
+      const ahead = this.cumulativeDistances[i] - distanceAlong;
+      if (ahead > lookAheadPx) break;
+      const t = this.turn[i];
+      if (Math.abs(t) < 0.9) continue;
+
+      // Recorre la curva completa para medir su giro total y su punto más cerrado
+      const sign = t > 0 ? 1 : -1;
+      let total = 0;
+      let peak = 0;
+      let j = i;
+      while (j < n - 1 && this.turn[j] * sign > 0.3) {
+        peak = Math.max(peak, Math.abs(this.turn[j]));
+        total += angleDiff(this.headings[Math.min(n - 1, j + 1)], this.headings[j]) * sign;
+        j++;
+      }
+      let severity: CurveSeverity = 1;
+      if (total > 2.3 || peak > 1.75) severity = 3;
+      else if (total > 1.4 || peak > 1.25) severity = 2;
+
+      return {
+        direction: sign as -1 | 1,
+        severity,
+        distanceMeters: Math.max(0, ahead) / PX_PER_METER,
+      };
+    }
+    return null;
   }
 
   /**
@@ -348,6 +455,7 @@ export class Track {
 
     const segLength2D = Math.hypot(b.x - a.x, b.y - a.y) || 1;
     const slopeGrade = (zB - zA) / segLength2D;
+    const gradePercent = ((elevB - elevA) / (segLength2D / PX_PER_METER)) * 100;
 
     const segStartDist = this.cumulativeDistances[bestSegment];
     const distInSeg = Math.hypot(bestProj.x - a.x, bestProj.y - a.y);
@@ -364,10 +472,12 @@ export class Track {
       isOffroad: decoyCheck.onDecoy ? false : dist > (roadWidth / 2 + 14),
       roadWidth,
       progressPercent,
+      distanceAlong: totalDistAlong,
       tangentAngle,
       z,
       elevationMeters,
       slopeGrade,
+      gradePercent,
       isBridge: a.isBridge || b.isBridge,
       bridgeName: a.bridgeName || b.bridgeName,
       canyonDepth: a.canyonDepth || b.canyonDepth,
