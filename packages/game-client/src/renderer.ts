@@ -76,7 +76,7 @@ const SKID_LIFE_S = 14;
 const MAX_SKIDS = 520;
 const MAX_SPARKS = 160;
 const MAX_DUST = 70;
-const CART_SCALE = 0.22;
+const CART_SCALE = 0.28;
 
 const COLORS = {
   groundSat: '#1b2f24',
@@ -104,8 +104,8 @@ export class GameRenderer {
   private cameraX: number = 0;
   private cameraY: number = 0;
   private cameraAngle: number = 0;
-  private zoom: number = 2.4;
-  private userZoom: number = 2.4;
+  private zoom: number = 2.1;
+  private userZoom: number = 2.1;
   private tilt: number = 0.84;
   private cameraInitialized: boolean = false;
   private shake: number = 0;
@@ -141,7 +141,7 @@ export class GameRenderer {
     canvas.addEventListener(
       'wheel',
       (e) => {
-        this.userZoom = Math.max(1.2, Math.min(3.8, this.userZoom * Math.exp(-e.deltaY * 0.0012)));
+        this.userZoom = Math.max(1.1, Math.min(3.4, this.userZoom * Math.exp(-e.deltaY * 0.0012)));
       },
       { passive: true }
     );
@@ -300,9 +300,14 @@ export class GameRenderer {
     const focus: Pose = attract ?? v;
     const speed = attract ? 0 : Math.hypot(v.vx, v.vy);
     const speedRatio = Math.min(1.2, speed / 420);
-    const lookAhead = attract ? 0 : 0.50;
-    const targetX = focus.x + (attract ? 0 : v.vx * lookAhead);
-    const targetY = focus.y + (attract ? 0 : v.vy * lookAhead);
+
+    // Anticipación acotada en píxeles de pantalla para que el carro NUNCA se salga por abajo al acelerar
+    const maxScreenShift = 50;
+    const maxWorldShift = maxScreenShift / Math.max(0.5, this.zoom);
+    const forwardShift = attract ? 0 : Math.min(maxWorldShift, (speed / 420) * maxWorldShift);
+    const moveAngle = speed > 1 ? Math.atan2(v.vy, v.vx) : focus.angle;
+    const targetX = focus.x + (attract ? 0 : Math.cos(moveAngle) * forwardShift);
+    const targetY = focus.y + (attract ? 0 : Math.sin(moveAngle) * forwardShift);
 
     if (!this.cameraInitialized || Math.hypot(targetX - this.cameraX, targetY - this.cameraY) > 900) {
       this.cameraX = targetX;
@@ -320,9 +325,9 @@ export class GameRenderer {
     if (diff > Math.PI) diff -= Math.PI * 2;
     this.cameraAngle += diff * (1 - Math.exp(-dt * (attract ? 2.2 : 5.5)));
 
-    // El zoom se abre con la velocidad para ver venir las curvas
+    // El zoom se abre ligeramente con la velocidad para ver venir las curvas
     const viewportFactor = Math.max(0.75, Math.min(1.25, Math.min(W, H) / 760));
-    const targetZoom = (attract ? 1.40 : this.userZoom * (1 - 0.18 * Math.min(1, speedRatio))) * viewportFactor;
+    const targetZoom = (attract ? 1.35 : this.userZoom * (1 - 0.14 * Math.min(1, speedRatio))) * viewportFactor;
     this.zoom += (targetZoom - this.zoom) * (1 - Math.exp(-dt * 3));
 
     // Perspectiva 2.5D: en las bajadas la cámara se inclina hacia el valle
@@ -336,7 +341,7 @@ export class GameRenderer {
     const shakeY = (Math.random() - 0.5) * shakeAmp;
 
     const anchorX = W / 2;
-    const anchorY = chase ? H * 0.74 : H / 2;
+    const anchorY = chase ? H * 0.58 : H / 2;
 
     // ── Fondo ──
     ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
