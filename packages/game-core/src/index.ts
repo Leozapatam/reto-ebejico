@@ -4,3 +4,4 @@ export * from './track';
 export * from './timer';
 export * from './simulation';
 export * from './input_recorder';
+export * from './tourist_spots';

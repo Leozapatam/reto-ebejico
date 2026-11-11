@@ -115,6 +115,11 @@ reto-ebejico/
   - *Puente 9 (Puente vehicular Ebéjico - Ruta 62, km 18.9):* ajustado de [1010..1016] a **[1012..1017]** sobre la cañada antes de la curva.
   - *Puente 10 (Puente Quebrada Juan Ramos, km 25.2):* ajustado de [1428..1434] a **[1430..1436]** en el paso del río a la entrada urbana de Ebéjico.
 * **Capa satelital y avisos de interfaz:** se confirmó que las 722 teselas y el subsistema satelital funcionan al 100%. Para evitar confusiones cuando el jugador alterna la capa con la tecla `M` o el botón de la cabecera, se incorporó un aviso flotante (toast) inmediato en pantalla (`🛰️ Ortofoto satelital activa` / `🗺️ Mapa ilustrado`) e indicación de vista (`🧭 Vista norte` / `🏎️ Vista hacia adelante`).
+* **Módulo de Turismo y Pedagogía Territorial:** se implementó el modo **Turismo** en el menú de inicio (`optTour`) junto a *Ruta real* y *Práctica*. Permite recorrer la ruta real de 26,15 km descubriendo el patrimonio territorial y cultural de la antigua vía a Ebéjico:
+  - *Base de datos de 14 hitos turísticos:* [`packages/game-core/src/tourist_spots.ts`](packages/game-core/src/tourist_spots.ts) con coordenadas GPS reales (lat/lon), altitud (msnm), categoría patrimonial, reseña histórica/territorial detallada y enlaces directos a Google Maps.
+  - *Sugerencia interactiva en carrera:* al aproximarse a cualquier hito (a ~150 m), el HUD despliega una tarjeta flotante animada (`hud-tour-card`) con el nombre, distancia, altitud, botón directo a Google Maps y acceso a la ficha completa con tecla `[T]` o clic.
+  - *Ficha Patrimonial y Guía Territorial:* modal dialog accesible en cualquier momento que pausa el juego y presenta la historia del lugar, coordenadas geográficas exactas, botón de apertura en Google Maps (`https://www.google.com/maps/search/?api=1&query=lat,lon`) y un desplegable con los 14 lugares de la ruta indicando los hitos visitados.
+  - *Persistencia de descubrimientos:* los lugares visitados se guardan localmente en `localStorage` (`reto-ebejico:tourism:visited:v1`), actualizando el contador de progreso en el HUD y en el menú principal (`X/14 hitos descubiertos`).
 * **Pendiente de decisión:** las teselas son de Google Satellite y `SOURCES_AND_LICENSES.md` excluye esa fuente; las tipografías se cargan desde Google Fonts aunque el mismo documento pide autoalojarlas.
 
 ---

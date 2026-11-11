@@ -1,6 +1,7 @@
 import { GameEvent, GameSnapshot } from '@core/types';
 import { Track, TrackType } from '@core/track';
 import { StepTimer } from '@core/timer';
+import { TOURIST_SPOTS, TouristSpot, getNearbyTouristSpot } from '@core/tourist_spots';
 import { InputManager } from '@client/input_manager';
 import { SoundSynthesizer } from '@client/audio';
 import { CameraMode } from '@client/renderer';
@@ -10,7 +11,7 @@ export interface HudCallbacks {
   onRestart: () => void;
   onTogglePause: () => boolean;
   onExitToMenu: () => void;
-  onSelectTrack: (trackType: TrackType) => void;
+  onSelectTrack: (trackType: TrackType, mode?: 'race' | 'tour') => void;
   onToggleMute: () => boolean;
   onToggleCamera: () => CameraMode;
   onToggleSatellite: () => boolean;
@@ -49,7 +50,11 @@ const ICONS = {
     '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M16 40V25c0-7 5-11 12-11h4" fill="none" stroke="#14181a" stroke-width="6" stroke-linecap="butt"/><path d="M30 5l11 9-11 9z" fill="#14181a"/></svg>',
   hairpin:
     '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 40V20a9 9 0 0118 0v8" fill="none" stroke="#14181a" stroke-width="6"/><path d="M23 26h18l-9 12z" fill="#14181a"/></svg>',
+  pin:
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/></svg>',
 };
+
+const TOURISM_STORAGE_KEY = 'reto-ebejico:tourism:visited:v1';
 
 function shortName(name: string): string {
   return name.replace(/\s*\(.*\)\s*$/, '');
@@ -99,6 +104,11 @@ export class HudController {
 
   private screen: Screen = 'menu';
   private selectedTrack: TrackType = 'real';
+  private selectedMode: 'race' | 'tour' = 'race';
+  private currentNearbySpot: TouristSpot | null = null;
+  private tourModalOpen = false;
+  private wasPausedByModal = false;
+  private visitedSpots: Set<string> = new Set();
   private best: BestRun | null = null;
   private lastSnapshot?: GameSnapshot;
   private toastTimer: number | undefined;
@@ -110,6 +120,7 @@ export class HudController {
     private input: InputManager,
     private callbacks: HudCallbacks
   ) {
+    this.visitedSpots = this.loadVisitedSpots();
     this.mount();
     this.bind();
     this.setScreen('menu');
@@ -204,6 +215,7 @@ export class HudController {
             <nav class="hud-tools" aria-label="Opciones">
               <button class="icon-btn" data-el="btnCamera" title="Vista: hacia adelante (C)" aria-label="Cambiar vista">${ICONS.camera}</button>
               <button class="icon-btn" data-el="btnMap" title="Mapa: ortofoto (M)" aria-label="Cambiar mapa" aria-pressed="true">${ICONS.map}</button>
+              <button class="icon-btn" data-el="btnTourGuide" title="Guía turística de la ruta (T)" aria-label="Turismo">${ICONS.pin}</button>
               <button class="icon-btn" data-el="btnMute" title="Sonido" aria-label="Silenciar" aria-pressed="false">${ICONS.soundOn}</button>
               <button class="icon-btn" data-el="btnPause" title="Pausa (P)" aria-label="Pausa">${ICONS.pause}</button>
               <button class="icon-btn" data-el="btnReset" title="Reiniciar (R)" aria-label="Reiniciar">${ICONS.restart}</button>
@@ -225,6 +237,21 @@ export class HudController {
           </div>
 
           <div class="hud-toast" data-el="toast" hidden role="status"></div>
+
+          <!-- Sugerencia flotante de hito turístico con Google Maps -->
+          <aside class="hud-tour-card" data-el="tourCard" hidden aria-live="polite">
+            <div class="hud-tour-card-icon" data-el="tourCardIcon">📍</div>
+            <div class="hud-tour-card-info">
+              <div class="hud-tour-card-badge" data-el="tourCardBadge">Hito patrimonial</div>
+              <strong class="hud-tour-card-title" data-el="tourCardTitle">Viaducto La Negra</strong>
+              <span class="hud-tour-card-sub" data-el="tourCardSub">Km 0,3 · 1.900 msnm</span>
+            </div>
+            <div class="hud-tour-card-actions">
+              <button class="btn-tour-pill" data-el="btnTourCardOpen">Ver ficha <kbd>T</kbd></button>
+              <a class="btn-tour-map-pill" data-el="linkTourCardMap" href="#" target="_blank" rel="noopener noreferrer" title="Ver en Google Maps">🗺️ Maps</a>
+            </div>
+          </aside>
+
           <div class="hud-offroad" data-el="offroad" hidden>
             <span>Fuera de la calzada</span><strong data-el="offroadTime">3.0</strong>
           </div>
@@ -281,9 +308,10 @@ export class HudController {
               <div class="menu-profile-labels" data-el="menuProfileLabels"></div>
             </figure>
 
-            <div class="segmented" role="radiogroup" aria-label="Recorrido">
+            <div class="segmented" role="radiogroup" aria-label="Modalidad">
               <button role="radio" data-el="optReal" aria-checked="true">Ruta real</button>
-              <button role="radio" data-el="optTest" aria-checked="false">Circuito de práctica</button>
+              <button role="radio" data-el="optTour" aria-checked="false">Turismo</button>
+              <button role="radio" data-el="optTest" aria-checked="false">Práctica</button>
             </div>
 
             <div class="menu-cta">
@@ -313,12 +341,14 @@ export class HudController {
             <h2 class="card-title">Pausa</h2>
             <div class="card-actions">
               <button class="btn-primary" data-el="btnResume">Continuar <kbd>P</kbd></button>
+              <button class="btn-ghost" data-el="btnPauseTourGuide">📍 Guía de lugares y mapas</button>
               <button class="btn-ghost" data-el="btnPauseRestart">Reiniciar <kbd>R</kbd></button>
               <button class="btn-ghost" data-el="btnPauseMenu">Salir al inicio</button>
             </div>
             <ul class="menu-keys menu-keys-compact">
               <li><kbd>C</kbd> Cambiar vista</li>
               <li><kbd>M</kbd> Ortofoto / mapa ilustrado</li>
+              <li><kbd>T</kbd> Abrir ficha o guía turística</li>
               <li><kbd>F</kbd> Volver a la vía (+2,5 s)</li>
               <li>Rueda del ratón: acercar o alejar</li>
             </ul>
@@ -339,9 +369,49 @@ export class HudController {
             <div class="finish-splits" data-el="finishSplits"></div>
             <div class="card-actions">
               <button class="btn-primary" data-el="btnAgain">Otra bajada <kbd>Enter</kbd></button>
+              <button class="btn-ghost" data-el="btnFinishTourGuide">📍 Lugares y Google Maps</button>
               <button class="btn-ghost" data-el="btnShare">Copiar resultado</button>
               <button class="btn-ghost" data-el="btnFinishMenu">Inicio</button>
             </div>
+          </div>
+        </section>
+
+        <!-- Modal Ficha Turística y Guía Territorial -->
+        <section class="screen screen-tour-modal" data-el="tourModal" hidden aria-modal="true" role="dialog" aria-labelledby="tourModalTitle">
+          <div class="tour-modal-card">
+            <header class="tour-modal-header">
+              <div class="tour-modal-meta">
+                <span class="tour-tag" data-el="tourModalCategory">🏛️ Patrimonio e Historia</span>
+                <span class="tour-km" data-el="tourModalKm">Km 0,0 · 1.907 msnm</span>
+              </div>
+              <button class="icon-btn tour-modal-close" data-el="btnTourModalClose" title="Cerrar ficha (Esc)">✕</button>
+            </header>
+
+            <div class="tour-modal-body">
+              <h2 class="tour-modal-title" id="tourModalTitle" data-el="tourModalTitle">Portal Occidental del Túnel</h2>
+              <p class="tour-modal-highlight" data-el="tourModalHighlight">Boca de salida a 1.907 msnm</p>
+              
+              <div class="tour-modal-desc" data-el="tourModalDesc"></div>
+
+              <div class="tour-modal-coords">
+                <span>📍 Coordenadas reales: <strong data-el="tourModalCoords">6.324053, -75.686874</strong></span>
+              </div>
+
+              <div class="tour-modal-guide-section">
+                <div class="tour-modal-guide-header">
+                  <span>Lugares de la ruta (<strong data-el="tourDiscoveredCount">0</strong> de 14 descubiertos)</span>
+                  <button class="tour-guide-toggle-btn" data-el="btnToggleGuideList">Ver todos los lugares ▼</button>
+                </div>
+                <div class="tour-guide-list" data-el="tourGuideList" hidden></div>
+              </div>
+            </div>
+
+            <footer class="tour-modal-footer">
+              <a class="btn-maps" data-el="btnTourModalMap" href="#" target="_blank" rel="noopener noreferrer">
+                🗺️ Abrir ubicación en Google Maps
+              </a>
+              <button class="btn-primary" data-el="btnTourModalResume">Continuar recorrido <kbd>Esc</kbd></button>
+            </footer>
           </div>
         </section>
       </div>`
@@ -370,8 +440,20 @@ export class HudController {
     };
 
     click('btnStart', () => this.start());
-    click('optReal', () => this.callbacks.onSelectTrack('real'));
-    click('optTest', () => this.callbacks.onSelectTrack('test'));
+    click('optReal', () => this.selectMode('race', 'real'));
+    click('optTour', () => this.selectMode('tour', 'real'));
+    click('optTest', () => this.selectMode('race', 'test'));
+
+    click('btnTourGuide', () => this.openTourModal(this.currentNearbySpot || TOURIST_SPOTS[0]));
+    click('btnTourCardOpen', () => {
+      if (this.currentNearbySpot) this.openTourModal(this.currentNearbySpot);
+      else this.openTourModal(TOURIST_SPOTS[0]);
+    });
+    click('btnTourModalClose', () => this.closeTourModal());
+    click('btnTourModalResume', () => this.closeTourModal());
+    click('btnPauseTourGuide', () => this.openTourModal(this.currentNearbySpot || TOURIST_SPOTS[0]));
+    click('btnFinishTourGuide', () => this.openTourModal(this.currentNearbySpot || TOURIST_SPOTS[0]));
+    click('btnToggleGuideList', () => this.toggleGuideList());
 
     click('btnCamera', () => this.callbacks.onToggleCamera());
     click('btnMap', () => this.callbacks.onToggleSatellite());
@@ -399,8 +481,24 @@ export class HudController {
           e.preventDefault();
           break;
         case 'Escape':
-        case 'KeyP':
+          if (this.tourModalOpen) {
+            this.closeTourModal();
+            e.preventDefault();
+            break;
+          }
           if (this.screen === 'race' || this.screen === 'pause') this.togglePause();
+          break;
+        case 'KeyP':
+          if (this.tourModalOpen) break;
+          if (this.screen === 'race' || this.screen === 'pause') this.togglePause();
+          break;
+        case 'KeyT':
+          if (this.tourModalOpen) {
+            this.closeTourModal();
+          } else {
+            this.openTourModal(this.currentNearbySpot || TOURIST_SPOTS[0]);
+          }
+          e.preventDefault();
           break;
         case 'KeyR':
           if (this.screen !== 'menu') this.restart();
@@ -579,20 +677,50 @@ export class HudController {
     }
   }
 
-  // ───────────────────────────── Menú ─────────────────────────────
+  // ───────────────────────────── Menú y Selección ─────────────────────────────
+
+  private selectMode(mode: 'race' | 'tour', track: TrackType): void {
+    this.selectedMode = mode;
+    this.selectedTrack = track;
+    this.callbacks.onSelectTrack(track, mode);
+    this.syncTrackButtons();
+    if (this.track) this.renderMenuFacts(this.track);
+    this.renderBest();
+  }
 
   private syncTrackButtons(): void {
-    this.el.optReal.setAttribute('aria-checked', String(this.selectedTrack === 'real'));
+    this.el.optReal.setAttribute('aria-checked', String(this.selectedTrack === 'real' && this.selectedMode === 'race'));
+    this.el.optTour.setAttribute('aria-checked', String(this.selectedMode === 'tour'));
     this.el.optTest.setAttribute('aria-checked', String(this.selectedTrack === 'test'));
   }
 
   private renderBest(): void {
+    if (this.selectedMode === 'tour') {
+      const label = `Lugares descubiertos: ${this.visitedSpots.size} de ${TOURIST_SPOTS.length}`;
+      this.setText(this.el.menuBest, label);
+      this.setText(this.el.bestLine, `Turismo · ${this.visitedSpots.size}/${TOURIST_SPOTS.length} hitos`);
+      return;
+    }
     const label = this.best ? `Tu mejor marca: ${StepTimer.formatTime(this.best.timeMs)}` : '';
     this.setText(this.el.menuBest, label);
     this.setText(this.el.bestLine, this.best ? `Mejor ${StepTimer.formatTime(this.best.timeMs)}` : 'Sin marca todavía');
   }
 
   private renderMenuFacts(track: Track): void {
+    if (this.selectedMode === 'tour') {
+      const facts: Array<[string, string]> = [
+        ['26,15 km', 'Paseo patrimonial'],
+        [`${this.visitedSpots.size}/14`, 'Hitos descubiertos'],
+        ['1.907 → 1.141 m', 'Descenso al pueblo'],
+        ['Sin afán', 'Fichas y Google Maps'],
+      ];
+      this.el.facts.innerHTML = facts.map(([v, k]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('');
+      this.setText(this.el.kmTotal, fmtKm(track.totalMeters));
+      this.el.btnStart.innerHTML = `Iniciar paseo turístico <kbd>Enter</kbd>`;
+      return;
+    }
+
+    this.el.btnStart.innerHTML = `Iniciar la bajada <kbd>Enter</kbd>`;
     const pts = track.points;
     const start = pts[0].elevationMeters ?? 0;
     const end = pts[pts.length - 1].elevationMeters ?? 0;
@@ -678,6 +806,21 @@ export class HudController {
 
     const place = snapshot.isBridge && snapshot.bridgeName ? snapshot.bridgeName : snapshot.currentLocationName ?? '';
     this.setText(this.el.placeName, shortName(place).replace(/^Boca Occidental del /, ''));
+
+    // Módulo Turismo: detección de hito patrimonial/turístico cercano (Ruta real)
+    if (this.selectedTrack === 'real') {
+      const nearby = getNearbyTouristSpot(snapshot.segmentIndex, 10);
+      if (nearby) {
+        if (this.currentNearbySpot?.id !== nearby.id) {
+          this.currentNearbySpot = nearby;
+          this.saveVisitedSpot(nearby.id);
+          this.showTourCard(nearby);
+        }
+      } else if (this.currentNearbySpot) {
+        this.hideTourCard();
+        this.currentNearbySpot = null;
+      }
+    }
 
     // Velocímetro: arco de 0 a 110 km/h
     const arcLen = 150.8;
@@ -1039,5 +1182,107 @@ export class HudController {
     ctx.beginPath();
     ctx.arc(px, py, 3.2, 0, Math.PI * 2);
     ctx.fill();
+  }
+
+  // ───────────────────────────── Módulo de Turismo ─────────────────────────────
+
+  private loadVisitedSpots(): Set<string> {
+    try {
+      const raw = localStorage.getItem(TOURISM_STORAGE_KEY);
+      return raw ? new Set(JSON.parse(raw)) : new Set();
+    } catch {
+      return new Set();
+    }
+  }
+
+  private saveVisitedSpot(id: string): void {
+    if (this.visitedSpots.has(id)) return;
+    this.visitedSpots.add(id);
+    try {
+      localStorage.setItem(TOURISM_STORAGE_KEY, JSON.stringify(Array.from(this.visitedSpots)));
+    } catch {}
+    this.renderBest();
+  }
+
+  private showTourCard(spot: TouristSpot): void {
+    if (this.tourModalOpen) return;
+    this.el.tourCardIcon.textContent = spot.icon;
+    this.el.tourCardBadge.textContent = spot.categoryLabel;
+    this.el.tourCardTitle.textContent = spot.name;
+    this.el.tourCardSub.textContent = `Km ${spot.km.toFixed(1)} · ${spot.elevationMeters} msnm · ${spot.highlight}`;
+    (this.el.linkTourCardMap as HTMLAnchorElement).href = spot.googleMapsUrl;
+    this.el.tourCard.hidden = false;
+    this.el.tourCard.classList.remove('pop');
+    void this.el.tourCard.offsetWidth;
+    this.el.tourCard.classList.add('pop');
+  }
+
+  private hideTourCard(): void {
+    this.el.tourCard.hidden = true;
+  }
+
+  openTourModal(spot: TouristSpot): void {
+    if (this.screen === 'race') {
+      const paused = this.callbacks.onTogglePause();
+      this.wasPausedByModal = paused;
+    }
+    this.tourModalOpen = true;
+    this.hideTourCard();
+    this.saveVisitedSpot(spot.id);
+
+    this.el.tourModalCategory.textContent = `${spot.icon} ${spot.categoryLabel}`;
+    this.el.tourModalKm.textContent = `Km ${spot.km.toFixed(1)} · ${spot.elevationMeters} msnm`;
+    this.el.tourModalTitle.textContent = spot.name;
+    this.el.tourModalHighlight.textContent = spot.highlight;
+    this.el.tourModalDesc.textContent = spot.fullDesc;
+    this.el.tourModalCoords.textContent = `${spot.lat.toFixed(6)}° N, ${Math.abs(spot.lon).toFixed(6)}° W`;
+    (this.el.btnTourModalMap as HTMLAnchorElement).href = spot.googleMapsUrl;
+
+    this.renderTourGuideList(spot.id);
+    this.el.tourModal.hidden = false;
+  }
+
+  closeTourModal(): void {
+    if (!this.tourModalOpen) return;
+    this.el.tourModal.hidden = true;
+    this.tourModalOpen = false;
+    if (this.wasPausedByModal) {
+      this.wasPausedByModal = false;
+      this.callbacks.onTogglePause();
+    }
+  }
+
+  private renderTourGuideList(currentSpotId?: string): void {
+    this.el.tourDiscoveredCount.textContent = String(this.visitedSpots.size);
+    const html = TOURIST_SPOTS.map((s) => {
+      const isVisited = this.visitedSpots.has(s.id);
+      const isCurrent = s.id === currentSpotId;
+      return `
+        <div class="tour-guide-item ${isVisited ? 'is-visited' : ''} ${isCurrent ? 'is-current' : ''}" data-spot-id="${s.id}">
+          <span class="tour-guide-item-icon">${s.icon}</span>
+          <div class="tour-guide-item-body">
+            <strong class="tour-guide-item-name">${s.name}</strong>
+            <span class="tour-guide-item-sub">Km ${s.km.toFixed(1)} · ${s.elevationMeters} msnm · ${s.categoryLabel}</span>
+          </div>
+          <span class="tour-guide-item-badge">${isVisited ? '✓ Descubierto' : 'Por visitar'}</span>
+        </div>`;
+    }).join('');
+    this.el.tourGuideList.innerHTML = html;
+
+    this.el.tourGuideList.querySelectorAll<HTMLElement>('.tour-guide-item').forEach((item) => {
+      item.addEventListener('click', () => {
+        const id = item.dataset.spotId;
+        const target = TOURIST_SPOTS.find((x) => x.id === id);
+        if (target) {
+          this.openTourModal(target);
+        }
+      });
+    });
+  }
+
+  private toggleGuideList(): void {
+    const list = this.el.tourGuideList;
+    list.hidden = !list.hidden;
+    this.el.btnToggleGuideList.textContent = list.hidden ? 'Ver todos los lugares ▼' : 'Ocultar lista ▲';
   }
 }

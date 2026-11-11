@@ -46,7 +46,7 @@ class GameApp {
       onRestart: () => this.restartRace(),
       onTogglePause: () => this.simulation.togglePause(),
       onExitToMenu: () => this.simulation.reset(),
-      onSelectTrack: (type) => this.selectTrack(type),
+      onSelectTrack: (type, mode) => this.selectTrack(type, mode),
       onToggleMute: () => {
         this.settings.muted = this.sound.toggleMute();
         this.persistSettings();
@@ -91,7 +91,10 @@ class GameApp {
     this.hud.setToggles(this.settings);
   }
 
-  private selectTrack(type: TrackType): void {
+  public gameMode: 'race' | 'tour' = 'race';
+
+  private selectTrack(type: TrackType, mode: 'race' | 'tour' = 'race'): void {
+    this.gameMode = mode;
     if (type === this.trackType) return;
     this.trackType = type;
     this.simulation = new Simulation(new Track(type));
