@@ -356,6 +356,7 @@ export class GameRenderer {
     const runs = this.visibleRuns(track, viewRadius + 70);
 
     if (this.satellite) {
+      this.drawSatelliteFallback(ctx, track, runs, viewRadius);
       this.satelliteLayer.render(ctx, this.cameraX, this.cameraY, viewRadius);
     } else {
       this.drawVectorTerrain(ctx, track, runs, viewRadius);
@@ -751,6 +752,95 @@ export class GameRenderer {
       }
       ctx.restore();
     });
+    ctx.restore();
+  }
+
+  // ───────────────────────────── Terreno satelital (respaldo) ─────────────────────────────
+
+  /** Terreno de respaldo bajo la ortofoto cuando las teselas satelitales aún no cargan o tienen huecos. */
+  private drawSatelliteFallback(ctx: CanvasRenderingContext2D, track: Track, runs: PathRun[], viewRadius: number): void {
+    ctx.save();
+
+    // Textura y relieve montañoso determinista (tonalidades satelitales)
+    const CELL = 220;
+    const gx0 = Math.floor((this.cameraX - viewRadius) / CELL);
+    const gx1 = Math.floor((this.cameraX + viewRadius) / CELL);
+    const gy0 = Math.floor((this.cameraY - viewRadius) / CELL);
+    const gy1 = Math.floor((this.cameraY + viewRadius) / CELL);
+
+    for (let gx = gx0; gx <= gx1; gx++) {
+      for (let gy = gy0; gy <= gy1; gy++) {
+        const n1 = Math.abs(Math.sin(gx * 127.1 + gy * 311.7) * 43758.5453) % 1;
+        const n2 = Math.abs(Math.sin(gx * 269.5 + gy * 183.3) * 28461.1278) % 1;
+
+        // Manchas de bosque y cañadas
+        ctx.fillStyle = n1 < 0.28
+          ? 'rgba(10, 24, 16, 0.55)'
+          : n1 < 0.58
+            ? 'rgba(24, 48, 34, 0.40)'
+            : n1 < 0.82
+              ? 'rgba(38, 62, 44, 0.28)'
+              : 'rgba(52, 60, 36, 0.18)';
+        ctx.beginPath();
+        ctx.ellipse(
+          gx * CELL + n1 * 130,
+          gy * CELL + n2 * 130,
+          130 + n1 * 80,
+          90 + n2 * 60,
+          n1 * Math.PI,
+          0,
+          Math.PI * 2
+        );
+        ctx.fill();
+
+        // Relieve y curvas de nivel sutiles
+        if (n2 > 0.45) {
+          ctx.strokeStyle = 'rgba(12, 28, 18, 0.35)';
+          ctx.lineWidth = 14 + n1 * 16;
+          ctx.beginPath();
+          ctx.arc(
+            gx * CELL + 110,
+            gy * CELL + 110,
+            70 + n2 * 50,
+            n1 * 2,
+            n1 * 2 + 1.2
+          );
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Corte de ladera y terraplén de la vía (evita que la carretera parezca flotar sobre fondo plano)
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+
+    // 1. Franja de desmonte / vegetación despejada alrededor de la calzada
+    for (const r of runs) {
+      this.tracePath(ctx, track, r.a, r.b);
+      ctx.lineWidth = r.w + 38;
+      ctx.strokeStyle = 'rgba(20, 36, 26, 0.42)';
+      ctx.stroke();
+    }
+
+    // 2. Sombra del talud de corte sobre la ladera montañosa
+    for (const r of runs) {
+      ctx.save();
+      ctx.translate(6, 9);
+      this.tracePath(ctx, track, r.a, r.b);
+      ctx.lineWidth = r.w + 24;
+      ctx.strokeStyle = 'rgba(8, 16, 12, 0.48)';
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    // 3. Terraplén y berma de apoyo
+    for (const r of runs) {
+      this.tracePath(ctx, track, r.a, r.b);
+      ctx.lineWidth = r.w + 16;
+      ctx.strokeStyle = 'rgba(30, 46, 34, 0.55)';
+      ctx.stroke();
+    }
+
     ctx.restore();
   }
 

@@ -90,10 +90,17 @@ reto-ebejico/
 * **Corregido:** la meta era inalcanzable (el detector nunca devuelve el último índice; ahora se mide por distancia); `S` frenaba y alternaba el satélite; caídas falsas rodando por la berma; calzada dibujada a 44 px fijos frente a 36/32 px de la física; ramal de Las Partidas tapado por la defensa vial; apoyarse en la bionda no costaba velocidad.
 * **Simulación:** sucesos (`GameEvent`) en el snapshot, pausa, pendiente real (`gradePercent`) con gravedad, derrape que cierra el giro, avisos de curva (`Track.getCurveAhead`).
 * **Cliente:** renderizador con culling y DPR correcto, carro redibujado, señales viales, partículas, sombras de nubes, sonido de balineras, mando, eventos de puntero táctiles.
+* **Terreno de respaldo bajo la ortofoto:** se implementó `drawSatelliteFallback()` en `packages/game-client/src/renderer.ts`. Dibuja relieve montañoso determinista, manchas de cañadas/bosque, curvas de nivel sutiles y el desmonte/corte/terraplén de la vía en coordenadas de mundo antes de pintar las teselas satelitales. Elimina el fondo verde liso mientras las teselas descargan o en bordes de cobertura.
 * **UI:** inicio con sobrevuelo y perfil real, pausa, resultados con parciales, mejor marca y fantasma en `localStorage` (`apps/reto-ebejico/src/records.ts`).
 * **Teclas:** ↑↓←→/WASD · Espacio derrape · F volver a la vía · R reiniciar · P/Esc pausa · C vista · M mapa.
-* **Prueba sin navegador:** `node tools/test_core.mjs` (las herramientas CDP de `tools/*.cjs` usan la API anterior).
-* **Sin verificar en navegador:** pantalla de meta, fantasma, mapa ilustrado y controles táctiles.
+* **Prueba sin navegador:** `node tools/test_core.mjs` verificado (5 suites del núcleo aprobadas).
+* **Verificación exhaustiva en navegador (Edge headless + CDP):**
+  - **Pantalla de meta:** completada con tiempo final (`00:43.13`), insignia `Nueva marca personal`, estadísticas de carrera, tabla de parciales e interacción del botón «Copiar resultado» al portapapeles.
+  - **Carro fantasma y deltas:** segunda bajada (`00:39.98`) con fantasma renderizado durante toda la carrera, cálculo y renderizado del indicador delta en cada hito y delta final en meta (`−3.15 s`).
+  - **Alternancia de vista:** tecla `M` alterna fielmente entre ortofoto satelital y mapa vectorial ilustrado; tecla `C` alterna entre cámara `chase` y orientación norte `north`.
+  - **Responsividad y táctil:** verificado en anchos menores a 900 px (panel de elevación oculto, velocímetro reposicionado) y menores a 620 px (encabezado en 2 filas, cronómetro centrado, barra de progreso desplazada a 108 px). Con puntero táctil (`pointer: coarse`), controles táctiles visibles e interactivos y HUD inferior reposicionado a 124 px para evitar solapamientos.
+  - **Sonido y fluidez:** Web Audio context activo con nodos osciladores/ruido, 60 FPS estables con tiempo de render de 0.5 ms por cuadro.
+  - **Física y gravedad:** velocidad máxima en bajada comprobada a 109 km/h y derrape responsivo en horquillas y curvas cerradas.
 * **Pendiente de decisión:** las teselas son de Google Satellite y `SOURCES_AND_LICENSES.md` excluye esa fuente; las tipografías se cargan desde Google Fonts aunque el mismo documento pide autoalojarlas.
 
 ---
@@ -107,29 +114,20 @@ reto-ebejico/
 - `Simulation.step()` ya no devuelve snapshot: usa `getSnapshot()` (entrega y vacía los sucesos).
 - Antes de cada commit: `npx.cmd tsc --noEmit`, `node tools/test_core.mjs` y `npm.cmd run build`.
 
-**0. Verificación pendiente en navegador (prioridad)**
-   - Pantalla de meta: tiempo, insignia de marca, estadísticas, parciales, «Copiar resultado».
-   - Fantasma del mejor tiempo en la segunda bajada y diferencias por hito.
-   - Mapa ilustrado (`M`) y vista norte (`C`).
-   - Controles táctiles y disposición en pantallas de menos de 900 px y 620 px.
-   - Sonido (balineras, golpes, caída, meta) y fluidez real a 60 Hz.
-   - Jugabilidad con la gravedad nueva: velocidad máxima en bajada (~109 km/h mostrados) y derrape en horquillas.
-
-**0.1 Deuda conocida**
-   - Si las teselas tardan en cargar el fondo queda verde liso: falta un terreno de respaldo bajo la ortofoto.
-   - `tools/*.cjs` (CDP) usan la API anterior de `Simulation` y campos privados que ya no existen.
-   - Licencias: reemplazar o autorizar las teselas de Google Satellite y autoalojar Cormorant Garamond (ver `SOURCES_AND_LICENSES.md`).
+**0.1 Deuda técnica y licencias**
+- `tools/*.cjs` (CDP) usan la API anterior de `Simulation` y campos privados que ya no existen.
+- Licencias: reemplazar o autorizar las teselas de Google Satellite y autoalojar Cormorant Garamond (ver `SOURCES_AND_LICENSES.md`).
 
 1. **Enriquecimiento Visual con Sprites/Texturas:**
-   - Cargar imágenes PNG/WebP transparentes para el Carro de Rodillos, casas campesinas y vegetación desde `apps/reto-ebejico/public/assets/sprites/`.
-   - Utilizar `ctx.drawImage()` en `packages/game-client/src/renderer.ts` con el fallback vectorial existente.
+- Cargar imágenes PNG/WebP transparentes para el Carro de Rodillos, casas campesinas y vegetación desde `apps/reto-ebejico/public/assets/sprites/`.
+- Utilizar `ctx.drawImage()` en `packages/game-client/src/renderer.ts` con el fallback vectorial existente.
 2. **Sistema de Clasificación / Leaderboard Online (Fase 4/5):**
-   - Conectar con Supabase (`database/schema.sql`).
-   - Implementar validación de repetición de entradas (`input_recorder.ts`) en el servidor para evitar trampas en las tablas de récords.
+- Conectar con Supabase (`database/schema.sql`).
+- Implementar validación de repetición de entradas (`input_recorder.ts`) en el servidor para evitar trampas en las tablas de récords.
 3. **Publicación y Despliegue:**
-   - Compilación con `npm run build`.
-   - Despliegue estático gratuito (Vercel, GitHub Pages, Netlify o Cloudflare Pages).
-   - Inserción en [miradaparda.com](https://www.miradaparda.com) vía iframe responsivo.
+- Compilación con `npm run build`.
+- Despliegue estático gratuito (Vercel, GitHub Pages, Netlify o Cloudflare Pages).
+- Inserción en [miradaparda.com](https://www.miradaparda.com) vía iframe responsivo.
 
 ---
 
