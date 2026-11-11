@@ -18,8 +18,8 @@ npx.cmd tsc --noEmit
 # Compilación de producción
 npm.cmd run build
 
-# Prueba de físicas, guardarraíles y anti-trampas
-node tools/test_anti_cheat.cjs
+# Prueba del núcleo sin navegador (meta alcanzable, berma, barranco, ramal, avisos de curva)
+node tools/test_core.mjs
 ```
 
 ---
@@ -27,7 +27,8 @@ node tools/test_anti_cheat.cjs
 ## Reglas Clave del Proyecto
 1. **Vehículo:** Carro de Rodillos tradicional de Ebéjico (balineras de acero sobre asfalto, chasis de cedro, timón de lazo).
 2. **Territorio Real:** 26,15 km desde la boca occidental de salida del Túnel de Occidente hasta el Parque Principal de Ebéjico (elevación 1.907 msnm a 1.141 msnm según Copernicus DEM 30m).
-3. **Ortofoto Aérea:** Google Satellite Zoom 18 descargada localmente (`apps/reto-ebejico/public/tiles/satellite/`). Está 100% libre de nubes sobre Ebéjico.
+3. **Ortofoto Aérea:** Google Satellite Zoom 18 descargada localmente (`apps/reto-ebejico/public/assets/satellite/`). Está 100% libre de nubes sobre Ebéjico.
 4. **Defensas Viales:** Defensas bionda galvanizadas reflectivas con colisión física y rebote en curvas y puentes.
-5. **Anti-trampas:** Detección de caída al barranco (> 28px de la calzada) y detección de salto de curvas (> 4 segmentos adelantados).
-6. **Entorno Windows:** Usar `npm.cmd` o `npx.cmd` para comandos en PowerShell.
+5. **Anti-trampas:** Caída al barranco (> 28px de la calzada, +3 s) y atajo detectado al reingresar si el avance sobre la vía supera 1,8× el camino rodado por fuera (+4 s).
+6. **Teclas:** ↑↓←→/WASD conducir · Espacio derrape · F volver a la vía · R reiniciar · P/Esc pausa · C vista · M ortofoto/mapa ilustrado. (`S` es solo freno.)
+7. **Entorno Windows:** Usar `npm.cmd` o `npx.cmd` para comandos en PowerShell.

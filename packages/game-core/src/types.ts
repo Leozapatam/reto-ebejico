@@ -57,6 +57,8 @@ export interface VehicleState {
   vx: number;                // Velocidad global X
   vy: number;                // Velocidad global Y
   driftFactor: number;       // Factor de derrape de las balineras
+  steer: number;             // Giro efectivo del eje delantero (-1 a +1)
+  braking: boolean;          // Zapata de freno aplicada
   offroad: boolean;          // Si está fuera de la calzada
   distanceAlongTrack: number;// Progreso lineal
   lapFinished: boolean;
@@ -64,22 +66,63 @@ export interface VehicleState {
 
 export type GamePhase = 'ready' | 'countdown' | 'racing' | 'finished' | 'paused';
 
+/**
+ * Sucesos puntuales de la simulación. El cliente (sonido, partículas, HUD)
+ * reacciona a ellos sin tener que adivinar qué pasó comparando snapshots.
+ */
+export type GameEvent =
+  | { type: 'countdown'; value: number }
+  | { type: 'go' }
+  | { type: 'checkpoint'; name: string; index: number; splitIndex: number; splitMs: number; isBridge: boolean }
+  | { type: 'rail_hit'; intensity: number; side: -1 | 1 }
+  | { type: 'fall' }
+  | { type: 'shortcut' }
+  | { type: 'offroad_reset' }
+  | { type: 'respawn' }
+  | { type: 'barricade' }
+  | { type: 'penalty'; ms: number }
+  | { type: 'finish'; timeMs: number };
+
+export type CurveSeverity = 1 | 2 | 3; // 1 curva · 2 curva cerrada · 3 horquilla
+
+export interface CurveAhead {
+  direction: -1 | 1;        // -1 izquierda, +1 derecha
+  severity: CurveSeverity;
+  distanceMeters: number;   // Distancia hasta el inicio de la curva
+}
+
+export interface RaceStats {
+  penaltyMs: number;
+  penaltyCount: number;
+  railHits: number;
+  topSpeedKmh: number;
+}
+
 export interface GameSnapshot {
   phase: GamePhase;
   elapsedTimeMs: number;
   formattedTime: string;
+  raceSteps: number;               // Pasos de simulación en carrera (sin penalizaciones): reloj del fantasma
   speedKmh: number;
   elevationMeters: number;
+  gradePercent: number;            // Pendiente real de la vía en % (negativa = bajada)
   currentCheckpoint: number;
   totalCheckpoints: number;
   progressPercent: number;
+  distanceMeters: number;          // Distancia recorrida sobre el eje de la vía
+  totalMeters: number;
+  segmentIndex: number;
   offroad: boolean;
   offroadCountdown: number | null; // Conteo regresivo antes de devolver al jugador a la pista
   onDecoyBranch?: boolean;
   isBridge?: boolean;
   bridgeName?: string;
   currentLocationName?: string;
+  curveAhead: CurveAhead | null;
+  splits: number[];
+  stats: RaceStats;
   vehicle: VehicleState;
   recentNotice?: string;
   countdownNumber?: number;        // 3, 2, 1 para overlay centrado
+  events: GameEvent[];             // Sucesos ocurridos desde el snapshot anterior
 }

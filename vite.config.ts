@@ -3,6 +3,9 @@ import path from 'path';
 
 export default defineConfig({
   root: 'apps/reto-ebejico',
+  // Rutas relativas: el juego funciona igual en la raíz de un dominio, en una subcarpeta
+  // (GitHub Pages) o incrustado en un iframe de miradaparda.com
+  base: './',
   publicDir: path.resolve(__dirname, 'apps/reto-ebejico/public'),
   resolve: {
     alias: {

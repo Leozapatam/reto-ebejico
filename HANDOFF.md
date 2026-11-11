@@ -3,6 +3,8 @@
 > **Para el siguiente agente de IA (Claude Code, Antigravity, Cursor, Windsurf, Aider, etc.):**
 > Lee este archivo antes de comenzar cualquier tarea. Contiene el estado exacto del proyecto, las decisiones acordadas, la arquitectura implementada y los pasos inmediatos para continuar sin perder contexto ni duplicar trabajo.
 
+> **Estado al 11-nov-2026:** la versión vigente está en la rama **`feat/pulido-fable`** ([PR #1](https://github.com/Leozapatam/reto-ebejico/pull/1) hacia `main`). Trabaja sobre esa rama. Lee primero la **sección 4.1** (qué cambió) y la **sección 5** (qué falta); donde la tabla de la sección 2 contradiga a la 4.1, manda la 4.1.
+
 ---
 
 ## 1. Identidad y Misión del Proyecto
@@ -24,7 +26,7 @@
 | **Simulación y Física de Balineras (`game-core`)** | **COMPLETO** | Inercia, derrape, aceleración gravitacional por pendiente Copernicus DEM, rebote elástico contra defensas viales ($e = 0.35$), fricción y chispas de acero. |
 | **Defensas Viales y Anti-Trampas (`game-core`)** | **COMPLETO** | **1.334 defensas viales bionda** en curvas y puentes. Búsqueda secuencial estricta `[-5, +8]`. **Caída al barranco:** Desvío $> 28\text{ px}$ reincorpora a pista (+3.0s). **Salto de curva:** Reingreso saltando $> 4$ segmentos reubica al punto previo (+4.0s). Checkpoints secuenciales obligatorios. |
 | **Dirección Visual 2D/2.5D Estilizada (`game-client`)** | **COMPLETO** | Canvas 2.5D con inclinación dinámica por pendiente (*tilt*), sombreado cartográfico de laderas (*hillshading*), sombras de precipicio (*caídas*), chispas de balineras y barandas metálicas reflectivas (delineadores rojo/amarillo). Zoom inmersivo 1.45x y escala reducida del carro de rodillos (0.85x). |
-| **Capa Satelital Real (Google Satellite Zoom 18)** | **COMPLETO** | Ortofoto aérea 100% libre de nubes a lo largo de los 26,15 km (722 teselas locales nítidas en Zoom 18). Calzada continua sin bordillo artificial estridente. Alternable con tecla `[S]` o botón en el HUD. |
+| **Capa Satelital Real (Google Satellite Zoom 18)** | **COMPLETO** | Ortofoto aérea 100% libre de nubes a lo largo de los 26,15 km (722 teselas locales Z16–Z18 en `public/assets/satellite/`). Calzada continua sin bordillo artificial estridente. Alternable con tecla `[M]` o botón en el HUD. |
 | **HUD Institucional y Altimetría en Vivo (`ui`)** | **COMPLETO** | **Widget izquierdo:** Perfil de relieve en tiempo real (Copernicus DEM) con silueta de cordillera, balinera del jugador e indicador de pendiente (`▼ Bajada %` / `▲ Subida %`). **Widget derecho:** Mapa territorial 26 km. **Top:** Cronómetro, altitud msnm y velocímetro. Conteo gigante `3-2-1-¡ARRANCA!`. |
 | **Backend de Clasificación / Ranking (Fase 4/5)** | **Siguiente Paso** | Integración con base de datos pública y validación de repetición de entradas. |
 | **Soporte de Sprites e Imágenes PNG/SVG** | **Listo para enriquecer** | Estructura en `apps/reto-ebejico/public/assets/` con fallback vectorial seguro. |
@@ -58,41 +60,75 @@ reto-ebejico/
 │   └── reto-ebejico/           # Aplicación principal Vite + HTML5 + CSS institucional
 │       ├── public/assets/      # Carpeta para futuros sprites PNG, texturas y assets
 │       └── src/
-│           ├── main.ts         # Loop de juego a 60 Hz desacoplado
+│           ├── main.ts         # Loop a 60 Hz con interpolación, pausa, récord y sobrevuelo del menú
+│           ├── records.ts      # Mejor marca, fantasma y ajustes en localStorage
 │           └── style.css       # Paleta institucional de Ebéjico
 ├── packages/
 │   ├── game-core/              # Lógica pura TypeScript (sin DOM)
 │   │   ├── vehicle.ts          # Física del Carro de Rodillos (gravedad, derrape, fricción)
-│   │   ├── track.ts            # Trazado 3D, splines e interpolación altimétrica
-│   │   ├── simulation.ts       # Bucle de juego, antitrampas (3s fuera de pista), penalizaciones
+│   │   ├── track.ts            # Trazado, defensas, curvatura (getCurveAhead), pendiente real, PX_PER_METER
+│   │   ├── simulation.ts       # Pasos, sucesos (GameEvent), pausa, defensas, berma/barranco, hitos y meta
 │   │   ├── timer.ts            # Cronómetro de alta precisión
 │   │   └── types.ts            # Interfaces y snapshots de estado
 │   ├── game-client/            # Renderizado gráfico
-│   │   ├── renderer.ts         # Renderizador Canvas 2D/2.5D con hillshading, caídas y chispas
-│   │   ├── audio.ts            # Sintetizador Web Audio API (rodamiento de balineras, chispas, viento)
-│   │   └── input_manager.ts    # Teclado (Flechas/WASD/Espacio/C/R) y controles táctiles
+│   │   ├── renderer.ts         # Canvas 2.5D: vía, defensas, carro, señales, partículas, atmósfera
+│   │   ├── satellite_layer.ts  # Ortofoto por teselas (solo la más nítida, carga por cercanía, liberación)
+│   │   ├── audio.ts            # Web Audio: balineras, viento, derrape, golpes, avisos
+│   │   └── input_manager.ts    # Conducción: teclado, táctil y mando (los atajos de interfaz viven en hud.ts)
 │   ├── track-data/             # Geometría real generada
 │   │   ├── real_route_track.json # 1.472 waypoints (X, Y, Z, elevación, puentes)
 │   │   └── test_circuit.json   # Circuito corto de prueba
 │   └── ui/                     # Capa visual DOM (HUD)
-│       └── hud.ts              # Widget de perfil de relieve, minimapa, cronómetro y alertas
-└── tools/                      # Scripts de automatización y pruebas CDP
+│       └── hud.ts              # HUD, pantallas (inicio, pausa, meta), atajos de interfaz, minimapa y perfil
+└── tools/                      # test_core.mjs (núcleo sin navegador) + scripts CDP antiguos
 ```
+
+---
+
+## 4.1 Cambios de la rama `feat/pulido-fable` (11-nov-2026)
+
+* **Corregido:** la meta era inalcanzable (el detector nunca devuelve el último índice; ahora se mide por distancia); `S` frenaba y alternaba el satélite; caídas falsas rodando por la berma; calzada dibujada a 44 px fijos frente a 36/32 px de la física; ramal de Las Partidas tapado por la defensa vial; apoyarse en la bionda no costaba velocidad.
+* **Simulación:** sucesos (`GameEvent`) en el snapshot, pausa, pendiente real (`gradePercent`) con gravedad, derrape que cierra el giro, avisos de curva (`Track.getCurveAhead`).
+* **Cliente:** renderizador con culling y DPR correcto, carro redibujado, señales viales, partículas, sombras de nubes, sonido de balineras, mando, eventos de puntero táctiles.
+* **Terreno de respaldo bajo la ortofoto:** se implementó `drawSatelliteFallback()` en `packages/game-client/src/renderer.ts`. Dibuja relieve montañoso determinista, manchas de cañadas/bosque, curvas de nivel sutiles y el desmonte/corte/terraplén de la vía en coordenadas de mundo antes de pintar las teselas satelitales. Elimina el fondo verde liso mientras las teselas descargan o en bordes de cobertura.
+* **UI:** inicio con sobrevuelo y perfil real, pausa, resultados con parciales, mejor marca y fantasma en `localStorage` (`apps/reto-ebejico/src/records.ts`).
+* **Teclas:** ↑↓←→/WASD · Espacio derrape · F volver a la vía · R reiniciar · P/Esc pausa · C vista · M mapa.
+* **Prueba sin navegador:** `node tools/test_core.mjs` verificado (5 suites del núcleo aprobadas).
+* **Verificación exhaustiva en navegador (Edge headless + CDP):**
+  - **Pantalla de meta:** completada con tiempo final (`00:43.13`), insignia `Nueva marca personal`, estadísticas de carrera, tabla de parciales e interacción del botón «Copiar resultado» al portapapeles.
+  - **Carro fantasma y deltas:** segunda bajada (`00:39.98`) con fantasma renderizado durante toda la carrera, cálculo y renderizado del indicador delta en cada hito y delta final en meta (`−3.15 s`).
+  - **Alternancia de vista:** tecla `M` alterna fielmente entre ortofoto satelital y mapa vectorial ilustrado; tecla `C` alterna entre cámara `chase` y orientación norte `north`.
+  - **Responsividad y táctil:** verificado en anchos menores a 900 px (panel de elevación oculto, velocímetro reposicionado) y menores a 620 px (encabezado en 2 filas, cronómetro centrado, barra de progreso desplazada a 108 px). Con puntero táctil (`pointer: coarse`), controles táctiles visibles e interactivos y HUD inferior reposicionado a 124 px para evitar solapamientos.
+  - **Sonido y fluidez:** Web Audio context activo con nodos osciladores/ruido, 60 FPS estables con tiempo de render de 0.5 ms por cuadro.
+  - **Física y gravedad:** velocidad máxima en bajada comprobada a 109 km/h y derrape responsivo en horquillas y curvas cerradas.
+* **Ampliación sustancial de la vía de acción (calzada ancha y carro compacto):** para que la calle no se sienta angosta ni como un callejón estrecho, se aumentó drásticamente el zoom de mundo a `2.4` (lo que hace que la carretera, la ortofoto y el entorno sean más de 2x más grandes en pantalla, superando los 105 px de ancho de calzada) y se redujo la escala del carro a `CART_SCALE = 0.22` (~9.7 px de ancho). El carro ahora ocupa solo el 20-25% del ancho de la vía, dejando un carril holgado para maniobrar, trazar curvas y derrapar con total libertad. Se ajustó el encuadre con `anchorY: 0.74` y `lookAhead: 0.50` para mantener amplia visibilidad hacia adelante.
+* **Pendiente de decisión:** las teselas son de Google Satellite y `SOURCES_AND_LICENSES.md` excluye esa fuente; las tipografías se cargan desde Google Fonts aunque el mismo documento pide autoalojarlas.
 
 ---
 
 ## 5. Próximos Pasos Recomendados
 
+**Reglas de trabajo sobre esta versión**
+- El estilo vive en `apps/reto-ebejico/src/style.css`. `packages/ui/src/styles.css` no se importa (código muerto).
+- `packages/game-client/src/three_renderer.ts` y las dependencias `three`/`phaser` no se usan.
+- La interfaz se comunica con la simulación por `snapshot.events`; no compares snapshots para adivinar sucesos.
+- `Simulation.step()` ya no devuelve snapshot: usa `getSnapshot()` (entrega y vacía los sucesos).
+- Antes de cada commit: `npx.cmd tsc --noEmit`, `node tools/test_core.mjs` y `npm.cmd run build`.
+
+**0.1 Deuda técnica y licencias**
+- `tools/*.cjs` (CDP) usan la API anterior de `Simulation` y campos privados que ya no existen.
+- Licencias: reemplazar o autorizar las teselas de Google Satellite y autoalojar Cormorant Garamond (ver `SOURCES_AND_LICENSES.md`).
+
 1. **Enriquecimiento Visual con Sprites/Texturas:**
-   - Cargar imágenes PNG/WebP transparentes para el Carro de Rodillos, casas campesinas y vegetación desde `apps/reto-ebejico/public/assets/sprites/`.
-   - Utilizar `ctx.drawImage()` en `packages/game-client/src/renderer.ts` con el fallback vectorial existente.
+- Cargar imágenes PNG/WebP transparentes para el Carro de Rodillos, casas campesinas y vegetación desde `apps/reto-ebejico/public/assets/sprites/`.
+- Utilizar `ctx.drawImage()` en `packages/game-client/src/renderer.ts` con el fallback vectorial existente.
 2. **Sistema de Clasificación / Leaderboard Online (Fase 4/5):**
-   - Conectar con Supabase (`database/schema.sql`).
-   - Implementar validación de repetición de entradas (`input_recorder.ts`) en el servidor para evitar trampas en las tablas de récords.
+- Conectar con Supabase (`database/schema.sql`).
+- Implementar validación de repetición de entradas (`input_recorder.ts`) en el servidor para evitar trampas en las tablas de récords.
 3. **Publicación y Despliegue:**
-   - Compilación con `npm run build`.
-   - Despliegue estático gratuito (Vercel, GitHub Pages, Netlify o Cloudflare Pages).
-   - Inserción en [miradaparda.com](https://www.miradaparda.com) vía iframe responsivo.
+- Compilación con `npm run build`.
+- Despliegue estático gratuito (Vercel, GitHub Pages, Netlify o Cloudflare Pages).
+- Inserción en [miradaparda.com](https://www.miradaparda.com) vía iframe responsivo.
 
 ---
 
@@ -103,7 +139,10 @@ reto-ebejico/
 npm run dev
 
 # Comprobar tipos TypeScript
-npm run typecheck # o npx tsc --noEmit
+npx tsc --noEmit
+
+# Probar el núcleo sin navegador
+node tools/test_core.mjs
 
 # Compilar para producción
 npm run build

@@ -32,6 +32,8 @@ export class Vehicle {
       vx: 0,
       vy: 0,
       driftFactor: 0,
+      steer: 0,
+      braking: false,
       offroad: false,
       distanceAlongTrack: 0,
       lapFinished: false,
@@ -50,23 +52,31 @@ export class Vehicle {
     this.state.vx = 0;
     this.state.vy = 0;
     this.state.driftFactor = 0;
+    this.state.steer = 0;
+    this.state.braking = false;
     this.state.offroad = false;
     this.state.distanceAlongTrack = 0;
     this.state.lapFinished = false;
     this.angularVelocity = 0;
   }
 
+  /**
+   * @param slopeGrade Pendiente en unidades de juego (dz/dx), usada para el cabeceo visual.
+   * @param realGrade  Pendiente real de la vía (m/m, negativa = bajada), usada por la gravedad.
+   */
   update(
     input: ControlInput,
     dt: number,
     isOffroad: boolean,
     terrainZ: number = 0,
     elevationMeters: number = 1907,
-    slopeGrade: number = 0
+    slopeGrade: number = 0,
+    realGrade: number = slopeGrade
   ): void {
     this.state.offroad = isOffroad;
     this.state.z += (terrainZ - this.state.z) * 0.25;
     this.state.elevationMeters = elevationMeters;
+    this.state.braking = input.brake > 0 || input.handbrake;
 
     // Cabeceo por pendiente (subida / bajada)
     this.state.pitch = Math.max(-0.25, Math.min(0.25, slopeGrade * 0.5));
@@ -80,22 +90,28 @@ export class Vehicle {
     let forwardSpeed = this.state.vx * forwardX + this.state.vy * forwardY;
     let lateralSpeed = this.state.vx * rightX + this.state.vy * rightY;
 
-    // Efecto de gravedad por pendiente (cuesta abajo acelera el carro de rodillos de forma natural)
-    const gravitySlopeBonus = slopeGrade < 0 ? Math.abs(slopeGrade) * 140 : -slopeGrade * 90;
+    // Gravedad: el carro de rodillos gana impulso cuesta abajo y lo pierde cuesta arriba.
+    // En una bajada del 8 % rueda solo; para coronar un alto hay que empujar.
+    const grade = Math.max(-0.14, Math.min(0.14, realGrade));
+    const gravityAccel = -grade * 1100 * (forwardSpeed >= 0 ? 1 : -1);
+    const slopeSpeedFactor = Math.max(0.8, Math.min(1.18, 1 - grade * 2.4));
 
-    const effectiveMaxSpeed = isOffroad ? this.config.maxSpeed * this.config.offroadFriction : this.config.maxSpeed;
+    const roadMaxSpeed = this.config.maxSpeed * slopeSpeedFactor;
+    const effectiveMaxSpeed = isOffroad ? roadMaxSpeed * this.config.offroadFriction : roadMaxSpeed;
 
     if (input.throttle > 0) {
-      forwardSpeed += (input.throttle * this.config.acceleration + gravitySlopeBonus) * dt;
-      if (forwardSpeed > effectiveMaxSpeed) {
-        forwardSpeed = effectiveMaxSpeed;
+      if (forwardSpeed < effectiveMaxSpeed) {
+        forwardSpeed += (input.throttle * this.config.acceleration + gravityAccel) * dt;
+        if (forwardSpeed > effectiveMaxSpeed) forwardSpeed = effectiveMaxSpeed;
       }
-    } else if (slopeGrade < -0.02) {
-      // Gravedad residual rodando cuesta abajo sin acelerador
-      forwardSpeed += gravitySlopeBonus * 0.5 * dt;
-      if (forwardSpeed > effectiveMaxSpeed * 0.75) {
-        forwardSpeed = effectiveMaxSpeed * 0.75;
-      }
+    } else if (Math.abs(forwardSpeed) > 4 || grade < -0.015) {
+      // Sin empuje: la pendiente manda
+      forwardSpeed += gravityAccel * dt;
+    }
+
+    // Por encima del límite (fin de una bajada, entrada a la berma) la velocidad sobrante se disipa
+    if (forwardSpeed > effectiveMaxSpeed) {
+      forwardSpeed = Math.max(effectiveMaxSpeed, forwardSpeed - (isOffroad ? 520 : 160) * dt);
     }
 
     if (input.brake > 0) {
@@ -110,20 +126,27 @@ export class Vehicle {
       }
     }
 
-    // Fricción aerodinámica
+    if (input.handbrake && forwardSpeed > 0) {
+      forwardSpeed = Math.max(0, forwardSpeed - 150 * dt);
+    }
+
+    // Fricción de rodadura y aire
     if (input.throttle === 0 && input.brake === 0) {
       forwardSpeed *= Math.pow(this.config.drag, dt * 60);
-      if (Math.abs(forwardSpeed) < 2) forwardSpeed = 0;
+      if (Math.abs(forwardSpeed) < 2 && Math.abs(grade) < 0.015) forwardSpeed = 0;
     }
 
     // 2. Giro y dirección
     const speedRatio = Math.min(1, Math.abs(forwardSpeed) / (this.config.maxSpeed * 0.35));
     const highSpeedDamp = 1 / (1 + (Math.abs(forwardSpeed) / this.config.maxSpeed) * 0.6);
-    const steerFactor = speedRatio * highSpeedDamp;
+    // Con la zapata clavada la cola se cruza: el derrape cierra el giro en las horquillas
+    const driftBoost = input.handbrake ? 1.55 : 1;
+    const steerFactor = speedRatio * highSpeedDamp * driftBoost;
 
     const targetAngularVelocity = input.steer * this.config.turnSpeed * steerFactor * (forwardSpeed >= 0 ? 1 : -1);
     this.angularVelocity = this.angularVelocity * 0.72 + targetAngularVelocity * 0.28;
     this.state.angle += this.angularVelocity * dt;
+    this.state.steer += (input.steer - this.state.steer) * 0.3;
 
     // Roll (inclinación lateral en virajes)
     this.state.roll = this.angularVelocity * 0.08;
@@ -162,6 +185,8 @@ export class Vehicle {
     this.state.vx = 0;
     this.state.vy = 0;
     this.state.driftFactor = 0;
+    this.state.steer = 0;
+    this.state.braking = false;
     this.state.pitch = 0;
     this.state.roll = 0;
     this.angularVelocity = 0;
