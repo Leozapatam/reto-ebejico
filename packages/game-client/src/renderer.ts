@@ -76,7 +76,7 @@ const SKID_LIFE_S = 14;
 const MAX_SKIDS = 520;
 const MAX_SPARKS = 160;
 const MAX_DUST = 70;
-const CART_SCALE = 0.46;
+const CART_SCALE = 0.64;
 
 const COLORS = {
   groundSat: '#1b2f24',
@@ -104,8 +104,8 @@ export class GameRenderer {
   private cameraX: number = 0;
   private cameraY: number = 0;
   private cameraAngle: number = 0;
-  private zoom: number = 1.45;
-  private userZoom: number = 1.45;
+  private zoom: number = 1.05;
+  private userZoom: number = 1.05;
   private tilt: number = 0.84;
   private cameraInitialized: boolean = false;
   private shake: number = 0;
@@ -141,7 +141,7 @@ export class GameRenderer {
     canvas.addEventListener(
       'wheel',
       (e) => {
-        this.userZoom = Math.max(0.9, Math.min(2.2, this.userZoom * Math.exp(-e.deltaY * 0.0012)));
+        this.userZoom = Math.max(0.65, Math.min(1.8, this.userZoom * Math.exp(-e.deltaY * 0.0012)));
       },
       { passive: true }
     );
@@ -300,7 +300,7 @@ export class GameRenderer {
     const focus: Pose = attract ?? v;
     const speed = attract ? 0 : Math.hypot(v.vx, v.vy);
     const speedRatio = Math.min(1.2, speed / 420);
-    const lookAhead = attract ? 0 : 0.2;
+    const lookAhead = attract ? 0 : 0.40;
     const targetX = focus.x + (attract ? 0 : v.vx * lookAhead);
     const targetY = focus.y + (attract ? 0 : v.vy * lookAhead);
 
@@ -321,8 +321,8 @@ export class GameRenderer {
     this.cameraAngle += diff * (1 - Math.exp(-dt * (attract ? 2.2 : 5.5)));
 
     // El zoom se abre con la velocidad para ver venir las curvas
-    const viewportFactor = Math.max(0.62, Math.min(1.15, Math.min(W, H) / 760));
-    const targetZoom = (attract ? 1.12 : this.userZoom * (1 - 0.15 * Math.min(1, speedRatio))) * viewportFactor;
+    const viewportFactor = Math.max(0.68, Math.min(1.15, Math.min(W, H) / 760));
+    const targetZoom = (attract ? 0.95 : this.userZoom * (1 - 0.12 * Math.min(1, speedRatio))) * viewportFactor;
     this.zoom += (targetZoom - this.zoom) * (1 - Math.exp(-dt * 3));
 
     // Perspectiva 2.5D: en las bajadas la cámara se inclina hacia el valle
@@ -336,7 +336,7 @@ export class GameRenderer {
     const shakeY = (Math.random() - 0.5) * shakeAmp;
 
     const anchorX = W / 2;
-    const anchorY = chase ? H * 0.64 : H / 2;
+    const anchorY = chase ? H * 0.67 : H / 2;
 
     // ── Fondo ──
     ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
@@ -993,8 +993,8 @@ export class GameRenderer {
     const cosA = Math.cos(v.angle);
     const sinA = Math.sin(v.angle);
     const wheels = [-1, 1].map((side) => ({
-      x: v.x - cosA * 11 - sinA * side * 8,
-      y: v.y - sinA * 11 + cosA * side * 8,
+      x: v.x - cosA * (16 * CART_SCALE) - sinA * side * (18 * CART_SCALE),
+      y: v.y - sinA * (16 * CART_SCALE) + cosA * side * (18 * CART_SCALE),
     }));
 
     // Las balineras de acero sueltan chispa cuando derrapan o cuando la zapata muerde a alta velocidad
@@ -1117,7 +1117,9 @@ export class GameRenderer {
       ctx.translate(pose.x + 2.4, pose.y + 3.2);
       ctx.rotate(pose.angle);
       ctx.fillStyle = 'rgba(0, 0, 0, 0.36)';
-      this.roundRect(ctx, -15, -9.5, 29, 19, 5);
+      const shadowW = 56 * CART_SCALE;
+      const shadowH = 38 * CART_SCALE;
+      this.roundRect(ctx, -shadowW / 2, -shadowH / 2, shadowW, shadowH, 6 * CART_SCALE);
       ctx.fill();
       ctx.restore();
     }
