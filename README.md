@@ -3,7 +3,26 @@
 Videojuego geográfico de contrarreloj de **Mirada Parda** — <https://www.miradaparda.com>  
 *«Un proyecto de Mirada Parda. Videojuegos para conocer, explorar y comprender nuestro territorio».*
 
-**Estado:** Fase 1 (investigación, geografía y arquitectura) completada. Iniciando Fase 2 (prototipo jugable).
+**Estado:** Prototipo jugable completo (Física de balineras, altimetría Copernicus DEM 3D, ortofoto aérea Google Satellite Zoom 18 libre de nubes, defensas viales bionda y sistema anti-trampas).
+
+---
+
+## 🚀 Inicio Rápido
+
+```bash
+# 1. Instalar dependencias
+npm install
+
+# 2. Iniciar servidor local
+npm run dev
+# Abrir en el navegador: http://localhost:5173/
+
+# 3. Comprobar tipos TypeScript
+npx tsc --noEmit
+
+# 4. Compilar para producción
+npm run build
+```
 
 ---
 

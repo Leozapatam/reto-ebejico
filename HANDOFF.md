@@ -19,11 +19,12 @@
 
 | Componente | Estado | Descripción |
 |---|---|---|
-| **Investigación Geográfica (OSM + Copernicus DEM)** | **COMPLETA** | 26,15 km reales, 1.472 waypoints, cotas 1.907 m $\rightarrow$ 1.141 m, 9 puentes viaductos y desvío de Las Partidas. |
+| **Investigación Geográfica (OSM + Copernicus DEM)** | **COMPLETA** | 26,15 km reales, 1.473 waypoints, cotas 1.907 m $\rightarrow$ 1.141 m, 9 puentes viaductos y desvío de Las Partidas. Tubo de salida del túnel alineado al flujo real de tráfico vehicular hacia Ebéjico. |
 | **Monorepo y Arquitectura Modular** | **COMPLETO** | Vite + TypeScript monorepo (`packages/game-core`, `packages/game-client`, `packages/ui`, `apps/reto-ebejico`, `tools/`). |
-| **Simulación y Física de Balineras (`game-core`)** | **COMPLETO** | Inercia, derrape, aceleración gravitacional por pendiente Copernicus DEM, detección fuera de pista con penalización +2.5s y auto-respawn. |
-| **Dirección Visual 2D/2.5D Estilizada (`game-client`)** | **COMPLETO** | Canvas 2.5D con inclinación dinámica por pendiente (*tilt*), sombreado cartográfico de laderas (*hillshading*), sombras de precipicio (*caídas*), chispas de balineras y haz de linterna. |
-| **Capa Satelital Real (Google Earth / Esri Aerial)** | **COMPLETO** | Ortofoto aérea de alta resolución (Zoom 15/16) pre-descargada a lo largo de los 26,15 km (109 tiles locales, 1,4 MB). Calzada, puentes, caídas y carro se superponen nítidamente. Alternable con tecla `[S]` o botón en el HUD. |
+| **Simulación y Física de Balineras (`game-core`)** | **COMPLETO** | Inercia, derrape, aceleración gravitacional por pendiente Copernicus DEM, rebote elástico contra defensas viales ($e = 0.35$), fricción y chispas de acero. |
+| **Defensas Viales y Anti-Trampas (`game-core`)** | **COMPLETO** | **1.334 defensas viales bionda** en curvas y puentes. Búsqueda secuencial estricta `[-5, +8]`. **Caída al barranco:** Desvío $> 28\text{ px}$ reincorpora a pista (+3.0s). **Salto de curva:** Reingreso saltando $> 4$ segmentos reubica al punto previo (+4.0s). Checkpoints secuenciales obligatorios. |
+| **Dirección Visual 2D/2.5D Estilizada (`game-client`)** | **COMPLETO** | Canvas 2.5D con inclinación dinámica por pendiente (*tilt*), sombreado cartográfico de laderas (*hillshading*), sombras de precipicio (*caídas*), chispas de balineras y barandas metálicas reflectivas (delineadores rojo/amarillo). Zoom inmersivo 1.45x y escala reducida del carro de rodillos (0.85x). |
+| **Capa Satelital Real (Google Satellite Zoom 18)** | **COMPLETO** | Ortofoto aérea 100% libre de nubes a lo largo de los 26,15 km (722 teselas locales nítidas en Zoom 18). Calzada continua sin bordillo artificial estridente. Alternable con tecla `[S]` o botón en el HUD. |
 | **HUD Institucional y Altimetría en Vivo (`ui`)** | **COMPLETO** | **Widget izquierdo:** Perfil de relieve en tiempo real (Copernicus DEM) con silueta de cordillera, balinera del jugador e indicador de pendiente (`▼ Bajada %` / `▲ Subida %`). **Widget derecho:** Mapa territorial 26 km. **Top:** Cronómetro, altitud msnm y velocímetro. Conteo gigante `3-2-1-¡ARRANCA!`. |
 | **Backend de Clasificación / Ranking (Fase 4/5)** | **Siguiente Paso** | Integración con base de datos pública y validación de repetición de entradas. |
 | **Soporte de Sprites e Imágenes PNG/SVG** | **Listo para enriquecer** | Estructura en `apps/reto-ebejico/public/assets/` con fallback vectorial seguro. |
@@ -39,9 +40,13 @@
    * **Km 9,43:** Cruce del valle hídrico **«La Sucia»** (1.300 msnm), límite entre Medellín y Ebéjico.
    * **Km 18,70:** Cumbre de montaña **«Alto de El Patudo»** (1.763 msnm).
    * **Km 26,15:** **Parque Principal de Ebéjico** (1.141 msnm).
-3. **Perspectiva Oficial:** **Vista: Adelante (Sur a Norte hacia adelante)** con inclinación dinámica según la pendiente de bajada/subida, y alternancia a *Vista: Norte* con tecla `[C]`.
-4. **Vehículo Oficial:** Carro de Rodillos tradicional de balineras con chispas de acero sobre el asfalto.
-5. **Anti-Trampas:** Salirse a la manga o selva activa un temporizador de 3.0s; si no se reincorpora, recibe penalización de +2.5s y es recolocado en la calzada.
+3. **Perspectiva Oficial:** **Vista: Adelante (Sur a Norte hacia adelante)** con inclinación dinámica según la pendiente de bajada/subida (tilt 2.5D), zoom inmersivo 1.45x (con soporte de zoom libre con rueda del ratón), y alternancia a *Vista: Norte* con tecla `[C]`.
+4. **Vehículo Oficial:** Carro de Rodillos tradicional de balineras (escala calibrada a 0.85x) con chispas de acero sobre el asfalto.
+5. **Defensas Viales y Anti-Trampas:**
+   * **Defensas metálicas:** Bionda W-beam en curvas y viaductos que rebotan físicamente al carro hacia el centro de la vía.
+   * **Caída al abismo:** Salirse más de 28 px de la calzada provoca `⚠️ ¡CAÍDA AL BARRANCO! (+3.0s)` y auto-respawn inmediato.
+   * **Salto de curvas:** Saltar entre horquillas cruzando la ladera provoca `🚫 ¡SALTO DE CURVA DETECTADO! (+4.0s)` y reposición al punto previo.
+   * **Checkpoints:** Validación secuencial obligatoria para registrar tiempos de paso y cruzar la meta.
 
 ---
 
