@@ -800,7 +800,7 @@ export class HudController {
     num.classList.add('pop');
   }
 
-  private showToast(content: string, kind: 'place' | 'warn' | 'bad', isHtml: boolean = false): void {
+  showToast(content: string, kind: 'place' | 'warn' | 'bad' = 'place', isHtml: boolean = false): void {
     const toast = this.el.toast;
     toast.dataset.kind = kind;
     if (isHtml) toast.innerHTML = content;

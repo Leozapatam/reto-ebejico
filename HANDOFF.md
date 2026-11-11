@@ -102,6 +102,19 @@ reto-ebejico/
   - **Sonido y fluidez:** Web Audio context activo con nodos osciladores/ruido, 60 FPS estables con tiempo de render de 0.5 ms por cuadro.
   - **Física y gravedad:** velocidad máxima en bajada comprobada a 109 km/h y derrape responsivo en horquillas y curvas cerradas.
 * **Ampliación sustancial de la vía y encuadre estable del carro:** se aumentó el zoom base de mundo a `2.1` para que la carretera y el entorno sean grandes y legibles en pantalla (calzada > 92 px), con el carro escalado a `CART_SCALE = 0.28` (~12.5 px de ancho en mundo, ~26 px en pantalla), ocupando menos de una tercera parte de la calzada para permitir amplia maniobra. Se corrigió el problema donde el carro se perdía de vista por abajo al acelerar: el encuadre se centró en `anchorY = H * 0.58` y la anticipación de velocidad se acotó en píxeles de pantalla (`maxScreenShift = 50`), garantizando que el carro permanezca siempre visible entre el 58% y el 64% de la altura de la pantalla a cualquier velocidad.
+* **Recalibración de puentes y viaductos sobre ortofoto satelital:** auditoría visual exhaustiva de los 11 puentes en `packages/track-data/real_route_track.json` y `tools/geo-pipeline/build_real_track.py`. La generación anterior aplicaba un desplazamiento simétrico tosco (`range(-3, 4)`) alrededor de coordenadas POI aproximadas de OSM, dejando puentes dibujados sobre laderas secas o cortados a la mitad de los viaductos. Se ajustaron con exactitud los 11 vanos a las estructuras físicas y cauces visibles en Google Satellite:
+  - *Puente 0 (Puente Quebrada La Negra, km 0.3):* vano ampliado de [6..12] a **[5..14]** (cubre estribos completos desde la boca del túnel hasta la curva).
+  - *Puente 1 (Puente Quebrada La Volcana, km 2.0):* ajustado de [112..118] a **[115..121]** (alineado con la cañada rocosa de la quebrada).
+  - *Puente 2 (Puente Quebrada La Nuez, km 2.6):* vano ampliado de [140..146] a **[142..151]** (alineado simétricamente con el viaducto paralelo adyacente).
+  - *Puente 3 (Puente Quebrada La Cáusala, km 3.0):* corregido de [167..173] a **[168..175]** sobre el abismo de la quebrada.
+  - *Puente 4 (Puente Quebrada La Potrera, km 5.5):* vano ampliado de [306..312] a **[307..316]** (recorre toda la curva del viaducto).
+  - *Puente 5 (Puente vehicular Ebéjico - Ruta 62, km 8.8):* desplazado de [494..500] a **[497..504]** directamente sobre el cauce del río.
+  - *Puente 6 (Puente Quebrada La Sucia / La Frisola, km 9.4):* ajustado de [560..566] a **[563..568]** sobre el paso fluvial.
+  - *Puente 7 (Quebrada Agua de La Peña, km 12.0):* reubicado de [673..679] (recta previa) a **[676..683]** (vértice de la horquilla donde cruza el torrente).
+  - *Puente 8 (Paso Quebrada El Patudo, km 17.0):* ajustado de [955..961] a **[958..962]** en el pontón del alto de montaña.
+  - *Puente 9 (Puente vehicular Ebéjico - Ruta 62, km 18.9):* ajustado de [1010..1016] a **[1012..1017]** sobre la cañada antes de la curva.
+  - *Puente 10 (Puente Quebrada Juan Ramos, km 25.2):* ajustado de [1428..1434] a **[1430..1436]** en el paso del río a la entrada urbana de Ebéjico.
+* **Capa satelital y avisos de interfaz:** se confirmó que las 722 teselas y el subsistema satelital funcionan al 100%. Para evitar confusiones cuando el jugador alterna la capa con la tecla `M` o el botón de la cabecera, se incorporó un aviso flotante (toast) inmediato en pantalla (`🛰️ Ortofoto satelital activa` / `🗺️ Mapa ilustrado`) e indicación de vista (`🧭 Vista norte` / `🏎️ Vista hacia adelante`).
 * **Pendiente de decisión:** las teselas son de Google Satellite y `SOURCES_AND_LICENSES.md` excluye esa fuente; las tipografías se cargan desde Google Fonts aunque el mismo documento pide autoalojarlas.
 
 ---

@@ -55,11 +55,19 @@ class GameApp {
       onToggleCamera: () => {
         this.settings.camera = this.renderer.toggleCameraMode();
         this.persistSettings();
+        this.hud.showToast(
+          this.settings.camera === 'north' ? '🧭 Vista: norte arriba (C)' : '🏎️ Vista: hacia adelante (C)',
+          'place'
+        );
         return this.settings.camera;
       },
       onToggleSatellite: () => {
         this.settings.satellite = this.renderer.toggleSatellite();
         this.persistSettings();
+        this.hud.showToast(
+          this.settings.satellite ? '🛰️ Ortofoto satelital activa' : '🗺️ Mapa ilustrado (tecla M)',
+          'place'
+        );
         return this.settings.satellite;
       },
     });

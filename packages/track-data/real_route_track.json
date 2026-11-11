@@ -1,9 +1,9 @@
 [
   {
-    "x": 2000.0,
-    "y": 2000.0,
+    "x": 2000,
+    "y": 2000,
     "z": 1034.1,
-    "elevationMeters": 1907.0,
+    "elevationMeters": 1907,
     "width": 44,
     "name": "Boca Occidental del Túnel de Occidente (Salida)",
     "isCheckpoint": true
@@ -12,7 +12,7 @@
     "x": 1981.63,
     "y": 1973.8,
     "z": 1034.07,
-    "elevationMeters": 1907.0,
+    "elevationMeters": 1907,
     "width": 44
   },
   {
@@ -41,7 +41,10 @@
     "y": 1872.28,
     "z": 1033.41,
     "elevationMeters": 1906.5,
-    "width": 44
+    "width": 44,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Negra",
+    "canyonDepth": 45
   },
   {
     "x": 1882.59,
@@ -51,17 +54,17 @@
     "width": 44,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Negra",
-    "canyonDepth": 45.0
+    "canyonDepth": 45
   },
   {
     "x": 1866.5,
     "y": 1821.39,
     "z": 1032.77,
-    "elevationMeters": 1906.0,
+    "elevationMeters": 1906,
     "width": 44,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Negra",
-    "canyonDepth": 45.0
+    "canyonDepth": 45
   },
   {
     "x": 1854.37,
@@ -71,7 +74,7 @@
     "width": 44,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Negra",
-    "canyonDepth": 45.0
+    "canyonDepth": 45
   },
   {
     "x": 1843.93,
@@ -83,17 +86,17 @@
     "isCheckpoint": true,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Negra",
-    "canyonDepth": 45.0
+    "canyonDepth": 45
   },
   {
     "x": 1837.82,
     "y": 1730.25,
     "z": 1031.43,
-    "elevationMeters": 1905.0,
+    "elevationMeters": 1905,
     "width": 44,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Negra",
-    "canyonDepth": 45.0
+    "canyonDepth": 45
   },
   {
     "x": 1831.72,
@@ -103,7 +106,7 @@
     "width": 44,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Negra",
-    "canyonDepth": 45.0
+    "canyonDepth": 45
   },
   {
     "x": 1825.62,
@@ -113,21 +116,27 @@
     "width": 44,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Negra",
-    "canyonDepth": 45.0
+    "canyonDepth": 45
   },
   {
     "x": 1819.52,
     "y": 1636.01,
     "z": 1029.66,
     "elevationMeters": 1903.7,
-    "width": 44
+    "width": 44,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Negra",
+    "canyonDepth": 45
   },
   {
-    "x": 1800.0,
+    "x": 1800,
     "y": 1616.48,
     "z": 1028.99,
     "elevationMeters": 1903.2,
-    "width": 44
+    "width": 44,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Negra",
+    "canyonDepth": 45
   },
   {
     "x": 1769.55,
@@ -195,7 +204,7 @@
   {
     "x": 1495.54,
     "y": 1517.97,
-    "z": 1020.0,
+    "z": 1020,
     "elevationMeters": 1896.6,
     "width": 44
   },
@@ -217,7 +226,7 @@
     "x": 1461.68,
     "y": 1440.06,
     "z": 1016.6,
-    "elevationMeters": 1894.0,
+    "elevationMeters": 1894,
     "width": 44
   },
   {
@@ -308,7 +317,7 @@
     "x": 1338.25,
     "y": 1055.22,
     "z": 999.04,
-    "elevationMeters": 1881.0,
+    "elevationMeters": 1881,
     "width": 44
   },
   {
@@ -357,7 +366,7 @@
     "x": 1133.64,
     "y": 967.49,
     "z": 988.17,
-    "elevationMeters": 1873.0,
+    "elevationMeters": 1873,
     "width": 44
   },
   {
@@ -383,7 +392,7 @@
   },
   {
     "x": 1033.47,
-    "y": 891.0,
+    "y": 891,
     "z": 981.69,
     "elevationMeters": 1868.2,
     "width": 44
@@ -392,7 +401,7 @@
     "x": 1015.4,
     "y": 864.6,
     "z": 980.05,
-    "elevationMeters": 1867.0,
+    "elevationMeters": 1867,
     "width": 44
   },
   {
@@ -483,7 +492,7 @@
     "x": 743.94,
     "y": 554.34,
     "z": 958.45,
-    "elevationMeters": 1851.0,
+    "elevationMeters": 1851,
     "width": 44
   },
   {
@@ -543,7 +552,7 @@
     "width": 44
   },
   {
-    "x": 760.0,
+    "x": 760,
     "y": 283.3,
     "z": 943.96,
     "elevationMeters": 1840.2,
@@ -707,7 +716,7 @@
     "x": 834.27,
     "y": -393.06,
     "z": 913.92,
-    "elevationMeters": 1818.0,
+    "elevationMeters": 1818,
     "width": 44
   },
   {
@@ -728,7 +737,7 @@
     "x": 921.08,
     "y": -430.35,
     "z": 911.19,
-    "elevationMeters": 1816.0,
+    "elevationMeters": 1816,
     "width": 44
   },
   {
@@ -813,30 +822,21 @@
     "y": -553.49,
     "z": 904.06,
     "elevationMeters": 1810.7,
-    "width": 44,
-    "isBridge": true,
-    "bridgeName": "Puente Quebrada La Volcana",
-    "canyonDepth": 45.0
+    "width": 44
   },
   {
     "x": 1312.99,
     "y": -566.54,
     "z": 903.77,
     "elevationMeters": 1810.5,
-    "width": 44,
-    "isBridge": true,
-    "bridgeName": "Puente Quebrada La Volcana",
-    "canyonDepth": 45.0
+    "width": 44
   },
   {
     "x": 1342.21,
     "y": -579.59,
     "z": 903.54,
     "elevationMeters": 1810.3,
-    "width": 44,
-    "isBridge": true,
-    "bridgeName": "Puente Quebrada La Volcana",
-    "canyonDepth": 45.0
+    "width": 44
   },
   {
     "x": 1370.13,
@@ -848,7 +848,7 @@
     "isCheckpoint": true,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Volcana",
-    "canyonDepth": 45.0
+    "canyonDepth": 45
   },
   {
     "x": 1396.57,
@@ -858,48 +858,57 @@
     "width": 44,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Volcana",
-    "canyonDepth": 45.0
+    "canyonDepth": 45
   },
   {
     "x": 1420.88,
     "y": -633.73,
     "z": 903.17,
-    "elevationMeters": 1810.0,
+    "elevationMeters": 1810,
     "width": 44,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Volcana",
-    "canyonDepth": 45.0
+    "canyonDepth": 45
   },
   {
     "x": 1442.41,
     "y": -657.41,
     "z": 903.15,
-    "elevationMeters": 1810.0,
+    "elevationMeters": 1810,
     "width": 44,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Volcana",
-    "canyonDepth": 45.0
+    "canyonDepth": 45
   },
   {
     "x": 1456.88,
     "y": -685.63,
     "z": 903.08,
     "elevationMeters": 1809.9,
-    "width": 44
+    "width": 44,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Volcana",
+    "canyonDepth": 45
   },
   {
     "x": 1459.79,
     "y": -717.24,
     "z": 902.92,
     "elevationMeters": 1809.8,
-    "width": 44
+    "width": 44,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Volcana",
+    "canyonDepth": 45
   },
   {
     "x": 1455.18,
     "y": -748.75,
     "z": 902.68,
     "elevationMeters": 1809.7,
-    "width": 44
+    "width": 44,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Volcana",
+    "canyonDepth": 45
   },
   {
     "x": 1443.36,
@@ -954,7 +963,7 @@
     "x": 1267.61,
     "y": -909.3,
     "z": 897.79,
-    "elevationMeters": 1806.0,
+    "elevationMeters": 1806,
     "width": 44
   },
   {
@@ -989,14 +998,14 @@
     "x": 1120.9,
     "y": -972.86,
     "z": 892.35,
-    "elevationMeters": 1802.0,
+    "elevationMeters": 1802,
     "width": 44
   },
   {
     "x": 1091.06,
     "y": -984.44,
     "z": 891.06,
-    "elevationMeters": 1801.0,
+    "elevationMeters": 1801,
     "width": 44
   },
   {
@@ -1010,7 +1019,7 @@
     "x": 1031.4,
     "y": -1007.59,
     "z": 888.31,
-    "elevationMeters": 1799.0,
+    "elevationMeters": 1799,
     "width": 44
   },
   {
@@ -1032,20 +1041,14 @@
     "y": -1042.4,
     "z": 883.77,
     "elevationMeters": 1795.6,
-    "width": 44,
-    "isBridge": true,
-    "bridgeName": "Puente Quebrada La Nuez",
-    "canyonDepth": 45.0
+    "width": 44
   },
   {
     "x": 912.11,
-    "y": -1054.0,
+    "y": -1054,
     "z": 882.14,
     "elevationMeters": 1794.4,
-    "width": 44,
-    "isBridge": true,
-    "bridgeName": "Puente Quebrada La Nuez",
-    "canyonDepth": 45.0
+    "width": 44
   },
   {
     "x": 882.28,
@@ -1055,7 +1058,7 @@
     "width": 44,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Nuez",
-    "canyonDepth": 45.0
+    "canyonDepth": 45
   },
   {
     "x": 852.45,
@@ -1067,7 +1070,7 @@
     "isCheckpoint": true,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Nuez",
-    "canyonDepth": 45.0
+    "canyonDepth": 45
   },
   {
     "x": 822.62,
@@ -1077,7 +1080,7 @@
     "width": 44,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Nuez",
-    "canyonDepth": 45.0
+    "canyonDepth": 45
   },
   {
     "x": 792.8,
@@ -1087,7 +1090,7 @@
     "width": 44,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Nuez",
-    "canyonDepth": 45.0
+    "canyonDepth": 45
   },
   {
     "x": 762.97,
@@ -1097,42 +1100,57 @@
     "width": 44,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Nuez",
-    "canyonDepth": 45.0
+    "canyonDepth": 45
   },
   {
     "x": 733.14,
     "y": -1123.54,
     "z": 871.42,
     "elevationMeters": 1786.5,
-    "width": 44
+    "width": 44,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Nuez",
+    "canyonDepth": 45
   },
   {
     "x": 703.32,
     "y": -1135.15,
     "z": 869.48,
     "elevationMeters": 1785.1,
-    "width": 44
+    "width": 44,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Nuez",
+    "canyonDepth": 45
   },
   {
     "x": 673.5,
     "y": -1146.75,
     "z": 867.51,
     "elevationMeters": 1783.6,
-    "width": 44
+    "width": 44,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Nuez",
+    "canyonDepth": 45
   },
   {
     "x": 643.67,
     "y": -1158.35,
     "z": 865.5,
     "elevationMeters": 1782.1,
-    "width": 44
+    "width": 44,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Nuez",
+    "canyonDepth": 45
   },
   {
     "x": 613.85,
     "y": -1169.95,
     "z": 863.45,
     "elevationMeters": 1780.6,
-    "width": 44
+    "width": 44,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Nuez",
+    "canyonDepth": 45
   },
   {
     "x": 583.57,
@@ -1173,7 +1191,7 @@
     "x": 425.3,
     "y": -1195.77,
     "z": 850.56,
-    "elevationMeters": 1771.0,
+    "elevationMeters": 1771,
     "width": 44
   },
   {
@@ -1194,7 +1212,7 @@
     "x": 329.31,
     "y": -1196.96,
     "z": 843.8,
-    "elevationMeters": 1766.0,
+    "elevationMeters": 1766,
     "width": 44
   },
   {
@@ -1243,11 +1261,8 @@
     "x": 105.33,
     "y": -1200.19,
     "z": 827.52,
-    "elevationMeters": 1754.0,
-    "width": 44,
-    "isBridge": true,
-    "bridgeName": "Puente Quebrada La Cáusala",
-    "canyonDepth": 45.0
+    "elevationMeters": 1754,
+    "width": 44
   },
   {
     "x": 73.53,
@@ -1257,7 +1272,7 @@
     "width": 44,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Cáusala",
-    "canyonDepth": 45.0
+    "canyonDepth": 45
   },
   {
     "x": 41.97,
@@ -1267,7 +1282,7 @@
     "width": 44,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Cáusala",
-    "canyonDepth": 45.0
+    "canyonDepth": 45
   },
   {
     "x": 10.72,
@@ -1279,17 +1294,17 @@
     "isCheckpoint": true,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Cáusala",
-    "canyonDepth": 45.0
+    "canyonDepth": 45
   },
   {
     "x": -19.49,
     "y": -1226.05,
     "z": 818.1,
-    "elevationMeters": 1747.0,
+    "elevationMeters": 1747,
     "width": 44,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Cáusala",
-    "canyonDepth": 45.0
+    "canyonDepth": 45
   },
   {
     "x": -49.52,
@@ -1299,7 +1314,7 @@
     "width": 44,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Cáusala",
-    "canyonDepth": 45.0
+    "canyonDepth": 45
   },
   {
     "x": -78.73,
@@ -1309,21 +1324,27 @@
     "width": 44,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Cáusala",
-    "canyonDepth": 45.0
+    "canyonDepth": 45
   },
   {
     "x": -106.85,
     "y": -1265.24,
     "z": 811.05,
     "elevationMeters": 1741.8,
-    "width": 44
+    "width": 44,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Cáusala",
+    "canyonDepth": 45
   },
   {
     "x": -134.97,
     "y": -1280.51,
     "z": 808.72,
-    "elevationMeters": 1740.0,
-    "width": 44
+    "elevationMeters": 1740,
+    "width": 44,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Cáusala",
+    "canyonDepth": 45
   },
   {
     "x": -163.1,
@@ -1385,7 +1406,7 @@
     "x": -390.46,
     "y": -1413.37,
     "z": 788.38,
-    "elevationMeters": 1725.0,
+    "elevationMeters": 1725,
     "width": 44
   },
   {
@@ -1483,7 +1504,7 @@
     "x": -812.39,
     "y": -1548.66,
     "z": 761.44,
-    "elevationMeters": 1705.0,
+    "elevationMeters": 1705,
     "width": 44
   },
   {
@@ -1574,7 +1595,7 @@
     "x": -1004.72,
     "y": -1908.94,
     "z": 745.27,
-    "elevationMeters": 1693.0,
+    "elevationMeters": 1693,
     "width": 44
   },
   {
@@ -1588,7 +1609,7 @@
     "x": -1025.35,
     "y": -1969.52,
     "z": 743.79,
-    "elevationMeters": 1692.0,
+    "elevationMeters": 1692,
     "width": 44
   },
   {
@@ -1637,27 +1658,27 @@
     "x": -1162.15,
     "y": -2144.18,
     "z": 741.18,
-    "elevationMeters": 1690.0,
+    "elevationMeters": 1690,
     "width": 44
   },
   {
     "x": -1186.96,
     "y": -2164.37,
     "z": 741.15,
-    "elevationMeters": 1690.0,
+    "elevationMeters": 1690,
     "width": 44
   },
   {
     "x": -1211.97,
     "y": -2184.33,
     "z": 741.1,
-    "elevationMeters": 1690.0,
+    "elevationMeters": 1690,
     "width": 44
   },
   {
     "x": -1236.99,
     "y": -2204.28,
-    "z": 741.0,
+    "z": 741,
     "elevationMeters": 1689.9,
     "width": 44
   },
@@ -1940,7 +1961,7 @@
     "x": -2337.02,
     "y": -2841.07,
     "z": 696.54,
-    "elevationMeters": 1657.0,
+    "elevationMeters": 1657,
     "width": 44
   },
   {
@@ -1960,7 +1981,7 @@
   {
     "x": -2371.46,
     "y": -2929.51,
-    "z": 691.0,
+    "z": 691,
     "elevationMeters": 1652.8,
     "width": 44
   },
@@ -1975,7 +1996,7 @@
     "x": -2375.86,
     "y": -2993.23,
     "z": 687.2,
-    "elevationMeters": 1650.0,
+    "elevationMeters": 1650,
     "width": 44
   },
   {
@@ -2070,7 +2091,7 @@
     "width": 44
   },
   {
-    "x": -2402.0,
+    "x": -2402,
     "y": -3439.17,
     "z": 659.22,
     "elevationMeters": 1629.3,
@@ -2098,9 +2119,9 @@
     "width": 44
   },
   {
-    "x": -2436.0,
+    "x": -2436,
     "y": -3562.53,
-    "z": 651.0,
+    "z": 651,
     "elevationMeters": 1623.2,
     "width": 44
   },
@@ -2242,10 +2263,7 @@
     "y": -4141.56,
     "z": 611.47,
     "elevationMeters": 1593.9,
-    "width": 44,
-    "isBridge": true,
-    "bridgeName": "Puente Quebrada La Potrera",
-    "canyonDepth": 45.0
+    "width": 44
   },
   {
     "x": -2176.69,
@@ -2255,7 +2273,7 @@
     "width": 44,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Potrera",
-    "canyonDepth": 45.0
+    "canyonDepth": 45
   },
   {
     "x": -2164.36,
@@ -2265,7 +2283,7 @@
     "width": 44,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Potrera",
-    "canyonDepth": 45.0
+    "canyonDepth": 45
   },
   {
     "x": -2151.76,
@@ -2277,7 +2295,7 @@
     "isCheckpoint": true,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Potrera",
-    "canyonDepth": 45.0
+    "canyonDepth": 45
   },
   {
     "x": -2139.16,
@@ -2287,7 +2305,7 @@
     "width": 44,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Potrera",
-    "canyonDepth": 45.0
+    "canyonDepth": 45
   },
   {
     "x": -2128.91,
@@ -2297,7 +2315,7 @@
     "width": 44,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Potrera",
-    "canyonDepth": 45.0
+    "canyonDepth": 45
   },
   {
     "x": -2123.23,
@@ -2307,21 +2325,27 @@
     "width": 44,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Potrera",
-    "canyonDepth": 45.0
+    "canyonDepth": 45
   },
   {
     "x": -2122.05,
     "y": -4353.03,
     "z": 599.23,
     "elevationMeters": 1584.9,
-    "width": 44
+    "width": 44,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Potrera",
+    "canyonDepth": 45
   },
   {
     "x": -2125.31,
     "y": -4384.79,
     "z": 597.59,
     "elevationMeters": 1583.7,
-    "width": 44
+    "width": 44,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Potrera",
+    "canyonDepth": 45
   },
   {
     "x": -2133.69,
@@ -2330,14 +2354,20 @@
     "elevationMeters": 1582.5,
     "width": 44,
     "name": "Sector Quebrada La Miserenga (a 1.7km al este)",
-    "isCheckpoint": true
+    "isCheckpoint": true,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Potrera",
+    "canyonDepth": 45
   },
   {
     "x": -2146.55,
     "y": -4444.87,
     "z": 594.39,
     "elevationMeters": 1581.3,
-    "width": 44
+    "width": 44,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Potrera",
+    "canyonDepth": 45
   },
   {
     "x": -2164.38,
@@ -2350,11 +2380,11 @@
     "x": -2183.9,
     "y": -4496.62,
     "z": 591.32,
-    "elevationMeters": 1579.0,
+    "elevationMeters": 1579,
     "width": 44
   },
   {
-    "x": -2209.0,
+    "x": -2209,
     "y": -4516.47,
     "z": 589.83,
     "elevationMeters": 1577.9,
@@ -2406,7 +2436,7 @@
     "x": -2349.24,
     "y": -4682.69,
     "z": 580.43,
-    "elevationMeters": 1571.0,
+    "elevationMeters": 1571,
     "width": 44
   },
   {
@@ -2560,14 +2590,14 @@
     "x": -2339.84,
     "y": -5375.25,
     "z": 565.67,
-    "elevationMeters": 1560.0,
+    "elevationMeters": 1560,
     "width": 44
   },
   {
     "x": -2332.09,
     "y": -5406.29,
     "z": 565.65,
-    "elevationMeters": 1560.0,
+    "elevationMeters": 1560,
     "width": 44,
     "name": "Cruce hacia Ebéjico (desvío de Vía Medellín–San Jerónimo, Ruta 62)",
     "isCheckpoint": true
@@ -2604,7 +2634,7 @@
     "x": -2333.5,
     "y": -5563.6,
     "z": 564.28,
-    "elevationMeters": 1559.0,
+    "elevationMeters": 1559,
     "width": 36
   },
   {
@@ -2807,7 +2837,7 @@
     "x": -2647.57,
     "y": -5110.35,
     "z": 515.74,
-    "elevationMeters": 1523.0,
+    "elevationMeters": 1523,
     "width": 36
   },
   {
@@ -2863,7 +2893,7 @@
     "x": -2685.49,
     "y": -4948.36,
     "z": 494.08,
-    "elevationMeters": 1507.0,
+    "elevationMeters": 1507,
     "width": 36
   },
   {
@@ -2874,7 +2904,7 @@
     "width": 36
   },
   {
-    "x": -2739.0,
+    "x": -2739,
     "y": -4916.23,
     "z": 488.35,
     "elevationMeters": 1502.7,
@@ -2923,7 +2953,7 @@
     "width": 36
   },
   {
-    "x": -2938.0,
+    "x": -2938,
     "y": -4960.43,
     "z": 467.66,
     "elevationMeters": 1487.4,
@@ -2968,7 +2998,7 @@
     "x": -3090.87,
     "y": -5057.82,
     "z": 449.49,
-    "elevationMeters": 1474.0,
+    "elevationMeters": 1474,
     "width": 36
   },
   {
@@ -2996,7 +3026,7 @@
     "x": -3187.4,
     "y": -5133.44,
     "z": 437.37,
-    "elevationMeters": 1465.0,
+    "elevationMeters": 1465,
     "width": 36
   },
   {
@@ -3080,14 +3110,14 @@
     "x": -3327.06,
     "y": -5203.79,
     "z": 402.3,
-    "elevationMeters": 1439.0,
+    "elevationMeters": 1439,
     "width": 36
   },
   {
     "x": -3325.69,
     "y": -5171.98,
     "z": 399.54,
-    "elevationMeters": 1437.0,
+    "elevationMeters": 1437,
     "width": 36
   },
   {
@@ -3108,14 +3138,14 @@
     "x": -3328.66,
     "y": -5076.46,
     "z": 391.45,
-    "elevationMeters": 1431.0,
+    "elevationMeters": 1431,
     "width": 36
   },
   {
     "x": -3323.48,
     "y": -5044.9,
     "z": 388.83,
-    "elevationMeters": 1429.0,
+    "elevationMeters": 1429,
     "width": 36
   },
   {
@@ -3157,7 +3187,7 @@
     "x": -3286.48,
     "y": -4862.53,
     "z": 374.02,
-    "elevationMeters": 1418.0,
+    "elevationMeters": 1418,
     "width": 36
   },
   {
@@ -3192,7 +3222,7 @@
     "x": -3370.22,
     "y": -4727.31,
     "z": 363.08,
-    "elevationMeters": 1410.0,
+    "elevationMeters": 1410,
     "width": 36
   },
   {
@@ -3206,7 +3236,7 @@
     "x": -3380.54,
     "y": -4664.27,
     "z": 359.13,
-    "elevationMeters": 1407.0,
+    "elevationMeters": 1407,
     "width": 36
   },
   {
@@ -3227,7 +3257,7 @@
     "x": -3388.55,
     "y": -4568.8,
     "z": 353.69,
-    "elevationMeters": 1403.0,
+    "elevationMeters": 1403,
     "width": 36
   },
   {
@@ -3311,7 +3341,7 @@
     "x": -3073.27,
     "y": -4435.5,
     "z": 338.82,
-    "elevationMeters": 1392.0,
+    "elevationMeters": 1392,
     "width": 36
   },
   {
@@ -3325,7 +3355,7 @@
     "x": -3022.14,
     "y": -4470.61,
     "z": 337.56,
-    "elevationMeters": 1391.0,
+    "elevationMeters": 1391,
     "width": 36
   },
   {
@@ -3360,14 +3390,14 @@
     "x": -2916.6,
     "y": -4360.65,
     "z": 336.15,
-    "elevationMeters": 1390.0,
+    "elevationMeters": 1390,
     "width": 36
   },
   {
     "x": -2905.23,
     "y": -4330.98,
     "z": 336.1,
-    "elevationMeters": 1390.0,
+    "elevationMeters": 1390,
     "width": 36
   },
   {
@@ -3423,7 +3453,7 @@
     "x": -3042.77,
     "y": -4197.83,
     "z": 330.76,
-    "elevationMeters": 1386.0,
+    "elevationMeters": 1386,
     "width": 36
   },
   {
@@ -3444,7 +3474,7 @@
     "x": -3133.23,
     "y": -4173.6,
     "z": 326.76,
-    "elevationMeters": 1383.0,
+    "elevationMeters": 1383,
     "width": 36
   },
   {
@@ -3462,7 +3492,7 @@
     "width": 36
   },
   {
-    "x": -3225.0,
+    "x": -3225,
     "y": -4149.08,
     "z": 321.86,
     "elevationMeters": 1379.4,
@@ -3549,7 +3579,7 @@
     "x": -3201.62,
     "y": -3803.46,
     "z": 295.6,
-    "elevationMeters": 1360.0,
+    "elevationMeters": 1360,
     "width": 36
   },
   {
@@ -3585,30 +3615,21 @@
     "y": -3675.97,
     "z": 282.76,
     "elevationMeters": 1350.5,
-    "width": 36,
-    "isBridge": true,
-    "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 8.2)",
-    "canyonDepth": 45.0
+    "width": 36
   },
   {
     "x": -3268.01,
     "y": -3644.71,
     "z": 280.14,
     "elevationMeters": 1348.5,
-    "width": 36,
-    "isBridge": true,
-    "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 8.2)",
-    "canyonDepth": 45.0
+    "width": 36
   },
   {
     "x": -3285.64,
     "y": -3618.24,
     "z": 277.51,
     "elevationMeters": 1346.6,
-    "width": 36,
-    "isBridge": true,
-    "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 8.2)",
-    "canyonDepth": 45.0
+    "width": 36
   },
   {
     "x": -3307.46,
@@ -3620,7 +3641,7 @@
     "isCheckpoint": true,
     "isBridge": true,
     "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 8.2)",
-    "canyonDepth": 45.0
+    "canyonDepth": 35
   },
   {
     "x": -3330.09,
@@ -3630,7 +3651,7 @@
     "width": 36,
     "isBridge": true,
     "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 8.2)",
-    "canyonDepth": 45.0
+    "canyonDepth": 35
   },
   {
     "x": -3353.14,
@@ -3640,7 +3661,7 @@
     "width": 36,
     "isBridge": true,
     "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 8.2)",
-    "canyonDepth": 45.0
+    "canyonDepth": 35
   },
   {
     "x": -3375.87,
@@ -3650,35 +3671,47 @@
     "width": 36,
     "isBridge": true,
     "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 8.2)",
-    "canyonDepth": 45.0
+    "canyonDepth": 35
   },
   {
     "x": -3395.86,
     "y": -3502.8,
     "z": 264.39,
     "elevationMeters": 1336.8,
-    "width": 36
+    "width": 36,
+    "isBridge": true,
+    "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 8.2)",
+    "canyonDepth": 35
   },
   {
     "x": -3405.21,
     "y": -3472.87,
     "z": 261.8,
     "elevationMeters": 1334.9,
-    "width": 36
+    "width": 36,
+    "isBridge": true,
+    "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 8.2)",
+    "canyonDepth": 35
   },
   {
     "x": -3403.42,
     "y": -3441.02,
     "z": 259.24,
-    "elevationMeters": 1333.0,
-    "width": 36
+    "elevationMeters": 1333,
+    "width": 36,
+    "isBridge": true,
+    "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 8.2)",
+    "canyonDepth": 35
   },
   {
     "x": -3400.84,
     "y": -3409.12,
     "z": 256.71,
     "elevationMeters": 1331.2,
-    "width": 36
+    "width": 36,
+    "isBridge": true,
+    "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 8.2)",
+    "canyonDepth": 35
   },
   {
     "x": -3398.3,
@@ -3737,7 +3770,7 @@
     "width": 36
   },
   {
-    "x": -3480.0,
+    "x": -3480,
     "y": -3137.2,
     "z": 235.84,
     "elevationMeters": 1315.7,
@@ -3838,7 +3871,7 @@
     "x": -3313.99,
     "y": -2737.77,
     "z": 216.06,
-    "elevationMeters": 1301.0,
+    "elevationMeters": 1301,
     "width": 36
   },
   {
@@ -3866,14 +3899,14 @@
     "x": -3344.48,
     "y": -2639.4,
     "z": 214.66,
-    "elevationMeters": 1300.0,
+    "elevationMeters": 1300,
     "width": 36
   },
   {
     "x": -3371.46,
     "y": -2653.11,
     "z": 214.67,
-    "elevationMeters": 1300.0,
+    "elevationMeters": 1300,
     "width": 36
   },
   {
@@ -3908,7 +3941,7 @@
     "x": -3477.86,
     "y": -2771.64,
     "z": 215.94,
-    "elevationMeters": 1301.0,
+    "elevationMeters": 1301,
     "width": 36
   },
   {
@@ -3971,7 +4004,7 @@
     "x": -3698.11,
     "y": -2954.53,
     "z": 222.79,
-    "elevationMeters": 1306.0,
+    "elevationMeters": 1306,
     "width": 36
   },
   {
@@ -4070,30 +4103,21 @@
     "y": -3359.53,
     "z": 242.09,
     "elevationMeters": 1320.3,
-    "width": 36,
-    "isBridge": true,
-    "bridgeName": "Puente Quebrada La Sucia / La Frisola (km 9.4)",
-    "canyonDepth": 45.0
+    "width": 36
   },
   {
     "x": -3802.75,
     "y": -3387.3,
     "z": 243.75,
     "elevationMeters": 1321.6,
-    "width": 36,
-    "isBridge": true,
-    "bridgeName": "Puente Quebrada La Sucia / La Frisola (km 9.4)",
-    "canyonDepth": 45.0
+    "width": 36
   },
   {
     "x": -3817.62,
     "y": -3415.64,
     "z": 245.44,
     "elevationMeters": 1322.8,
-    "width": 36,
-    "isBridge": true,
-    "bridgeName": "Puente Quebrada La Sucia / La Frisola (km 9.4)",
-    "canyonDepth": 45.0
+    "width": 36
   },
   {
     "x": -3831.25,
@@ -4105,7 +4129,7 @@
     "isCheckpoint": true,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Sucia / La Frisola (km 9.4)",
-    "canyonDepth": 45.0
+    "canyonDepth": 35
   },
   {
     "x": -3838.69,
@@ -4115,7 +4139,7 @@
     "width": 36,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Sucia / La Frisola (km 9.4)",
-    "canyonDepth": 45.0
+    "canyonDepth": 35
   },
   {
     "x": -3837.65,
@@ -4125,37 +4149,43 @@
     "width": 36,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Sucia / La Frisola (km 9.4)",
-    "canyonDepth": 45.0
+    "canyonDepth": 35
   },
   {
     "x": -3832.93,
     "y": -3538.83,
     "z": 252.43,
-    "elevationMeters": 1328.0,
+    "elevationMeters": 1328,
     "width": 36,
     "isBridge": true,
     "bridgeName": "Puente Quebrada La Sucia / La Frisola (km 9.4)",
-    "canyonDepth": 45.0
+    "canyonDepth": 35
   },
   {
     "x": -3831.63,
     "y": -3570.78,
     "z": 254.23,
     "elevationMeters": 1329.3,
-    "width": 36
+    "width": 36,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Sucia / La Frisola (km 9.4)",
+    "canyonDepth": 35
   },
   {
     "x": -3819.92,
     "y": -3599.63,
     "z": 256.04,
     "elevationMeters": 1330.7,
-    "width": 36
+    "width": 36,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada La Sucia / La Frisola (km 9.4)",
+    "canyonDepth": 35
   },
   {
     "x": -3800.23,
     "y": -3624.84,
     "z": 257.87,
-    "elevationMeters": 1332.0,
+    "elevationMeters": 1332,
     "width": 36
   },
   {
@@ -4187,7 +4217,7 @@
     "width": 36
   },
   {
-    "x": -3853.0,
+    "x": -3853,
     "y": -3723.17,
     "z": 267.13,
     "elevationMeters": 1338.9,
@@ -4211,7 +4241,7 @@
     "x": -3902.58,
     "y": -3800.79,
     "z": 272.72,
-    "elevationMeters": 1343.0,
+    "elevationMeters": 1343,
     "width": 36
   },
   {
@@ -4351,21 +4381,21 @@
     "x": -4078.57,
     "y": -4330.51,
     "z": 306.43,
-    "elevationMeters": 1368.0,
+    "elevationMeters": 1368,
     "width": 36
   },
   {
     "x": -4087.69,
     "y": -4361.19,
     "z": 307.79,
-    "elevationMeters": 1369.0,
+    "elevationMeters": 1369,
     "width": 36
   },
   {
     "x": -4098.3,
     "y": -4391.3,
     "z": 309.1,
-    "elevationMeters": 1370.0,
+    "elevationMeters": 1370,
     "width": 36
   },
   {
@@ -4407,7 +4437,7 @@
     "x": -4120.82,
     "y": -4567.69,
     "z": 315.89,
-    "elevationMeters": 1375.0,
+    "elevationMeters": 1375,
     "width": 36
   },
   {
@@ -4439,10 +4469,10 @@
     "width": 36
   },
   {
-    "x": -4163.0,
+    "x": -4163,
     "y": -4716.66,
     "z": 319.92,
-    "elevationMeters": 1378.0,
+    "elevationMeters": 1378,
     "width": 36
   },
   {
@@ -4491,21 +4521,21 @@
     "x": -4208.77,
     "y": -4917.66,
     "z": 322.58,
-    "elevationMeters": 1380.0,
+    "elevationMeters": 1380,
     "width": 36
   },
   {
     "x": -4240.29,
     "y": -4912.8,
     "z": 322.65,
-    "elevationMeters": 1380.0,
+    "elevationMeters": 1380,
     "width": 36
   },
   {
     "x": -4269.66,
     "y": -4900.09,
     "z": 322.71,
-    "elevationMeters": 1380.0,
+    "elevationMeters": 1380,
     "width": 36
   },
   {
@@ -4516,7 +4546,7 @@
     "width": 36
   },
   {
-    "x": -4327.0,
+    "x": -4327,
     "y": -4872.06,
     "z": 323.43,
     "elevationMeters": 1380.6,
@@ -4715,7 +4745,7 @@
     "x": -5044.48,
     "y": -5083.73,
     "z": 387.48,
-    "elevationMeters": 1428.0,
+    "elevationMeters": 1428,
     "width": 36
   },
   {
@@ -4813,7 +4843,7 @@
     "x": -5364.24,
     "y": -5202.87,
     "z": 426.54,
-    "elevationMeters": 1457.0,
+    "elevationMeters": 1457,
     "width": 36
   },
   {
@@ -4884,30 +4914,21 @@
     "y": -5387.49,
     "z": 442.45,
     "elevationMeters": 1468.7,
-    "width": 36,
-    "isBridge": true,
-    "bridgeName": "Quebrada Agua de La Peña (km 12.0)",
-    "canyonDepth": 45.0
+    "width": 36
   },
   {
     "x": -5551.87,
     "y": -5367.48,
     "z": 443.16,
     "elevationMeters": 1469.3,
-    "width": 36,
-    "isBridge": true,
-    "bridgeName": "Quebrada Agua de La Peña (km 12.0)",
-    "canyonDepth": 45.0
+    "width": 36
   },
   {
     "x": -5576.59,
     "y": -5347.16,
     "z": 443.69,
     "elevationMeters": 1469.7,
-    "width": 36,
-    "isBridge": true,
-    "bridgeName": "Quebrada Agua de La Peña (km 12.0)",
-    "canyonDepth": 45.0
+    "width": 36
   },
   {
     "x": -5601.31,
@@ -4919,27 +4940,27 @@
     "isCheckpoint": true,
     "isBridge": true,
     "bridgeName": "Quebrada Agua de La Peña (km 12.0)",
-    "canyonDepth": 45.0
+    "canyonDepth": 35
   },
   {
     "x": -5630.31,
     "y": -5313.88,
     "z": 444.15,
-    "elevationMeters": 1470.0,
+    "elevationMeters": 1470,
     "width": 36,
     "isBridge": true,
     "bridgeName": "Quebrada Agua de La Peña (km 12.0)",
-    "canyonDepth": 45.0
+    "canyonDepth": 35
   },
   {
     "x": -5661.53,
     "y": -5315.74,
     "z": 444.18,
-    "elevationMeters": 1470.0,
+    "elevationMeters": 1470,
     "width": 36,
     "isBridge": true,
     "bridgeName": "Quebrada Agua de La Peña (km 12.0)",
-    "canyonDepth": 45.0
+    "canyonDepth": 35
   },
   {
     "x": -5687.77,
@@ -4949,35 +4970,47 @@
     "width": 36,
     "isBridge": true,
     "bridgeName": "Quebrada Agua de La Peña (km 12.0)",
-    "canyonDepth": 45.0
+    "canyonDepth": 35
   },
   {
     "x": -5697.13,
     "y": -5362.95,
     "z": 444.43,
     "elevationMeters": 1470.2,
-    "width": 36
+    "width": 36,
+    "isBridge": true,
+    "bridgeName": "Quebrada Agua de La Peña (km 12.0)",
+    "canyonDepth": 35
   },
   {
     "x": -5696.14,
     "y": -5394.56,
     "z": 444.66,
     "elevationMeters": 1470.4,
-    "width": 36
+    "width": 36,
+    "isBridge": true,
+    "bridgeName": "Quebrada Agua de La Peña (km 12.0)",
+    "canyonDepth": 35
   },
   {
     "x": -5691.71,
     "y": -5426.25,
     "z": 444.95,
     "elevationMeters": 1470.6,
-    "width": 36
+    "width": 36,
+    "isBridge": true,
+    "bridgeName": "Quebrada Agua de La Peña (km 12.0)",
+    "canyonDepth": 35
   },
   {
     "x": -5689.92,
     "y": -5457.98,
     "z": 445.31,
     "elevationMeters": 1470.9,
-    "width": 36
+    "width": 36,
+    "isBridge": true,
+    "bridgeName": "Quebrada Agua de La Peña (km 12.0)",
+    "canyonDepth": 35
   },
   {
     "x": -5701.98,
@@ -5002,7 +5035,7 @@
   },
   {
     "x": -5715.12,
-    "y": -5575.0,
+    "y": -5575,
     "z": 447.36,
     "elevationMeters": 1472.4,
     "width": 36
@@ -5025,7 +5058,7 @@
     "x": -5715.27,
     "y": -5669.36,
     "z": 449.52,
-    "elevationMeters": 1474.0,
+    "elevationMeters": 1474,
     "width": 36
   },
   {
@@ -5081,7 +5114,7 @@
     "x": -5783.07,
     "y": -5914.07,
     "z": 457.65,
-    "elevationMeters": 1480.0,
+    "elevationMeters": 1480,
     "width": 36
   },
   {
@@ -5123,7 +5156,7 @@
     "x": -5909.4,
     "y": -5850.15,
     "z": 465.78,
-    "elevationMeters": 1486.0,
+    "elevationMeters": 1486,
     "width": 36
   },
   {
@@ -5186,7 +5219,7 @@
     "x": -6096.63,
     "y": -5931.52,
     "z": 480.66,
-    "elevationMeters": 1497.0,
+    "elevationMeters": 1497,
     "width": 36
   },
   {
@@ -5221,7 +5254,7 @@
     "x": -6199.61,
     "y": -6047.84,
     "z": 490.1,
-    "elevationMeters": 1504.0,
+    "elevationMeters": 1504,
     "width": 36
   },
   {
@@ -5235,7 +5268,7 @@
     "x": -6261.4,
     "y": -6063.36,
     "z": 494.06,
-    "elevationMeters": 1507.0,
+    "elevationMeters": 1507,
     "width": 36
   },
   {
@@ -5249,7 +5282,7 @@
     "x": -6320.48,
     "y": -6085.35,
     "z": 498.12,
-    "elevationMeters": 1510.0,
+    "elevationMeters": 1510,
     "width": 36
   },
   {
@@ -5298,7 +5331,7 @@
     "x": -6444.18,
     "y": -6253.8,
     "z": 512.99,
-    "elevationMeters": 1521.0,
+    "elevationMeters": 1521,
     "width": 36
   },
   {
@@ -5384,7 +5417,7 @@
     "x": -6583.84,
     "y": -5946.1,
     "z": 539.99,
-    "elevationMeters": 1541.0,
+    "elevationMeters": 1541,
     "width": 36
   },
   {
@@ -5559,7 +5592,7 @@
     "x": -6780.79,
     "y": -5228.49,
     "z": 595.29,
-    "elevationMeters": 1582.0,
+    "elevationMeters": 1582,
     "width": 36
   },
   {
@@ -5608,7 +5641,7 @@
     "x": -6878.92,
     "y": -5033.48,
     "z": 608.82,
-    "elevationMeters": 1592.0,
+    "elevationMeters": 1592,
     "width": 36
   },
   {
@@ -5664,7 +5697,7 @@
     "x": -7020.9,
     "y": -4844.72,
     "z": 622.41,
-    "elevationMeters": 1602.0,
+    "elevationMeters": 1602,
     "width": 36
   },
   {
@@ -5734,7 +5767,7 @@
     "x": -6966.65,
     "y": -4537.63,
     "z": 635.8,
-    "elevationMeters": 1612.0,
+    "elevationMeters": 1612,
     "width": 36
   },
   {
@@ -5860,21 +5893,21 @@
     "x": -7233.21,
     "y": -4274.03,
     "z": 646.64,
-    "elevationMeters": 1620.0,
+    "elevationMeters": 1620,
     "width": 36
   },
   {
     "x": -7217.27,
     "y": -4246.28,
     "z": 646.65,
-    "elevationMeters": 1620.0,
+    "elevationMeters": 1620,
     "width": 36
   },
   {
     "x": -7206.4,
     "y": -4216.22,
     "z": 646.7,
-    "elevationMeters": 1620.0,
+    "elevationMeters": 1620,
     "width": 36
   },
   {
@@ -5916,7 +5949,7 @@
     "x": -7124.88,
     "y": -4055.69,
     "z": 648.06,
-    "elevationMeters": 1621.0,
+    "elevationMeters": 1621,
     "width": 36
   },
   {
@@ -5937,7 +5970,7 @@
     "x": -7118.5,
     "y": -3961.95,
     "z": 649.4,
-    "elevationMeters": 1622.0,
+    "elevationMeters": 1622,
     "width": 36
   },
   {
@@ -6056,7 +6089,7 @@
     "x": -7193.76,
     "y": -3529.27,
     "z": 664.23,
-    "elevationMeters": 1633.0,
+    "elevationMeters": 1633,
     "width": 36
   },
   {
@@ -6128,7 +6161,7 @@
     "x": -7072.52,
     "y": -3296.32,
     "z": 677.7,
-    "elevationMeters": 1643.0,
+    "elevationMeters": 1643,
     "width": 36
   },
   {
@@ -6170,7 +6203,7 @@
     "x": -7128.87,
     "y": -3124.06,
     "z": 687.1,
-    "elevationMeters": 1650.0,
+    "elevationMeters": 1650,
     "width": 36
   },
   {
@@ -6331,7 +6364,7 @@
     "x": -7159.3,
     "y": -2529.42,
     "z": 729.06,
-    "elevationMeters": 1681.0,
+    "elevationMeters": 1681,
     "width": 36
   },
   {
@@ -6408,7 +6441,7 @@
     "x": -7001.57,
     "y": -2319.41,
     "z": 750.64,
-    "elevationMeters": 1697.0,
+    "elevationMeters": 1697,
     "width": 36
   },
   {
@@ -6471,13 +6504,13 @@
     "x": -7093.18,
     "y": -2056.5,
     "z": 768.1,
-    "elevationMeters": 1710.0,
+    "elevationMeters": 1710,
     "width": 36
   },
   {
     "x": -7094.6,
     "y": -2024.53,
-    "z": 770.0,
+    "z": 770,
     "elevationMeters": 1711.4,
     "width": 36
   },
@@ -6526,8 +6559,8 @@
   {
     "x": -7042.93,
     "y": -1817.98,
-    "z": 783.0,
-    "elevationMeters": 1721.0,
+    "z": 783,
+    "elevationMeters": 1721,
     "width": 36
   },
   {
@@ -6548,7 +6581,7 @@
     "x": -7028.26,
     "y": -1727.27,
     "z": 788.36,
-    "elevationMeters": 1725.0,
+    "elevationMeters": 1725,
     "width": 36
   },
   {
@@ -6604,7 +6637,7 @@
     "x": -7202.79,
     "y": -1543.9,
     "z": 801.84,
-    "elevationMeters": 1735.0,
+    "elevationMeters": 1735,
     "width": 36
   },
   {
@@ -6645,7 +6678,7 @@
   {
     "x": -7148.56,
     "y": -1366.54,
-    "z": 811.0,
+    "z": 811,
     "elevationMeters": 1741.7,
     "width": 36
   },
@@ -6730,7 +6763,7 @@
     "x": -7053.5,
     "y": -1012.78,
     "z": 826.19,
-    "elevationMeters": 1753.0,
+    "elevationMeters": 1753,
     "width": 36
   },
   {
@@ -6793,7 +6826,7 @@
     "x": -6970.13,
     "y": -743.37,
     "z": 834.24,
-    "elevationMeters": 1759.0,
+    "elevationMeters": 1759,
     "width": 36
   },
   {
@@ -6832,7 +6865,7 @@
     "width": 36
   },
   {
-    "x": -6938.0,
+    "x": -6938,
     "y": -554.48,
     "z": 837.71,
     "elevationMeters": 1761.5,
@@ -6885,30 +6918,21 @@
     "y": -331.71,
     "z": 839.61,
     "elevationMeters": 1762.9,
-    "width": 36,
-    "isBridge": true,
-    "bridgeName": "Paso Quebrada El Patudo (km 17.0, alto de montaña)",
-    "canyonDepth": 45.0
+    "width": 36
   },
   {
     "x": -6945.58,
     "y": -299.73,
     "z": 839.68,
-    "elevationMeters": 1763.0,
-    "width": 36,
-    "isBridge": true,
-    "bridgeName": "Paso Quebrada El Patudo (km 17.0, alto de montaña)",
-    "canyonDepth": 45.0
+    "elevationMeters": 1763,
+    "width": 36
   },
   {
     "x": -6944.53,
     "y": -267.74,
     "z": 839.7,
-    "elevationMeters": 1763.0,
-    "width": 36,
-    "isBridge": true,
-    "bridgeName": "Paso Quebrada El Patudo (km 17.0, alto de montaña)",
-    "canyonDepth": 45.0
+    "elevationMeters": 1763,
+    "width": 36
   },
   {
     "x": -6943.65,
@@ -6920,7 +6944,7 @@
     "isCheckpoint": true,
     "isBridge": true,
     "bridgeName": "Paso Quebrada El Patudo (km 17.0, alto de montaña)",
-    "canyonDepth": 45.0
+    "canyonDepth": 25
   },
   {
     "x": -6960.79,
@@ -6930,7 +6954,7 @@
     "width": 36,
     "isBridge": true,
     "bridgeName": "Paso Quebrada El Patudo (km 17.0, alto de montaña)",
-    "canyonDepth": 45.0
+    "canyonDepth": 25
   },
   {
     "x": -6991.66,
@@ -6940,7 +6964,7 @@
     "width": 36,
     "isBridge": true,
     "bridgeName": "Paso Quebrada El Patudo (km 17.0, alto de montaña)",
-    "canyonDepth": 45.0
+    "canyonDepth": 25
   },
   {
     "x": -7023.66,
@@ -6950,14 +6974,17 @@
     "width": 36,
     "isBridge": true,
     "bridgeName": "Paso Quebrada El Patudo (km 17.0, alto de montaña)",
-    "canyonDepth": 45.0
+    "canyonDepth": 25
   },
   {
     "x": -7055.56,
     "y": -201.87,
     "z": 838.3,
-    "elevationMeters": 1762.0,
-    "width": 36
+    "elevationMeters": 1762,
+    "width": 36,
+    "isBridge": true,
+    "bridgeName": "Paso Quebrada El Patudo (km 17.0, alto de montaña)",
+    "canyonDepth": 25
   },
   {
     "x": -7084.01,
@@ -6970,7 +6997,7 @@
     "x": -7106.39,
     "y": -166.72,
     "z": 837.04,
-    "elevationMeters": 1761.0,
+    "elevationMeters": 1761,
     "width": 36
   },
   {
@@ -7145,7 +7172,7 @@
     "x": -7814.38,
     "y": -274.56,
     "z": 795.17,
-    "elevationMeters": 1730.0,
+    "elevationMeters": 1730,
     "width": 36
   },
   {
@@ -7271,7 +7298,7 @@
     "x": -8303.91,
     "y": -47.97,
     "z": 746.58,
-    "elevationMeters": 1694.0,
+    "elevationMeters": 1694,
     "width": 36
   },
   {
@@ -7293,20 +7320,14 @@
     "y": 39.71,
     "z": 737.95,
     "elevationMeters": 1687.6,
-    "width": 36,
-    "isBridge": true,
-    "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 18.9)",
-    "canyonDepth": 45.0
+    "width": 36
   },
   {
     "x": -8364.92,
     "y": 62.35,
     "z": 735.06,
     "elevationMeters": 1685.5,
-    "width": 36,
-    "isBridge": true,
-    "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 18.9)",
-    "canyonDepth": 45.0
+    "width": 36
   },
   {
     "x": -8388.76,
@@ -7316,7 +7337,7 @@
     "width": 36,
     "isBridge": true,
     "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 18.9)",
-    "canyonDepth": 45.0
+    "canyonDepth": 30
   },
   {
     "x": -8417.35,
@@ -7328,7 +7349,7 @@
     "isCheckpoint": true,
     "isBridge": true,
     "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 18.9)",
-    "canyonDepth": 45.0
+    "canyonDepth": 30
   },
   {
     "x": -8447.29,
@@ -7338,17 +7359,17 @@
     "width": 36,
     "isBridge": true,
     "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 18.9)",
-    "canyonDepth": 45.0
+    "canyonDepth": 30
   },
   {
     "x": -8478.89,
     "y": 112.93,
     "z": 723.56,
-    "elevationMeters": 1677.0,
+    "elevationMeters": 1677,
     "width": 36,
     "isBridge": true,
     "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 18.9)",
-    "canyonDepth": 45.0
+    "canyonDepth": 30
   },
   {
     "x": -8510.68,
@@ -7358,14 +7379,17 @@
     "width": 36,
     "isBridge": true,
     "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 18.9)",
-    "canyonDepth": 45.0
+    "canyonDepth": 30
   },
   {
     "x": -8542.65,
     "y": 117.36,
     "z": 717.85,
     "elevationMeters": 1672.7,
-    "width": 36
+    "width": 36,
+    "isBridge": true,
+    "bridgeName": "Puente vehicular Ebéjico - Ruta 62 (km 18.9)",
+    "canyonDepth": 30
   },
   {
     "x": -8574.25,
@@ -7539,7 +7563,7 @@
     "x": -8291.28,
     "y": -518.61,
     "z": 656.06,
-    "elevationMeters": 1627.0,
+    "elevationMeters": 1627,
     "width": 36
   },
   {
@@ -7560,7 +7584,7 @@
     "x": -8329.76,
     "y": -606.46,
     "z": 650.67,
-    "elevationMeters": 1623.0,
+    "elevationMeters": 1623,
     "width": 36
   },
   {
@@ -7644,7 +7668,7 @@
     "x": -8630.45,
     "y": -769.55,
     "z": 635.85,
-    "elevationMeters": 1612.0,
+    "elevationMeters": 1612,
     "width": 36
   },
   {
@@ -7693,14 +7717,14 @@
     "x": -8837.42,
     "y": -755.14,
     "z": 633.15,
-    "elevationMeters": 1610.0,
+    "elevationMeters": 1610,
     "width": 36
   },
   {
     "x": -8863.94,
     "y": -772.93,
     "z": 633.13,
-    "elevationMeters": 1610.0,
+    "elevationMeters": 1610,
     "width": 36
   },
   {
@@ -7826,7 +7850,7 @@
     "x": -9346.4,
     "y": -945.49,
     "z": 621.05,
-    "elevationMeters": 1601.0,
+    "elevationMeters": 1601,
     "width": 36
   },
   {
@@ -7851,7 +7875,7 @@
     "width": 36
   },
   {
-    "x": -9437.0,
+    "x": -9437,
     "y": -880.08,
     "z": 615.7,
     "elevationMeters": 1597.1,
@@ -7861,7 +7885,7 @@
     "x": -9454.74,
     "y": -853.52,
     "z": 614.23,
-    "elevationMeters": 1596.0,
+    "elevationMeters": 1596,
     "width": 36
   },
   {
@@ -7896,7 +7920,7 @@
     "x": -9604.38,
     "y": -811.86,
     "z": 606.15,
-    "elevationMeters": 1590.0,
+    "elevationMeters": 1590,
     "width": 36
   },
   {
@@ -7915,9 +7939,9 @@
   },
   {
     "x": -9636.27,
-    "y": -877.0,
+    "y": -877,
     "z": 600.75,
-    "elevationMeters": 1586.0,
+    "elevationMeters": 1586,
     "width": 36
   },
   {
@@ -7973,7 +7997,7 @@
     "x": -9535.1,
     "y": -1105.01,
     "z": 584.59,
-    "elevationMeters": 1574.0,
+    "elevationMeters": 1574,
     "width": 36
   },
   {
@@ -8015,7 +8039,7 @@
     "x": -9627.36,
     "y": -1231.64,
     "z": 571.04,
-    "elevationMeters": 1564.0,
+    "elevationMeters": 1564,
     "width": 36
   },
   {
@@ -8106,14 +8130,14 @@
     "x": -9938.25,
     "y": -1474.2,
     "z": 538.63,
-    "elevationMeters": 1540.0,
+    "elevationMeters": 1540,
     "width": 36
   },
   {
     "x": -9954.29,
     "y": -1501.89,
     "z": 536.01,
-    "elevationMeters": 1538.0,
+    "elevationMeters": 1538,
     "width": 36
   },
   {
@@ -8318,7 +8342,7 @@
     "x": -10533.57,
     "y": -1242.44,
     "z": 459.06,
-    "elevationMeters": 1481.0,
+    "elevationMeters": 1481,
     "width": 36
   },
   {
@@ -8469,7 +8493,7 @@
     "width": 36
   },
   {
-    "x": -10591.0,
+    "x": -10591,
     "y": -603.91,
     "z": 409.6,
     "elevationMeters": 1444.4,
@@ -8479,7 +8503,7 @@
     "x": -10588.81,
     "y": -572.08,
     "z": 407.75,
-    "elevationMeters": 1443.0,
+    "elevationMeters": 1443,
     "width": 36
   },
   {
@@ -8490,7 +8514,7 @@
     "width": 36
   },
   {
-    "x": -10560.0,
+    "x": -10560,
     "y": -516.2,
     "z": 404.16,
     "elevationMeters": 1440.4,
@@ -8511,7 +8535,7 @@
     "width": 36
   },
   {
-    "x": -10490.0,
+    "x": -10490,
     "y": -451.22,
     "z": 399.13,
     "elevationMeters": 1436.7,
@@ -8519,7 +8543,7 @@
   },
   {
     "x": -10476.56,
-    "y": -424.0,
+    "y": -424,
     "z": 397.55,
     "elevationMeters": 1435.5,
     "width": 36
@@ -8639,7 +8663,7 @@
   {
     "x": -10572.96,
     "y": 73.6,
-    "z": 379.0,
+    "z": 379,
     "elevationMeters": 1421.7,
     "width": 36
   },
@@ -8654,7 +8678,7 @@
     "x": -10569.07,
     "y": 134.23,
     "z": 377.99,
-    "elevationMeters": 1421.0,
+    "elevationMeters": 1421,
     "width": 36
   },
   {
@@ -8689,21 +8713,21 @@
     "x": -10684.13,
     "y": 241.25,
     "z": 376.69,
-    "elevationMeters": 1420.0,
+    "elevationMeters": 1420,
     "width": 36
   },
   {
     "x": -10716.13,
     "y": 241.07,
     "z": 376.65,
-    "elevationMeters": 1420.0,
+    "elevationMeters": 1420,
     "width": 36
   },
   {
     "x": -10748.13,
     "y": 240.9,
     "z": 376.61,
-    "elevationMeters": 1420.0,
+    "elevationMeters": 1420,
     "width": 36
   },
   {
@@ -8738,7 +8762,7 @@
     "x": -10893.13,
     "y": 176.59,
     "z": 375.25,
-    "elevationMeters": 1419.0,
+    "elevationMeters": 1419,
     "width": 36
   },
   {
@@ -8780,7 +8804,7 @@
     "x": -11067.39,
     "y": 149.83,
     "z": 371.2,
-    "elevationMeters": 1416.0,
+    "elevationMeters": 1416,
     "width": 36
   },
   {
@@ -8808,7 +8832,7 @@
     "x": -11173.59,
     "y": 215.7,
     "z": 367.18,
-    "elevationMeters": 1413.0,
+    "elevationMeters": 1413,
     "width": 36
   },
   {
@@ -8864,7 +8888,7 @@
     "x": -11422.31,
     "y": 173.25,
     "z": 356.36,
-    "elevationMeters": 1405.0,
+    "elevationMeters": 1405,
     "width": 36
   },
   {
@@ -8983,7 +9007,7 @@
     "x": -11862.49,
     "y": 168.01,
     "z": 323.96,
-    "elevationMeters": 1381.0,
+    "elevationMeters": 1381,
     "width": 36
   },
   {
@@ -9004,7 +9028,7 @@
     "x": -11957.79,
     "y": 171.03,
     "z": 317.3,
-    "elevationMeters": 1376.0,
+    "elevationMeters": 1376,
     "width": 36
   },
   {
@@ -9025,7 +9049,7 @@
     "x": -12048.22,
     "y": 165.66,
     "z": 310.45,
-    "elevationMeters": 1371.0,
+    "elevationMeters": 1371,
     "width": 36
   },
   {
@@ -9053,7 +9077,7 @@
     "x": -12156.14,
     "y": 179.99,
     "z": 301.1,
-    "elevationMeters": 1364.0,
+    "elevationMeters": 1364,
     "width": 36
   },
   {
@@ -9081,7 +9105,7 @@
     "x": -12214.72,
     "y": 291.55,
     "z": 291.57,
-    "elevationMeters": 1357.0,
+    "elevationMeters": 1357,
     "width": 36
   },
   {
@@ -9144,7 +9168,7 @@
     "x": -12463.74,
     "y": 322.41,
     "z": 269.95,
-    "elevationMeters": 1341.0,
+    "elevationMeters": 1341,
     "width": 36
   },
   {
@@ -9211,7 +9235,7 @@
     "width": 36
   },
   {
-    "x": -12770.0,
+    "x": -12770,
     "y": 356.8,
     "z": 246.64,
     "elevationMeters": 1323.7,
@@ -9221,7 +9245,7 @@
     "x": -12800.36,
     "y": 366.89,
     "z": 244.4,
-    "elevationMeters": 1322.0,
+    "elevationMeters": 1322,
     "width": 36
   },
   {
@@ -9256,7 +9280,7 @@
     "x": -12954.87,
     "y": 395.9,
     "z": 233.57,
-    "elevationMeters": 1314.0,
+    "elevationMeters": 1314,
     "width": 36
   },
   {
@@ -9284,7 +9308,7 @@
     "x": -13069.36,
     "y": 419.86,
     "z": 225.42,
-    "elevationMeters": 1308.0,
+    "elevationMeters": 1308,
     "width": 36
   },
   {
@@ -9319,7 +9343,7 @@
     "x": -13183.28,
     "y": 312.35,
     "z": 216.03,
-    "elevationMeters": 1301.0,
+    "elevationMeters": 1301,
     "width": 36
   },
   {
@@ -9347,7 +9371,7 @@
     "x": -13169.87,
     "y": 190.02,
     "z": 209.27,
-    "elevationMeters": 1296.0,
+    "elevationMeters": 1296,
     "width": 36
   },
   {
@@ -9480,7 +9504,7 @@
     "x": -13360.38,
     "y": -353.43,
     "z": 188.98,
-    "elevationMeters": 1281.0,
+    "elevationMeters": 1281,
     "width": 36
   },
   {
@@ -9491,7 +9515,7 @@
     "width": 36
   },
   {
-    "x": -13386.0,
+    "x": -13386,
     "y": -411.69,
     "z": 188.23,
     "elevationMeters": 1280.4,
@@ -9515,21 +9539,21 @@
     "x": -13439.49,
     "y": -490.47,
     "z": 187.68,
-    "elevationMeters": 1280.0,
+    "elevationMeters": 1280,
     "width": 36
   },
   {
     "x": -13458.9,
     "y": -515.91,
     "z": 187.65,
-    "elevationMeters": 1280.0,
+    "elevationMeters": 1280,
     "width": 36
   },
   {
     "x": -13462.26,
     "y": -546.57,
     "z": 187.58,
-    "elevationMeters": 1280.0,
+    "elevationMeters": 1280,
     "width": 36
   },
   {
@@ -9629,7 +9653,7 @@
     "x": -13500.91,
     "y": -484.76,
     "z": 178.24,
-    "elevationMeters": 1273.0,
+    "elevationMeters": 1273,
     "width": 36
   },
   {
@@ -9678,7 +9702,7 @@
     "x": -13519.65,
     "y": -277.15,
     "z": 168.69,
-    "elevationMeters": 1266.0,
+    "elevationMeters": 1266,
     "width": 36
   },
   {
@@ -9762,7 +9786,7 @@
     "x": -13527.07,
     "y": 104.39,
     "z": 147.19,
-    "elevationMeters": 1250.0,
+    "elevationMeters": 1250,
     "width": 36
   },
   {
@@ -9790,7 +9814,7 @@
     "x": -13573.95,
     "y": 219.45,
     "z": 139.06,
-    "elevationMeters": 1244.0,
+    "elevationMeters": 1244,
     "width": 36
   },
   {
@@ -9823,7 +9847,7 @@
   },
   {
     "x": -13533.93,
-    "y": 369.0,
+    "y": 369,
     "z": 128.52,
     "elevationMeters": 1236.2,
     "width": 36
@@ -9839,7 +9863,7 @@
     "x": -13534.19,
     "y": 427.44,
     "z": 124.24,
-    "elevationMeters": 1233.0,
+    "elevationMeters": 1233,
     "width": 36
   },
   {
@@ -9914,7 +9938,7 @@
   },
   {
     "x": -13507.75,
-    "y": 710.0,
+    "y": 710,
     "z": 100.84,
     "elevationMeters": 1215.7,
     "width": 36
@@ -9972,7 +9996,7 @@
     "x": -13402.06,
     "y": 770.68,
     "z": 85.02,
-    "elevationMeters": 1204.0,
+    "elevationMeters": 1204,
     "width": 36
   },
   {
@@ -10021,7 +10045,7 @@
     "x": -13599.47,
     "y": 803.27,
     "z": 72.87,
-    "elevationMeters": 1195.0,
+    "elevationMeters": 1195,
     "width": 36
   },
   {
@@ -10084,7 +10108,7 @@
     "x": -13420.51,
     "y": 867.06,
     "z": 60.72,
-    "elevationMeters": 1186.0,
+    "elevationMeters": 1186,
     "width": 36
   },
   {
@@ -10119,7 +10143,7 @@
   },
   {
     "x": -13263.08,
-    "y": 847.0,
+    "y": 847,
     "z": 56.12,
     "elevationMeters": 1182.6,
     "width": 36
@@ -10128,7 +10152,7 @@
     "x": -13234.92,
     "y": 861.81,
     "z": 55.41,
-    "elevationMeters": 1182.0,
+    "elevationMeters": 1182,
     "width": 36
   },
   {
@@ -10177,21 +10201,21 @@
     "x": -13064.02,
     "y": 1001.55,
     "z": 52.7,
-    "elevationMeters": 1180.0,
+    "elevationMeters": 1180,
     "width": 32
   },
   {
     "x": -13068.44,
     "y": 1031.57,
     "z": 52.65,
-    "elevationMeters": 1180.0,
+    "elevationMeters": 1180,
     "width": 32
   },
   {
     "x": -13091.13,
     "y": 1054.06,
     "z": 52.6,
-    "elevationMeters": 1180.0,
+    "elevationMeters": 1180,
     "width": 32
   },
   {
@@ -10219,7 +10243,7 @@
     "x": -13211.3,
     "y": 1054.02,
     "z": 51.34,
-    "elevationMeters": 1179.0,
+    "elevationMeters": 1179,
     "width": 32
   },
   {
@@ -10247,21 +10271,15 @@
     "x": -13302.31,
     "y": 1112.51,
     "z": 48.62,
-    "elevationMeters": 1177.0,
-    "width": 32,
-    "isBridge": true,
-    "bridgeName": "Puente Quebrada Juan Ramos (km 25.2)",
-    "canyonDepth": 45.0
+    "elevationMeters": 1177,
+    "width": 32
   },
   {
     "x": -13303.87,
     "y": 1144.18,
     "z": 47.74,
     "elevationMeters": 1176.4,
-    "width": 32,
-    "isBridge": true,
-    "bridgeName": "Puente Quebrada Juan Ramos (km 25.2)",
-    "canyonDepth": 45.0
+    "width": 32
   },
   {
     "x": -13301.31,
@@ -10271,7 +10289,7 @@
     "width": 32,
     "isBridge": true,
     "bridgeName": "Puente Quebrada Juan Ramos (km 25.2)",
-    "canyonDepth": 45.0
+    "canyonDepth": 25
   },
   {
     "x": -13298.61,
@@ -10283,7 +10301,7 @@
     "isCheckpoint": true,
     "isBridge": true,
     "bridgeName": "Puente Quebrada Juan Ramos (km 25.2)",
-    "canyonDepth": 45.0
+    "canyonDepth": 25
   },
   {
     "x": -13302.39,
@@ -10293,7 +10311,7 @@
     "width": 32,
     "isBridge": true,
     "bridgeName": "Puente Quebrada Juan Ramos (km 25.2)",
-    "canyonDepth": 45.0
+    "canyonDepth": 25
   },
   {
     "x": -13312.6,
@@ -10303,7 +10321,7 @@
     "width": 32,
     "isBridge": true,
     "bridgeName": "Puente Quebrada Juan Ramos (km 25.2)",
-    "canyonDepth": 45.0
+    "canyonDepth": 25
   },
   {
     "x": -13333.03,
@@ -10313,21 +10331,27 @@
     "width": 32,
     "isBridge": true,
     "bridgeName": "Puente Quebrada Juan Ramos (km 25.2)",
-    "canyonDepth": 45.0
+    "canyonDepth": 25
   },
   {
     "x": -13355.23,
     "y": 1317.12,
     "z": 41.16,
     "elevationMeters": 1171.5,
-    "width": 32
+    "width": 32,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada Juan Ramos (km 25.2)",
+    "canyonDepth": 25
   },
   {
     "x": -13378.31,
     "y": 1339.14,
     "z": 39.88,
     "elevationMeters": 1170.5,
-    "width": 32
+    "width": 32,
+    "isBridge": true,
+    "bridgeName": "Puente Quebrada Juan Ramos (km 25.2)",
+    "canyonDepth": 25
   },
   {
     "x": -13404.5,
@@ -10398,7 +10422,7 @@
     "x": -13561.39,
     "y": 1527.43,
     "z": 25.59,
-    "elevationMeters": 1160.0,
+    "elevationMeters": 1160,
     "width": 32
   },
   {
@@ -10517,7 +10541,7 @@
     "x": -14055.84,
     "y": 1474.47,
     "z": 4.04,
-    "elevationMeters": 1144.0,
+    "elevationMeters": 1144,
     "width": 32
   },
   {
@@ -10545,7 +10569,7 @@
     "x": -14183.78,
     "y": 1470.71,
     "z": 1.32,
-    "elevationMeters": 1142.0,
+    "elevationMeters": 1142,
     "width": 32
   },
   {
@@ -10573,14 +10597,14 @@
     "x": -14280.46,
     "y": 1498.67,
     "z": 0.06,
-    "elevationMeters": 1141.0,
+    "elevationMeters": 1141,
     "width": 32
   },
   {
     "x": -14279.87,
     "y": 1526.64,
-    "z": 0.0,
-    "elevationMeters": 1141.0,
+    "z": 0,
+    "elevationMeters": 1141,
     "width": 32,
     "name": "Parque Principal de Ebéjico (META)",
     "isCheckpoint": true

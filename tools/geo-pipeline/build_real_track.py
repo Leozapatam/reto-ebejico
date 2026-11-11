@@ -135,6 +135,21 @@ for idx, (x, y) in enumerate(resampled):
         "width": width,
     })
 
+# Tabla de calibración visual precisa sobre ortofoto satelital (rango de índices y profundidad)
+BRIDGE_CALIBRATION = {
+    "Puente Quebrada La Negra": {"start": 5, "end": 14, "depth": 45.0},
+    "Puente Quebrada La Volcana": {"start": 115, "end": 121, "depth": 45.0},
+    "Puente Quebrada La Nuez": {"start": 142, "end": 151, "depth": 45.0},
+    "Puente Quebrada La Cáusala": {"start": 168, "end": 175, "depth": 45.0},
+    "Puente Quebrada La Potrera": {"start": 307, "end": 316, "depth": 45.0},
+    "Puente vehicular Ebéjico - Ruta 62 (km 8.2)": {"start": 497, "end": 504, "depth": 35.0},
+    "Puente Quebrada La Sucia / La Frisola (km 9.4)": {"start": 563, "end": 568, "depth": 35.0},
+    "Quebrada Agua de La Peña (km 12.0)": {"start": 676, "end": 683, "depth": 35.0},
+    "Paso Quebrada El Patudo (km 17.0, alto de montaña)": {"start": 958, "end": 962, "depth": 25.0},
+    "Puente vehicular Ebéjico - Ruta 62 (km 18.9)": {"start": 1012, "end": 1017, "depth": 30.0},
+    "Puente Quebrada Juan Ramos (km 25.2)": {"start": 1430, "end": 1436, "depth": 25.0},
+}
+
 # Asociar POIs y puentes
 print(f"\nAsociando {len(pois)} POIs...")
 for poi in pois:
@@ -154,14 +169,21 @@ for poi in pois:
     if is_bridge:
         track_points[best_idx]["isBridge"] = True
         track_points[best_idx]["bridgeName"] = name
-        # Marcar los puntos adyacentes como parte de la estructura del puente (~60 m)
-        for offset in range(-3, 4):
-            adj_idx = best_idx + offset
-            if 0 <= adj_idx < len(track_points):
-                track_points[adj_idx]["isBridge"] = True
-                track_points[adj_idx]["bridgeName"] = name
-                track_points[adj_idx]["canyonDepth"] = 45.0 # Profundidad del abismo bajo el puente
-        print(f"  [PUENTE 3D] en indice {best_idx:4d}: {name}")
+        calib = BRIDGE_CALIBRATION.get(name)
+        if calib:
+            s_idx = calib["start"]
+            e_idx = calib["end"]
+            c_depth = calib["depth"]
+        else:
+            s_idx = max(0, best_idx - 3)
+            e_idx = min(len(track_points) - 1, best_idx + 3)
+            c_depth = 45.0
+            
+        for adj_idx in range(s_idx, e_idx + 1):
+            track_points[adj_idx]["isBridge"] = True
+            track_points[adj_idx]["bridgeName"] = name
+            track_points[adj_idx]["canyonDepth"] = c_depth
+        print(f"  [PUENTE 3D] indices {s_idx:4d}..{e_idx:4d}: {name}")
     else:
         print(f"  [Hito] en indice {best_idx:4d} ({best_idx/len(track_points)*100:4.1f}%): {name}")
 
