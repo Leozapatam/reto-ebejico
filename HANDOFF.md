@@ -3,7 +3,7 @@
 > **Para el siguiente agente de IA (Claude Code, Antigravity, Cursor, Windsurf, Aider, etc.):**
 > Lee este archivo antes de comenzar cualquier tarea. Contiene el estado exacto del proyecto, las decisiones acordadas, la arquitectura implementada y los pasos inmediatos para continuar sin perder contexto ni duplicar trabajo.
 
-> **Estado al 16-nov-2026:** la versión vigente está en la rama **`feat/pulido-fable`** ([PR #1](https://github.com/Leozapatam/reto-ebejico/pull/1) hacia `main`). Se completaron las correcciones de trazo al 2%, transiciones satelitales suaves, carro de rodillos 3D giratorio en portada, Corregimiento El Brasil al 63%, minimapa translúcido y protección reforzada contra saltos en horquillas. Trabaja sobre esa rama. Lee primero la **sección 4.1** (qué cambió) y la **sección 5** (qué falta); donde la tabla de la sección 2 contradiga a la 4.1, manda la 4.1.
+> **Estado al 16-nov-2026:** la versión vigente está en la rama **`feat/pulido-fable`** ([PR #1](https://github.com/Leozapatam/reto-ebejico/pull/1) hacia `main`). Se completaron las correcciones de trazo al 2%, transiciones satelitales suaves con bordes difuminados, carro de rodillos 3D flotante en portada, Corregimiento El Brasil al 63%, Puente La Sucia en la cota más baja (1.300 msnm), módulo interactivo de Turismo con 14 fichas territoriales y fotografías, modalidad Contrarreloj, escala de carro calibrada a un solo carril, zoom inmersivo 2.25x con máxima anticipación de conducción, y optimización táctil móvil completa. Trabaja sobre esa rama. Lee primero la **sección 4.1** (qué cambió) y la **sección 5** (qué falta); donde la tabla de la sección 2 contradiga a la 4.1, manda la 4.1.
 
 ---
 
