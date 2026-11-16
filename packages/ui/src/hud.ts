@@ -387,9 +387,14 @@ export class HudController {
               <button class="icon-btn tour-modal-close" data-el="btnTourModalClose" title="Cerrar ficha (Esc)">✕</button>
             </header>
 
-            <div class="tour-modal-body">
+            <div class="tour-modal-body" data-el="tourModalBody">
               <h2 class="tour-modal-title" id="tourModalTitle" data-el="tourModalTitle">Portal Occidental del Túnel</h2>
               <p class="tour-modal-highlight" data-el="tourModalHighlight">Boca de salida a 1.907 msnm</p>
+
+              <figure class="tour-modal-photo" data-el="tourModalPhoto" hidden>
+                <img class="tour-modal-img" data-el="tourModalImg" alt="" />
+                <figcaption class="tour-modal-caption" data-el="tourModalCaption"></figcaption>
+              </figure>
               
               <div class="tour-modal-desc" data-el="tourModalDesc"></div>
 
@@ -1234,11 +1239,26 @@ export class HudController {
     this.el.tourModalKm.textContent = `Km ${spot.km.toFixed(1)} · ${spot.elevationMeters} msnm`;
     this.el.tourModalTitle.textContent = spot.name;
     this.el.tourModalHighlight.textContent = spot.highlight;
+
+    if (spot.photoUrl) {
+      const img = this.el.tourModalImg as HTMLImageElement;
+      img.onerror = () => {
+        this.el.tourModalPhoto.hidden = true;
+      };
+      img.src = spot.photoUrl;
+      img.alt = spot.name;
+      this.el.tourModalCaption.textContent = spot.photoCaption || '';
+      this.el.tourModalPhoto.hidden = false;
+    } else {
+      this.el.tourModalPhoto.hidden = true;
+    }
+
     this.el.tourModalDesc.textContent = spot.fullDesc;
     this.el.tourModalCoords.textContent = `${spot.lat.toFixed(6)}° N, ${Math.abs(spot.lon).toFixed(6)}° W`;
     (this.el.btnTourModalMap as HTMLAnchorElement).href = spot.googleMapsUrl;
 
     this.renderTourGuideList(spot.id);
+    if (this.el.tourModalBody) this.el.tourModalBody.scrollTop = 0;
     this.el.tourModal.hidden = false;
   }
 

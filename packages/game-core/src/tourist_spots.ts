@@ -20,6 +20,8 @@ export interface TouristSpot {
   fullDesc: string;
   highlight: string;
   googleMapsUrl: string;
+  photoUrl?: string;
+  photoCaption?: string;
 }
 
 export const TOURIST_SPOTS: TouristSpot[] = [
@@ -39,6 +41,8 @@ export const TOURIST_SPOTS: TouristSpot[] = [
     fullDesc:
       'Inaugurado en 2006 como el Túnel Fernando Gómez Martínez, sus 4,6 kilómetros perforaron el corazón de la cordillera Central y transformaron la movilidad hacia el occidente antioqueño. Al emerger de su boca occidental a 1.907 msnm, la niebla densa del Valle de Aburrá da paso abrupto a la luminosidad, al aire cálido de montaña y al imponente cañón del río Cauca. Aquí arranca el Reto Ebéjico sobre el asfalto que desciende hacia la historia arriera.',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=6.324053,-75.686874',
+    photoUrl: 'assets/tourism/tunel-occidente.jpg',
+    photoCaption: 'Boca occidental del Túnel Fernando Gómez Martínez (Ruta 62) hacia el cañón del río Cauca.',
   },
   {
     id: 'puente-la-negra',
@@ -56,6 +60,8 @@ export const TOURIST_SPOTS: TouristSpot[] = [
     fullDesc:
       'Primer viaducto de concreto del recorrido, suspendido sobre una falla geológica activa en las nacientes de la quebrada La Negra. Sus aguas torrenciales descienden desde los altos de San Cristóbal para alimentar el río San Jerónimo. Desde la calzada se siente el primer vértigo del abismo y la aceleración natural del carro de rodillos impulsado por la gravedad pura.',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=6.325200,-75.687650',
+    photoUrl: 'assets/tourism/puente-la-negra.jpg',
+    photoCaption: 'Vista aérea ortofotográfica del viaducto sobre la quebrada La Negra y la falla de montaña.',
   },
   {
     id: 'quebrada-la-volcana',
@@ -73,6 +79,8 @@ export const TOURIST_SPOTS: TouristSpot[] = [
     fullDesc:
       'Debe su nombre al rumor semejante a un volcán que retumba por la cañada cuando los aguaceros torrenciales bajan de la cordillera. Sus aguas heladas han tallado gigantescos monolitos de piedra a lo largo de milenios. El viaducto vuela sobre este cañón ofreciendo un corredor de aire fresco constante antes de afrontar las curvas del valle.',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=6.337580,-75.690410',
+    photoUrl: 'assets/tourism/quebrada-la-volcana.jpg',
+    photoCaption: 'Vista aérea ortofotográfica de la cuenca rocosa de la quebrada La Volcana.',
   },
   {
     id: 'viaductos-la-nuez-causala',
@@ -90,6 +98,8 @@ export const TOURIST_SPOTS: TouristSpot[] = [
     fullDesc:
       'Dos estructuras consecutivas de ingeniería que sobrevuelan laderas cubiertas de helechos arborescentes y yarumos. En este tramo la pendiente del 9% exige precisión con el lazo del timón y aplomo con la palanca de freno mientras se contempla la primera panorámica abierta hacia los valles templados del occidente.',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=6.340050,-75.692340',
+    photoUrl: 'assets/tourism/viaductos-la-nuez-causala.jpg',
+    photoCaption: 'Vista aérea de los viaductos consecutivos La Nuez y La Cáusala en la ladera andina.',
   },
   {
     id: 'paso-la-fonda',
@@ -107,6 +117,8 @@ export const TOURIST_SPOTS: TouristSpot[] = [
     fullDesc:
       'Antes de la construcción de las autopistas modernas, este paso albergaba fondas camineras de madera donde los arrieros descargaban sus mulas y los primeros camioneros dejaban enfriar los radiadores. Persiste el aroma a café campesino recién colado, aguapanela con quesito montañero y las tertulias de camino real.',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=6.345200,-75.703210',
+    photoUrl: 'assets/tourism/paso-la-fonda.jpg',
+    photoCaption: 'Paso histórico de la quebrada La Fonda y antiguo corredor de fondas camineras.',
   },
   {
     id: 'viaducto-la-potrera',
@@ -124,6 +136,8 @@ export const TOURIST_SPOTS: TouristSpot[] = [
     fullDesc:
       'Una de las obras civiles más bellas de la Ruta 62. Describe un arco amplio en voladizo sobre la garganta de La Potrera. Desde este balcón de concreto se aprecia el cambio de vegetación: de los robledales de niebla a los primeros guaduales y cañaduzales de clima medio.',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=6.355600,-75.708890',
+    photoUrl: 'assets/tourism/viaducto-la-potrera.jpg',
+    photoCaption: 'Vista aérea del gran viaducto en curva La Potrera sobre la garganta de montaña.',
   },
   {
     id: 'las-partidas',
@@ -141,6 +155,8 @@ export const TOURIST_SPOTS: TouristSpot[] = [
     fullDesc:
       'El hito neurálgico del viaje territorial. A la derecha, la moderna Ruta 62 desciende rápida hacia San Jerónimo, Santa Fe de Antioquia y el mar de Urabá. A la izquierda se abre el ramal campesino de montaña: una vía solitaria que serpentea por las entrañas agrícolas de Ebéjico, preservando el silencio y el ritmo de los pueblos coloniales.',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=6.361070,-75.708650',
+    photoUrl: 'assets/tourism/las-partidas.jpg',
+    photoCaption: 'Encrucijada territorial de Las Partidas: ramal campesino hacia Ebéjico.',
   },
   {
     id: 'quebrada-la-sucia',
@@ -158,6 +174,8 @@ export const TOURIST_SPOTS: TouristSpot[] = [
     fullDesc:
       'Esta quebrada marca la frontera oficial donde concluye la jurisdicción de Medellín y comienza el municipio de Ebéjico. A pesar de su toponimia colonial, sus aguas son frescas y cristalinas, con charcos hondos donde familias locales celebran el tradicional "paseo de olla" bajo la sombra de caracolíes centenarios.',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=6.351280,-75.716150',
+    photoUrl: 'assets/tourism/quebrada-la-sucia.jpg',
+    photoCaption: 'Vista aérea del paso de la quebrada La Sucia, límite natural de Medellín con Ebéjico.',
   },
   {
     id: 'agua-de-la-pena',
@@ -175,6 +193,8 @@ export const TOURIST_SPOTS: TouristSpot[] = [
     fullDesc:
       'Curva cerrada de 180 grados excavada directamente en el talud de roca viva. De una fractura de la piedra brota agua pura y helada de manantial. Es la parada legendaria donde los pilotos de carros de rodillos solían arrojar agua a las balineras para disipar el calor del roce del asfalto antes de encarar la subida al alto.',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=6.360720,-75.725120',
+    photoUrl: 'assets/tourism/agua-de-la-pena.jpg',
+    photoCaption: 'Horquilla mítica de Agua de La Peña con manantial en roca viva y talud montañoso.',
   },
   {
     id: 'vereda-la-renta',
@@ -192,6 +212,8 @@ export const TOURIST_SPOTS: TouristSpot[] = [
     fullDesc:
       'Corazón rural de la vertiente ebejicana. Las casas campesinas lucen zócalos pintados de colores vivos, corredores perimetrales y secaderos de café. El aire se impregna con el dulce aroma de la panela en los trapiches meleros y el rumor apacible de la vida del campo antioqueño.',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=6.365100,-75.729800',
+    photoUrl: 'assets/tourism/vereda-la-renta.jpg',
+    photoCaption: 'Paisaje rural de las veredas cafeteras de Ebéjico y arquitectura tradicional de bahareque.',
   },
   {
     id: 'alto-el-patudo',
@@ -209,6 +231,8 @@ export const TOURIST_SPOTS: TouristSpot[] = [
     fullDesc:
       'Paso de cordillera que culmina el ascenso intermedio. A 1.763 metros sobre el nivel del mar, el viento sopla vigoroso y se divisa en días despejados el brillo lejano del río Cauca y los cerros tutelares. Marca el inicio del descenso definitivo y vertiginoso hacia el valle donde reposa Ebéjico.',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=6.335300,-75.731800',
+    photoUrl: 'assets/tourism/alto-el-patudo.jpg',
+    photoCaption: 'Cumbre panorámica del Alto de El Patudo a 1.763 msnm dominando la cordillera.',
   },
   {
     id: 'blanquizal-campo-alegre',
@@ -226,6 +250,8 @@ export const TOURIST_SPOTS: TouristSpot[] = [
     fullDesc:
       'En estas colinas fértiles la bajada en carro de rodillos es un ritual de fraternidad campesina. En los zaguanes se eligen tablones de cedro macizo, se labran lazos de fique para el timón de doble nudo y se reciclan balineras de acero de camiones y trapiches para forjar los vehículos que protagonizan las fiestas tradicionales.',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=6.341900,-75.749000',
+    photoUrl: 'assets/tourism/blanquizal-campo-alegre.jpg',
+    photoCaption: 'Veredas Blanquizal y Campo Alegre, territorio artesano de los carros de rodillos.',
   },
   {
     id: 'puente-juan-ramos',
@@ -243,6 +269,8 @@ export const TOURIST_SPOTS: TouristSpot[] = [
     fullDesc:
       'Estructura que cruza la quebrada Juan Ramos, afluente vital que bordea el casco urbano. Al cruzar sus barandas de concreto, el tableteo metálico de las cuatro balineras cambia de tono sobre las primeras vías urbanas, anunciando a los vecinos la llegada triunfal del corredor.',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=6.328000,-75.763700',
+    photoUrl: 'assets/tourism/puente-juan-ramos.jpg',
+    photoCaption: 'Puente sobre la quebrada Juan Ramos en la entrada urbana de Ebéjico.',
   },
   {
     id: 'parque-ebejico',
@@ -260,6 +288,8 @@ export const TOURIST_SPOTS: TouristSpot[] = [
     fullDesc:
       'La meta final del viaje. Una plaza arbolada con ceibas y palmas a 1.141 msnm, custodiada por la Parroquia Nuestra Señora de los Dolores y casonas de dos pisos con balcones tallados en cedro. Es el templo donde culmina cada año el festival de carros de rodillos entre aplausos, empanadas de iglesia y café recién tostado. ¡Has conquistado el Reto Ebéjico!',
     googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=6.3264186,-75.768502',
+    photoUrl: 'assets/tourism/parque-ebejico.jpg',
+    photoCaption: 'Parroquia Nuestra Señora de los Dolores y Parque Principal de Ebéjico.',
   },
 ];
 
