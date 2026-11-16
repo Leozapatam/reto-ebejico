@@ -104,8 +104,8 @@ export class GameRenderer {
   private cameraX: number = 0;
   private cameraY: number = 0;
   private cameraAngle: number = 0;
-  private zoom: number = 1.55;
-  private userZoom: number = 1.55;
+  private zoom: number = 2.25;
+  private userZoom: number = 2.25;
   private tilt: number = 0.84;
   private cameraInitialized: boolean = false;
   private shake: number = 0;
@@ -325,11 +325,14 @@ export class GameRenderer {
     if (diff > Math.PI) diff -= Math.PI * 2;
     this.cameraAngle += diff * (1 - Math.exp(-dt * (attract ? 2.2 : 5.5)));
 
-    // El zoom se abre ligeramente con la velocidad para ver venir las curvas
-    // Y después de Las Partidas (segmento > 348) se aplica un leve zoom (1.14x) porque la vía es más técnica y estrecha
-    const mountainZoomBonus = !attract && (snapshot.segmentIndex > 348) ? 1.14 : 1.0;
-    const viewportFactor = Math.max(0.75, Math.min(1.25, Math.min(W, H) / 760));
-    const targetZoom = (attract ? 1.35 : this.userZoom * mountainZoomBonus * (1 - 0.14 * Math.min(1, speedRatio))) * viewportFactor;
+    // El zoom se abre ligeramente con la velocidad para ver venir las curvas (sin perder conducción)
+    // Y después de Las Partidas (segmento > 348) se aplica un leve zoom (1.08x) porque la vía es más técnica y estrecha
+    const mountainZoomBonus = !attract && (snapshot.segmentIndex > 348) ? 1.08 : 1.0;
+    const isMobile = W < 600;
+    // En móvil portrait no castigamos el zoom por el ancho estrecho: la vía debe notarse grande y nítida
+    const viewportFactor = isMobile ? 1.06 : Math.max(0.88, Math.min(1.25, Math.min(W, H) / 720));
+    // Anticipación: al acelerar a fondo la cámara abre campo visual dinámicamente (-18%) para anticipar el trazado
+    const targetZoom = (attract ? 1.45 : this.userZoom * mountainZoomBonus * (1 - 0.18 * Math.min(1, speedRatio))) * viewportFactor;
     this.zoom += (targetZoom - this.zoom) * (1 - Math.exp(-dt * 3));
 
     // Perspectiva 2.5D: en las bajadas la cámara se inclina hacia el valle
@@ -343,7 +346,8 @@ export class GameRenderer {
     const shakeY = (Math.random() - 0.5) * shakeAmp;
 
     const anchorX = W / 2;
-    const anchorY = chase ? H * 0.58 : H / 2;
+    // Ubicación del vehículo en pantalla: en móvil lo ubicamos en 65% de altura para ganar anticipación de vía adelante
+    const anchorY = chase ? (isMobile ? H * 0.65 : H * 0.60) : H / 2;
 
     // ── Fondo ──
     ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
