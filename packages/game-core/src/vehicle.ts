@@ -9,21 +9,21 @@ export const DEFAULT_VEHICLE_CONFIG: VehicleConfig = {
   grip: 0.90,              // Balineras de acero sobre asfalto con buen agarre
   drag: 0.988,             // Inercia alta (rueda con suavidad cuesta abajo)
   offroadFriction: 0.58,   // Fricción suave y controlable si pisa la berma o la manga
-  length: 22,              // Tamaño reducido y proporcional a los carriles
-  width: 12,               // Permite maniobrar y trazar curvas con amplitud
+  length: 16,              // Tamaño reducido para ocupar exactamente un carril de la vía real
+  width: 8,                // Proporción idéntica a la pista de prueba
 };
 
 export const TOUR_VEHICLE_CONFIG: VehicleConfig = {
-  maxSpeed: 250,           // Velocidad moderada (~55 km/h máx) para pasear y disfrutar el paisaje
-  acceleration: 200,       // Empuje dócil
+  maxSpeed: 230,           // Velocidad lenta y moderada (~45-50 km/h) para contemplación turística
+  acceleration: 190,       // Empuje dócil
   brakingPower: 860,       // Freno de zapata muy reactivo y seguro
   reverseSpeed: 80,
   turnSpeed: 4.2,          // Giro muy ágil y controlable
   grip: 0.94,              // Mayor agarre en el asfalto (sin derrapes bruscos)
-  drag: 0.980,             // Mayor resistencia al avance para que la gravedad no lo dispare
+  drag: 0.980,             // Mayor resistencia al avance para mantener velocidad moderada
   offroadFriction: 0.65,
-  length: 22,
-  width: 12,
+  length: 16,
+  width: 8,
 };
 
 export class Vehicle {

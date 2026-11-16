@@ -316,7 +316,7 @@ export class HudController {
           <div class="menu-inner">
             <p class="eyebrow">Mirada Parda · Videojuegos en pro del turismo</p>
             <h1 class="menu-title">Reto Ebéjico</h1>
-            <p class="menu-tagline">Del túnel al pueblo, en carro de rodillos</p>
+            <p class="menu-tagline">Del túnel al pueblo en carro de rodillos</p>
 
             <div class="menu-photo-card">
               <img src="assets/tourism/parque-ebejico.jpg" alt="Ebéjico, Antioquia" class="menu-photo-img" />
@@ -327,7 +327,6 @@ export class HudController {
               </div>
               <div class="menu-cart-badge-mobile" title="Carro de rodillos tradicional">
                 <canvas data-el="cart3dMobile" width="130" height="96"></canvas>
-                <span class="menu-cart-microtag">Rodillos 3D</span>
               </div>
             </div>
 
@@ -339,7 +338,7 @@ export class HudController {
             </figure>
 
             <div class="segmented" role="radiogroup" aria-label="Modalidad">
-              <button role="radio" data-el="optReal" aria-checked="true">Carrera</button>
+              <button role="radio" data-el="optReal" aria-checked="true">Contrarreloj</button>
               <button role="radio" data-el="optTour" aria-checked="false">Turismo</button>
               <button role="radio" data-el="optTest" aria-checked="false">Práctica</button>
             </div>
@@ -365,7 +364,6 @@ export class HudController {
 
           <aside class="menu-cart-showcase-desktop" aria-hidden="true">
             <div class="menu-cart-showcase-card">
-              <div class="menu-cart-showcase-badge">Tradición Campesina</div>
               <canvas data-el="cart3dDesktop" width="340" height="250"></canvas>
               <div class="menu-cart-showcase-caption">
                 <h3 class="menu-cart-showcase-title">Carro de 4 Balineras</h3>

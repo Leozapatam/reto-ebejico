@@ -77,7 +77,7 @@ elevation_keyframes = [
     (0.15, 1690.0), # Quebrada La Volcana
     (0.237, 1560.0), # Las Partidas
     (0.314, 1390.0), # Descenso fuerte
-    (0.361, 1300.0), # Puente Quebrada La Sucia (fondo del valle)
+    (0.358, 1300.0), # Puente Quebrada La Sucia (fondo del valle más bajo)
     (0.420, 1380.0),
     (0.460, 1470.0), # Agua de La Peña
     (0.550, 1620.0), # La Suiza
@@ -144,7 +144,7 @@ BRIDGE_CALIBRATION = {
     "Puente Quebrada La Cáusala": {"start": 168, "end": 175, "depth": 45.0},
     "Puente Quebrada La Potrera": {"start": 307, "end": 316, "depth": 45.0},
     "Puente vehicular Ebéjico - Ruta 62 (km 8.2)": {"start": 497, "end": 504, "depth": 35.0},
-    "Puente Quebrada La Sucia / La Frisola (km 9.4)": {"start": 563, "end": 568, "depth": 35.0},
+    "Puente Quebrada La Sucia / La Frisola (km 9.4)": {"start": 527, "end": 535, "depth": 35.0},
     "Quebrada Agua de La Peña (km 12.0)": {"start": 676, "end": 683, "depth": 35.0},
     "Paso Quebrada El Patudo (km 17.0, alto de montaña)": {"start": 958, "end": 962, "depth": 25.0},
     "Puente vehicular Ebéjico - Ruta 62 (km 18.9)": {"start": 1012, "end": 1017, "depth": 30.0},

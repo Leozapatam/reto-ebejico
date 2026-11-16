@@ -76,7 +76,7 @@ const SKID_LIFE_S = 14;
 const MAX_SKIDS = 520;
 const MAX_SPARKS = 160;
 const MAX_DUST = 70;
-const CART_SCALE = 0.28;
+const CART_SCALE = 0.20;
 
 const COLORS = {
   groundSat: '#1b2f24',
@@ -104,8 +104,8 @@ export class GameRenderer {
   private cameraX: number = 0;
   private cameraY: number = 0;
   private cameraAngle: number = 0;
-  private zoom: number = 2.1;
-  private userZoom: number = 2.1;
+  private zoom: number = 1.55;
+  private userZoom: number = 1.55;
   private tilt: number = 0.84;
   private cameraInitialized: boolean = false;
   private shake: number = 0;
@@ -457,10 +457,10 @@ export class GameRenderer {
       if (!inside && start >= 0) {
         const a = Math.max(0, start - 1);
         const b = Math.min(pts.length - 1, i);
-        // Subdivide donde cambia el ancho
+        // Subdivide donde cambia el ancho de forma apreciable (evita saltos en curvas continuas)
         let s = a;
         for (let k = a + 1; k <= b; k++) {
-          if (k === b || pts[k].width !== pts[s].width) {
+          if (k === b || Math.abs(pts[k].width - pts[s].width) >= 6) {
             runs.push({ a: s, b: k, w: pts[s].width });
             s = k;
           }
@@ -1351,16 +1351,22 @@ export class GameRenderer {
       if (sx < -160 || sx > W + 160 || sy < 60 || sy > H + 40) continue;
 
       const small = s.kind === 'km';
-      ctx.font = small ? '700 10px system-ui, sans-serif' : '700 12px system-ui, sans-serif';
+      const isMobile = W < 600;
+      const fontSize = small ? (isMobile ? 9 : 10) : (isMobile ? 10.5 : 12);
+      ctx.font = `700 ${fontSize}px system-ui, sans-serif`;
       const text = small ? s.text.toUpperCase() : s.text;
       const tw = ctx.measureText(text).width;
-      const bw = tw + (small ? 10 : 18);
-      const bh = small ? 16 : 24;
-      const by = sy - (small ? 20 : 34);
+      const bw = tw + (small ? (isMobile ? 8 : 10) : (isMobile ? 14 : 18));
+      const bh = small ? (isMobile ? 15 : 16) : (isMobile ? 21 : 24);
+      const by = sy - (small ? (isMobile ? 18 : 20) : (isMobile ? 28 : 34));
       // El tablero se abre hacia el lado contrario a la vía para no taparla
       const roadSx = (m.a * s.rx + m.c * s.ry + m.e) / this.dpr;
       const dir = s.kind === 'closed' ? 0 : sx >= roadSx ? 1 : -1;
-      const bx = sx + dir * (bw / 2 - 6);
+      let bx = sx + dir * (bw / 2 - 6);
+
+      // En pantallas móviles ajusta bx para que el letrero verde NUNCA se corte en los bordes
+      const pad = isMobile ? 8 : 12;
+      bx = Math.max(bw / 2 + pad, Math.min(W - bw / 2 - pad, bx));
 
       // Poste
       ctx.fillStyle = 'rgba(0, 0, 0, 0.35)';
