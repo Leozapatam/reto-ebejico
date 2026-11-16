@@ -3,7 +3,7 @@
 > **Para el siguiente agente de IA (Claude Code, Antigravity, Cursor, Windsurf, Aider, etc.):**
 > Lee este archivo antes de comenzar cualquier tarea. Contiene el estado exacto del proyecto, las decisiones acordadas, la arquitectura implementada y los pasos inmediatos para continuar sin perder contexto ni duplicar trabajo.
 
-> **Estado al 11-nov-2026:** la versión vigente está en la rama **`feat/pulido-fable`** ([PR #1](https://github.com/Leozapatam/reto-ebejico/pull/1) hacia `main`). Trabaja sobre esa rama. Lee primero la **sección 4.1** (qué cambió) y la **sección 5** (qué falta); donde la tabla de la sección 2 contradiga a la 4.1, manda la 4.1.
+> **Estado al 16-nov-2026:** la versión vigente está en la rama **`feat/pulido-fable`** ([PR #1](https://github.com/Leozapatam/reto-ebejico/pull/1) hacia `main`). Se completaron las correcciones de trazo al 2%, transiciones satelitales suaves, carro de rodillos 3D giratorio en portada, Corregimiento El Brasil al 63%, minimapa translúcido y protección reforzada contra saltos en horquillas. Trabaja sobre esa rama. Lee primero la **sección 4.1** (qué cambió) y la **sección 5** (qué falta); donde la tabla de la sección 2 contradiga a la 4.1, manda la 4.1.
 
 ---
 
