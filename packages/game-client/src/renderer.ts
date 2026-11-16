@@ -326,8 +326,10 @@ export class GameRenderer {
     this.cameraAngle += diff * (1 - Math.exp(-dt * (attract ? 2.2 : 5.5)));
 
     // El zoom se abre ligeramente con la velocidad para ver venir las curvas
+    // Y después de Las Partidas (segmento > 348) se aplica un leve zoom (1.14x) porque la vía es más técnica y estrecha
+    const mountainZoomBonus = !attract && (snapshot.segmentIndex > 348) ? 1.14 : 1.0;
     const viewportFactor = Math.max(0.75, Math.min(1.25, Math.min(W, H) / 760));
-    const targetZoom = (attract ? 1.35 : this.userZoom * (1 - 0.14 * Math.min(1, speedRatio))) * viewportFactor;
+    const targetZoom = (attract ? 1.35 : this.userZoom * mountainZoomBonus * (1 - 0.14 * Math.min(1, speedRatio))) * viewportFactor;
     this.zoom += (targetZoom - this.zoom) * (1 - Math.exp(-dt * 3));
 
     // Perspectiva 2.5D: en las bajadas la cámara se inclina hacia el valle
@@ -669,20 +671,37 @@ export class GameRenderer {
     ctx.save();
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
-    ctx.beginPath();
-    ctx.moveTo(pts[0].x, pts[0].y);
-    for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
-    ctx.lineWidth = pts[0].width + 8;
-    ctx.strokeStyle = this.satellite ? 'rgba(16, 20, 18, 0.42)' : '#5f5137';
-    ctx.stroke();
-    ctx.lineWidth = pts[0].width;
-    ctx.strokeStyle = '#3d4142';
-    ctx.stroke();
-    ctx.lineWidth = 1.7;
-    ctx.strokeStyle = 'rgba(232, 182, 44, 0.55)';
-    ctx.setLineDash([15, 17]);
-    ctx.stroke();
-    ctx.setLineDash([]);
+
+    if (!this.satellite) {
+      ctx.beginPath();
+      ctx.moveTo(pts[0].x, pts[0].y);
+      for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
+      ctx.lineWidth = pts[0].width + 8;
+      ctx.strokeStyle = '#5f5137';
+      ctx.stroke();
+      ctx.lineWidth = pts[0].width;
+      ctx.strokeStyle = '#3d4142';
+      ctx.stroke();
+      ctx.lineWidth = 1.7;
+      ctx.strokeStyle = 'rgba(232, 182, 44, 0.55)';
+      ctx.setLineDash([15, 17]);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    } else {
+      // En modo satelital la calzada ya está presente en la ortofoto:
+      // se dibujan únicamente marcas sutiles de rodadura y la señalización preventiva
+      ctx.beginPath();
+      ctx.moveTo(pts[0].x, pts[0].y);
+      for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
+      ctx.lineWidth = pts[0].width;
+      ctx.strokeStyle = 'rgba(20, 24, 22, 0.16)';
+      ctx.stroke();
+      ctx.lineWidth = 1.8;
+      ctx.strokeStyle = 'rgba(242, 185, 15, 0.45)';
+      ctx.setLineDash([14, 16]);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
 
     // Barricada: maletines rojos y blancos
     const bar = decoy.barricade;

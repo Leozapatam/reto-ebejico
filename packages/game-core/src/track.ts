@@ -192,23 +192,25 @@ export class Track {
         while (diff < -Math.PI) diff += Math.PI * 2;
         while (diff > Math.PI) diff -= Math.PI * 2;
 
-        // Curva a la derecha: el exterior hacia el barranco es la izquierda (-1)
-        if (diff > 0.035) {
+        // En curvas muy cerradas de montaña (horquillas / herraduras, |diff| > 0.05),
+        // proteger ambos lados para impedir saltos a través de la ladera
+        if (Math.abs(diff) > 0.052 && i > 340) {
           p.hasGuardrailLeft = true;
-        }
-        // Curva a la izquierda: el exterior hacia el barranco es la derecha (+1)
-        if (diff < -0.035) {
+          p.hasGuardrailRight = true;
+        } else if (diff > 0.035) {
+          p.hasGuardrailLeft = true;
+        } else if (diff < -0.035) {
           p.hasGuardrailRight = true;
         }
       }
     }
 
-    // Proteger tramos donde una curva no contigua discurre a menos de 180 px en la ladera
+    // Proteger tramos donde una curva no contigua discurre a menos de 220 px en la ladera
     for (let i = 0; i < pts.length; i += 2) {
       for (let j = i + 10; j < Math.min(pts.length, i + 90); j += 2) {
         const dx = pts[j].x - pts[i].x;
         const dy = pts[j].y - pts[i].y;
-        if (dx * dx + dy * dy < 180 * 180) {
+        if (dx * dx + dy * dy < 220 * 220) {
           const p = pts[i];
           const next = pts[Math.min(pts.length - 1, i + 1)];
           const angle = Math.atan2(next.y - p.y, next.x - p.x);

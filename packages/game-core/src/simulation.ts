@@ -177,8 +177,9 @@ export class Simulation {
     if (!info.isOffroad) {
       if (this.wasOffroad) {
         // Reingreso: ¿ganó mucho más recorrido de vía que el camino que realmente rodó por fuera?
+        const maxGained = (info.segmentIndex > 348) ? this.offroadPath * 1.4 + 55 : this.offroadPath * 1.8 + 120;
         const gained = info.distanceAlong - this.offroadEntryDist;
-        if (gained > this.offroadPath * 1.8 + 140) {
+        if (gained > maxGained) {
           this.respawnVehicle(this.lastOnRoadInfo || info, PENALTY_SHORTCUT_MS);
           this.events.push({ type: 'shortcut' });
           this.setNotice('Atajo no permitido  +4.0 s');
@@ -198,7 +199,8 @@ export class Simulation {
       this.offroadPath += Math.hypot(state.vx, state.vy) * dt;
       this.offroadTimer -= dt;
 
-      if (info.distanceToCenterline > roadHalfW + FALL_MARGIN_PX) {
+      const fallMargin = (info.segmentIndex > 348) ? 18 : FALL_MARGIN_PX;
+      if (info.distanceToCenterline > roadHalfW + fallMargin) {
         this.respawnVehicle(this.lastOnRoadInfo || info, PENALTY_FALL_MS);
         this.events.push({ type: 'fall' });
         this.setNotice(this.mode === 'tour' ? 'Te saliste de la vía' : 'Te saliste de la vía  +3.0 s');

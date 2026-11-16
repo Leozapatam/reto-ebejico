@@ -5,6 +5,7 @@ import { TOURIST_SPOTS, TouristSpot, getNearbyTouristSpot } from '@core/tourist_
 import { InputManager } from '@client/input_manager';
 import { SoundSynthesizer } from '@client/audio';
 import { CameraMode } from '@client/renderer';
+import { Cart3DRenderer } from './cart_3d';
 
 export interface HudCallbacks {
   onStartGame: (trackType: TrackType) => void;
@@ -114,6 +115,8 @@ export class HudController {
   private toastTimer: number | undefined;
   private deltaTimer: number | undefined;
   private lastCountdown = '';
+  private cart3dDesktop?: Cart3DRenderer;
+  private cart3dMobile?: Cart3DRenderer;
 
   constructor(
     private sound: SoundSynthesizer,
@@ -322,6 +325,10 @@ export class HudController {
                 <span class="menu-photo-badge">Ebéjico · 1.141 msnm</span>
                 <span class="menu-photo-sub">Tradición de carros de rodillos y memoria territorial</span>
               </div>
+              <div class="menu-cart-badge-mobile" title="Carro de rodillos tradicional">
+                <canvas data-el="cart3dMobile" width="130" height="96"></canvas>
+                <span class="menu-cart-microtag">Rodillos 3D</span>
+              </div>
             </div>
 
             <dl class="menu-facts" data-el="facts"></dl>
@@ -332,7 +339,7 @@ export class HudController {
             </figure>
 
             <div class="segmented" role="radiogroup" aria-label="Modalidad">
-              <button role="radio" data-el="optReal" aria-checked="true">Ruta real</button>
+              <button role="radio" data-el="optReal" aria-checked="true">Carrera</button>
               <button role="radio" data-el="optTour" aria-checked="false">Turismo</button>
               <button role="radio" data-el="optTest" aria-checked="false">Práctica</button>
             </div>
@@ -355,6 +362,17 @@ export class HudController {
               Trazado: © contribuidores de OpenStreetMap (ODbL) · Relieve: Copernicus DEM GLO-30 · Juego gratuito, sin publicidad ni datos personales.
             </p>
           </div>
+
+          <aside class="menu-cart-showcase-desktop" aria-hidden="true">
+            <div class="menu-cart-showcase-card">
+              <div class="menu-cart-showcase-badge">Tradición Campesina</div>
+              <canvas data-el="cart3dDesktop" width="340" height="250"></canvas>
+              <div class="menu-cart-showcase-caption">
+                <h3 class="menu-cart-showcase-title">Carro de 4 Balineras</h3>
+                <p class="menu-cart-showcase-sub">Madera de cedro macizo · Balineras de acero · Timón de lazo</p>
+              </div>
+            </div>
+          </aside>
         </section>
 
         <!-- Pausa -->
@@ -456,6 +474,13 @@ export class HudController {
       c.height = Math.round(this.panelH * this.pixelRatio);
     }
     this.el.curveSign.innerHTML = ICONS.curve;
+
+    if (this.el.cart3dDesktop) {
+      this.cart3dDesktop = new Cart3DRenderer(this.el.cart3dDesktop as HTMLCanvasElement);
+    }
+    if (this.el.cart3dMobile) {
+      this.cart3dMobile = new Cart3DRenderer(this.el.cart3dMobile as HTMLCanvasElement);
+    }
   }
 
   private bind(): void {
@@ -595,6 +620,14 @@ export class HudController {
     this.el.menu.hidden = screen !== 'menu';
     this.el.pause.hidden = screen !== 'pause';
     this.el.finish.hidden = screen !== 'finish';
+
+    if (screen === 'menu') {
+      this.cart3dDesktop?.start();
+      this.cart3dMobile?.start();
+    } else {
+      this.cart3dDesktop?.stop();
+      this.cart3dMobile?.stop();
+    }
   }
 
   get currentScreen(): Screen {

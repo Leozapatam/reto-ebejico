@@ -16,6 +16,11 @@ interface TileNode extends SatelliteTileMeta {
   /** Teselas del nivel siguiente que cubren exactamente esta tesela (4 si la cobertura es completa). */
   children: TileNode[];
   img: HTMLImageElement | null;
+  surface: HTMLImageElement | HTMLCanvasElement | null;
+  missingW: boolean;
+  missingE: boolean;
+  missingN: boolean;
+  missingS: boolean;
   ready: boolean;
   loading: boolean;
   failed: boolean;
@@ -67,6 +72,11 @@ export class SatelliteLayer {
           cy: t.py + t.height / 2,
           children: [],
           img: null,
+          surface: null,
+          missingW: false,
+          missingE: false,
+          missingN: false,
+          missingS: false,
           ready: false,
           loading: false,
           failed: false,
@@ -79,6 +89,11 @@ export class SatelliteLayer {
       }
 
       for (const node of this.all) {
+        node.missingW = !index.has(`${node.z}/${node.x - 1}/${node.y}`);
+        node.missingE = !index.has(`${node.z}/${node.x + 1}/${node.y}`);
+        node.missingN = !index.has(`${node.z}/${node.x}/${node.y - 1}`);
+        node.missingS = !index.has(`${node.z}/${node.x}/${node.y + 1}`);
+
         for (let dx = 0; dx < 2; dx++) {
           for (let dy = 0; dy < 2; dy++) {
             const child = index.get(`${node.z + 1}/${node.x * 2 + dx}/${node.y * 2 + dy}`);
@@ -100,6 +115,48 @@ export class SatelliteLayer {
     const img = new Image();
     img.decoding = 'async';
     img.onload = () => {
+      let surface: HTMLImageElement | HTMLCanvasElement = img;
+      if (tile.missingW || tile.missingE || tile.missingN || tile.missingS) {
+        const c = document.createElement('canvas');
+        c.width = img.width;
+        c.height = img.height;
+        const cctx = c.getContext('2d');
+        if (cctx) {
+          cctx.drawImage(img, 0, 0);
+          cctx.globalCompositeOperation = 'destination-out';
+          const F = 36;
+          if (tile.missingW) {
+            const g = cctx.createLinearGradient(0, 0, F, 0);
+            g.addColorStop(0, 'rgba(0,0,0,1)');
+            g.addColorStop(1, 'rgba(0,0,0,0)');
+            cctx.fillStyle = g;
+            cctx.fillRect(0, 0, F, c.height);
+          }
+          if (tile.missingE) {
+            const g = cctx.createLinearGradient(c.width - F, 0, c.width, 0);
+            g.addColorStop(0, 'rgba(0,0,0,0)');
+            g.addColorStop(1, 'rgba(0,0,0,1)');
+            cctx.fillStyle = g;
+            cctx.fillRect(c.width - F, 0, F, c.height);
+          }
+          if (tile.missingN) {
+            const g = cctx.createLinearGradient(0, 0, 0, F);
+            g.addColorStop(0, 'rgba(0,0,0,1)');
+            g.addColorStop(1, 'rgba(0,0,0,0)');
+            cctx.fillStyle = g;
+            cctx.fillRect(0, 0, c.width, F);
+          }
+          if (tile.missingS) {
+            const g = cctx.createLinearGradient(0, c.height - F, 0, c.height);
+            g.addColorStop(0, 'rgba(0,0,0,0)');
+            g.addColorStop(1, 'rgba(0,0,0,1)');
+            cctx.fillStyle = g;
+            cctx.fillRect(0, c.height - F, c.width, F);
+          }
+          surface = c;
+        }
+      }
+      tile.surface = surface;
       tile.img = img;
       tile.ready = true;
       tile.loading = false;
@@ -165,9 +222,9 @@ export class SatelliteLayer {
     // De menor a mayor nitidez; un pequeño solape evita costuras al rotar la cámara
     visible.sort((a, b) => a.z - b.z);
     for (const t of visible) {
-      if (!t.ready || !t.img) continue;
+      if (!t.ready || !t.surface) continue;
       if (this.coveredByChildren(t)) continue;
-      ctx.drawImage(t.img, t.px - 0.4, t.py - 0.4, t.width + 0.8, t.height + 0.8);
+      ctx.drawImage(t.surface, t.px - 0.4, t.py - 0.4, t.width + 0.8, t.height + 0.8);
     }
     ctx.restore();
 
@@ -181,6 +238,7 @@ export class SatelliteLayer {
       const t = loaded[i];
       if (t.lastUsed >= this.frame - 60) break;
       t.img = null;
+      t.surface = null;
       t.ready = false;
       this.cachedCount--;
     }

@@ -81,6 +81,7 @@ elevation_keyframes = [
     (0.420, 1380.0),
     (0.460, 1470.0), # Agua de La Peña
     (0.550, 1620.0), # La Suiza
+    (0.630, 1720.0), # Corregimiento El Brasil
     (0.650, 1763.0), # Alto El Patudo (cima)
     (0.723, 1610.0), # Descenso hacia el pueblo
     (0.820, 1420.0), # Blanquizal
