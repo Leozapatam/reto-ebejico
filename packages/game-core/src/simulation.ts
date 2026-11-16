@@ -1,5 +1,5 @@
 import { ControlInput, GameEvent, GamePhase, GameSnapshot, RaceStats } from './types';
-import { Vehicle } from './vehicle';
+import { Vehicle, DEFAULT_VEHICLE_CONFIG, TOUR_VEHICLE_CONFIG } from './vehicle';
 import { Track, NearestTrackInfo, PX_PER_METER } from './track';
 import { StepTimer } from './timer';
 
@@ -62,6 +62,17 @@ export class Simulation {
     }));
     this.info = this.track.getNearestTrackInfo(startPoint, 0);
     this.reset();
+  }
+
+  public mode: 'race' | 'tour' = 'race';
+
+  setMode(mode: 'race' | 'tour'): void {
+    this.mode = mode;
+    if (mode === 'tour') {
+      this.vehicle.setConfig(TOUR_VEHICLE_CONFIG);
+    } else {
+      this.vehicle.setConfig(DEFAULT_VEHICLE_CONFIG);
+    }
   }
 
   reset(): void {
@@ -190,14 +201,14 @@ export class Simulation {
       if (info.distanceToCenterline > roadHalfW + FALL_MARGIN_PX) {
         this.respawnVehicle(this.lastOnRoadInfo || info, PENALTY_FALL_MS);
         this.events.push({ type: 'fall' });
-        this.setNotice('¡Caída al barranco!  +3.0 s');
+        this.setNotice(this.mode === 'tour' ? 'Te saliste de la vía' : 'Te saliste de la vía  +3.0 s');
         return;
       }
 
       if (this.offroadTimer <= 0) {
         this.respawnVehicle(this.lastOnRoadInfo || info, PENALTY_RESPAWN_MS);
         this.events.push({ type: 'offroad_reset' });
-        this.setNotice('Demasiado tiempo fuera de la calzada  +2.5 s');
+        this.setNotice(this.mode === 'tour' ? 'Te saliste de la vía' : 'Te saliste de la vía  +2.5 s');
         return;
       }
 

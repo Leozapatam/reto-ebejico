@@ -13,6 +13,19 @@ export const DEFAULT_VEHICLE_CONFIG: VehicleConfig = {
   width: 12,               // Permite maniobrar y trazar curvas con amplitud
 };
 
+export const TOUR_VEHICLE_CONFIG: VehicleConfig = {
+  maxSpeed: 250,           // Velocidad moderada (~55 km/h máx) para pasear y disfrutar el paisaje
+  acceleration: 200,       // Empuje dócil
+  brakingPower: 860,       // Freno de zapata muy reactivo y seguro
+  reverseSpeed: 80,
+  turnSpeed: 4.2,          // Giro muy ágil y controlable
+  grip: 0.94,              // Mayor agarre en el asfalto (sin derrapes bruscos)
+  drag: 0.980,             // Mayor resistencia al avance para que la gravedad no lo dispare
+  offroadFriction: 0.65,
+  length: 22,
+  width: 12,
+};
+
 export class Vehicle {
   public state: VehicleState;
   public config: VehicleConfig;
@@ -38,6 +51,10 @@ export class Vehicle {
       distanceAlongTrack: 0,
       lapFinished: false,
     };
+  }
+
+  setConfig(config: Partial<VehicleConfig>): void {
+    this.config = { ...this.config, ...config };
   }
 
   reset(x: number, y: number, angle: number, z: number = 0, elevationMeters: number = 1907): void {

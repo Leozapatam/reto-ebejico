@@ -215,9 +215,9 @@ export class HudController {
             <nav class="hud-tools" aria-label="Opciones">
               <button class="icon-btn" data-el="btnCamera" title="Vista: hacia adelante (C)" aria-label="Cambiar vista">${ICONS.camera}</button>
               <button class="icon-btn" data-el="btnMap" title="Mapa: ortofoto (M)" aria-label="Cambiar mapa" aria-pressed="true">${ICONS.map}</button>
-              <button class="icon-btn" data-el="btnTourGuide" title="Guía turística de la ruta (T)" aria-label="Turismo">${ICONS.pin}</button>
+              <button class="icon-btn" data-el="btnTourGuide" title="Guía turística de la ruta (T)" aria-label="Turismo" hidden>${ICONS.pin}</button>
               <button class="icon-btn" data-el="btnMute" title="Sonido" aria-label="Silenciar" aria-pressed="false">${ICONS.soundOn}</button>
-              <button class="icon-btn" data-el="btnPause" title="Pausa (P)" aria-label="Pausa">${ICONS.pause}</button>
+              <button class="icon-btn btn-hud-pause" data-el="btnPause" title="Pausa (P)" aria-label="Pausa">${ICONS.pause}</button>
               <button class="icon-btn" data-el="btnReset" title="Reiniciar (R)" aria-label="Reiniciar">${ICONS.restart}</button>
             </nav>
           </header>
@@ -253,7 +253,7 @@ export class HudController {
           </aside>
 
           <div class="hud-offroad" data-el="offroad" hidden>
-            <span>Fuera de la calzada</span><strong data-el="offroadTime">3.0</strong>
+            <span>Fuera de la vía</span><strong data-el="offroadTime">3.0</strong>
           </div>
 
           <div class="hud-bottom">
@@ -311,9 +311,18 @@ export class HudController {
         <!-- Inicio -->
         <section class="screen screen-menu" data-el="menu">
           <div class="menu-inner">
-            <p class="eyebrow">Mirada Parda · Videojuegos territoriales</p>
+            <p class="eyebrow">Mirada Parda · Videojuegos en pro del turismo</p>
             <h1 class="menu-title">Reto Ebéjico</h1>
             <p class="menu-tagline">Del túnel al pueblo, en carro de rodillos</p>
+
+            <div class="menu-photo-card">
+              <img src="assets/tourism/parque-ebejico.jpg" alt="Ebéjico, Antioquia" class="menu-photo-img" />
+              <div class="menu-photo-gradient"></div>
+              <div class="menu-photo-caption">
+                <span class="menu-photo-badge">Ebéjico · 1.141 msnm</span>
+                <span class="menu-photo-sub">Tradición de carros de rodillos y memoria territorial</span>
+              </div>
+            </div>
 
             <dl class="menu-facts" data-el="facts"></dl>
 
@@ -595,6 +604,12 @@ export class HudController {
   private start(): void {
     this.sound.ensureStarted();
     this.resetRaceWidgets();
+    if (this.el.btnTourGuide) {
+      this.el.btnTourGuide.hidden = this.selectedMode !== 'tour';
+    }
+    if (this.selectedMode !== 'tour') {
+      this.hideTourCard();
+    }
     this.setScreen('race');
     this.callbacks.onStartGame(this.selectedTrack);
   }
@@ -703,6 +718,12 @@ export class HudController {
     this.selectedTrack = track;
     this.callbacks.onSelectTrack(track, mode);
     this.syncTrackButtons();
+    if (this.el.btnTourGuide) {
+      this.el.btnTourGuide.hidden = mode !== 'tour';
+    }
+    if (mode !== 'tour') {
+      this.hideTourCard();
+    }
     if (this.track) this.renderMenuFacts(this.track);
     this.renderBest();
   }
@@ -826,8 +847,8 @@ export class HudController {
     const place = snapshot.isBridge && snapshot.bridgeName ? snapshot.bridgeName : snapshot.currentLocationName ?? '';
     this.setText(this.el.placeName, shortName(place).replace(/^Boca Occidental del /, ''));
 
-    // Módulo Turismo: detección de hito patrimonial/turístico cercano (Ruta real)
-    if (this.selectedTrack === 'real') {
+    // Módulo Turismo: detección de hito patrimonial/turístico cercano (Ruta real en modo Turismo)
+    if (this.selectedMode === 'tour' && this.selectedTrack === 'real') {
       const nearby = getNearbyTouristSpot(snapshot.segmentIndex, 10);
       if (nearby) {
         if (this.currentNearbySpot?.id !== nearby.id) {
@@ -839,6 +860,9 @@ export class HudController {
         this.hideTourCard();
         this.currentNearbySpot = null;
       }
+    } else if (this.currentNearbySpot) {
+      this.hideTourCard();
+      this.currentNearbySpot = null;
     }
 
     // Velocímetro: arco de 0 a 110 km/h

@@ -129,6 +129,14 @@ reto-ebejico/
     3. **Clúster izquierdo:** botones de dirección **`◀`** y **`▶`** para el pulgar izquierdo.
   - *Ajuste de capas y tarjetas:* la tarjeta flotante de turismo (`hud-tour-card`) y los avisos se reubicaron a `bottom: 140px` en móvil para no colisionar ni obstaculizar los pulgares sobre los botones.
   - *Compatibilidad garantizada:* verificación visual en resoluciones 360x740 (móvil estrecho), 390x844 (iPhone) y 844x390 (móvil horizontal), asegurando que el botón de aceleración nunca sea cortado.
+* **Pulido Territorial y Diferenciación de Modos (Competitivo vs Turismo):**
+  - *Velocidad moderada en Modo Turismo:* se implementó `TOUR_VEHICLE_CONFIG` en [`packages/game-core/src/vehicle.ts`](packages/game-core/src/vehicle.ts) (`maxSpeed: 250` ~55 km/h máx, mayor frenada `860`, mayor estabilidad `grip: 0.94` y resistencia al avance `drag: 0.980`), permitiendo un descenso contemplativo, relajado y fácil de controlar para observar el territorio sin accidentes bruscos.
+  - *Mensaje amigable al salirse de la vía:* se reemplazó la frase «¡Caída al barranco!» por **«Te saliste de la vía»** en [`packages/game-core/src/simulation.ts`](packages/game-core/src/simulation.ts) y en el HUD overlay («Fuera de la vía»), eliminando la referencia a caídas dramáticas.
+  - *Separación estricta de interfaces entre modos:*
+    - **Modo Competitivo (`race`):** el icono de guía turística (`📍`) en la barra superior se oculta automáticamente y las tarjetas emergentes (`hud-tour-card`) no aparecen. El jugador solo ve la pista y los letreros verdes tradicionales (`hud-place`) para enfocarse 100% en el contrarreloj.
+    - **Modo Turismo (`tour`):** el botón de mapa/fichas (`📍`) permanece visible en la cabecera y las tarjetas patrimoniales se activan al aproximarse a cada hito.
+  - *Integración del botón de Pausa en móviles:* se dotó al botón de pausa (`.btn-hud-pause`) de un área táctil destacada de 40x40px, borde oro ancestral y contraste reforzado para que nunca quede oculto ni sea difícil de pulsar con el pulgar.
+  - *Portada institucional de Mirada Parda:* se actualizó el subtítulo a **«Mirada Parda · Videojuegos en pro del turismo»** y se integró una tarjeta fotográfica panorámica del Parque Principal e Iglesia de Ebéjico (`.menu-photo-card`) con degradado ambiental y pie de cota (1.141 msnm).
 * **Pendiente de decisión:** las teselas son de Google Satellite y `SOURCES_AND_LICENSES.md` excluye esa fuente; las tipografías se cargan desde Google Fonts aunque el mismo documento pide autoalojarlas.
 
 ---

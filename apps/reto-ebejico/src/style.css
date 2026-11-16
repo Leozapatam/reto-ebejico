@@ -260,6 +260,19 @@ kbd {
   color: var(--ebejico-oro-ancestral);
 }
 
+.btn-hud-pause {
+  background: rgba(26, 44, 34, 0.95) !important;
+  border: 1.5px solid var(--ebejico-oro-ancestral) !important;
+  color: var(--ebejico-oro-ancestral) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.btn-hud-pause:hover,
+.btn-hud-pause:active {
+  background: var(--ebejico-oro-ancestral) !important;
+  color: var(--ebejico-verde-oscuro) !important;
+}
+
 /* Progreso */
 .hud-progress {
   position: absolute;
@@ -851,6 +864,57 @@ kbd {
   font-style: italic;
   font-weight: 500;
   color: var(--ebejico-oro-ancestral);
+}
+
+.menu-photo-card {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  border-radius: 14px;
+  overflow: hidden;
+  margin: 16px 0 18px;
+  border: 1px solid rgba(245, 239, 224, 0.22);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.menu-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 38%;
+  display: block;
+}
+
+.menu-photo-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(6, 14, 10, 0.05) 0%, rgba(6, 14, 10, 0.25) 35%, rgba(6, 14, 10, 0.92) 100%);
+}
+
+.menu-photo-caption {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.menu-photo-badge {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ebejico-oro-ancestral);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85);
+}
+
+.menu-photo-sub {
+  font-size: 11px;
+  color: var(--ebejico-crema-papel);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85);
+  white-space: nowrap;
 }
 
 .menu-facts {
@@ -1667,8 +1731,22 @@ kbd {
   }
 
   .icon-btn {
-    width: 34px;
-    height: 34px;
+    width: 35px;
+    height: 35px;
+  }
+
+  .btn-hud-pause {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .menu-photo-card {
+    height: 110px;
+    margin: 10px 0 14px;
+  }
+
+  .menu-photo-sub {
+    display: none;
   }
 
   .hud-progress {

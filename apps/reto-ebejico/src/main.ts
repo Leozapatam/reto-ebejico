@@ -95,9 +95,11 @@ class GameApp {
 
   private selectTrack(type: TrackType, mode: 'race' | 'tour' = 'race'): void {
     this.gameMode = mode;
+    this.simulation.setMode(mode);
     if (type === this.trackType) return;
     this.trackType = type;
     this.simulation = new Simulation(new Track(type));
+    this.simulation.setMode(mode);
     this.record = loadRecord(type);
     this.attractDistance = 0;
     this.prevVehicle = null;
@@ -106,6 +108,7 @@ class GameApp {
 
   private restartRace(): void {
     this.simulation.reset();
+    this.simulation.setMode(this.gameMode);
     this.simulation.startCountdown();
     this.ghostRecorder.reset();
     this.prevVehicle = null;
