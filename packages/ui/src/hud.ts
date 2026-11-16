@@ -281,15 +281,29 @@ export class HudController {
           </div>
 
           <div class="touch-controls" aria-hidden="true">
-            <div class="touch-cluster">
-              <button class="touch-btn" data-touch="left" aria-label="Girar a la izquierda">◀</button>
-              <button class="touch-btn" data-touch="right" aria-label="Girar a la derecha">▶</button>
+            <div class="touch-cluster touch-cluster-steer">
+              <button class="touch-btn touch-btn-steer" data-touch="left" aria-label="Girar a la izquierda" title="Girar a la izquierda">◀</button>
+              <button class="touch-btn touch-btn-steer" data-touch="right" aria-label="Girar a la derecha" title="Girar a la derecha">▶</button>
             </div>
-            <div class="touch-cluster">
-              <button class="touch-btn touch-btn-small" data-touch="respawn" aria-label="Volver a la vía">↺</button>
-              <button class="touch-btn" data-touch="drift" aria-label="Derrape">⟲</button>
-              <button class="touch-btn" data-touch="brake" aria-label="Freno">▼</button>
-              <button class="touch-btn touch-btn-gas" data-touch="gas" aria-label="Empujar">▲</button>
+            <div class="touch-cluster touch-cluster-actions">
+              <div class="touch-subrow">
+                <button class="touch-btn touch-btn-aux" data-touch="respawn" aria-label="Volver a la vía" title="Volver a pista">
+                  <span>↺</span><small>Pista</small>
+                </button>
+                <button class="touch-btn touch-btn-aux" data-touch="drift" aria-label="Derrape" title="Derrape">
+                  <span>⟲</span><small>Derrape</small>
+                </button>
+              </div>
+              <div class="touch-main-row">
+                <button class="touch-btn touch-btn-brake" data-touch="brake" aria-label="Freno de zapata" title="Frenar">
+                  <span class="touch-btn-glyph">▼</span>
+                  <span class="touch-btn-txt">Freno</span>
+                </button>
+                <button class="touch-btn touch-btn-gas" data-touch="gas" aria-label="Acelerar / Empujar" title="Acelerar">
+                  <span class="touch-btn-glyph">▲</span>
+                  <span class="touch-btn-txt">Acelerar</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>

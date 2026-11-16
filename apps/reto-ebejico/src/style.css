@@ -659,46 +659,148 @@ kbd {
   display: none;
   align-items: flex-end;
   justify-content: space-between;
-  padding: 0 14px max(14px, env(safe-area-inset-bottom));
+  padding: 0 12px max(12px, env(safe-area-inset-bottom));
   pointer-events: none;
+  z-index: 40;
 }
 
 .touch-cluster {
   display: flex;
-  align-items: flex-end;
-  gap: 10px;
+  flex-direction: column;
+  gap: 8px;
   pointer-events: auto;
 }
 
+.touch-cluster-steer {
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.touch-cluster-actions {
+  align-items: flex-end;
+}
+
+.touch-subrow {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-bottom: 2px;
+}
+
+.touch-main-row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+}
+
 .touch-btn {
-  display: grid;
-  place-items: center;
-  width: 68px;
-  height: 68px;
-  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
   color: var(--ebejico-crema-papel);
-  background: rgba(11, 22, 17, 0.72);
+  background: rgba(11, 22, 17, 0.78);
   border: 1.5px solid rgba(245, 239, 224, 0.4);
-  border-radius: 50%;
+  border-radius: 16px;
   touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.08s ease, background 0.08s ease, border-color 0.08s ease;
 }
 
-.touch-btn-small {
-  width: 46px;
-  height: 46px;
+.touch-btn * {
+  pointer-events: none;
+}
+
+/* Botones de timón */
+.touch-btn-steer {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  font-size: 22px;
+}
+
+/* Botones auxiliares (Pista / Derrape) */
+.touch-btn-aux {
+  width: 50px;
+  height: 38px;
+  border-radius: 12px;
+  background: rgba(18, 30, 24, 0.85);
+  border: 1px solid rgba(245, 239, 224, 0.25);
+  font-size: 14px;
+  line-height: 1;
+  gap: 2px;
+}
+
+.touch-btn-aux small {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ebejico-texto-suave);
+}
+
+/* Botón de freno */
+.touch-btn-brake {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: rgba(30, 36, 40, 0.88);
+  border: 1.5px solid rgba(245, 239, 224, 0.35);
+  gap: 2px;
+}
+
+.touch-btn-brake .touch-btn-glyph {
   font-size: 18px;
+  line-height: 1;
 }
 
+.touch-btn-brake .touch-btn-txt {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ebejico-crema-papel);
+}
+
+/* Botón principal de Acelerar / Empujar */
 .touch-btn-gas {
-  width: 80px;
-  height: 80px;
-  background: rgba(139, 26, 26, 0.86);
-  border-color: var(--ebejico-crema-papel);
+  width: 78px;
+  height: 64px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(168, 36, 36, 0.94) 0%, rgba(120, 22, 22, 0.94) 100%);
+  border: 2px solid var(--ebejico-oro-ancestral);
+  box-shadow: 0 4px 16px rgba(168, 36, 36, 0.45);
+  gap: 2px;
 }
 
+.touch-btn-gas .touch-btn-glyph {
+  font-size: 20px;
+  line-height: 1;
+  color: #fff;
+}
+
+.touch-btn-gas .touch-btn-txt {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+/* Estado presionado */
 .touch-btn.is-down {
-  color: var(--ebejico-verde-oscuro);
-  background: var(--ebejico-oro-ancestral);
+  transform: scale(0.94);
+  background: var(--ebejico-oro-ancestral) !important;
+  color: var(--ebejico-verde-oscuro) !important;
+  border-color: #fff !important;
+}
+
+.touch-btn.is-down * {
+  color: var(--ebejico-verde-oscuro) !important;
 }
 
 /* ───────────────────────────── Pantallas ───────────────────────────── */
@@ -1586,7 +1688,7 @@ kbd {
   .hud-tour-card {
     padding: 6px 10px;
     gap: 8px;
-    bottom: 110px;
+    bottom: 140px;
   }
 
   .hud-tour-card kbd {
@@ -1632,7 +1734,7 @@ kbd {
   }
 }
 
-@media (pointer: coarse) {
+@media (pointer: coarse), (max-width: 860px) {
   .touch-controls {
     display: flex;
   }
@@ -1667,13 +1769,12 @@ kbd {
     font-size: 28px;
   }
 
-  .hud-toast,
-  .hud-offroad {
-    bottom: 120px;
+  .hud-toast {
+    bottom: 145px;
   }
 
   .hud-offroad {
-    bottom: 166px;
+    bottom: 190px;
   }
 
   .hud-curve {

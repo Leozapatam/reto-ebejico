@@ -121,6 +121,14 @@ reto-ebejico/
   - *Sugerencia interactiva en carrera:* al aproximarse a cualquier hito (a ~150 m), el HUD despliega una tarjeta flotante animada (`hud-tour-card`) con el nombre, distancia, altitud, botón directo a Google Maps y acceso a la ficha completa con tecla `[T]` o clic.
   - *Ficha Patrimonial y Guía Territorial:* modal dialog accesible en cualquier momento que pausa el juego y presenta la fotografía del lugar, historia, coordenadas geográficas exactas, botón de apertura en Google Maps (`https://www.google.com/maps/search/?api=1&query=lat,lon`) y un desplegable con los 14 lugares de la ruta indicando los hitos visitados.
   - *Persistencia de descubrimientos:* los lugares visitados se guardan localmente en `localStorage` (`reto-ebejico:tourism:visited:v1`), actualizando el contador de progreso en el HUD y en el menú principal (`X/14 hitos descubiertos`).
+* **Rediseño Ergonómico de Controles Táctiles Móviles:**
+  - *Diagnóstico del problema:* en pantallas móviles verticales (anchuras 360px a 414px), los 6 botones táctiles se disponían en una única fila horizontal que sumaba más de 460px de ancho. En consecuencia, el botón de aceleración (`gas` / empujar), al estar ubicado al extremo derecho, quedaba desbordado y cortado fuera de la pantalla. Adicionalmente, el icono `▲` carecía de texto explicativo y se confundía con un control direccional.
+  - *Distribución Gamepad 2x2:* se reorganizó el clúster táctil derecho en dos filas ergonómicas para el pulgar:
+    1. **Fila principal inferior:** botón prominente de **`▲ ACELERAR`** (78x64px en rojo arcada con borde dorado) y botón de **`▼ FRENO`** (64x64px en grafito) con tipografía visible de alto contraste.
+    2. **Fila secundaria superior:** botones auxiliares compactos de **`↺ PISTA`** (volver a la vía) y **`⟲ DERRAPE`**.
+    3. **Clúster izquierdo:** botones de dirección **`◀`** y **`▶`** para el pulgar izquierdo.
+  - *Ajuste de capas y tarjetas:* la tarjeta flotante de turismo (`hud-tour-card`) y los avisos se reubicaron a `bottom: 140px` en móvil para no colisionar ni obstaculizar los pulgares sobre los botones.
+  - *Compatibilidad garantizada:* verificación visual en resoluciones 360x740 (móvil estrecho), 390x844 (iPhone) y 844x390 (móvil horizontal), asegurando que el botón de aceleración nunca sea cortado.
 * **Pendiente de decisión:** las teselas son de Google Satellite y `SOURCES_AND_LICENSES.md` excluye esa fuente; las tipografías se cargan desde Google Fonts aunque el mismo documento pide autoalojarlas.
 
 ---
