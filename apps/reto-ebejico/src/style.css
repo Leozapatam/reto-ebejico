@@ -698,6 +698,95 @@ kbd {
   gap: 8px;
 }
 
+.touch-steer-buttons {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+/* Timón analógico interactivo tradicional de Ebéjico */
+.touch-steer-wheel-box {
+  position: relative;
+  width: 122px;
+  height: 122px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: none;
+  pointer-events: auto;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.steer-wheel-dial {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(16, 28, 22, 0.72) 0%, rgba(8, 16, 12, 0.92) 100%);
+  border: 1.5px solid rgba(200, 169, 110, 0.35);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.55), inset 0 1px 2px rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.steer-wheel-dial::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 6px;
+  background: var(--ebejico-oro-ancestral);
+  border-radius: 2px;
+  box-shadow: 0 0 6px rgba(200, 169, 110, 0.8);
+}
+
+.steer-wheel-el {
+  position: relative;
+  width: 114px;
+  height: 114px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center center;
+  cursor: grab;
+  touch-action: none;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.45));
+  will-change: transform;
+}
+
+.steer-wheel-el:active,
+.steer-wheel-el.is-grabbing {
+  cursor: grabbing;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.6)) brightness(1.06);
+}
+
+.steer-wheel-svg {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: block;
+}
+
+.steer-wheel-badge {
+  position: absolute;
+  bottom: -6px;
+  font-family: var(--font-sans);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ebejico-oro-ancestral);
+  background: rgba(10, 20, 15, 0.85);
+  border: 1px solid rgba(200, 169, 110, 0.3);
+  padding: 1px 7px;
+  border-radius: 999px;
+  pointer-events: none;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
 .touch-cluster-actions {
   align-items: flex-end;
 }
@@ -1095,6 +1184,33 @@ kbd {
 .segmented button[aria-checked='true'] {
   color: var(--ebejico-verde-oscuro);
   background: var(--ebejico-oro-ancestral);
+}
+
+.menu-ctrl-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.menu-ctrl-title {
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ebejico-texto-suave);
+}
+
+.segmented-ctrl {
+  margin-top: 0 !important;
+}
+
+.segmented-ctrl button {
+  padding: 5px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  gap: 6px;
 }
 
 .menu-cta {
@@ -1941,6 +2057,21 @@ kbd {
   .tour-modal-footer .btn-primary {
     width: 100%;
     justify-content: center;
+  }
+}
+
+/* En escritorio se muestra el timón (o botones) sobre el panel de elevación sin tapar el mapa ni el perfil */
+@media (pointer: fine) and (min-width: 861px) {
+  .touch-controls {
+    display: flex;
+    bottom: 148px;
+    padding: 0 20px;
+    opacity: 0.96;
+  }
+
+  /* En escritorio con ratón/teclado, los pedales táctiles de la derecha se ocultan para despejar el mapa */
+  .touch-cluster-actions {
+    display: none;
   }
 }
 

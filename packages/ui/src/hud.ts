@@ -53,9 +53,14 @@ const ICONS = {
     '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 40V20a9 9 0 0118 0v8" fill="none" stroke="#14181a" stroke-width="6"/><path d="M23 26h18l-9 12z" fill="#14181a"/></svg>',
   pin:
     '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/></svg>',
+  wheel:
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/><line x1="12" y1="3" x2="12" y2="9" stroke="currentColor" stroke-width="1.8"/><line x1="4.2" y1="16.5" x2="9.4" y2="13.5" stroke="currentColor" stroke-width="1.8"/><line x1="19.8" y1="16.5" x2="14.6" y2="13.5" stroke="currentColor" stroke-width="1.8"/></svg>',
+  dpad:
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l3.5-3.5v2.2h9V8.5L20 12l-3.5 3.5v-2.2h-9v2.2z" fill="currentColor"/></svg>',
 };
 
 const TOURISM_STORAGE_KEY = 'reto-ebejico:tourism:visited:v1';
+const STEER_MODE_STORAGE_KEY = 'reto-ebejico:steer-mode:v1';
 
 function shortName(name: string): string {
   return name.replace(/\s*\(.*\)\s*$/, '');
@@ -118,6 +123,14 @@ export class HudController {
   private cart3dDesktop?: Cart3DRenderer;
   private cart3dMobile?: Cart3DRenderer;
 
+  // Modo de dirección (Botones vs Timón)
+  private steerMode: 'buttons' | 'wheel' = 'buttons';
+  private currentWheelSteer: number = 0;
+  private currentWheelAngleDeg: number = 0;
+  private wheelPointerActive: boolean = false;
+  private wheelReturnAnim: number | null = null;
+  private keyboardWheelDeg: number = 0;
+
   constructor(
     private sound: SoundSynthesizer,
     private input: InputManager,
@@ -126,6 +139,8 @@ export class HudController {
     this.visitedSpots = this.loadVisitedSpots();
     this.mount();
     this.bind();
+    const savedSteer = (localStorage.getItem(STEER_MODE_STORAGE_KEY) as 'buttons' | 'wheel') || 'buttons';
+    this.setSteerMode(savedSteer, false);
     this.setScreen('menu');
   }
 
@@ -216,6 +231,7 @@ export class HudController {
             </div>
 
             <nav class="hud-tools" aria-label="Opciones">
+              <button class="icon-btn" data-el="btnSteerToggle" title="Cambiar dirección: Botones / Timón (O)" aria-label="Cambiar modo de dirección">${ICONS.wheel}</button>
               <button class="icon-btn" data-el="btnCamera" title="Vista: hacia adelante (C)" aria-label="Cambiar vista">${ICONS.camera}</button>
               <button class="icon-btn" data-el="btnMap" title="Mapa: ortofoto (M)" aria-label="Cambiar mapa" aria-pressed="true">${ICONS.map}</button>
               <button class="icon-btn" data-el="btnTourGuide" title="Guía turística de la ruta (T)" aria-label="Turismo" hidden>${ICONS.pin}</button>
@@ -285,8 +301,56 @@ export class HudController {
 
           <div class="touch-controls" aria-hidden="true">
             <div class="touch-cluster touch-cluster-steer">
-              <button class="touch-btn touch-btn-steer" data-touch="left" aria-label="Girar a la izquierda" title="Girar a la izquierda">◀</button>
-              <button class="touch-btn touch-btn-steer" data-touch="right" aria-label="Girar a la derecha" title="Girar a la derecha">▶</button>
+              <!-- Modo Botones -->
+              <div class="touch-steer-buttons" data-el="steerButtons">
+                <button class="touch-btn touch-btn-steer" data-touch="left" aria-label="Girar a la izquierda" title="Girar a la izquierda">◀</button>
+                <button class="touch-btn touch-btn-steer" data-touch="right" aria-label="Girar a la derecha" title="Girar a la derecha">▶</button>
+              </div>
+              <!-- Modo Timón de Lazo analógico -->
+              <div class="touch-steer-wheel-box" data-el="steerWheelBox" hidden>
+                <div class="steer-wheel-dial" aria-hidden="true"></div>
+                <div class="steer-wheel-el" data-el="steerWheel" role="slider" aria-label="Timón de dirección analógico" aria-valuemin="-1" aria-valuemax="1" aria-valuenow="0">
+                  <svg class="steer-wheel-svg" viewBox="0 0 120 120" width="116" height="116" aria-hidden="true">
+                    <defs>
+                      <radialGradient id="woodRimGrad" cx="50%" cy="50%" r="50%">
+                        <stop offset="65%" stop-color="#3b1d0c"/>
+                        <stop offset="82%" stop-color="#6e3717"/>
+                        <stop offset="93%" stop-color="#945326"/>
+                        <stop offset="100%" stop-color="#2a1408"/>
+                      </radialGradient>
+                      <linearGradient id="brassMetalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#fdf0c2"/>
+                        <stop offset="45%" stop-color="#c8a96e"/>
+                        <stop offset="100%" stop-color="#7a5822"/>
+                      </linearGradient>
+                      <linearGradient id="ropeTextureGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#c8a86b"/>
+                        <stop offset="50%" stop-color="#deb87b"/>
+                        <stop offset="100%" stop-color="#8c6a35"/>
+                      </linearGradient>
+                    </defs>
+                    <g>
+                      <!-- Aro exterior de madera de cedro -->
+                      <circle cx="60" cy="60" r="50" fill="none" stroke="url(#woodRimGrad)" stroke-width="12"/>
+                      <circle cx="60" cy="60" r="55.5" fill="none" stroke="rgba(242, 207, 99, 0.45)" stroke-width="1"/>
+                      <circle cx="60" cy="60" r="44.2" fill="none" stroke="rgba(0, 0, 0, 0.5)" stroke-width="1.2"/>
+                      <!-- Muesca dorada superior de centro -->
+                      <rect x="56.5" y="4.5" width="7" height="11.5" rx="2" fill="url(#brassMetalGrad)" stroke="#1a140d" stroke-width="0.8"/>
+                      <!-- 3 Radios de madera -->
+                      <path d="M56 45 L57.5 24 L62.5 24 L64 45 Z" fill="#6e3717" stroke="#2a1408" stroke-width="0.8"/>
+                      <path d="M48 54 L20 78 L24 82 L52 61 Z" fill="#6e3717" stroke="#2a1408" stroke-width="0.8"/>
+                      <path d="M72 54 L100 78 L96 82 L68 61 Z" fill="#6e3717" stroke="#2a1408" stroke-width="0.8"/>
+                      <!-- Manzana central y lazo de timón campesino -->
+                      <circle cx="60" cy="60" r="17" fill="url(#woodRimGrad)" stroke="#220f05" stroke-width="1.5"/>
+                      <circle cx="60" cy="60" r="13" fill="url(#ropeTextureGrad)" stroke="#4a3215" stroke-width="1"/>
+                      <circle cx="60" cy="60" r="7.5" fill="url(#brassMetalGrad)" stroke="#3a250a" stroke-width="1"/>
+                      <circle cx="60" cy="60" r="3.2" fill="#201408"/>
+                      <line x1="58" y1="60" x2="62" y2="60" stroke="url(#brassMetalGrad)" stroke-width="1"/>
+                    </g>
+                  </svg>
+                </div>
+                <span class="steer-wheel-badge">Timón</span>
+              </div>
             </div>
             <div class="touch-cluster touch-cluster-actions">
               <div class="touch-subrow">
@@ -343,6 +407,14 @@ export class HudController {
               <button role="radio" data-el="optTest" aria-checked="false">Práctica</button>
             </div>
 
+            <div class="menu-ctrl-row">
+              <span class="menu-ctrl-title">Control de giro:</span>
+              <div class="segmented segmented-ctrl" role="radiogroup" aria-label="Control de dirección">
+                <button role="radio" data-el="optCtrlButtons" aria-checked="true" title="Giro con botones (◀ y ▶)">◀ ▶ Botones</button>
+                <button role="radio" data-el="optCtrlWheel" aria-checked="false" title="Giro analógico continuo con timón de lazo">☸️ Timón</button>
+              </div>
+            </div>
+
             <div class="menu-cta">
               <button class="btn-primary" data-el="btnStart">Iniciar la bajada <kbd>Enter</kbd></button>
               <p class="menu-best" data-el="menuBest"></p>
@@ -350,9 +422,10 @@ export class HudController {
 
             <ul class="menu-keys">
               <li><kbd>↑</kbd> Empujar</li>
-              <li><kbd>←</kbd><kbd>→</kbd> Timón de lazo</li>
+              <li><kbd>←</kbd><kbd>→</kbd> Timón / Botones</li>
               <li><kbd>↓</kbd> Freno de zapata</li>
               <li><kbd>Espacio</kbd> Derrape</li>
+              <li><kbd>O</kbd> Alternar Timón/Botones</li>
               <li><kbd>F</kbd> Volver a la vía</li>
               <li><kbd>P</kbd> Pausa</li>
             </ul>
@@ -380,6 +453,7 @@ export class HudController {
             <h2 class="card-title">Pausa</h2>
             <div class="card-actions">
               <button class="btn-primary" data-el="btnResume">Continuar <kbd>P</kbd></button>
+              <button class="btn-ghost" data-el="btnPauseSteerToggle">☸️ Dirección: <strong data-el="pauseSteerModeLabel">Botones</strong></button>
               <button class="btn-ghost" data-el="btnPauseTourGuide">📍 Guía de lugares y mapas</button>
               <button class="btn-ghost" data-el="btnPauseRestart">Reiniciar <kbd>R</kbd></button>
               <button class="btn-ghost" data-el="btnPauseMenu">Salir al inicio</button>
@@ -387,6 +461,7 @@ export class HudController {
             <ul class="menu-keys menu-keys-compact">
               <li><kbd>C</kbd> Cambiar vista</li>
               <li><kbd>M</kbd> Ortofoto / mapa ilustrado</li>
+              <li><kbd>O</kbd> Alternar Timón / Botones</li>
               <li><kbd>T</kbd> Abrir ficha o guía turística</li>
               <li><kbd>F</kbd> Volver a la vía (+2,5 s)</li>
               <li>Rueda del ratón: acercar o alejar</li>
@@ -520,6 +595,12 @@ export class HudController {
     click('btnFinishMenu', () => this.exitToMenu());
     click('btnShare', () => this.shareResult());
 
+    // Selector de modo de dirección (Botones vs Timón)
+    click('btnSteerToggle', () => this.toggleSteerMode());
+    click('optCtrlButtons', () => this.setSteerMode('buttons'));
+    click('optCtrlWheel', () => this.setSteerMode('wheel'));
+    click('btnPauseSteerToggle', () => this.toggleSteerMode());
+
     window.addEventListener('keydown', (e) => {
       if (e.repeat || e.metaKey || e.ctrlKey || e.altKey) return;
       switch (e.code) {
@@ -542,6 +623,10 @@ export class HudController {
         case 'KeyP':
           if (this.tourModalOpen) break;
           if (this.screen === 'race' || this.screen === 'pause') this.togglePause();
+          break;
+        case 'KeyO':
+          this.toggleSteerMode();
+          e.preventDefault();
           break;
         case 'KeyT':
           if (this.tourModalOpen) {
@@ -608,6 +693,192 @@ export class HudController {
     touch('respawn', (p) => {
       if (p) this.input.triggerTouchRespawn();
     });
+
+    // Timón analógico interactivo de alta sensibilidad (táctil y ratón)
+    const wheelBox = this.el.steerWheelBox;
+    const wheelEl = this.el.steerWheel;
+    if (wheelBox && wheelEl) {
+      let activePointerId: number | null = null;
+      let centerBox = { x: 0, y: 0, radius: 55 };
+
+      const updateCenter = (): void => {
+        const rect = wheelEl.getBoundingClientRect();
+        centerBox = {
+          x: rect.left + rect.width / 2,
+          y: rect.top + rect.height / 2,
+          radius: Math.max(30, rect.width / 2),
+        };
+      };
+
+      const handlePointerMove = (e: PointerEvent): void => {
+        if (activePointerId !== e.pointerId) return;
+        const dx = e.clientX - centerBox.x;
+        const dy = e.clientY - centerBox.y;
+        const maxR = centerBox.radius * 0.88;
+        let rawSteer = 0;
+
+        // Combinación natural: rotación polar en la mitad superior, desplazamiento horizontal en la base
+        if (dy < centerBox.radius * 0.35) {
+          const polarAngle = Math.atan2(dx, -Math.min(-8, dy)) * (180 / Math.PI);
+          rawSteer = Math.max(-1, Math.min(1, polarAngle / 68));
+        } else {
+          rawSteer = Math.max(-1, Math.min(1, dx / maxR));
+        }
+
+        // Zona muerta mínima para no desviarse en rectas y respuesta exponencial progresiva
+        const deadzone = 0.025;
+        let finalSteer = 0;
+        if (Math.abs(rawSteer) > deadzone) {
+          const norm = (Math.abs(rawSteer) - deadzone) / (1 - deadzone);
+          finalSteer = Math.sign(rawSteer) * Math.pow(norm, 1.15);
+        }
+
+        this.currentWheelSteer = Math.max(-1, Math.min(1, finalSteer));
+        this.currentWheelAngleDeg = rawSteer * 75; // Rotación visual hasta +-75 grados
+        this.applyWheelTransform(this.currentWheelAngleDeg);
+        this.input.setTouchSteer(this.currentWheelSteer);
+      };
+
+      const handlePointerUp = (e: PointerEvent): void => {
+        if (activePointerId !== e.pointerId) return;
+        try {
+          wheelBox.releasePointerCapture(e.pointerId);
+        } catch {
+          // ignore
+        }
+        activePointerId = null;
+        this.wheelPointerActive = false;
+        wheelEl.classList.remove('is-grabbing');
+        this.animateWheelReturn();
+      };
+
+      const handlePointerDown = (e: PointerEvent): void => {
+        e.preventDefault();
+        updateCenter();
+        activePointerId = e.pointerId;
+        this.wheelPointerActive = true;
+        wheelEl.classList.add('is-grabbing');
+        try {
+          wheelBox.setPointerCapture(e.pointerId);
+        } catch {
+          // ignore
+        }
+        this.sound.ensureStarted();
+        handlePointerMove(e);
+      };
+
+      wheelBox.addEventListener('pointerdown', handlePointerDown);
+      wheelBox.addEventListener('pointermove', handlePointerMove);
+      wheelBox.addEventListener('pointerup', handlePointerUp);
+      wheelBox.addEventListener('pointercancel', handlePointerUp);
+      wheelBox.addEventListener('lostpointercapture', () => {
+        if (activePointerId !== null) {
+          activePointerId = null;
+          this.wheelPointerActive = false;
+          wheelEl.classList.remove('is-grabbing');
+          this.animateWheelReturn();
+        }
+      });
+      wheelBox.addEventListener('contextmenu', (e) => e.preventDefault());
+    }
+  }
+
+  private applyWheelTransform(deg: number): void {
+    if (this.el.steerWheel) {
+      this.el.steerWheel.style.transform = `rotate(${deg.toFixed(2)}deg)`;
+    }
+  }
+
+  private animateWheelReturn(): void {
+    if (this.wheelReturnAnim !== null) {
+      cancelAnimationFrame(this.wheelReturnAnim);
+      this.wheelReturnAnim = null;
+    }
+    const startSteer = this.currentWheelSteer;
+    const startAngle = this.currentWheelAngleDeg;
+    if (Math.abs(startSteer) < 0.01 && Math.abs(startAngle) < 0.5) {
+      this.currentWheelSteer = 0;
+      this.currentWheelAngleDeg = 0;
+      this.applyWheelTransform(0);
+      this.input.setTouchSteer(0);
+      return;
+    }
+
+    const startTime = performance.now();
+    const duration = 120; // 120 ms de retorno elástico suave
+
+    const step = (now: number): void => {
+      const elapsed = now - startTime;
+      const progress = Math.min(1, elapsed / duration);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      const curAngle = startAngle * (1 - ease);
+      const curSteer = startSteer * (1 - ease);
+      this.applyWheelTransform(curAngle);
+      this.input.setTouchSteer(curSteer);
+
+      if (progress < 1) {
+        this.wheelReturnAnim = requestAnimationFrame(step);
+      } else {
+        this.currentWheelSteer = 0;
+        this.currentWheelAngleDeg = 0;
+        this.applyWheelTransform(0);
+        this.input.setTouchSteer(0);
+        this.wheelReturnAnim = null;
+      }
+    };
+
+    this.wheelReturnAnim = requestAnimationFrame(step);
+  }
+
+  public setSteerMode(mode: 'buttons' | 'wheel', showToast = true): void {
+    this.steerMode = mode;
+    try {
+      localStorage.setItem(STEER_MODE_STORAGE_KEY, mode);
+    } catch {
+      // storage disabled
+    }
+
+    document.body.classList.toggle('mode-wheel-active', mode === 'wheel');
+
+    if (this.el.steerButtons && this.el.steerWheelBox) {
+      this.el.steerButtons.hidden = mode === 'wheel';
+      this.el.steerWheelBox.hidden = mode !== 'wheel';
+    }
+
+    if (this.el.optCtrlButtons && this.el.optCtrlWheel) {
+      this.el.optCtrlButtons.setAttribute('aria-checked', String(mode === 'buttons'));
+      this.el.optCtrlButtons.classList.toggle('is-active', mode === 'buttons');
+      this.el.optCtrlWheel.setAttribute('aria-checked', String(mode === 'wheel'));
+      this.el.optCtrlWheel.classList.toggle('is-active', mode === 'wheel');
+    }
+
+    if (this.el.pauseSteerModeLabel) {
+      this.el.pauseSteerModeLabel.textContent = mode === 'wheel' ? 'Timón' : 'Botones';
+    }
+
+    if (this.el.btnSteerToggle) {
+      this.el.btnSteerToggle.innerHTML = mode === 'wheel' ? ICONS.wheel : ICONS.dpad;
+      this.el.btnSteerToggle.title =
+        mode === 'wheel'
+          ? 'Dirección activa: Timón analógico (clic o tecla O para Botones)'
+          : 'Dirección activa: Botones clásicos (clic o tecla O para Timón)';
+    }
+
+    this.input.setTouchSteer(0);
+    this.currentWheelSteer = 0;
+    this.currentWheelAngleDeg = 0;
+    this.applyWheelTransform(0);
+
+    if (showToast && this.screen === 'race') {
+      this.showToast(
+        mode === 'wheel' ? '☸️ Timón analógico activado' : '◀ ▶ Botones de dirección activados',
+        'place'
+      );
+    }
+  }
+
+  public toggleSteerMode(): void {
+    this.setSteerMode(this.steerMode === 'wheel' ? 'buttons' : 'wheel', true);
   }
 
   // ───────────────────────────── Flujo de pantallas ─────────────────────────────
@@ -866,6 +1137,19 @@ export class HudController {
     if (this.screen === 'menu') {
       this.lastSnapshot = snapshot;
       return;
+    }
+
+    // Animación visual del timón con teclado en modo Timón (cuando no se está arrastrando)
+    if (this.steerMode === 'wheel' && !this.wheelPointerActive) {
+      const kbSteer = this.input.getKeyboardSteer();
+      const targetDeg = kbSteer * 60;
+      this.keyboardWheelDeg += (targetDeg - this.keyboardWheelDeg) * 0.32;
+      if (Math.abs(this.keyboardWheelDeg) > 0.4) {
+        this.applyWheelTransform(this.keyboardWheelDeg);
+      } else if (this.keyboardWheelDeg !== 0) {
+        this.keyboardWheelDeg = 0;
+        this.applyWheelTransform(0);
+      }
     }
 
     this.setText(this.el.timer, snapshot.formattedTime);

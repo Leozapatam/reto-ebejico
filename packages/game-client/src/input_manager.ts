@@ -81,6 +81,15 @@ export class InputManager {
     this.touchRespawn = false;
   }
 
+  getKeyboardSteer(): number {
+    const k = this.keys;
+    const left = k.has('ArrowLeft') || k.has('KeyA');
+    const right = k.has('ArrowRight') || k.has('KeyD');
+    if (left && !right) return -1;
+    if (right && !left) return 1;
+    return 0;
+  }
+
   private readGamepad(): { steer: number; throttle: number; brake: number; handbrake: boolean; respawn: boolean } | null {
     if (typeof navigator === 'undefined' || !navigator.getGamepads) return null;
     for (const pad of navigator.getGamepads()) {
